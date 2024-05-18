@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerReturn" id="{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}">
+		<property name="volume">
+			<value>-30</value>
+		</property>
+		<property name="overridingInputFormat">
+			<value>2</value>
+		</property>
+		<property name="name">
+			<value>Reverb</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{02001c96-be78-440f-b9b5-6103904c9107}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{d7e0ff21-46d2-420f-a772-aafe0c17ab46}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{ab0feb16-fed0-4586-9f0f-87c36f651dbd}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{02001c96-be78-440f-b9b5-6103904c9107}">
+		<relationship name="effects">
+			<destination>{a76a3417-1881-4a68-a649-7d92fd214db4}</destination>
+			<destination>{378ba012-399b-4ec4-a8b9-8fae33383f69}</destination>
+			<destination>{37f372a0-9c92-496e-bd53-bbff4be21501}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{d7e0ff21-46d2-420f-a772-aafe0c17ab46}" />
+	<object class="MultibandEqEffect" id="{a76a3417-1881-4a68-a649-7d92fd214db4}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="filterTypeA">
+			<value>4</value>
+		</property>
+		<property name="frequencyA">
+			<value>212.238968</value>
+		</property>
+		<property name="qualityA">
+			<value>0.623275876</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{378ba012-399b-4ec4-a8b9-8fae33383f69}" />
+	<object class="ConvolutionReverbEffect" id="{37f372a0-9c92-496e-bd53-bbff4be21501}">
+		<property name="endFrame">
+			<value>21844</value>
+		</property>
+		<relationship name="referenceableData">
+			<destination>{ac22dff8-a118-4745-9280-e54c3b912bfc}</destination>
+		</relationship>
+	</object>
+</objects>

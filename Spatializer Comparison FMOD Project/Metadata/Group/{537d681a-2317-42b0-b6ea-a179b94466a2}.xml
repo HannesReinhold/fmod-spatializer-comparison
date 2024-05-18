@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{537d681a-2317-42b0-b6ea-a179b94466a2}">
+		<property name="name">
+			<value>Steam</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{dc3b9cb6-f4c5-45bb-bc98-606a005de11c}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{2c1a9236-9635-463a-8a75-1b058d30131a}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{ab0feb16-fed0-4586-9f0f-87c36f651dbd}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{dc3b9cb6-f4c5-45bb-bc98-606a005de11c}">
+		<relationship name="effects">
+			<destination>{3577a044-1a4c-444d-afcc-018fea12e212}</destination>
+			<destination>{733a6f6c-4232-42f0-b220-1a524d2eeac3}</destination>
+			<destination>{95ab2141-b87e-4634-93c8-10d1519c30e3}</destination>
+			<destination>{26c789e1-e8ab-478a-9060-889add58b4f5}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{2c1a9236-9635-463a-8a75-1b058d30131a}" />
+	<object class="GainEffect" id="{3577a044-1a4c-444d-afcc-018fea12e212}" />
+	<object class="GainEffect" id="{733a6f6c-4232-42f0-b220-1a524d2eeac3}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<relationship name="automators">
+			<destination>{439b2e4e-e59d-47e5-bcfa-ff9436cee6fe}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusFader" id="{95ab2141-b87e-4634-93c8-10d1519c30e3}" />
+	<object class="MixerSend" id="{26c789e1-e8ab-478a-9060-889add58b4f5}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+		<property name="level">
+			<value>-20.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{439b2e4e-e59d-47e5-bcfa-ff9436cee6fe}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gain</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{8df04334-7fa3-441e-863f-44e2939819e9}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{8df04334-7fa3-441e-863f-44e2939819e9}">
+		<relationship name="parameter">
+			<destination>{b6c9b375-adad-4277-8594-652c3fda7624}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{9c78be60-db59-450b-a978-206d611bc589}</destination>
+			<destination>{85d4882c-47aa-4032-b65e-78418dfeb1be}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{9c78be60-db59-450b-a978-206d611bc589}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.297346234</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{85d4882c-47aa-4032-b65e-78418dfeb1be}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
