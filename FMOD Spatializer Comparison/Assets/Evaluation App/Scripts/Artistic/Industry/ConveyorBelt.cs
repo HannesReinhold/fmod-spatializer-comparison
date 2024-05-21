@@ -26,6 +26,16 @@ public class ConveyorBelt : MonoBehaviour
 
     private PathCreation.Examples.PathFollower currentFollower = null;
 
+
+    public SPatializerSwitchManager spatializerManager;
+
+    public void PlaySpatializedOneShot(int a, int b, int index, Vector3 pos)
+    {
+
+        FMODUnity.RuntimeManager.PlayOneShot(spatializerManager.GetEvent(index)[a], pos);
+        FMODUnity.RuntimeManager.PlayOneShot(spatializerManager.GetEvent(index)[b], pos);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,7 +98,8 @@ public class ConveyorBelt : MonoBehaviour
 
     void StartSiren()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Siren", alertLights[0].transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Siren", alertLights[0].transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 0, alertLights[0].transform.position);
         SetAlertLights(true);
     }
 
@@ -98,13 +109,15 @@ public class ConveyorBelt : MonoBehaviour
         currentFollower.pathCreator = trashPath;
         currentFollower.speed = armSpeed;
         currentFollower.distanceTravelled = 0;
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
         Invoke("EndRobot2", 2.7f);
     }
 
     void StartScanning()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Scanner 2", currentFollower.transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Scanner 2", currentFollower.transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 3, currentFollower.transform.position);
         scanObject.SetActive(true);
     }
 
@@ -114,14 +127,16 @@ public class ConveyorBelt : MonoBehaviour
         currentFollower.pathCreator = armPath;
         currentFollower.speed = armSpeed;
         currentFollower.distanceTravelled = 0;
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
         Invoke("EndRobot",2.4f);
         
     }
 
     void EndRobot()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
         currentFollower.distanceTravelled = 0;
         currentFollower.pathCreator = conveyorBelt2;
         currentFollower.speed = conveyorBeltSpeed * 0.6f;
@@ -133,8 +148,10 @@ public class ConveyorBelt : MonoBehaviour
 
     void EndRobot2()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Fire Swoosh", currentFollower.transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Fire Swoosh", currentFollower.transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 4, currentFollower.transform.position);
         Destroy(currentFollower.gameObject);
         currentFollower = null;
         armController.SetStartTarget();
@@ -158,7 +175,8 @@ public class ConveyorBelt : MonoBehaviour
 
     void ActivateApproveLight()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Approved", currentFollower.transform.position);
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Approved", currentFollower.transform.position);
+        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 5, currentFollower.transform.position);
         SetApproveLight(true);
     }
 }

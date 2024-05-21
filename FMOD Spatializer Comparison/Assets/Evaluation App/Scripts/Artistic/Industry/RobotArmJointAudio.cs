@@ -25,14 +25,30 @@ public class RobotArmJointAudio : MonoBehaviour
     private float smoothedAngularVelocity = 0;
     Quaternion lastAngle;
 
+    private SPatializerSwitchManager spatialRefs;
 
-    private void Start()
+    private float cooldown = 0;
+
+
+    private void Awake()
     {
-        instance = emitter.EventInstance;
         emitter.EventReference = eventRef;
+        instance = emitter.EventInstance;
         lastRotation = armJoint.localEulerAngles.y;
 
         lastAngle = transform.localRotation;
+
+        spatialRefs = FindAnyObjectByType<SPatializerSwitchManager>();
+    }
+
+    private void OnEnable()
+    {
+        instance.setPaused(false);
+    }
+
+    private void OnDisable()
+    {
+        instance.setPaused(true);
     }
 
     private void FixedUpdate()
@@ -57,6 +73,8 @@ public class RobotArmJointAudio : MonoBehaviour
         {
             PlayNonLoop(smoothedAngularVelocity);
         }
+
+        cooldown += Time.fixedDeltaTime;
     }
 
     private void PlayLoop(float velocity)
@@ -67,12 +85,17 @@ public class RobotArmJointAudio : MonoBehaviour
         {
             isPlaying = true;
             emitter.Play();
+            FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(6)[spatialRefs.currentSpatializer], transform.position);
+            cooldown = 0;
         }
 
         if (velocity <= 0.001f && isPlaying)
         {
             isPlaying = false;
+            if(cooldown>1)
+                FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(7)[spatialRefs.currentSpatializer], transform.position);
         }
+
     }
 
     private void PlayNonLoop(float velocity)

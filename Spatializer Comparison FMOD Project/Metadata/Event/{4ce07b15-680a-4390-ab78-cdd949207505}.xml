@@ -106,7 +106,7 @@
 	</object>
 	<object class="GroupTrack" id="{c9ebc156-6ddc-4141-9bd1-02e96ec4db79}">
 		<relationship name="automationTracks">
-			<destination>{524f1929-027a-4894-81bf-17b54b95657f}</destination>
+			<destination>{cd34d9d7-b061-43be-82fa-a569dc9880eb}</destination>
 		</relationship>
 		<relationship name="modules">
 			<destination>{45e30b23-c16b-45cd-bbce-321ba3f2efd5}</destination>
@@ -292,7 +292,7 @@
 			<destination>{46b18cb1-88a3-428e-b06c-a247e75251cf}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationTrack" id="{524f1929-027a-4894-81bf-17b54b95657f}">
+	<object class="AutomationTrack" id="{cd34d9d7-b061-43be-82fa-a569dc9880eb}">
 		<relationship name="automator">
 			<destination>{d3930ca1-bcb1-433c-a96d-a4d06efac3d9}</destination>
 		</relationship>
@@ -537,6 +537,9 @@
 	</object>
 	<object class="MixerBusFader" id="{464648e7-33cc-4528-bccb-4c3d3bf7fe54}" />
 	<object class="MixerSend" id="{328dd260-c806-4b0f-b2df-90c8c6f65af9}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="level">
 			<value>0</value>
 		</property>
@@ -756,6 +759,7 @@
 			<destination>{94d8714d-9df6-499b-ad85-ab9eef0eef5a}</destination>
 			<destination>{d297a6c1-bbff-437d-b959-729443e1e522}</destination>
 			<destination>{05d3818a-4a98-476c-9afb-254f30e0bf7c}</destination>
+			<destination>{068ee3d9-0c41-4f0d-81e5-40db0000f8bd}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{dafc0bef-1bc5-4025-bd2e-97d4f76bae86}" />
@@ -931,7 +935,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-22</value>
+			<value>-14</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{d297a6c1-bbff-437d-b959-729443e1e522}">
@@ -939,10 +943,10 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-24</value>
+			<value>-80</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.653313994</value>
+			<value>-1</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{05d3818a-4a98-476c-9afb-254f30e0bf7c}">
@@ -954,6 +958,14 @@
 		</property>
 		<property name="curveShape">
 			<value>0.324286073</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{068ee3d9-0c41-4f0d-81e5-40db0000f8bd}">
+		<property name="position">
+			<value>0.050000000000000003</value>
+		</property>
+		<property name="value">
+			<value>-19</value>
 		</property>
 	</object>
 	<object class="DataPluginParameter" id="{c9b33b9e-3627-4199-900b-b304af329bc9}">
@@ -1007,7 +1019,7 @@
 			<value>Atten. Mode</value>
 		</property>
 		<property name="value">
-			<value>3</value>
+			<value>2</value>
 		</property>
 		<property name="minimumValue">
 			<value>0</value>
