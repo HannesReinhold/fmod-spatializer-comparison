@@ -254,7 +254,7 @@ public class AudioPhenomena : MonoBehaviour
             }
         }
 
-        return Mathf.Pow(occlusion / n, 0.5f);
+        return Mathf.Pow(occlusion / n, 0.2f);
     }
 
     Vector3[] preferredDirections = new Vector3[5];

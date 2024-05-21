@@ -129,8 +129,8 @@ public class HorrorEvent : MonoBehaviour
 
     public void EnableJumpscare()
     {
-        roomModel.SetActive(true);
-        passthroughBox.enabled = true;
+        //roomModel.SetActive(true);
+        //passthroughBox.enabled = true;
 
         
         Vector3 lookDir = FindFirstObjectByType<FollowTarget>().transform.eulerAngles;
@@ -180,7 +180,7 @@ public class HorrorEvent : MonoBehaviour
 
     private void DisableEvent()
     {
-        roomModel.SetActive(true);
+        //roomModel.SetActive(true);
         gameObject.SetActive(false);
         Destroy(jumpscareSpring);
         
