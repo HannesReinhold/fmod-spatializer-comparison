@@ -7,7 +7,7 @@ using System.Linq;
 
 public class PersonalInformationManager : MonoBehaviour
 {
-    public TMP_InputField ageInputField;
+    public InputField ageInputField;
     public ToggleGroup sexToggle;
     public Slider volumeSlider;
 

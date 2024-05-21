@@ -240,13 +240,13 @@ public class GameManager : MonoBehaviour
     public void HideController()
     {
         rightControllerObject.SetActive(false);
-        rayObject.SetActive(false);
+        //rayObject.SetActive(false);
     }
 
     public void ShowController()
     {
         rightControllerObject.SetActive(true);
-        rayObject.SetActive(true);
+        //rayObject.SetActive(true);
     }
 
     public void SetPassthroughOpacity(float opacity)
@@ -257,31 +257,37 @@ public class GameManager : MonoBehaviour
 
     public void LogServerEvents(int currentWindowManager, string additionalEvent="")
     {
+        if (serverLog == null) return;
         serverLog.LogAll(currentWindowManager, additionalEvent);
     }
 
     public void LogServerEvent(string additionalEvent = "")
     {
+        if (serverLog == null) return;
         serverLog.LogEvent(additionalEvent);
     }
 
     public void NextPageEvent(int nextPage)
     {
+        if (serverLog == null) return;
         serverLog.NextPageEvent(nextPage);
     }
 
     public void RestartEvent()
     {
+        if (serverLog == null) return;
         serverLog.NextPageEvent(-999);
     }
 
     public void SkipIntroductionEvent()
     {
+        if (serverLog == null) return;
         serverLog.NextPageEvent(-100);
     }
 
     public void SkipIntroduction()
     {
+        if (serverLog == null) return;
         StartSubjectiveEvaluation();
     }
 }

@@ -191,9 +191,9 @@ public class HorrorEvent : MonoBehaviour
     private void Update()
     {
         currentFogValue = 0.98f * currentFogValue + 0.02f * currentFogTarget;
-        passthroughBox.material.SetFloat("_Opacity", currentFogValue / maxFog);
+        //passthroughBox.material.SetFloat("_Opacity", currentFogValue / maxFog);
         RenderSettings.fogDensity = currentFogValue;
-        light.intensity = Mathf.Pow(1-currentFogValue/maxFog,1) * 0.2f;
+        //light.intensity = Mathf.Pow(1-currentFogValue/maxFog,1) * 0.2f;
         //GameManager.Instance.SetPassthroughOpacity(1 - currentFogValue / maxFog);
 
 
