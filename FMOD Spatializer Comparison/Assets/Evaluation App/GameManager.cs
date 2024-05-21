@@ -240,13 +240,13 @@ public class GameManager : MonoBehaviour
     public void HideController()
     {
         rightControllerObject.SetActive(false);
-        //rayObject.SetActive(false);
+        rayObject.SetActive(false);
     }
 
     public void ShowController()
     {
         rightControllerObject.SetActive(true);
-        //rayObject.SetActive(true);
+        rayObject.SetActive(true);
     }
 
     public void SetPassthroughOpacity(float opacity)
