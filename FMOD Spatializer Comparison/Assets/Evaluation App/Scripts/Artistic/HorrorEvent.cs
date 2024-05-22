@@ -67,6 +67,7 @@ public class HorrorEvent : MonoBehaviour
 
         // variation 2
         monster.SetActive(false);
+        roomModel.SetActive(true);
         Invoke("EnableFog",2.5f);
         Invoke("EnableEyes", 4);
         Invoke("CloseIntroWindow", 5);
@@ -180,7 +181,7 @@ public class HorrorEvent : MonoBehaviour
 
     private void DisableEvent()
     {
-        //roomModel.SetActive(true);
+        roomModel.SetActive(false);
         gameObject.SetActive(false);
         Destroy(jumpscareSpring);
         

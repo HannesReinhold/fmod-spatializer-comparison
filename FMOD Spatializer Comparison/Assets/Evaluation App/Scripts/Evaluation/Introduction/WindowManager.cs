@@ -63,7 +63,7 @@ public class WindowManager : MonoBehaviour
         currentWindow = windows[currentWindowIndex];
         currentWindow.SetActive(true);
 
-        GameManager.Instance.LogServerEvents(WindowManagerIndex);
+        //GameManager.Instance.LogServerEvents(WindowManagerIndex);
     }
 
     public void PreviousPage()
@@ -73,7 +73,7 @@ public class WindowManager : MonoBehaviour
         currentWindow = windows[currentWindowIndex];
         currentWindow.SetActive(true);
 
-        GameManager.Instance.LogServerEvents(WindowManagerIndex);
+        //GameManager.Instance.LogServerEvents(WindowManagerIndex);
     }
 
     public void OpenPage(int pageIndex)
@@ -86,7 +86,7 @@ public class WindowManager : MonoBehaviour
         GUIAudioManager.PlayMenuOpen(transform.position);
         Debug.Log("Open Menu"+currentWindow);
 
-        GameManager.Instance.LogServerEvents(WindowManagerIndex);
+        //GameManager.Instance.LogServerEvents(WindowManagerIndex);
 
     }
 

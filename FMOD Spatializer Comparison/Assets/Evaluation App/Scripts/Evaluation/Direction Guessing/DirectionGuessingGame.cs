@@ -96,6 +96,7 @@ public class DirectionGuessingGame : MonoBehaviour
 
         
         target.SetActive(false);
+        GameManager.Instance.HideController(true);
     }
 
     /// <summary>
@@ -105,6 +106,7 @@ public class DirectionGuessingGame : MonoBehaviour
     {
         GameManager.Instance.StartComplete();
         GUIAudioManager.SetAmbientVolume(0.5f);
+        GameManager.Instance.ShowController();
     }
 
     public void FinishGame()
@@ -220,8 +222,7 @@ public class DirectionGuessingGame : MonoBehaviour
             case 0: PlayRealAudio(currentPositionID, cueID); break;
             case 1: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[0], target.transform.position); break;
             case 2: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[1], target.transform.position); break;
-            case 3: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break;
-            case 4: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[3], target.transform.position); break;
+            case 3: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break; break;
         }
     }
 

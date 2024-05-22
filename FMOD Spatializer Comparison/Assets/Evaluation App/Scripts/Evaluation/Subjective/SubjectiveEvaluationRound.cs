@@ -20,23 +20,23 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     public ToggleGroup spatializerSwitch;
     public UnityEngine.UI.Slider ratingSlider;
 
-    private SubjectiveEvaluationPartData partData;
-    private ConcreteSubjectiveEvaluation roundData;
+    private ConcreteSubjectiveData roundData;
     public SubjectiveEvaluationManager manager;
     private WindowManager windowManager;
 
+    public SPatializerSwitchManager spatialManager;
 
-    public void UpdateInterface(SubjectiveEvaluationPartData data, int roundID)
+
+    public void UpdateInterface(ConcreteSubjectiveData data, int roundID)
     {
-        this.partData = data;
-        this.roundData = data.evaluations[roundID];
+        this.roundData = data;
 
-        nameText.text = data.name + " - "+GameManager.Instance.dataManager.spatializerData.spatializerInfo[roundData.comparisonSpatializerID].shortName;
+        nameText.text = data.attribute;
         descriptionText.text = data.description;
-        aspectText.text = "This part compares the aspect: "+data.comparisonAspect;
-        questionText.text = data.question;
-        minText.text = data.minValue; 
-        maxText.text = data.maxValue;
+        aspectText.text = "This part compares the aspect: "+data.attribute;
+        questionText.text = data.description;
+        minText.text = ""; 
+        maxText.text = "";
 
     }
 
@@ -57,9 +57,9 @@ public class SubjectiveEvaluationRound : MonoBehaviour
 
     public void SaveRound()
     {
-        roundData.value = ratingSlider.value;
-        GameManager.Instance.dataManager.currentSessionData.subjectiveEvaluationResults.Add(roundData);
-        audioSwitch.Stop();
+        roundData.rating = (int)ratingSlider.value;
+        GameManager.Instance.dataManager.currentSessionData.subjectiveData.Add(roundData);
+        //audioSwitch.Stop();
         GameManager.Instance.SaveData();
     }
 
@@ -75,22 +75,24 @@ public class SubjectiveEvaluationRound : MonoBehaviour
             
         }
 
-        audioSwitch.SetAll(true, roundData.speakerID, roundData.comparisonSpatializerID);
-        audioSwitch.Play(partData.fileID);
+        spatialManager.SetSpatializerPair(roundData.spatializerA, roundData.spatializerB);
 
-        manager.HighlightSpeaker(roundData.speakerID);
+        //audioSwitch.SetAll(true, roundData.speakerID, roundData.comparisonSpatializerID);
+        //audioSwitch.Play(partData.fileID);
+
+        //manager.HighlightSpeaker(roundData.speakerID);
 
     }
 
     public void UpdateRatingValue()
     {
-        roundData.value = ratingSlider.value;
+        roundData.rating = (int)ratingSlider.value;
     }
 
 
-    public void ToggleSpatializer(bool real)
+    public void ToggleSpatializer(int index)
     {
-        audioSwitch.SetReal(real?1:0);
+        spatialManager.SetSpatializer(index == 0 ? spatialManager.spatializerA : spatialManager.spatializerB);
     }
 
     public void SetSpeaker(int id)

@@ -12,12 +12,14 @@ public class SessionData
     public float volume;
 
     public List<ConcreteSubjectiveEvaluation> subjectiveEvaluationResults;
+    public List<ConcreteSubjectiveData> subjectiveData;
     public List<DirectionGuessingData> directionGuessingResults;
 
     public SessionData(string id)
     {
         this.id = id;
         subjectiveEvaluationResults = new List<ConcreteSubjectiveEvaluation>();
+        subjectiveData = new List<ConcreteSubjectiveData>();
         directionGuessingResults = new List<DirectionGuessingData>();
     }
 

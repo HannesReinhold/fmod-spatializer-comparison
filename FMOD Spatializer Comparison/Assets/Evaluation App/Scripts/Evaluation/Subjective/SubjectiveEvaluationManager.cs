@@ -17,7 +17,7 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     public List<GameObject> speakers = new List<GameObject>();
 
-    private int numParts;
+    private int numRounds;
 
     private int roundID = 0;
     private int partID = 0;
@@ -53,9 +53,9 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     private void HideAll()
     {
-        introduction.SetActive(false);
-        tutorial.SetActive(false);
-        evaluationRound.SetActive(false);
+        //introduction.SetActive(false);
+        //tutorial.SetActive(false);
+        //evaluationRound.SetActive(false);
     }
 
     
@@ -64,8 +64,8 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         finish.SetActive(false);
         evaluationRound.SetActive(false);
         Debug.Log(GameManager.Instance.dataManager);
-        DisableHighlighting();
-        numParts = GameManager.Instance.dataManager.spatializerData.subjectiveEvaluationData.evaluationParts.Count;
+        //DisableHighlighting();
+        numRounds = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons.Count;
         if (!skipTutorial) introduction.SetActive(true);
         else { 
             StartRound(); 
@@ -91,29 +91,23 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         Debug.Log("STart Round");
         //subjectiveEvalInterface.ShowNextEvaluation(partID, roundID);
         GUIAudioManager.SetAmbientVolume(0);
-        numParts = GameManager.Instance.dataManager.spatializerData.subjectiveEvaluationData.evaluationParts.Count;
-        roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveEvaluationData.evaluationParts[partID], roundID);
+        numRounds = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons.Count;
+        roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[roundID], roundID);
         roundManager.StartRound(true);
-        tutorial.SetActive(false);
+        //tutorial.SetActive(false);
         evaluationRound.SetActive(true);
         roundID++;
 
-        GameManager.Instance.LogServerEvent("Subjective Evaluation Round");
+        //GameManager.Instance.LogServerEvent("Subjective Evaluation Round");
     }
 
     public void NextRound()
     {
-        bool nextAspect=false;
-        if (roundID >= 4)
-        {
-            roundID = 0;
-            partID++;
-            nextAspect = true;
-        }
+        bool nextAspect=true;
 
-        if (partID>=numParts) FinishEvaluation();
+        if (roundID>= numRounds) FinishEvaluation();
         else {
-            roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveEvaluationData.evaluationParts[partID], roundID);
+            roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[roundID], roundID);
             roundManager.StartRound(nextAspect); 
             
         }

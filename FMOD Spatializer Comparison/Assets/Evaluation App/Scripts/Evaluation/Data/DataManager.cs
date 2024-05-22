@@ -92,7 +92,9 @@ public struct SpatializerEvaluationData
 {
     public SpatializerInfo[] spatializerInfo;
     public SpeakerInfo[] speakerInfo;
+    public SubjectiveData subjectiveData;
     public SubjectiveEvaluationData subjectiveEvaluationData;
+    
     public DirectionGameData directionGameData;
 }
 
@@ -112,6 +114,8 @@ public struct SpatializerInfo
         this.creator = creat;
     }
 }
+
+
 
 [System.Serializable]
 public struct SpeakerInfo

@@ -239,9 +239,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void HideController()
+    public void HideController(bool stillshowController = false )
     {
-        rightControllerObject.SetActive(false);
+        if(!stillshowController)rightControllerObject.SetActive(false);
         rayObject.SetActive(false);
     }
 
