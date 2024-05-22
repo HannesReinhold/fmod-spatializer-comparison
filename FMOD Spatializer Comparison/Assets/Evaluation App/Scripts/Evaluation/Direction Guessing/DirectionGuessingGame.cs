@@ -288,6 +288,7 @@ public class DirectionGuessingGame : MonoBehaviour
 
 
         GameManager.Instance.dataManager.currentSessionData.directionGuessingResults.Add(data);
+        GameManager.Instance.SaveData();
 
 
         currentRound++;
