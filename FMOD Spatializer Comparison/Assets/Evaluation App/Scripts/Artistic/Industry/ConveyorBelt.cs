@@ -69,7 +69,7 @@ public class ConveyorBelt : MonoBehaviour
         PathCreation.Examples.PathFollower follower = other.GetComponent<PathCreation.Examples.PathFollower>();
         follower.speed = 0;
         currentFollower = follower;
-        armController.SetTarget(follower.transform.position + new Vector3(-0.5f,0.4f,0));
+        armController.SetTarget(follower.transform.position + new Vector3(0.5f,0.4f,0));
         Invoke("StartScanning",1f);
         
 
@@ -111,7 +111,7 @@ public class ConveyorBelt : MonoBehaviour
         currentFollower.distanceTravelled = 0;
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
         PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
-        Invoke("EndRobot2", 2.7f);
+        Invoke("EndRobot2", 3f);
     }
 
     void StartScanning()
