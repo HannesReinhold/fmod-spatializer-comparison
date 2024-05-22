@@ -26,6 +26,8 @@ public class ConveyorBelt : MonoBehaviour
 
     private PathCreation.Examples.PathFollower currentFollower = null;
 
+    public bool isWorking = false;
+
 
     public SPatializerSwitchManager spatializerManager;
 
@@ -43,11 +45,30 @@ public class ConveyorBelt : MonoBehaviour
         scanObject.SetActive(false);
         SetAlertLights(false);
         SetApproveLight(false);
+
+        
+    }
+
+    private void OnEnable()
+    {
+        Invoke("StartWorking", 6);
+    }
+
+    private void OnDisable()
+    {
+        isWorking = false;
+    }
+
+    public void StartWorking()
+    {
+        isWorking = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isWorking) return;
+
         if (currentTime >= spawnTime)
         {
             currentTime = 0;

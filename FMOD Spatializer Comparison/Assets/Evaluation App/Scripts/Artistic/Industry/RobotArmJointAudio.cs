@@ -36,7 +36,7 @@ public class RobotArmJointAudio : MonoBehaviour
         instance = emitter.EventInstance;
         lastRotation = armJoint.localEulerAngles.y;
 
-        lastAngle = transform.localRotation;
+        lastAngle = armJoint.localRotation;
 
         spatialRefs = FindAnyObjectByType<SPatializerSwitchManager>();
     }

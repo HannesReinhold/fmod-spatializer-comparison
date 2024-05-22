@@ -12,6 +12,23 @@ public class SPatializerSwitchManager : MonoBehaviour
     public int spatializerB;
     public int currentSpatializer;
 
+
+    public void StopAll()
+    {
+        foreach(SpatialAudioSwitcher switcher in switchers)
+        {
+            switcher.ResetAll();
+        }
+    }
+
+    public void PlayAll()
+    {
+        foreach (SpatialAudioSwitcher switcher in switchers)
+        {
+            switcher.SetSpatializer(currentSpatializer);
+        }
+    }
+
     public void SetSpatializerPair(int a, int b)
     {
         spatializerA = a;
