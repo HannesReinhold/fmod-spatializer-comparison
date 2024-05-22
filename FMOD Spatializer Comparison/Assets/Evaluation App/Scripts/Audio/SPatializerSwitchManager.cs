@@ -50,4 +50,8 @@ public class SPatializerSwitchManager : MonoBehaviour
     {
         return spatializedEvents[i].eventRefs;
     }
+
+    public void SetIndustryVolume(float vol)
+    {
+    }
 }

@@ -35,6 +35,12 @@ public static class GUIAudioManager
         Debug.Log("Set ambient vol: "+v);
     }
 
+    public static void SetTutorialVolume(float v)
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("TutorialGain", v);
+        Debug.Log("Set tutorial vol: " + v);
+    }
+
     public static void PlaySlideOpen(Vector3 pos)
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/SlideOpen", pos);
@@ -43,6 +49,11 @@ public static class GUIAudioManager
     public static void PlaySlideClose(Vector3 pos)
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/UI/SlideClose", pos);
+    }
+
+    public static void SetIndustryVolume(float vol)
+    {
+
     }
 
 

@@ -21,6 +21,12 @@ public class RobotArmController1 : MonoBehaviour
         Invoke("SetTarget",5);
     }
 
+    public void Restart()
+    {
+        grapTransform.position = startPosition;
+        target = startPosition;
+    }
+
     void SetTarget()
     {
         canMove = true;

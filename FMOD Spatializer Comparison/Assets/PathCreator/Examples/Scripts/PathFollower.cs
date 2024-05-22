@@ -11,6 +11,10 @@ namespace PathCreation.Examples
         public float speed = 5;
         public float distanceTravelled;
 
+        public bool stopped = false;
+
+
+
         void Start() {
             if (pathCreator != null)
             {
@@ -21,6 +25,7 @@ namespace PathCreation.Examples
 
         void Update()
         {
+            if (stopped) return;
             if (pathCreator != null)
             {
                 distanceTravelled += speed * Time.deltaTime;

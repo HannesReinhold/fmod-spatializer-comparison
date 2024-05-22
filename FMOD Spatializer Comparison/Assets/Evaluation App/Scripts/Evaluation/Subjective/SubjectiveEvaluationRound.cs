@@ -25,6 +25,7 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     public SubjectiveEvaluationManager manager;
     private WindowManager windowManager;
 
+
     public void UpdateInterface(SubjectiveEvaluationPartData data, int roundID)
     {
         this.partData = data;

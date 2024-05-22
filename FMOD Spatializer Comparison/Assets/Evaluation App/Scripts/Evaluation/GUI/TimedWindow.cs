@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class TimedWindow : MonoBehaviour
 {
     public SubjectiveEvaluationManager evaluationManager;
+    public WindowManager windowManager;
 
     public float time = 1;
 
@@ -19,7 +20,8 @@ public class TimedWindow : MonoBehaviour
 
     void Complete()
     {
-        evaluationManager.NextRound();
+        if (evaluationManager != null) evaluationManager.NextRound();
+        else windowManager.NextPage();
     }
 
 }

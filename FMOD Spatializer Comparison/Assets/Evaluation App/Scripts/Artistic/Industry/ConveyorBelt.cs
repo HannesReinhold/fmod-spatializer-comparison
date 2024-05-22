@@ -31,6 +31,8 @@ public class ConveyorBelt : MonoBehaviour
 
     public SPatializerSwitchManager spatializerManager;
 
+    private List<GameObject> engineBlocks = new List<GameObject>();
+
     public void PlaySpatializedOneShot(int a, int b, int index, Vector3 pos)
     {
 
@@ -41,7 +43,7 @@ public class ConveyorBelt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentTime = spawnTime;
+        currentTime = spawnTime-1;
         scanObject.SetActive(false);
         SetAlertLights(false);
         SetApproveLight(false);
@@ -58,9 +60,72 @@ public class ConveyorBelt : MonoBehaviour
         isWorking = false;
     }
 
+    public void StopAll()
+    {
+        isWorking = false;
+        foreach(GameObject g in engineBlocks)
+        {
+            g.GetComponent<PathCreation.Examples.PathFollower>().stopped = true;
+        }
+
+        if(currentFollower!=null) currentFollower.stopped = true;
+
+        spatializerManager.StopAll();
+
+        currentTime = spawnTime - 1;
+
+        foreach (GameObject g in engineBlocks)
+        {
+            Destroy(g);
+        }
+
+        engineBlocks.Clear();
+
+        armController.Restart();
+
+        scanObject.SetActive(false);
+        SetAlertLights(false);
+        SetApproveLight(false);
+
+        CancelInvoke("EndRobot");
+        CancelInvoke("EndRobot2");
+    }
+
+    public void Restart()
+    {
+        currentTime = spawnTime-1;
+
+        foreach(GameObject g in engineBlocks)
+        {
+            Destroy(g);
+        }
+
+        engineBlocks.Clear();
+
+        armController.Restart();
+
+        scanObject.SetActive(false);
+        SetAlertLights(false);
+        SetApproveLight(false);
+
+        StartWorking();
+
+        spatializerManager.PlayAll();
+    }
+
+    public void RemoveEngine(GameObject e)
+    {
+        engineBlocks.Remove(e);
+    }
+
     public void StartWorking()
     {
         isWorking = true;
+        foreach (GameObject g in engineBlocks)
+        {
+            g.GetComponent<PathCreation.Examples.PathFollower>().stopped = false;
+        }
+        if(currentFollower!=null) currentFollower.stopped = false;
     }
 
     // Update is called once per frame
@@ -82,6 +147,7 @@ public class ConveyorBelt : MonoBehaviour
         PathCreation.Examples.PathFollower follower = motor.GetComponent<PathCreation.Examples.PathFollower>();
         follower.pathCreator = conveyorBelt1;
         follower.speed = conveyorBeltSpeed;
+        engineBlocks.Add(motor);
     }
 
     private void OnTriggerEnter(Collider other)

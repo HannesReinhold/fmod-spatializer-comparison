@@ -35,7 +35,14 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         bus = FMODUnity.RuntimeManager.GetBus("bus:/Ambience");
         HideAll();
         StartEvalution();
-        
+        GUIAudioManager.SetTutorialVolume(1);
+
+
+    }
+
+    private void Start()
+    {
+        GUIAudioManager.SetTutorialVolume(1);
     }
 
     private void OnDisable()

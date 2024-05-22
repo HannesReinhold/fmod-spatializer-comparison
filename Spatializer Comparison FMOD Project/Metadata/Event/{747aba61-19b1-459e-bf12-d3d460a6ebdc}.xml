@@ -291,6 +291,7 @@
 			<destination>{1b5d2c4a-f898-4643-a973-4a556b59128b}</destination>
 			<destination>{cdf3eeed-290c-4be4-8785-230382e1bac1}</destination>
 			<destination>{11852000-a08a-4cd6-8c34-ce0e5add1d2a}</destination>
+			<destination>{291abe2f-cc8d-4686-bd22-4b778097b201}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3845cc7a-8b8c-46f5-bdeb-3d66d1c9a64f}" />
@@ -385,6 +386,11 @@
 		<property name="distanceRolloffType">
 			<value>2</value>
 		</property>
+	</object>
+	<object class="GainEffect" id="{291abe2f-cc8d-4686-bd22-4b778097b201}">
+		<relationship name="automators">
+			<destination>{4f769340-2c1d-4c80-a25f-d895c6ae60a8}</destination>
+		</relationship>
 	</object>
 	<object class="AutomationPoint" id="{7af3456b-4e1b-4efd-83b8-a2f224e5a653}">
 		<property name="position">
@@ -506,4 +512,40 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{ff2009ae-3091-43ea-8d0d-930c07f10add}" />
+	<object class="Automator" id="{4f769340-2c1d-4c80-a25f-d895c6ae60a8}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gain</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{57298ad5-312f-4a7a-bddd-6f601d8c5d70}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{57298ad5-312f-4a7a-bddd-6f601d8c5d70}">
+		<relationship name="parameter">
+			<destination>{b44e3f3f-1e80-43a6-97d7-d92b318b2d1e}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{8db39445-8fe6-49d8-8a74-b45a2b0c64c0}</destination>
+			<destination>{10db996f-f52c-4517-a923-3816decbc510}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{8db39445-8fe6-49d8-8a74-b45a2b0c64c0}">
+		<property name="position">
+			<value>20</value>
+		</property>
+		<property name="value">
+			<value>-40</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{10db996f-f52c-4517-a923-3816decbc510}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.362499326</value>
+		</property>
+	</object>
 </objects>

@@ -154,6 +154,7 @@
 			<destination>{e19ab078-cc75-442b-90e3-af807c57ab2c}</destination>
 			<destination>{fe2749d5-bc9d-4d1d-9c12-f87eae6efbad}</destination>
 			<destination>{af9217f8-98c7-4a0d-8418-5c0982608e21}</destination>
+			<destination>{2ecf1590-ba27-4ac4-87af-d2f5fd534eca}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{65f8f4a9-d506-4465-aedf-53eb5a3e8e3c}" />
@@ -219,6 +220,47 @@
 			<value>2</value>
 		</property>
 	</object>
+	<object class="GainEffect" id="{2ecf1590-ba27-4ac4-87af-d2f5fd534eca}">
+		<relationship name="automators">
+			<destination>{6779ecf8-7d25-4663-8f9d-ddf26434959a}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{bcf4cd74-3391-4009-8519-7bcc839bba2c}" />
 	<object class="MixerBusFader" id="{a8efbce9-7215-4228-8d0e-6bdacd5d37ad}" />
+	<object class="Automator" id="{6779ecf8-7d25-4663-8f9d-ddf26434959a}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>gain</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{84cb5312-d948-453a-ae70-746e79708819}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{84cb5312-d948-453a-ae70-746e79708819}">
+		<relationship name="parameter">
+			<destination>{b44e3f3f-1e80-43a6-97d7-d92b318b2d1e}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{6d41aaa3-f58e-447e-a795-68c380db5e12}</destination>
+			<destination>{e5c8db0b-34bf-41e9-bb69-4188386e0f43}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{6d41aaa3-f58e-447e-a795-68c380db5e12}">
+		<property name="position">
+			<value>20</value>
+		</property>
+		<property name="value">
+			<value>-40</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{e5c8db0b-34bf-41e9-bb69-4188386e0f43}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>-0.362499326</value>
+		</property>
+	</object>
 </objects>

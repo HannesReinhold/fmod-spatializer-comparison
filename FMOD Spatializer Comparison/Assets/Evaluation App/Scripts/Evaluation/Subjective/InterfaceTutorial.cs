@@ -17,6 +17,8 @@ public class InterfaceTutorial : MonoBehaviour
 
     public void Open()
     {
+        GUIAudioManager.SetTutorialVolume(0.5f);
+
         Invoke("Open1", 5);
         Invoke("Open2", 10);
         Invoke("Open3", 15);
@@ -33,6 +35,8 @@ public class InterfaceTutorial : MonoBehaviour
         CancelInvoke("Open4");
         CancelInvoke("Open5");
         CancelInvoke("Open6");
+
+        GUIAudioManager.SetTutorialVolume(1);
     }
 
     private void OnEnable()
