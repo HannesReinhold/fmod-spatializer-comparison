@@ -214,7 +214,7 @@ public class AudioPhenomena : MonoBehaviour
         float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
         float angleIncrement = Mathf.PI * 2 * goldenRatio;
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
         {
             float t = (float)i / 100;
             float inclination = Mathf.Acos(1 - 2 * t);
@@ -254,7 +254,7 @@ public class AudioPhenomena : MonoBehaviour
             }
         }
 
-        return Mathf.Pow(occlusion / n, 0.2f);
+        return Mathf.Pow(occlusion / n, 0.5f);
     }
 
     Vector3[] preferredDirections = new Vector3[5];
@@ -316,7 +316,7 @@ public class AudioPhenomena : MonoBehaviour
 
     private float calculateAirAttenuation(float distance)
     {
-        float att = DbToLin(loudnessDb - 70) / Mathf.Pow(distance + 1, 1.1f);
+        float att = DbToLin(loudnessDb - 70) / Mathf.Pow((distance*0.7f) + 1, 1.1f);
 
         return att;
     }
