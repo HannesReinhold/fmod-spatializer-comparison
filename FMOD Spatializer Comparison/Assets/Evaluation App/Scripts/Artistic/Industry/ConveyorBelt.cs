@@ -51,7 +51,6 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke("StartWorking", 6);
     }
 
     private void OnDisable()

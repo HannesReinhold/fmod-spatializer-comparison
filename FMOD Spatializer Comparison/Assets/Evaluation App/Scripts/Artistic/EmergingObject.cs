@@ -50,6 +50,7 @@ public class EmergingObject : MonoBehaviour
     private void StopAppearing()
     {
         if (emitter != null) emitter.Stop();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/FMOD Spatializer/EmergeEnd", transform.position);
     }
 
     public void Disappear()
