@@ -441,6 +441,7 @@ public class AudioPhenomena : MonoBehaviour
         enableMono = false;
         enableStereo = true;
         enableIID = false;
+        source.spatialBlend = 1;
         source.spatialize = true;
     }
 

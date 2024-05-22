@@ -130,6 +130,8 @@ public class GameManager : MonoBehaviour
         {
         }
 
+        SetAmbienVolume(1);
+
 
 
         dataManager.InitializeSession();
@@ -289,6 +291,11 @@ public class GameManager : MonoBehaviour
     {
         if (serverLog == null) return;
         StartSubjectiveEvaluation();
+    }
+
+    public void SetAmbienVolume(float i)
+    {
+        GUIAudioManager.SetAmbientVolume(i);
     }
 }
 
