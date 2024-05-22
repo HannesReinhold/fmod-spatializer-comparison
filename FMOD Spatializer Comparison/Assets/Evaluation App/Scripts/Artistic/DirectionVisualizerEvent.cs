@@ -30,6 +30,9 @@ public class DirectionVisualizerEvent : MonoBehaviour
 
     public Vector3 dir;
     private Transform controllerTransform;
+    public Transform headTransform;
+    public Transform leftEye;
+    public Transform rightEye;
 
     private bool isRunning=false;
 
@@ -56,7 +59,8 @@ public class DirectionVisualizerEvent : MonoBehaviour
     {
         //if (!isRunning) return;
         //Vector3 mousePos = Input.mousePosition;
-        Raycast(controllerTransform.position, new Vector3(-0.1f,0.2f,1).normalized);
+        // Raycast(controllerTransform.position, new Vector3(-0.1f,0.2f,1).normalized);
+        Raycast(headTransform.position, (leftEye.forward + rightEye.forward).normalized);
 
     }
 
@@ -137,8 +141,9 @@ public class DirectionVisualizerEvent : MonoBehaviour
 
     public void Raycast(Vector3 pos, Vector3 dir)
     {
+        Vector3 d = (leftEye.forward + rightEye.forward).normalized;
         if (controllerTransform != null) dir = (controllerTransform.forward - controllerTransform.right * 0.1f).normalized;
-
+        dir = d;
         int layerMask = 1 << 6;
         RaycastHit hit;
         if(Physics.Raycast(pos+dir*10, -dir, out hit, 100, layerMask))

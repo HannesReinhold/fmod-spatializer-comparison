@@ -26,6 +26,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
     private bool showDiffereLine = false;
 
 
+
     public int gridResolution = 8;
 
     public GameObject circlePrefab;
@@ -60,6 +61,9 @@ public class DirectionGuessingTutorial : MonoBehaviour
     public GameObject guessedDirectionVisualizer;
     private Transform controllerTransform;
 
+    public Transform leftEye;
+    public Transform rightEye;
+
 
     public DirectionVisualizerEvent directionVisualizer;
 
@@ -93,6 +97,8 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
     private void Update()
     {
+        
+
 
 
         if (enableInput && OVRInput.GetDown(OVRInput.Button.One)) Shoot();
@@ -278,11 +284,13 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
     void SetGuessedPointPosition()
     {
-       
+        //guessedDirection = (leftEye.forward + rightEye.forward).normalized;
         guessedDirection = (directionVisualizer.crosshairVisualizer.transform.position - centerTransform.position).normalized;
         GuessedPoint.transform.position = directionVisualizer.crosshairVisualizer.transform.position;
+        
 
         float rad = Vector3.Distance(centerTransform.position, target.transform.position);
+        GuessedPoint.transform.position = centerTransform.position + guessedDirection * rad;
         targetRadius = rad;
         directionVisualizer.sphereEditor.SetSphere(rad,0.5f,1);
         //float rad = Vector3.Distance(playerPositionWhileGuessing, target.transform.position);
@@ -420,9 +428,11 @@ public class DirectionGuessingTutorial : MonoBehaviour
             pos.x = Mathf.Sin(offsetAz + rangeAz * i) * Mathf.Cos(offsetEl) * currentRadius;
             pos.z = Mathf.Cos(offsetAz + rangeAz * i) * Mathf.Cos(offsetEl) * currentRadius;
             pos.y = Mathf.Sin(offsetEl) * currentRadius;
-
+            //if (i == 1) GuessedPoint.transform.position = pos;
             differenceLine.SetPosition(i, pos);
         }
+
+        
 
         Vector3 dir = pos.normalized;
         scoreWindowPosition = new Vector3(pos.x, -0.2f, pos.z) - dir * 0.3f + centerTransform.position;
