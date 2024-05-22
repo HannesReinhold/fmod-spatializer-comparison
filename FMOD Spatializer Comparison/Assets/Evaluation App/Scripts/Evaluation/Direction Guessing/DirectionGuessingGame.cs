@@ -143,10 +143,12 @@ public class DirectionGuessingGame : MonoBehaviour
         int spatializerID = roundData.spatializerID;
         currentPositionID = roundData.positionID;
 
-        RespawnTarget(respawnPosition, spatializerID);
+        
         EnableControllerInput();
 
         startTime = Time.time;
+        RespawnTarget(respawnPosition, spatializerID);
+        Debug.Log("STart");
     }
 
     /// <summary>
@@ -204,6 +206,7 @@ public class DirectionGuessingGame : MonoBehaviour
 
         EvaluateShot();
         GameManager.Instance.LogServerEvent("Direction Game Shoot");
+        Debug.Log("shoot");
     }
 
     /// <summary>
@@ -224,8 +227,8 @@ public class DirectionGuessingGame : MonoBehaviour
 
     private void PlayRealAudio(int channelID, int cueID)
     {
-        outputChannelRouter.SetOutputChannel(channelID);
-        source.PlayOneShot(clips[cueID]);
+        //outputChannelRouter.SetOutputChannel(channelID);
+        //source.PlayOneShot(clips[cueID]);
     }
 
     /// <summary>
