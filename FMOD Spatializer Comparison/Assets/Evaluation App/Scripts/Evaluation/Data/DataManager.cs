@@ -24,6 +24,8 @@ public class DataManager
         currentSessionData = new SessionData(System.Guid.NewGuid().ToString());
         currentSessionData.sex = Gender.Male;
         currentSessionData.age = 18;
+        DateTime now = DateTime.Now;
+        currentSessionData.dateTime = now.Ticks;
     }
 
     public void SaveSession()

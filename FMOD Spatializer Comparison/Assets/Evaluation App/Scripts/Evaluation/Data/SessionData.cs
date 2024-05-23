@@ -10,6 +10,7 @@ public class SessionData
     public Gender sex;
     public int age;
     public float volume;
+    public long dateTime;
 
     public List<ConcreteSubjectiveEvaluation> subjectiveEvaluationResults;
     public List<ConcreteSubjectiveData> subjectiveData;

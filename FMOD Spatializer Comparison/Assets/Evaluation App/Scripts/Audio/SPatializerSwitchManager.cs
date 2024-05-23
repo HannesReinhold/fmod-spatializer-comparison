@@ -13,6 +13,11 @@ public class SPatializerSwitchManager : MonoBehaviour
     public int currentSpatializer;
 
 
+    private void Start()
+    {
+        StopAll();
+    }
+
     public void StopAll()
     {
         foreach(SpatialAudioSwitcher switcher in switchers)

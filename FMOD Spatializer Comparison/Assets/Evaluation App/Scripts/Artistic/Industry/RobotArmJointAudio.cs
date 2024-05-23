@@ -29,6 +29,8 @@ public class RobotArmJointAudio : MonoBehaviour
 
     private float cooldown = 0;
 
+    public float vel1 = 0;
+
 
     private void Awake()
     {
@@ -60,9 +62,10 @@ public class RobotArmJointAudio : MonoBehaviour
         lastAngle = currentAngle;
 
         float angularVelocity = Mathf.Abs(angle) * Time.fixedDeltaTime * 100;
-        smoothedAngularVelocity = Mathf.Lerp(smoothedAngularVelocity, angularVelocity, 0.1f);
+        smoothedAngularVelocity = Mathf.Lerp(smoothedAngularVelocity, angularVelocity, 0.05f);
         lastRotation = currentRotation;
 
+        vel1 = smoothedAngularVelocity;
         
 
         if (isLooping)
@@ -85,15 +88,15 @@ public class RobotArmJointAudio : MonoBehaviour
         {
             isPlaying = true;
             emitter.Play();
-            FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(6)[spatialRefs.currentSpatializer], transform.position);
+            //FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(6)[spatialRefs.currentSpatializer], transform.position);
             cooldown = 0;
         }
 
         if (velocity <= 0.001f && isPlaying)
         {
             isPlaying = false;
-            if(cooldown>1)
-                FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(7)[spatialRefs.currentSpatializer], transform.position);
+            if (cooldown > 1) { }
+                //FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(7)[spatialRefs.currentSpatializer], transform.position);
         }
 
     }

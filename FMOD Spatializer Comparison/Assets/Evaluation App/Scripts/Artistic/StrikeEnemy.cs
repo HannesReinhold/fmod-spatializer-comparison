@@ -122,7 +122,7 @@ public class StrikeEnemy : MonoBehaviour
     {
         completeWindow.gameObject.SetActive(true);
         warningWindow.Close();
-        completeWindow.transform.position = enemy.transform.position;
+        //completeWindow.transform.position = enemy.transform.position;
     }
 
     public void OnKill()

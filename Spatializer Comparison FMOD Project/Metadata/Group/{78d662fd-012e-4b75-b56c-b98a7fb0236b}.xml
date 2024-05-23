@@ -19,11 +19,15 @@
 			<destination>{6407d966-c016-4daa-b5b2-260f592f2ac4}</destination>
 			<destination>{3004176e-cc7b-43f4-93a9-68a42e5d817c}</destination>
 			<destination>{5f8075ce-2775-4ebc-b243-dfae6fde638c}</destination>
+			<destination>{cba65107-5ae8-415a-b196-f5611d11c694}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{40b29d16-c486-48c8-b061-38fa91a89596}" />
 	<object class="MixerBusFader" id="{6407d966-c016-4daa-b5b2-260f592f2ac4}" />
 	<object class="GainEffect" id="{3004176e-cc7b-43f4-93a9-68a42e5d817c}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<relationship name="automators">
 			<destination>{4a3eb096-2027-4464-8105-084baa581ffb}</destination>
 		</relationship>
@@ -38,6 +42,11 @@
 		<relationship name="mixerReturn">
 			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
 		</relationship>
+	</object>
+	<object class="GainEffect" id="{cba65107-5ae8-415a-b196-f5611d11c694}">
+		<property name="gain">
+			<value>10</value>
+		</property>
 	</object>
 	<object class="Automator" id="{4a3eb096-2027-4464-8105-084baa581ffb}">
 		<property name="nameOfPropertyBeingAutomated">

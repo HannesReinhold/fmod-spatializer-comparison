@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         if (Instance != null && Instance != this)
         {
@@ -157,6 +157,11 @@ public class GameManager : MonoBehaviour
         InitializeGame();
         sessionID++;
 
+    }
+
+    public void StartNewScene()
+    {
+        SceneManager.LoadScene("IndustryScene");
     }
 
     public void Restart()

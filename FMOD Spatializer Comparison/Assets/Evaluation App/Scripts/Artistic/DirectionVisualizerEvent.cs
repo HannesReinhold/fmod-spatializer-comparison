@@ -153,8 +153,8 @@ public class DirectionVisualizerEvent : MonoBehaviour
             crosshairVisualizer.transform.rotation = Quaternion.FromToRotation(-Vector3.forward, hit.normal) * transform.rotation;
             Vector3 newRotation = crosshairVisualizer.transform.eulerAngles;
             crosshairVisualizer.transform.rotation = Quaternion.Euler(newRotation.x,newRotation.y,0);
-            Debug.DrawLine(controllerTransform.position, controllerTransform.position+dir);
-            Debug.DrawLine(controllerTransform.position, hit.point);
+            //Debug.DrawLine(controllerTransform.position, controllerTransform.position+dir);
+            //Debug.DrawLine(controllerTransform.position, hit.point);
         }
 
         /*

@@ -105,9 +105,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{95304c01-0625-46c6-b803-ab102761be0b}">
-		<property name="volume">
-			<value>-6.5</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{774d246e-c65d-4160-983d-7908f2314001}</destination>
 		</relationship>
@@ -278,6 +275,7 @@
 		<relationship name="effects">
 			<destination>{3771c670-4d75-4b41-98d2-209b8ae533dd}</destination>
 			<destination>{e36a9a95-a04e-47c6-84f0-0c508aa1e114}</destination>
+			<destination>{037961af-d6d2-4f81-b403-8839099744fa}</destination>
 			<destination>{0b13d7b1-051b-4fb3-a8b2-e63a7cd14d31}</destination>
 		</relationship>
 	</object>
@@ -357,6 +355,11 @@
 		<relationship name="mixerReturn">
 			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
 		</relationship>
+	</object>
+	<object class="GainEffect" id="{037961af-d6d2-4f81-b403-8839099744fa}">
+		<property name="gain">
+			<value>-15</value>
+		</property>
 	</object>
 	<object class="PluginEffect" id="{0b13d7b1-051b-4fb3-a8b2-e63a7cd14d31}">
 		<relationship name="plugin">

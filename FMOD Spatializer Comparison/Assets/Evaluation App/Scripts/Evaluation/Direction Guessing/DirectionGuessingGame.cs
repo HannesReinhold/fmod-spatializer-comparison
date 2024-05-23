@@ -219,10 +219,9 @@ public class DirectionGuessingGame : MonoBehaviour
         int cueID = gameData.rounds[currentRound].cueID;
         Debug.Log("Playing spatializer "+currentSpatializer+" at "+target.transform.position);
         switch (currentSpatializer) {
-            case 0: PlayRealAudio(currentPositionID, cueID); break;
-            case 1: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[0], target.transform.position); break;
-            case 2: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[1], target.transform.position); break;
-            case 3: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break; break;
+            case 0: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[0], target.transform.position); break;
+            case 1: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[1], target.transform.position); break;
+            case 2: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break; break;
         }
     }
 
@@ -285,6 +284,7 @@ public class DirectionGuessingGame : MonoBehaviour
         data.guessedDirection = guessedDirection;
         data.azimuthDifference = azimuth;
         data.elevationDifference = elevation;
+        data.stimuliID = gameData.rounds[currentRound].cueID;
 
 
         GameManager.Instance.dataManager.currentSessionData.directionGuessingResults.Add(data);

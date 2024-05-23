@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConveyorBelt : MonoBehaviour
 {
     public GameObject SpawnObject;
+    public GameObject SpawnObjectTutorial;
 
     public RobotArmController1 armController;
 
@@ -30,8 +31,11 @@ public class ConveyorBelt : MonoBehaviour
 
 
     public SPatializerSwitchManager spatializerManager;
+    public SPatializerSwitchManager spatializerManagerTutorial;
 
     private List<GameObject> engineBlocks = new List<GameObject>();
+
+    private bool isTutorial = true;
 
     public void PlaySpatializedOneShot(int a, int b, int index, Vector3 pos)
     {
@@ -51,6 +55,11 @@ public class ConveyorBelt : MonoBehaviour
         
     }
 
+    public void SetTutorial(bool tut)
+    {
+        isTutorial = tut;
+    }
+
     private void OnEnable()
     {
     }
@@ -65,6 +74,7 @@ public class ConveyorBelt : MonoBehaviour
         isWorking = false;
         foreach(GameObject g in engineBlocks)
         {
+            if (g == null) continue;
             g.GetComponent<PathCreation.Examples.PathFollower>().stopped = true;
         }
 
@@ -76,6 +86,7 @@ public class ConveyorBelt : MonoBehaviour
 
         foreach (GameObject g in engineBlocks)
         {
+            if (g==null) continue;
             Destroy(g);
         }
 
@@ -110,7 +121,12 @@ public class ConveyorBelt : MonoBehaviour
 
         StartWorking();
 
-        spatializerManager.PlayAll();
+        if(isTutorial) spatializerManagerTutorial.PlayAll();
+        else spatializerManager.PlayAll();
+        foreach (GameObject g in engineBlocks)
+        {
+            g.GetComponent<SpatialAudioSwitcher>().SetSpatializer(spatializerManager.currentSpatializer);
+        }
     }
 
     public void RemoveEngine(GameObject e)
@@ -143,11 +159,14 @@ public class ConveyorBelt : MonoBehaviour
 
     void SpawnMotor()
     {
-        GameObject motor = Instantiate(SpawnObject);
+        GameObject motor = null;
+        if(isTutorial) motor = Instantiate(SpawnObjectTutorial);
+        else motor = Instantiate(SpawnObject);
         PathCreation.Examples.PathFollower follower = motor.GetComponent<PathCreation.Examples.PathFollower>();
         follower.pathCreator = conveyorBelt1;
         follower.speed = conveyorBeltSpeed;
         engineBlocks.Add(motor);
+        motor.GetComponent<SpatialAudioSwitcher>().SetSpatializer(spatializerManager.currentSpatializer);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -234,6 +253,7 @@ public class ConveyorBelt : MonoBehaviour
 
     void EndRobot2()
     {
+
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
         PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Fire Swoosh", currentFollower.transform.position);

@@ -7,6 +7,7 @@ public class DirectionGuessingData
 {
     public int evaluationID;
     public int spatializerID;
+    public int stimuliID;
     public double timeToGuessDirection;
     public Vector3 sourceDirection;
     public Vector3 guessedDirection;

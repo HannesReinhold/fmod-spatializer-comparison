@@ -828,6 +828,94 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &33578495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 33578496}
+  - component: {fileID: 33578498}
+  - component: {fileID: 33578497}
+  m_Layer: 0
+  m_Name: Steam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &33578496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33578495}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5049458, y: 0.49997145, z: -0.4999798, w: -0.495054}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000011, y: 0.010000006, z: 0.010000019}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1769808599}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &33578497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33578495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 376359684
+      Data2: 1082795316
+      Data3: 680961464
+      Data4: -1542755666
+    Path: event:/Industrial/Steam/Clicking
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &33578498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33578495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 248371774}
+  emitter: {fileID: 33578497}
+  eventRef:
+    Guid:
+      Data1: 376359684
+      Data2: 1082795316
+      Data3: 680961464
+      Data4: -1542755666
+    Path: event:/Industrial/Steam/Clicking
+  vel1: 0
 --- !u!1 &34664601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,7 +1500,9 @@ MonoBehaviour:
   - {fileID: 941063434}
   - {fileID: 1466631940}
   - {fileID: 1434569802}
+  - {fileID: 299978101}
   - {fileID: 1152163316}
+  - {fileID: 2107341189}
   - {fileID: 1192874039}
   - {fileID: 813438311}
   - {fileID: 281495749}
@@ -1691,11 +1781,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1590990479
-      Data2: 1334652406
-      Data3: 639819657
-      Data4: 1801709511
-    Path: event:/Industrial/Resonance/IndustryRobotArm 2
+      Data1: -1659167805
+      Data2: 1248206462
+      Data3: -1214275924
+      Data4: -2033098079
+    Path: event:/Industrial/Resonance/Robot Arm 2
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -1720,16 +1810,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 822881068}
   emitter: {fileID: 99346119}
   eventRef:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: -1659167805
+      Data2: 1248206462
+      Data3: -1214275924
+      Data4: -2033098079
+    Path: event:/Industrial/Resonance/Robot Arm 2
+  vel1: 0
 --- !u!1 &102914592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1778,11 +1869,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 816187937
-      Data2: 1229765521
-      Data3: 1272445321
-      Data4: -466562139
-    Path: event:/Industrial/Oculus/IndustryRobotArm
+      Data1: -95281335
+      Data2: 1299411513
+      Data3: 624013484
+      Data4: 587743552
+    Path: event:/Industrial/Oculus/Robot Arm 2
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -1807,16 +1898,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 822881068}
   emitter: {fileID: 102914594}
   eventRef:
     Guid:
-      Data1: 64199635
-      Data2: 1173621700
-      Data3: -448536926
-      Data4: 1078682904
-    Path: event:/Industrial/Non Spatialized/IndustryRobotArm
+      Data1: 138056738
+      Data2: 1124580359
+      Data3: 358454163
+      Data4: -2072818905
+    Path: event:/Industrial/Non Spatialized/Robot Arm 2
+  vel1: 0
 --- !u!1 &105675766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,9 +2108,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2074063802752080900, guid: 83c64686781f88d44b5fdf99d3d7abdd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1514174545}
-    - targetCorrespondingSourceObject: {fileID: 2074063802752080900, guid: 83c64686781f88d44b5fdf99d3d7abdd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1514174557}
   m_SourcePrefab: {fileID: 100100000, guid: 83c64686781f88d44b5fdf99d3d7abdd, type: 3}
 --- !u!114 &109553971 stripped
 MonoBehaviour:
@@ -2138,7 +2227,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &119109065
 Transform:
   m_ObjectHideFlags: 0
@@ -2152,7 +2241,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 741418921}
   - {fileID: 335164144}
   - {fileID: 575445703}
   m_Father: {fileID: 1788793279}
@@ -2173,6 +2261,94 @@ MonoBehaviour:
   - {fileID: 741418920}
   - {fileID: 335164143}
   - {fileID: 575445702}
+--- !u!1 &129323524
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 129323525}
+  - component: {fileID: 129323527}
+  - component: {fileID: 129323526}
+  m_Layer: 0
+  m_Name: Non Spatialized
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &129323525
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129323524}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000059604645, y: 0.000000059604645, z: -0.00000014156103, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000006, y: 0.010000007, z: 0.010000012}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 299978100}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &129323526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129323524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1029529103
+      Data2: 1157499566
+      Data3: 1735892879
+      Data4: -1340267732
+    Path: event:/Industrial/Non Spatialized/Robot Arm 3
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &129323527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129323524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 115151838}
+  emitter: {fileID: 129323526}
+  eventRef:
+    Guid:
+      Data1: -1029529103
+      Data2: 1157499566
+      Data3: 1735892879
+      Data4: -1340267732
+    Path: event:/Industrial/Non Spatialized/Robot Arm 3
+  vel1: 0
 --- !u!4 &140099829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1777264776857679738, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
@@ -3133,10 +3309,10 @@ RectTransform:
   - {fileID: 946259016}
   m_Father: {fileID: 1126117698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 607.3334, y: -12.5}
-  m_SizeDelta: {x: 10.915231, y: 25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &235768344
 MonoBehaviour:
@@ -3253,11 +3429,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1422497716
-      Data2: 1235590759
-      Data3: -872772444
-      Data4: -1157635266
-    Path: event:/Industrial/Steam/IndustryRobotArm 3
+      Data1: 378259307
+      Data2: 1275000017
+      Data3: 1131410831
+      Data4: -821901045
+    Path: event:/Industrial/Steam/Robot Arm 3
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -3283,15 +3459,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLooping: 1
   servoFrequencyMultiplier: 0.3
-  armJoint: {fileID: 248371774}
+  armJoint: {fileID: 1976180255}
   emitter: {fileID: 244900370}
   eventRef:
     Guid:
-      Data1: 1422497716
-      Data2: 1235590759
-      Data3: -872772444
-      Data4: -1157635266
-    Path: event:/Industrial/Steam/IndustryRobotArm 3
+      Data1: 378259307
+      Data2: 1275000017
+      Data3: 1131410831
+      Data4: -821901045
+    Path: event:/Industrial/Steam/Robot Arm 3
+  vel1: 0
 --- !u!1001 &245163782
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3626,10 +3803,10 @@ RectTransform:
   - {fileID: 1915574054}
   m_Father: {fileID: 1126117698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 206.08286, y: -12.5}
-  m_SizeDelta: {x: 10.915231, y: 25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &269631054
 MonoBehaviour:
@@ -3898,6 +4075,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cc1e8381b25814a4da5011b4a2c52b67, type: 3}
   m_PrefabInstance: {fileID: 617190462}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &299978099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 299978100}
+  - component: {fileID: 299978101}
+  m_Layer: 0
+  m_Name: JointAudio4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &299978100
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299978099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000010430811, y: 0.2586001, z: 0.000000283122, w: 0.96598446}
+  m_LocalPosition: {x: -0.0064317556, y: 0.0031461117, z: -0.00058413664}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 129323525}
+  - {fileID: 2112921461}
+  m_Father: {fileID: 716692676}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &299978101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299978099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b69d8bf4c58e642864a7d366a5d11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitters:
+  - {fileID: 129323524}
+  - {fileID: 2112921460}
 --- !u!1 &302644478
 GameObject:
   m_ObjectHideFlags: 0
@@ -4290,11 +4516,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: -1184104385
+      Data2: 1087312822
+      Data3: -268467032
+      Data4: 1151358329
+    Path: event:/Industrial/Oculus/Robot Arm 4
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -4319,16 +4545,105 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 1976180255}
+  servoFrequencyMultiplier: 0.2
+  armJoint: {fileID: 716692676}
   emitter: {fileID: 325234634}
   eventRef:
     Guid:
-      Data1: 814098163
-      Data2: 1144412154
-      Data3: -1675362902
-      Data4: 264403229
-    Path: event:/Industrial/Steam/IndustryRobotArm 2
+      Data1: -1184104385
+      Data2: 1087312822
+      Data3: -268467032
+      Data4: 1151358329
+    Path: event:/Industrial/Oculus/Robot Arm 4
+  vel1: 0
+--- !u!1 &325303129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325303130}
+  - component: {fileID: 325303132}
+  - component: {fileID: 325303131}
+  m_Layer: 0
+  m_Name: Oculus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &325303130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325303129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.5049458, y: 0.49997145, z: -0.4999798, w: -0.495054}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000011, y: 0.010000006, z: 0.010000019}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1769808599}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &325303131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325303129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1475237759
+      Data2: 1104685632
+      Data3: -1094151779
+      Data4: 1879488829
+    Path: event:/Industrial/Oculus/Clicking
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &325303132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325303129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 248371774}
+  emitter: {fileID: 325303131}
+  eventRef:
+    Guid:
+      Data1: 376359684
+      Data2: 1082795316
+      Data3: 680961464
+      Data4: -1542755666
+    Path: event:/Industrial/Steam/Clicking
+  vel1: 0
 --- !u!1 &330645645
 GameObject:
   m_ObjectHideFlags: 0
@@ -4534,6 +4849,7 @@ MonoBehaviour:
       Data3: -1675362902
       Data4: 264403229
     Path: event:/Industrial/Steam/IndustryRobotArm 2
+  vel1: 0
 --- !u!1 &355789055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 140487c94fe4a4a48859bcfad1af77df, type: 3}
@@ -4668,11 +4984,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 572752032
-      Data2: 1249738789
-      Data3: -1147680638
-      Data4: 2126025586
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm 3
+      Data1: 1304291782
+      Data2: 1280731391
+      Data3: -851766899
+      Data4: 912826452
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 3
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -4697,16 +5013,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 248371774}
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 1976180255}
   emitter: {fileID: 374024358}
   eventRef:
     Guid:
-      Data1: 572752032
-      Data2: 1249738789
-      Data3: -1147680638
-      Data4: 2126025586
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm 3
+      Data1: 1304291782
+      Data2: 1280731391
+      Data3: -851766899
+      Data4: 912826452
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 3
+  vel1: 0
 --- !u!1 &386377076
 GameObject:
   m_ObjectHideFlags: 0
@@ -4794,6 +5111,7 @@ MonoBehaviour:
       Data3: 680961464
       Data4: -1542755666
     Path: event:/Industrial/Steam/Clicking
+  vel1: 0
 --- !u!4 &388777102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4050403524429934, guid: 2791553a612d84e7c9f3c0a95308376f, type: 3}
@@ -5253,11 +5571,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 814098163
-      Data2: 1144412154
-      Data3: -1675362902
-      Data4: 264403229
-    Path: event:/Industrial/Steam/IndustryRobotArm 2
+      Data1: 1387214019
+      Data2: 1089967377
+      Data3: 1355181187
+      Data4: 830723787
+    Path: event:/Industrial/Steam/Robot Arm 4
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -5282,16 +5600,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 1976180255}
+  servoFrequencyMultiplier: 0.2
+  armJoint: {fileID: 716692676}
   emitter: {fileID: 398083011}
   eventRef:
     Guid:
-      Data1: 814098163
-      Data2: 1144412154
-      Data3: -1675362902
-      Data4: 264403229
-    Path: event:/Industrial/Steam/IndustryRobotArm 2
+      Data1: 1387214019
+      Data2: 1089967377
+      Data3: 1355181187
+      Data4: 830723787
+    Path: event:/Industrial/Steam/Robot Arm 4
+  vel1: 0
 --- !u!1 &404680645
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,6 +5698,7 @@ MonoBehaviour:
       Data3: -872772444
       Data4: -1157635266
     Path: event:/Industrial/Steam/IndustryRobotArm 3
+  vel1: 0
 --- !u!1 &406954141
 GameObject:
   m_ObjectHideFlags: 0
@@ -7363,6 +7683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnObject: {fileID: 6882965233414549672, guid: 6ce076ce569ada24aab6c60a24170ddc, type: 3}
+  SpawnObjectTutorial: {fileID: 6882965233414549672, guid: a0513ebb55ae4ca498c4c15e1a1812ea, type: 3}
   armController: {fileID: 1220370489}
   scanObject: {fileID: 1618887745}
   alertLights:
@@ -7378,6 +7699,7 @@ MonoBehaviour:
   armSpeed: 4
   isWorking: 0
   spatializerManager: {fileID: 720220561}
+  spatializerManagerTutorial: {fileID: 0}
 --- !u!1 &450537200 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 576893413614943762, guid: 1d167fdc8208b284eab33bef694276dd, type: 3}
@@ -7817,11 +8139,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: -95281335
+      Data2: 1299411513
+      Data3: 624013484
+      Data4: 587743552
+    Path: event:/Industrial/Oculus/Robot Arm 2
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -7846,16 +8168,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 822881068}
   emitter: {fileID: 476601641}
   eventRef:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: -95281335
+      Data2: 1299411513
+      Data3: 624013484
+      Data4: 587743552
+    Path: event:/Industrial/Oculus/Robot Arm 2
+  vel1: 0
 --- !u!1 &476963015
 GameObject:
   m_ObjectHideFlags: 0
@@ -7882,12 +8205,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476963015}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5049458, y: 0.49997145, z: -0.4999798, w: -0.495054}
+  m_LocalRotation: {x: 0.5049457, y: 0.4999715, z: -0.4999799, w: -0.49505392}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000011, y: 0.010000006, z: 0.010000019}
+  m_LocalScale: {x: 0.010000009, y: 0.010000006, z: 0.0100000175}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 777373214}
+  m_Father: {fileID: 1788793278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &476963017
 MonoBehaviour:
@@ -7904,11 +8227,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1435903011
-      Data2: 1119938803
-      Data3: 246365364
-      Data4: 1490968732
-    Path: event:/Industrial/Oculus/IndustryRobotArm 3
+      Data1: -252890444
+      Data2: 1258895503
+      Data3: -291841094
+      Data4: -1256024113
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 4
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -7938,11 +8261,12 @@ MonoBehaviour:
   emitter: {fileID: 476963017}
   eventRef:
     Guid:
-      Data1: 1422497716
-      Data2: 1235590759
-      Data3: -872772444
-      Data4: -1157635266
-    Path: event:/Industrial/Steam/IndustryRobotArm 3
+      Data1: -252890444
+      Data2: 1258895503
+      Data3: -291841094
+      Data4: -1256024113
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 4
+  vel1: 0
 --- !u!1 &483667409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2540750011800332578, guid: 426f22203dec74b46b7cfb98c20f67fa, type: 3}
@@ -8240,12 +8564,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505678160}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 724695534}
+  m_Father: {fileID: 1788793271}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &505678162
 MonoBehaviour:
@@ -8262,11 +8586,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 816187937
-      Data2: 1229765521
-      Data3: 1272445321
-      Data4: -466562139
-    Path: event:/Industrial/Oculus/IndustryRobotArm
+      Data1: 280763335
+      Data2: 1287316633
+      Data3: 270119586
+      Data4: -2136863453
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 1
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -8296,11 +8620,12 @@ MonoBehaviour:
   emitter: {fileID: 505678162}
   eventRef:
     Guid:
-      Data1: 1797845139
-      Data2: 1135420285
-      Data3: 1068667327
-      Data4: 1889332842
-    Path: event:/Industrial/Steam/IndustryRobotArm
+      Data1: 280763335
+      Data2: 1287316633
+      Data3: 270119586
+      Data4: -2136863453
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 1
+  vel1: 0
 --- !u!4 &508585048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6568566713016402886, guid: 1fd585f8769e1da4da1887487c24f064, type: 3}
@@ -9865,6 +10190,14 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4408905650240400674, guid: 1d167fdc8208b284eab33bef694276dd, type: 3}
+      propertyPath: maxY
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4408905650240400674, guid: 1d167fdc8208b284eab33bef694276dd, type: 3}
+      propertyPath: minY
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4572298183602100219, guid: 1d167fdc8208b284eab33bef694276dd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -10770,21 +11103,30 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4161234583902164199, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 1
       addedObject: {fileID: 1466631938}
-    - targetCorrespondingSourceObject: {fileID: -6134493021741854197, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -3320675649320288511, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 1266226422}
-    - targetCorrespondingSourceObject: {fileID: -6134493021741854197, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
-      insertIndex: 1
       addedObject: {fileID: 1434569801}
-    - targetCorrespondingSourceObject: {fileID: -202515217714271344, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 743728378}
-    - targetCorrespondingSourceObject: {fileID: -202515217714271344, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+    - targetCorrespondingSourceObject: {fileID: -3320675649320288511, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 1
+      addedObject: {fileID: 1266226422}
+    - targetCorrespondingSourceObject: {fileID: -2129355510847244969, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 2029737590}
+    - targetCorrespondingSourceObject: {fileID: -2129355510847244969, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 299978100}
+    - targetCorrespondingSourceObject: {fileID: -6134493021741854197, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 0
       addedObject: {fileID: 1152163315}
+    - targetCorrespondingSourceObject: {fileID: -6134493021741854197, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 743728378}
     - targetCorrespondingSourceObject: {fileID: -7282503460472496561, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 0
-      addedObject: {fileID: 1985334074}
+      addedObject: {fileID: 2107341188}
+    - targetCorrespondingSourceObject: {fileID: -7282503460472496561, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 1769808599}
     - targetCorrespondingSourceObject: {fileID: -7282503460472496561, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: -1
       addedObject: {fileID: 639715973}
@@ -11179,7 +11521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &572536940
 Transform:
   m_ObjectHideFlags: 0
@@ -11193,7 +11535,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1542441827}
   - {fileID: 814739479}
   - {fileID: 386377077}
   m_Father: {fileID: 1788793277}
@@ -11301,6 +11642,7 @@ MonoBehaviour:
       Data3: -1675362902
       Data4: 264403229
     Path: event:/Industrial/Steam/IndustryRobotArm 2
+  vel1: 0
 --- !u!1 &575813962
 GameObject:
   m_ObjectHideFlags: 0
@@ -11826,7 +12168,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &611443665
 Transform:
   m_ObjectHideFlags: 0
@@ -12265,11 +12607,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1797845139
-      Data2: 1135420285
-      Data3: 1068667327
-      Data4: 1889332842
-    Path: event:/Industrial/Steam/IndustryRobotArm
+      Data1: -27106066
+      Data2: 1310195907
+      Data3: -551044453
+      Data4: 2007156863
+    Path: event:/Industrial/Steam/Robot Arm 1
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -12299,11 +12641,12 @@ MonoBehaviour:
   emitter: {fileID: 627043556}
   eventRef:
     Guid:
-      Data1: 1797845139
-      Data2: 1135420285
-      Data3: 1068667327
-      Data4: 1889332842
-    Path: event:/Industrial/Steam/IndustryRobotArm
+      Data1: -27106066
+      Data2: 1310195907
+      Data3: -551044453
+      Data4: 2007156863
+    Path: event:/Industrial/Steam/Robot Arm 1
+  vel1: 0
 --- !u!4 &636191857 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3320675649320288511, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
@@ -12466,6 +12809,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 140487c94fe4a4a48859bcfad1af77df, type: 3}
   m_PrefabInstance: {fileID: 504977967}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &646125387 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 855327542051743683, guid: bf1de0e4b0d7f1a48a831382e8e42926, type: 3}
+  m_PrefabInstance: {fileID: 1386651881}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d438ec71cb1d5004f90150885ee58598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &653097142 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 140487c94fe4a4a48859bcfad1af77df, type: 3}
@@ -12620,11 +12974,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1723113017
-      Data2: 1156109724
-      Data3: -1895700303
-      Data4: -1208019783
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm 2
+      Data1: -252890444
+      Data2: 1258895503
+      Data3: -291841094
+      Data4: -1256024113
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 4
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -12649,16 +13003,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 1976180255}
+  servoFrequencyMultiplier: 0.2
+  armJoint: {fileID: 716692676}
   emitter: {fileID: 678024848}
   eventRef:
     Guid:
-      Data1: 1723113017
-      Data2: 1156109724
-      Data3: -1895700303
-      Data4: -1208019783
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm 2
+      Data1: -252890444
+      Data2: 1258895503
+      Data3: -291841094
+      Data4: -1256024113
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 4
+  vel1: 0
 --- !u!1001 &679225421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12952,7 +13307,7 @@ MonoBehaviour:
   rayObject: {fileID: 843285213}
   passthroughLayer: {fileID: 420812871}
   serverLog: {fileID: 2052227800}
-  startEvaluationState: 0
+  startEvaluationState: 2
   VRStuff:
   - {fileID: 911919572}
   - {fileID: 420812870}
@@ -13021,11 +13376,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1754135051
-      Data2: 1208163646
-      Data3: 1306790565
-      Data4: 1781964081
-    Path: event:/Industrial/Resonance/IndustryRobotArm 3
+      Data1: 675079340
+      Data2: 1227412478
+      Data3: -333459557
+      Data4: -2117243934
+    Path: event:/Industrial/Resonance/Robot Arm 3
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -13051,15 +13406,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLooping: 1
   servoFrequencyMultiplier: 0.3
-  armJoint: {fileID: 248371774}
+  armJoint: {fileID: 1976180255}
   emitter: {fileID: 697562454}
   eventRef:
     Guid:
-      Data1: 1422497716
-      Data2: 1235590759
-      Data3: -872772444
-      Data4: -1157635266
-    Path: event:/Industrial/Steam/IndustryRobotArm 3
+      Data1: 675079340
+      Data2: 1227412478
+      Data3: -333459557
+      Data4: -2117243934
+    Path: event:/Industrial/Resonance/Robot Arm 3
+  vel1: 0
 --- !u!1 &699465198
 GameObject:
   m_ObjectHideFlags: 0
@@ -13417,11 +13773,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -839773533
-      Data2: 1236794529
-      Data3: 769188008
-      Data4: 389737303
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm
+      Data1: 18734109
+      Data2: 1240037410
+      Data3: 1186202543
+      Data4: 153099098
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 2
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -13446,16 +13802,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 822881068}
   emitter: {fileID: 709020379}
   eventRef:
     Guid:
-      Data1: -839773533
-      Data2: 1236794529
-      Data3: 769188008
-      Data4: 389737303
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm
+      Data1: 18734109
+      Data2: 1240037410
+      Data3: 1186202543
+      Data4: 153099098
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 2
+  vel1: 0
 --- !u!4 &716692676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2129355510847244969, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
@@ -13589,8 +13946,9 @@ MonoBehaviour:
   - {fileID: 924172784}
   - {fileID: 1238508079}
   - {fileID: 1266226423}
+  - {fileID: 2029737591}
   - {fileID: 743728379}
-  - {fileID: 1985334073}
+  - {fileID: 1769808600}
   spatializedEvents:
   - eventRefs:
     - Guid:
@@ -13763,7 +14121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &724695534
 Transform:
   m_ObjectHideFlags: 0
@@ -13777,7 +14135,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 505678161}
   - {fileID: 1447770304}
   - {fileID: 969185414}
   m_Father: {fileID: 1788793271}
@@ -14291,12 +14648,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741418920}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.000000014901154, y: -0, z: -0.000000007450577, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.010000009, y: 0.010000007, z: 0.010000015}
+  m_LocalRotation: {x: -0.18851149, y: 0.3911201, z: -0.39111993, w: 0.81148857}
+  m_LocalPosition: {x: -0.00342531, y: 0.015497368, z: -0.00166931}
+  m_LocalScale: {x: 0.010000008, y: 0.010000004, z: 0.010000009}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 119109065}
+  m_Father: {fileID: 1788793282}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &741418922
 MonoBehaviour:
@@ -14313,11 +14670,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: 1304291782
+      Data2: 1280731391
+      Data3: -851766899
+      Data4: 912826452
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 3
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -14343,15 +14700,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLooping: 1
   servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 1788793278}
+  armJoint: {fileID: 1788793281}
   emitter: {fileID: 741418922}
   eventRef:
     Guid:
-      Data1: 814098163
-      Data2: 1144412154
-      Data3: -1675362902
-      Data4: 264403229
-    Path: event:/Industrial/Steam/IndustryRobotArm 2
+      Data1: 1304291782
+      Data2: 1280731391
+      Data3: -851766899
+      Data4: 912826452
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 3
+  vel1: 0
 --- !u!1 &743728377
 GameObject:
   m_ObjectHideFlags: 0
@@ -14363,7 +14721,7 @@ GameObject:
   - component: {fileID: 743728378}
   - component: {fileID: 743728379}
   m_Layer: 0
-  m_Name: JointAudio (2)
+  m_Name: JointAudio 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14377,15 +14735,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743728377}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.00000010430811, y: 0.00000011920926, z: -0.00000005960463, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2500001, y: 1.25, z: 1.2499999}
+  m_LocalRotation: {x: 0.2692945, y: 0.30050978, z: -0.08941467, w: 0.91059285}
+  m_LocalPosition: {x: -0.003886841, y: 0.017797446, z: 0.0028311184}
+  m_LocalScale: {x: 1.2499996, y: 1.2500002, z: 1.2499994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 797508418}
   - {fileID: 697562453}
   - {fileID: 244900369}
-  m_Father: {fileID: 1976180255}
+  m_Father: {fileID: 1113907572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &743728379
 MonoBehaviour:
@@ -14633,7 +14991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &777373214
 Transform:
   m_ObjectHideFlags: 0
@@ -14647,7 +15005,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 476963016}
   - {fileID: 1581440171}
   - {fileID: 404680646}
   m_Father: {fileID: 1788793278}
@@ -14716,11 +15073,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1435903011
-      Data2: 1119938803
-      Data3: 246365364
-      Data4: 1490968732
-    Path: event:/Industrial/Oculus/IndustryRobotArm 3
+      Data1: 833220499
+      Data2: 1093392856
+      Data3: 1042011322
+      Data4: 1696678010
+    Path: event:/Industrial/Oculus/Robot Arm 3
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -14746,15 +15103,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLooping: 1
   servoFrequencyMultiplier: 0.3
-  armJoint: {fileID: 248371774}
+  armJoint: {fileID: 1976180255}
   emitter: {fileID: 797508419}
   eventRef:
     Guid:
-      Data1: 1422497716
-      Data2: 1235590759
-      Data3: -872772444
-      Data4: -1157635266
-    Path: event:/Industrial/Steam/IndustryRobotArm 3
+      Data1: 833220499
+      Data2: 1093392856
+      Data3: 1042011322
+      Data4: 1696678010
+    Path: event:/Industrial/Oculus/Robot Arm 3
+  vel1: 0
 --- !u!1001 &810167208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15042,6 +15400,7 @@ MonoBehaviour:
       Data3: 680961464
       Data4: -1542755666
     Path: event:/Industrial/Steam/Clicking
+  vel1: 0
 --- !u!1 &822649788
 GameObject:
   m_ObjectHideFlags: 0
@@ -15297,11 +15656,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -839773533
-      Data2: 1236794529
-      Data3: 769188008
-      Data4: 389737303
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm
+      Data1: 280763335
+      Data2: 1287316633
+      Data3: 270119586
+      Data4: -2136863453
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 1
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -15326,16 +15685,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 813926905}
   emitter: {fileID: 852300804}
   eventRef:
     Guid:
-      Data1: -839773533
-      Data2: 1236794529
-      Data3: 769188008
-      Data4: 389737303
-    Path: event:/Industrial/FMOD Spatializer/IndustryRobotArm
+      Data1: 280763335
+      Data2: 1287316633
+      Data3: 270119586
+      Data4: -2136863453
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 1
+  vel1: 0
 --- !u!1 &860996680
 GameObject:
   m_ObjectHideFlags: 0
@@ -16424,6 +16784,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6568449658917674788, guid: 1fd585f8769e1da4da1887487c24f064, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1329009548}
+    - targetCorrespondingSourceObject: {fileID: 6568449658917674788, guid: 1fd585f8769e1da4da1887487c24f064, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1329009551}
     - targetCorrespondingSourceObject: {fileID: 6568449658917674790, guid: 1fd585f8769e1da4da1887487c24f064, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1138316700}
@@ -16599,6 +16962,94 @@ Transform:
   - {fileID: 1085446966}
   m_Father: {fileID: 2118848511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &932215213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932215214}
+  - component: {fileID: 932215216}
+  - component: {fileID: 932215215}
+  m_Layer: 0
+  m_Name: Steam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &932215214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932215213}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000014901154, y: -0, z: -0.000000007450577, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000009, y: 0.010000007, z: 0.010000015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029737590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932215215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932215213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 378259307
+      Data2: 1275000017
+      Data3: 1131410831
+      Data4: -821901045
+    Path: event:/Industrial/Steam/Robot Arm 3
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &932215216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932215213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 115151838}
+  emitter: {fileID: 932215215}
+  eventRef:
+    Guid:
+      Data1: 378259307
+      Data2: 1275000017
+      Data3: 1131410831
+      Data4: -821901045
+    Path: event:/Industrial/Steam/Robot Arm 3
+  vel1: 0
 --- !u!1001 &933549811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17306,6 +17757,7 @@ MonoBehaviour:
       Data3: 1068667327
       Data4: 1889332842
     Path: event:/Industrial/Steam/IndustryRobotArm
+  vel1: 0
 --- !u!1 &972681689
 GameObject:
   m_ObjectHideFlags: 0
@@ -17631,93 +18083,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 28600284907786765, guid: 6cba225539346664093746b2c28706b1, type: 3}
   n: 10
---- !u!1 &991076435
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 991076436}
-  - component: {fileID: 991076438}
-  - component: {fileID: 991076437}
-  m_Layer: 0
-  m_Name: Resonance
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &991076436
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991076435}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.5007068, y: 0.50008386, z: -0.49991575, w: -0.49929255}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01000001, y: 0.010000013, z: 0.010000015}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1985334074}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &991076437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991076435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1614221627
-      Data2: 1215752919
-      Data3: 360309400
-      Data4: 1552664959
-    Path: event:/Industrial/Resonance/Clicking
-  Event: 
-  PlayEvent: 11
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &991076438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991076435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLooping: 0
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 0}
-  emitter: {fileID: 991076437}
-  eventRef:
-    Guid:
-      Data1: 376359684
-      Data2: 1082795316
-      Data3: 680961464
-      Data4: -1542755666
-    Path: event:/Industrial/Steam/Clicking
 --- !u!114 &995074919 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1924836294156550675, guid: 1d167fdc8208b284eab33bef694276dd, type: 3}
@@ -17984,6 +18349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3367403223128232, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8785701206324742, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -18650,7 +19019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5969326079083155890, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6064156816194193663, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18686,6 +19055,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6683956099527602686, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
       propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862288218352901133, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7040148489640282308, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
@@ -20109,10 +20482,10 @@ RectTransform:
   - {fileID: 822649789}
   m_Father: {fileID: 1126117698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 807.9586, y: -12.5}
-  m_SizeDelta: {x: 10.915231, y: 25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031237450
 MonoBehaviour:
@@ -21574,7 +21947,7 @@ GameObject:
   - component: {fileID: 1152163315}
   - component: {fileID: 1152163316}
   m_Layer: 0
-  m_Name: JointAudio (2)
+  m_Name: JointAudio 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21588,14 +21961,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1152163314}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.26929477, y: 0.30050975, z: -0.08941413, w: 0.91059285}
+  m_LocalPosition: {x: -0.003886841, y: 0.017797446, z: 0.0028311184}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1417049509}
   - {fileID: 374024357}
-  m_Father: {fileID: 1976180255}
+  m_Father: {fileID: 1113907572}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1152163316
 MonoBehaviour:
@@ -23287,8 +23660,8 @@ MonoBehaviour:
       Active: 1
       Transform: {fileID: 822881068}
       Joint: 2
-      LowerLimit: -57.52066
-      UpperLimit: 59.917732
+      LowerLimit: -9.801361
+      UpperLimit: 64.83002
       ZeroPosition: {x: 0.000000033508986, y: 0.0068739187, z: 0.000000007878989}
       ZeroRotation: {x: -0.5266686, y: 0.35629752, z: -0.46855864, w: 0.61329037}
       Level: 0
@@ -23309,8 +23682,8 @@ MonoBehaviour:
       Active: 1
       Transform: {fileID: 716692676}
       Joint: 2
-      LowerLimit: 0
-      UpperLimit: 0
+      LowerLimit: -27.368422
+      UpperLimit: 28.070177
       ZeroPosition: {x: 0.0000000037252903, y: 0.009407445, z: 6.705522e-10}
       ZeroRotation: {x: -0.28324315, y: 0.1679647, z: -0.32906708, w: 0.8850289}
       Level: 0
@@ -23321,7 +23694,7 @@ MonoBehaviour:
       Transform: {fileID: 115151838}
       Joint: 2
       LowerLimit: -180
-      UpperLimit: 179.99997
+      UpperLimit: 19.99997
       ZeroPosition: {x: -0.0043517086, y: 0.0031461208, z: 0.0030223432}
       ZeroRotation: {x: -0.14191197, y: -0.52916944, z: 0.6927202, w: 0.4690197}
       Level: 0
@@ -23342,8 +23715,8 @@ MonoBehaviour:
       Active: 1
       Transform: {fileID: 1976180255}
       Joint: 1
-      LowerLimit: -16.859505
-      UpperLimit: 34.710743
+      LowerLimit: -12.648978
+      UpperLimit: 60.67565
       ZeroPosition: {x: -0.0038868424, y: 0.017797435, z: 0.0028311147}
       ZeroRotation: {x: 0.26929483, y: 0.30050963, z: -0.0894142, w: 0.91059285}
       Level: 0
@@ -23402,7 +23775,7 @@ MonoBehaviour:
       Weight: 1
       SolvePosition: 1
       SolveRotation: 0
-  SelectedBone: 9
+  SelectedBone: 10
   SelectedPreview: {x: 0, y: 0, z: 0}
   ShowPreview: 0
 --- !u!114 &1220370489
@@ -23776,7 +24149,7 @@ GameObject:
   - component: {fileID: 1238508079}
   - component: {fileID: 1238508077}
   m_Layer: 0
-  m_Name: JointAudio (1)
+  m_Name: JointAudio 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23854,6 +24227,7 @@ MonoBehaviour:
       Data3: -640845653
       Data4: 91562057
     Path: event:/Industrial/Oculus/IndustryRobotArm 2
+  vel1: 0
 --- !u!114 &1238508079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24122,10 +24496,10 @@ RectTransform:
   - {fileID: 302644479}
   m_Father: {fileID: 1126117698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1209.2091, y: -12.5}
-  m_SizeDelta: {x: 10.915231, y: 25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253628270
 MonoBehaviour:
@@ -24299,7 +24673,7 @@ GameObject:
   - component: {fileID: 1266226422}
   - component: {fileID: 1266226423}
   m_Layer: 0
-  m_Name: JointAudio (1)
+  m_Name: JointAudio 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24313,15 +24687,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266226421}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22094049, y: 0.3959947, z: -0.42811438, w: -0.7817235}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2500002, y: 1.25, z: 1.25}
+  m_LocalRotation: {x: -0.18851155, y: 0.3911199, z: -0.3911201, w: 0.8114886}
+  m_LocalPosition: {x: -0.0034253127, y: 0.0154973725, z: -0.001669311}
+  m_LocalScale: {x: 1.2499999, y: 1.2499998, z: 1.2499994}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 325234633}
   - {fileID: 1304248894}
   - {fileID: 398083010}
-  m_Father: {fileID: 1113907572}
+  m_Father: {fileID: 636191857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1266226423
 MonoBehaviour:
@@ -24523,11 +24897,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1590990479
-      Data2: 1334652406
-      Data3: 639819657
-      Data4: 1801709511
-    Path: event:/Industrial/Resonance/IndustryRobotArm 2
+      Data1: 1118675199
+      Data2: 1263149370
+      Data3: 1131711388
+      Data4: 1693190722
+    Path: event:/Industrial/Resonance/Robot Arm 4
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -24552,16 +24926,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 1976180255}
+  servoFrequencyMultiplier: 0.2
+  armJoint: {fileID: 716692676}
   emitter: {fileID: 1304248895}
   eventRef:
     Guid:
-      Data1: 814098163
-      Data2: 1144412154
-      Data3: -1675362902
-      Data4: 264403229
-    Path: event:/Industrial/Steam/IndustryRobotArm 2
+      Data1: 1118675199
+      Data2: 1263149370
+      Data3: 1131711388
+      Data4: 1693190722
+    Path: event:/Industrial/Resonance/Robot Arm 4
+  vel1: 0
 --- !u!1 &1305499106
 GameObject:
   m_ObjectHideFlags: 0
@@ -24610,11 +24985,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -354135365
-      Data2: 1288573893
-      Data3: 1677228931
-      Data4: 1009749205
-    Path: event:/Industrial/Non Spatialized/IndustryRobotArm 2
+      Data1: -1456557100
+      Data2: 1310490808
+      Data3: 312817331
+      Data4: 42734093
+    Path: event:/Industrial/Non Spatialized/Robot Arm 4
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -24639,16 +25014,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 1976180255}
+  servoFrequencyMultiplier: 0.2
+  armJoint: {fileID: 716692676}
   emitter: {fileID: 1305499108}
   eventRef:
     Guid:
-      Data1: -354135365
-      Data2: 1288573893
-      Data3: 1677228931
-      Data4: 1009749205
-    Path: event:/Industrial/Non Spatialized/IndustryRobotArm 2
+      Data1: -1456557100
+      Data2: 1310490808
+      Data3: 312817331
+      Data4: 42734093
+    Path: event:/Industrial/Non Spatialized/Robot Arm 4
+  vel1: 0
 --- !u!4 &1305679770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6572867060189226110, guid: 1fd585f8769e1da4da1887487c24f064, type: 3}
@@ -24741,6 +25117,7 @@ MonoBehaviour:
       Data3: -640845653
       Data4: 91562057
     Path: event:/Industrial/Oculus/IndustryRobotArm 2
+  vel1: 0
 --- !u!1 &1317451886
 GameObject:
   m_ObjectHideFlags: 0
@@ -26060,6 +26437,94 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &1323453204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1323453205}
+  - component: {fileID: 1323453207}
+  - component: {fileID: 1323453206}
+  m_Layer: 0
+  m_Name: Resonance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1323453205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323453204}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000014901154, y: -0, z: -0.000000007450577, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000009, y: 0.010000007, z: 0.010000015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029737590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323453206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323453204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 675079340
+      Data2: 1227412478
+      Data3: -333459557
+      Data4: -2117243934
+    Path: event:/Industrial/Resonance/Robot Arm 3
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1323453207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323453204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 115151838}
+  emitter: {fileID: 1323453206}
+  eventRef:
+    Guid:
+      Data1: 675079340
+      Data2: 1227412478
+      Data3: -333459557
+      Data4: -2117243934
+    Path: event:/Industrial/Resonance/Robot Arm 3
+  vel1: 0
 --- !u!1 &1327274450
 GameObject:
   m_ObjectHideFlags: 0
@@ -26143,10 +26608,10 @@ RectTransform:
   - {fileID: 210445564}
   m_Father: {fileID: 1126117698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5.4576154, y: -12.5}
-  m_SizeDelta: {x: 10.915231, y: 25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328521866
 MonoBehaviour:
@@ -26223,6 +26688,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9f8414cbeb19634db5089248358602b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1329009551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911919569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd9ebf1401392e4bbd47fea32f47642, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBakedListener: {fileID: 0}
+  applyReverb: 0
+  reverbType: 0
+  useAllProbeBatches: 0
+  probeBatches: []
+  mTotalDataSize: 0
+  mProbeDataSizes: 
+  mIdentifier:
+    type: 0
+    variation: 0
+    endpointInfluence:
+      center:
+        x: 0
+        y: 0
+        z: 0
+      radius: 0
+  mProbeBatchesUsed: []
 --- !u!1 &1334256989
 GameObject:
   m_ObjectHideFlags: 0
@@ -26906,7 +27400,7 @@ PrefabInstance:
       objectReference: {fileID: 696520115}
     - target: {fileID: 4291108691994380790, guid: bf1de0e4b0d7f1a48a831382e8e42926, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: StartNewSession
+      value: StartNewScene
       objectReference: {fileID: 0}
     - target: {fileID: 5061602085004359369, guid: bf1de0e4b0d7f1a48a831382e8e42926, type: 3}
       propertyPath: m_SortingOrder
@@ -27227,11 +27721,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -1103890307
-      Data2: 1281964629
-      Data3: -1897652812
-      Data4: 421982619
-    Path: event:/Industrial/Non Spatialized/IndustryRobotArm 3
+      Data1: -1029529103
+      Data2: 1157499566
+      Data3: 1735892879
+      Data4: -1340267732
+    Path: event:/Industrial/Non Spatialized/Robot Arm 3
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -27256,16 +27750,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 248371774}
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 1976180255}
   emitter: {fileID: 1417049510}
   eventRef:
     Guid:
-      Data1: -1103890307
-      Data2: 1281964629
-      Data3: -1897652812
-      Data4: 421982619
-    Path: event:/Industrial/Non Spatialized/IndustryRobotArm 3
+      Data1: -1029529103
+      Data2: 1157499566
+      Data3: 1735892879
+      Data4: -1340267732
+    Path: event:/Industrial/Non Spatialized/Robot Arm 3
+  vel1: 0
 --- !u!1 &1419031601
 GameObject:
   m_ObjectHideFlags: 0
@@ -27639,7 +28134,7 @@ GameObject:
   - component: {fileID: 1434569801}
   - component: {fileID: 1434569802}
   m_Layer: 0
-  m_Name: JointAudio (1)
+  m_Name: JointAudio 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27653,14 +28148,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434569800}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22094049, y: 0.3959947, z: -0.42811438, w: -0.7817235}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.18851155, y: 0.3911199, z: -0.3911201, w: 0.8114886}
+  m_LocalPosition: {x: -0.0034253127, y: 0.0154973725, z: -0.001669311}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1305499107}
   - {fileID: 678024847}
-  m_Father: {fileID: 1113907572}
+  m_Father: {fileID: 636191857}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1434569802
 MonoBehaviour:
@@ -28099,6 +28594,7 @@ MonoBehaviour:
       Data3: 1068667327
       Data4: 1889332842
     Path: event:/Industrial/Steam/IndustryRobotArm
+  vel1: 0
 --- !u!1001 &1450002959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28337,7 +28833,7 @@ GameObject:
   - component: {fileID: 1466631940}
   - component: {fileID: 1466631939}
   m_Layer: 0
-  m_Name: JointAudio (1)
+  m_Name: JointAudio 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28429,6 +28925,7 @@ MonoBehaviour:
       Data3: -640845653
       Data4: 91562057
     Path: event:/Industrial/Oculus/IndustryRobotArm 2
+  vel1: 0
 --- !u!4 &1475836688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bfe119b5fd0bdad4a935d9771f0e3fc8, type: 3}
@@ -28863,35 +29360,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
 --- !u!114 &1514174551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514174539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd9ebf1401392e4bbd47fea32f47642, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentBakedListener: {fileID: 0}
-  applyReverb: 0
-  reverbType: 0
-  useAllProbeBatches: 0
-  probeBatches: []
-  mTotalDataSize: 0
-  mProbeDataSizes: 
-  mIdentifier:
-    type: 0
-    variation: 0
-    endpointInfluence:
-      center:
-        x: 0
-        y: 0
-        z: 0
-      radius: 0
-  mProbeBatchesUsed: []
---- !u!114 &1514174557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -29385,12 +29853,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542441826}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5007068, y: 0.50008386, z: -0.49991575, w: -0.49929255}
+  m_LocalRotation: {x: 0.5007068, y: 0.5000839, z: -0.49991575, w: -0.4992926}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01000001, y: 0.010000013, z: 0.010000015}
+  m_LocalScale: {x: 0.010000009, y: 0.01000001, z: 0.010000013}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 572536940}
+  m_Father: {fileID: 1788793277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1542441828
 MonoBehaviour:
@@ -29407,11 +29875,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1475237759
-      Data2: 1104685632
-      Data3: -1094151779
-      Data4: 1879488829
-    Path: event:/Industrial/Oculus/Clicking
+      Data1: -1355213323
+      Data2: 1097985594
+      Data3: 2082931100
+      Data4: -1337423702
+    Path: event:/Industrial/FMOD Spatializer/Clicking
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -29435,17 +29903,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLooping: 0
+  isLooping: 1
   servoFrequencyMultiplier: 0.5
   armJoint: {fileID: 1788793276}
   emitter: {fileID: 1542441828}
   eventRef:
     Guid:
-      Data1: 376359684
-      Data2: 1082795316
-      Data3: 680961464
-      Data4: -1542755666
-    Path: event:/Industrial/Steam/Clicking
+      Data1: -1355213323
+      Data2: 1097985594
+      Data3: 2082931100
+      Data4: -1337423702
+    Path: event:/Industrial/FMOD Spatializer/Clicking
+  vel1: 0
 --- !u!1 &1545862880
 GameObject:
   m_ObjectHideFlags: 0
@@ -30219,6 +30688,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3699055733115277276, guid: 1dea4ee652305c94baf5afed83edb243, type: 3}
+      propertyPath: m_text
+      value: Every round a random location is chosen to play the sound from. Your
+        task is to point in the direction of the source using your <color=#FF0000>Eyes.</color>
+      objectReference: {fileID: 0}
     - target: {fileID: 3790347966556553723, guid: 1dea4ee652305c94baf5afed83edb243, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 3
@@ -30936,6 +31410,7 @@ MonoBehaviour:
       Data3: -872772444
       Data4: -1157635266
     Path: event:/Industrial/Steam/IndustryRobotArm 3
+  vel1: 0
 --- !u!1 &1587405659
 GameObject:
   m_ObjectHideFlags: 0
@@ -31023,6 +31498,7 @@ MonoBehaviour:
       Data3: -640845653
       Data4: 91562057
     Path: event:/Industrial/Oculus/IndustryRobotArm 2
+  vel1: 0
 --- !u!4 &1591341233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2441881036030913527, guid: 60a6ab372c4ead14b82adf0d5f389745, type: 3}
@@ -31334,11 +31810,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 816187937
-      Data2: 1229765521
-      Data3: 1272445321
-      Data4: -466562139
-    Path: event:/Industrial/Oculus/IndustryRobotArm
+      Data1: 247076724
+      Data2: 1090828273
+      Data3: 1236817078
+      Data4: -1363952843
+    Path: event:/Industrial/Oculus/Robot Arm 1
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -31368,11 +31844,12 @@ MonoBehaviour:
   emitter: {fileID: 1605779111}
   eventRef:
     Guid:
-      Data1: 1797845139
-      Data2: 1135420285
-      Data3: 1068667327
-      Data4: 1889332842
-    Path: event:/Industrial/Steam/IndustryRobotArm
+      Data1: 247076724
+      Data2: 1090828273
+      Data3: 1236817078
+      Data4: -1363952843
+    Path: event:/Industrial/Oculus/Robot Arm 1
+  vel1: 0
 --- !u!1 &1611839125
 GameObject:
   m_ObjectHideFlags: 0
@@ -32152,6 +32629,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4840875297577599818, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
   m_PrefabInstance: {fileID: 1021240879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1667896766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667896767}
+  - component: {fileID: 1667896769}
+  - component: {fileID: 1667896768}
+  m_Layer: 0
+  m_Name: Oculus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667896767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667896766}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000014901154, y: -0, z: -0.000000007450577, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000009, y: 0.010000007, z: 0.010000015}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029737590}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1667896768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667896766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 833220499
+      Data2: 1093392856
+      Data3: 1042011322
+      Data4: 1696678010
+    Path: event:/Industrial/Oculus/Robot Arm 3
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1667896769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667896766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 115151838}
+  emitter: {fileID: 1667896768}
+  eventRef:
+    Guid:
+      Data1: 833220499
+      Data2: 1093392856
+      Data3: 1042011322
+      Data4: 1696678010
+    Path: event:/Industrial/Oculus/Robot Arm 3
+  vel1: 0
 --- !u!1 &1676343517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6275210443843268121, guid: 1a0466d323790c54ab6e8501a74ce61f, type: 3}
@@ -32477,12 +33042,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709850173}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.0000000011641532, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.011137797, y: 0.10494631, z: -0.10494656, w: -0.9888622}
+  m_LocalPosition: {x: -0.000980005, y: 0.005789996, z: -0.0013700011}
+  m_LocalScale: {x: 0.0100000035, y: 0.010000003, z: 0.010000002}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1818367864}
+  m_Father: {fileID: 1788793284}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1709850175
 MonoBehaviour:
@@ -32499,11 +33064,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: 18734109
+      Data2: 1240037410
+      Data3: 1186202543
+      Data4: 153099098
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 2
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -32528,16 +33093,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 1788793283}
   emitter: {fileID: 1709850175}
   eventRef:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: 18734109
+      Data2: 1240037410
+      Data3: 1186202543
+      Data4: 153099098
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 2
+  vel1: 0
 --- !u!1001 &1716732070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33296,6 +33862,94 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4624458512916416172, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
   m_PrefabInstance: {fileID: 1021240879}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1762817443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762817444}
+  - component: {fileID: 1762817446}
+  - component: {fileID: 1762817445}
+  m_Layer: 0
+  m_Name: Spatialized
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1762817444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762817443}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.50494576, y: 0.49997154, z: -0.49997976, w: -0.49505404}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01000001, y: 0.010000004, z: 0.010000016}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2107341188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1762817445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762817443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1355213323
+      Data2: 1097985594
+      Data3: 2082931100
+      Data4: -1337423702
+    Path: event:/Industrial/FMOD Spatializer/Clicking
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1762817446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762817443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.5
+  armJoint: {fileID: 248371774}
+  emitter: {fileID: 1762817445}
+  eventRef:
+    Guid:
+      Data1: -1355213323
+      Data2: 1097985594
+      Data3: 2082931100
+      Data4: -1337423702
+    Path: event:/Industrial/FMOD Spatializer/Clicking
+  vel1: 0
 --- !u!1 &1764896601
 GameObject:
   m_ObjectHideFlags: 0
@@ -33397,6 +34051,57 @@ ReflectionProbe:
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
+--- !u!1 &1769808598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769808599}
+  - component: {fileID: 1769808600}
+  m_Layer: 0
+  m_Name: JointAudio 6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1769808599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769808598}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.011426462, y: -0.004510074, z: -0.00016437935, w: 0.9999246}
+  m_LocalPosition: {x: 0, y: -0.011658423, z: 0.00030925762}
+  m_LocalScale: {x: 1.2500014, y: 1.2500008, z: 1.2500007}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 325303130}
+  - {fileID: 1991082301}
+  - {fileID: 33578496}
+  m_Father: {fileID: 1259339710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1769808600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769808598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b69d8bf4c58e642864a7d366a5d11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitters:
+  - {fileID: 325303129}
+  - {fileID: 1991082300}
+  - {fileID: 33578495}
 --- !u!1 &1774712097
 GameObject:
   m_ObjectHideFlags: 0
@@ -33792,18 +34497,33 @@ PrefabInstance:
       addedObject: {fileID: 1357308320}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 1
+      addedObject: {fileID: 505678161}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 2
       addedObject: {fileID: 724695534}
     - targetCorrespondingSourceObject: {fileID: 4161234583902164199, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 0
+      addedObject: {fileID: 1709850174}
+    - targetCorrespondingSourceObject: {fileID: 4161234583902164199, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 1
       addedObject: {fileID: 1818367864}
+    - targetCorrespondingSourceObject: {fileID: -3320675649320288511, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 741418921}
     - targetCorrespondingSourceObject: {fileID: -6134493021741854197, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 0
       addedObject: {fileID: 119109065}
     - targetCorrespondingSourceObject: {fileID: -202515217714271344, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 0
+      addedObject: {fileID: 476963016}
+    - targetCorrespondingSourceObject: {fileID: -202515217714271344, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 1
       addedObject: {fileID: 777373214}
     - targetCorrespondingSourceObject: {fileID: 4491446752479448319, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: 0
+      addedObject: {fileID: 1542441827}
+    - targetCorrespondingSourceObject: {fileID: 4491446752479448319, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
+      insertIndex: 1
       addedObject: {fileID: 572536940}
     - targetCorrespondingSourceObject: {fileID: -7282503460472496561, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
       insertIndex: -1
@@ -33866,7 +34586,7 @@ MonoBehaviour:
       UpperLimit: 0
       ZeroPosition: {x: 2.069009, y: -0.169, z: -5.457}
       ZeroRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-      Level: 0
+      Level: 1
       Childs: 01000000
       Objectives: 00000000
     - Index: 1
@@ -33877,7 +34597,7 @@ MonoBehaviour:
       UpperLimit: 180
       ZeroPosition: {x: -0, y: 0, z: 0}
       ZeroRotation: {x: -0.7071067, y: 5.302452e-33, z: 5.302451e-33, w: 0.7071068}
-      Level: 0
+      Level: 1
       Childs: 02000000
       Objectives: 00000000
     - Index: 2
@@ -33888,7 +34608,7 @@ MonoBehaviour:
       UpperLimit: 0
       ZeroPosition: {x: 1.7810466e-16, y: -0.0011323494, z: -0.000000038146972}
       ZeroRotation: {x: 0.00000040266096, y: 0.7071068, z: 0.7071067, w: 0.00000035059475}
-      Level: 0
+      Level: 1
       Childs: 03000000
       Objectives: 00000000
     - Index: 3
@@ -33899,18 +34619,18 @@ MonoBehaviour:
       UpperLimit: 0
       ZeroPosition: {x: 0.0000000010983369, y: 0.0040474636, z: -4.027944e-10}
       ZeroRotation: {x: -0.10494653, y: 0.98886216, z: -0.011137737, w: -0.10494684}
-      Level: 0
+      Level: 1
       Childs: 04000000
       Objectives: 00000000
     - Index: 4
       Active: 1
       Transform: {fileID: 1788793283}
       Joint: 2
-      LowerLimit: -57.52066
-      UpperLimit: 35.702484
+      LowerLimit: -4.2105265
+      UpperLimit: 73.68421
       ZeroPosition: {x: 0.000000033508986, y: 0.0068739187, z: 0.000000007878989}
       ZeroRotation: {x: -0.5266686, y: 0.35629752, z: -0.46855864, w: 0.61329037}
-      Level: 0
+      Level: 1
       Childs: 05000000
       Objectives: 00000000
     - Index: 5
@@ -33921,18 +34641,18 @@ MonoBehaviour:
       UpperLimit: 0
       ZeroPosition: {x: -9.813811e-10, y: 0.0005962628, z: -2.4971086e-10}
       ZeroRotation: {x: -0.5223438, y: 0.71018547, z: -0.47010878, w: 0.042323075}
-      Level: 0
+      Level: 1
       Childs: 06000000
       Objectives: 00000000
     - Index: 6
       Active: 1
       Transform: {fileID: 1788793281}
       Joint: 2
-      LowerLimit: 0
-      UpperLimit: 0
+      LowerLimit: -17.543858
+      UpperLimit: 16.140354
       ZeroPosition: {x: 0.0000000037252903, y: 0.009407445, z: 6.705522e-10}
       ZeroRotation: {x: -0.28324315, y: 0.1679647, z: -0.32906708, w: 0.8850289}
-      Level: 0
+      Level: 1
       Childs: 07000000
       Objectives: 00000000
     - Index: 7
@@ -33940,10 +34660,10 @@ MonoBehaviour:
       Transform: {fileID: 1788793280}
       Joint: 2
       LowerLimit: -180
-      UpperLimit: 179.99997
+      UpperLimit: 36.491226
       ZeroPosition: {x: -0.0043517086, y: 0.0031461208, z: 0.0030223432}
       ZeroRotation: {x: -0.14191197, y: -0.52916944, z: 0.6927202, w: 0.4690197}
-      Level: 0
+      Level: 2
       Childs: 08000000
       Objectives: 00000000
     - Index: 8
@@ -33954,29 +34674,29 @@ MonoBehaviour:
       UpperLimit: 0
       ZeroPosition: {x: -1.5349443e-10, y: 0.0041633276, z: -3.0915145e-10}
       ZeroRotation: {x: -0.29675078, y: -0.61527354, z: 0.6443001, w: 0.34388208}
-      Level: 0
+      Level: 2
       Childs: 09000000
       Objectives: 00000000
     - Index: 9
       Active: 1
       Transform: {fileID: 1788793278}
       Joint: 1
-      LowerLimit: -16.859505
-      UpperLimit: 34.710743
+      LowerLimit: -68.08758
+      UpperLimit: 7.3423233
       ZeroPosition: {x: -0.0038868424, y: 0.017797435, z: 0.0028311147}
       ZeroRotation: {x: 0.26929483, y: 0.30050963, z: -0.0894142, w: 0.91059285}
-      Level: 0
+      Level: 2
       Childs: 0a000000
       Objectives: 00000000
     - Index: 10
       Active: 1
       Transform: {fileID: 1788793277}
       Joint: 1
-      LowerLimit: -19.83471
-      UpperLimit: 87.27272
+      LowerLimit: -17.729439
+      UpperLimit: 91.483246
       ZeroPosition: {x: 0.000000014587349, y: 0.0067163315, z: -0.000000001861481}
       ZeroRotation: {x: -0.0043269903, y: -0.004150397, z: -0.00002502912, w: 0.99998206}
-      Level: 0
+      Level: 3
       Childs: 0b000000
       Objectives: 00000000
     - Index: 11
@@ -33987,7 +34707,7 @@ MonoBehaviour:
       UpperLimit: 23.801647
       ZeroPosition: {x: -3.2969183e-11, y: 0.0049463203, z: 0.0000000015750993}
       ZeroRotation: {x: 0.015753653, y: 0.008659889, z: 0.00016141073, w: 0.9998384}
-      Level: 0
+      Level: 4
       Childs: 0c000000
       Objectives: 00000000
     - Index: 12
@@ -33998,7 +34718,7 @@ MonoBehaviour:
       UpperLimit: 0
       ZeroPosition: {x: 1.3969838e-10, y: 0.0014402699, z: -0.0000000018067657}
       ZeroRotation: {x: 0.0000008193179, y: -0.0000006930549, z: -0.00000019160679, w: 1}
-      Level: 0
+      Level: 4
       Childs: 0d000000
       Objectives: 00000000
     - Index: 13
@@ -34009,7 +34729,7 @@ MonoBehaviour:
       UpperLimit: 0
       ZeroPosition: {x: 1.1408701e-10, y: 0.0014402696, z: -0.000000003282912}
       ZeroRotation: {x: -0.0000008340608, y: 0.000000704596, z: 0.0000003981972, w: 1}
-      Level: 0
+      Level: 4
       Childs: 
       Objectives: 00000000
     Objectives:
@@ -34021,7 +34741,7 @@ MonoBehaviour:
       Weight: 1
       SolvePosition: 1
       SolveRotation: 0
-  SelectedBone: 10
+  SelectedBone: 7
   SelectedPreview: {x: 0, y: 0, z: 0}
   ShowPreview: 0
 --- !u!4 &1788793273 stripped
@@ -34671,11 +35391,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 814098163
-      Data2: 1144412154
-      Data3: -1675362902
-      Data4: 264403229
-    Path: event:/Industrial/Steam/IndustryRobotArm 2
+      Data1: -562444531
+      Data2: 1289140631
+      Data3: -1069740906
+      Data4: 1946056862
+    Path: event:/Industrial/Steam/Robot Arm 2
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -34700,16 +35420,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 822881068}
   emitter: {fileID: 1808182800}
   eventRef:
     Guid:
-      Data1: 1289779989
-      Data2: 1133537290
-      Data3: -640845653
-      Data4: 91562057
-    Path: event:/Industrial/Oculus/IndustryRobotArm 2
+      Data1: -95281335
+      Data2: 1299411513
+      Data3: 624013484
+      Data4: 587743552
+    Path: event:/Industrial/Oculus/Robot Arm 2
+  vel1: 0
 --- !u!1 &1815707186
 GameObject:
   m_ObjectHideFlags: 0
@@ -34827,7 +35548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1818367864
 Transform:
   m_ObjectHideFlags: 0
@@ -34841,7 +35562,6 @@ Transform:
   m_LocalScale: {x: 0.010000003, y: 0.010000002, z: 0.0100000035}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1709850174}
   - {fileID: 1311648588}
   - {fileID: 1587405660}
   m_Father: {fileID: 1788793284}
@@ -34869,6 +35589,7 @@ MonoBehaviour:
       Data3: -640845653
       Data4: 91562057
     Path: event:/Industrial/Oculus/IndustryRobotArm 2
+  vel1: 0
 --- !u!114 &1818367867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34949,10 +35670,10 @@ RectTransform:
   - {fileID: 34664602}
   m_Father: {fileID: 1126117698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1008.58386, y: -12.5}
-  m_SizeDelta: {x: 10.915231, y: 25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1824214235
 MonoBehaviour:
@@ -36110,93 +36831,6 @@ PrefabInstance:
       addedObject: {fileID: 2106030382}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662ad22d2ff184b4e90d2371526947de, type: 3}
---- !u!1 &1907572498
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1907572501}
-  - component: {fileID: 1907572500}
-  - component: {fileID: 1907572499}
-  m_Layer: 0
-  m_Name: Steam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1907572499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907572498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 376359684
-      Data2: 1082795316
-      Data3: 680961464
-      Data4: -1542755666
-    Path: event:/Industrial/Steam/Clicking
-  Event: 
-  PlayEvent: 11
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1907572500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907572498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLooping: 0
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 0}
-  emitter: {fileID: 1907572499}
-  eventRef:
-    Guid:
-      Data1: 376359684
-      Data2: 1082795316
-      Data3: 680961464
-      Data4: -1542755666
-    Path: event:/Industrial/Steam/Clicking
---- !u!4 &1907572501
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1907572498}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.5007068, y: 0.50008386, z: -0.49991575, w: -0.49929255}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01000001, y: 0.010000013, z: 0.010000015}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1985334074}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1907932758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36509,93 +37143,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0466d323790c54ab6e8501a74ce61f, type: 3}
---- !u!1 &1914104243
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1914104244}
-  - component: {fileID: 1914104246}
-  - component: {fileID: 1914104245}
-  m_Layer: 0
-  m_Name: Oculus
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1914104244
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914104243}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.5007068, y: 0.50008386, z: -0.49991575, w: -0.49929255}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.01000001, y: 0.010000013, z: 0.010000015}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1985334074}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914104245
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914104243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1475237759
-      Data2: 1104685632
-      Data3: -1094151779
-      Data4: 1879488829
-    Path: event:/Industrial/Oculus/Clicking
-  Event: 
-  PlayEvent: 11
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &1914104246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914104243}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isLooping: 0
-  servoFrequencyMultiplier: 0.5
-  armJoint: {fileID: 0}
-  emitter: {fileID: 1914104245}
-  eventRef:
-    Guid:
-      Data1: 376359684
-      Data2: 1082795316
-      Data3: 680961464
-      Data4: -1542755666
-    Path: event:/Industrial/Steam/Clicking
 --- !u!1 &1915574053
 GameObject:
   m_ObjectHideFlags: 0
@@ -36958,6 +37505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnObject: {fileID: 6882965233414549672, guid: 6ce076ce569ada24aab6c60a24170ddc, type: 3}
+  SpawnObjectTutorial: {fileID: 0}
   armController: {fileID: 703160976}
   scanObject: {fileID: 776039491}
   alertLights:
@@ -36971,8 +37519,9 @@ MonoBehaviour:
   spawnTime: 8.5
   conveyorBeltSpeed: 1.5
   armSpeed: 3
-  isWorking: 0
+  isWorking: 1
   spatializerManager: {fileID: 720220561}
+  spatializerManagerTutorial: {fileID: 0}
 --- !u!4 &1922106614
 Transform:
   m_ObjectHideFlags: 0
@@ -37293,11 +37842,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -2003231903
-      Data2: 1231865923
-      Data3: -2098972524
-      Data4: 685504954
-    Path: event:/Industrial/Resonance/IndustryRobotArm
+      Data1: -1634407529
+      Data2: 1259150697
+      Data3: 1742402955
+      Data4: -1303674356
+    Path: event:/Industrial/Resonance/Robot Arm 1
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -37327,11 +37876,12 @@ MonoBehaviour:
   emitter: {fileID: 1934536487}
   eventRef:
     Guid:
-      Data1: 1797845139
-      Data2: 1135420285
-      Data3: 1068667327
-      Data4: 1889332842
-    Path: event:/Industrial/Steam/IndustryRobotArm
+      Data1: -1634407529
+      Data2: 1259150697
+      Data3: 1742402955
+      Data4: -1303674356
+    Path: event:/Industrial/Resonance/Robot Arm 1
+  vel1: 0
 --- !u!1 &1937362928
 GameObject:
   m_ObjectHideFlags: 0
@@ -37458,6 +38008,94 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1940700636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940700637}
+  - component: {fileID: 1940700639}
+  - component: {fileID: 1940700638}
+  m_Layer: 0
+  m_Name: Non Spatialized
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1940700637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940700636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.50494576, y: 0.49997154, z: -0.49997976, w: -0.49505404}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01000001, y: 0.010000004, z: 0.010000016}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2107341188}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1940700638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940700636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1356360682
+      Data2: 1227666320
+      Data3: -1385379198
+      Data4: -1111666455
+    Path: event:/Industrial/Non Spatialized/Clicking
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1940700639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940700636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.5
+  armJoint: {fileID: 248371774}
+  emitter: {fileID: 1940700638}
+  eventRef:
+    Guid:
+      Data1: 1356360682
+      Data2: 1227666320
+      Data3: -1385379198
+      Data4: -1111666455
+    Path: event:/Industrial/Non Spatialized/Clicking
+  vel1: 0
 --- !u!4 &1964419665 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2166277940777758843, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}
@@ -37761,7 +38399,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -202515217714271344, guid: d45f373556035a743bb1bedf41afa0da, type: 3}
   m_PrefabInstance: {fileID: 559929440}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1985334072
+--- !u!1 &1991082300
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -37769,49 +38407,86 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1985334074}
-  - component: {fileID: 1985334073}
+  - component: {fileID: 1991082301}
+  - component: {fileID: 1991082303}
+  - component: {fileID: 1991082302}
   m_Layer: 0
-  m_Name: JointAudio (3)
+  m_Name: Resonance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1985334073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985334072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3b69d8bf4c58e642864a7d366a5d11b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emitters:
-  - {fileID: 1914104243}
-  - {fileID: 991076435}
-  - {fileID: 1907572498}
---- !u!4 &1985334074
+  m_IsActive: 0
+--- !u!4 &1991082301
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985334072}
+  m_GameObject: {fileID: 1991082300}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.015753632, y: -0.008659792, z: -0.00016138676, w: 0.9998384}
+  m_LocalRotation: {x: 0.5049458, y: 0.49997145, z: -0.4999798, w: -0.495054}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2499995, y: 1.2499998, z: 1.2499995}
+  m_LocalScale: {x: 0.010000011, y: 0.010000006, z: 0.010000019}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1914104244}
-  - {fileID: 991076436}
-  - {fileID: 1907572501}
-  m_Father: {fileID: 1259339710}
+  m_Children: []
+  m_Father: {fileID: 1769808599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1991082302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991082300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1614221627
+      Data2: 1215752919
+      Data3: 360309400
+      Data4: 1552664959
+    Path: event:/Industrial/Resonance/Clicking
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1991082303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991082300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 248371774}
+  emitter: {fileID: 1991082302}
+  eventRef:
+    Guid:
+      Data1: -1614221627
+      Data2: 1215752919
+      Data3: 360309400
+      Data4: 1552664959
+    Path: event:/Industrial/Resonance/Clicking
+  vel1: 0
 --- !u!1 &2012924506
 GameObject:
   m_ObjectHideFlags: 0
@@ -38014,6 +38689,57 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 9811943}
   m_SourcePrefab: {fileID: 100100000, guid: c6baf6fdfea3b7143a5024b0e0e1bd8c, type: 3}
+--- !u!1 &2029737589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2029737590}
+  - component: {fileID: 2029737591}
+  m_Layer: 0
+  m_Name: JointAudio 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2029737590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029737589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000010430811, y: 0.2586001, z: 0.000000283122, w: 0.96598446}
+  m_LocalPosition: {x: -0.0064317556, y: 0.0031461117, z: -0.00058413664}
+  m_LocalScale: {x: 1.2500004, y: 1.25, z: 1.2499994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1667896767}
+  - {fileID: 1323453205}
+  - {fileID: 932215214}
+  m_Father: {fileID: 716692676}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029737591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029737589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b69d8bf4c58e642864a7d366a5d11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitters:
+  - {fileID: 1667896766}
+  - {fileID: 1323453204}
+  - {fileID: 932215213}
 --- !u!1001 &2029748882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38380,6 +39106,12 @@ MonoBehaviour:
   _serverGUI: {fileID: 109553971}
   windowManagers:
   - {fileID: 286981163}
+  - {fileID: 450537201}
+  - {fileID: 995074919}
+  - {fileID: 569706361}
+  - {fileID: 569706361}
+  - {fileID: 2126064837}
+  - {fileID: 646125387}
 --- !u!4 &2052227801
 Transform:
   m_ObjectHideFlags: 0
@@ -39149,10 +39881,10 @@ RectTransform:
   - {fileID: 2053954857}
   m_Father: {fileID: 1126117698}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 406.7081, y: -12.5}
-  m_SizeDelta: {x: 10.915231, y: 25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2095575044
 MonoBehaviour:
@@ -39240,11 +39972,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 816187937
-      Data2: 1229765521
-      Data3: 1272445321
-      Data4: -466562139
-    Path: event:/Industrial/Oculus/IndustryRobotArm
+      Data1: 247076724
+      Data2: 1090828273
+      Data3: 1236817078
+      Data4: -1363952843
+    Path: event:/Industrial/Oculus/Robot Arm 1
   Event: 
   PlayEvent: 11
   StopEvent: 0
@@ -39269,16 +40001,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLooping: 1
-  servoFrequencyMultiplier: 0.5
+  servoFrequencyMultiplier: 0.2
   armJoint: {fileID: 813926905}
   emitter: {fileID: 2105358590}
   eventRef:
     Guid:
-      Data1: 64199635
-      Data2: 1173621700
-      Data3: -448536926
-      Data4: 1078682904
-    Path: event:/Industrial/Non Spatialized/IndustryRobotArm
+      Data1: 1253249324
+      Data2: 1098556073
+      Data3: -1310603647
+      Data4: -1516979595
+    Path: event:/Industrial/Non Spatialized/Robot Arm 1
+  vel1: 0
 --- !u!1001 &2106030381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39361,6 +40094,143 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 662ad22d2ff184b4e90d2371526947de, type: 3}
   m_PrefabInstance: {fileID: 2106030381}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2107341187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2107341188}
+  - component: {fileID: 2107341189}
+  m_Layer: 0
+  m_Name: JointAudio 6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2107341188
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107341187}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.011426715, y: -0.0045103715, z: -0.00016431004, w: 0.9999246}
+  m_LocalPosition: {x: 0, y: -0.011658423, z: 0.00030925762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1940700637}
+  - {fileID: 1762817444}
+  m_Father: {fileID: 1259339710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107341189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107341187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b69d8bf4c58e642864a7d366a5d11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitters:
+  - {fileID: 1940700636}
+  - {fileID: 1762817443}
+--- !u!1 &2112921460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112921461}
+  - component: {fileID: 2112921463}
+  - component: {fileID: 2112921462}
+  m_Layer: 0
+  m_Name: Spatialized
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112921461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112921460}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000059604645, y: 0.000000059604645, z: -0.00000014156103, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000006, y: 0.010000007, z: 0.010000012}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 299978100}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2112921462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112921460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1304291782
+      Data2: 1280731391
+      Data3: -851766899
+      Data4: 912826452
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 3
+  Event: 
+  PlayEvent: 11
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2112921463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112921460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aadcadbab98e645929401df3148f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLooping: 1
+  servoFrequencyMultiplier: 0.3
+  armJoint: {fileID: 115151838}
+  emitter: {fileID: 2112921462}
+  eventRef:
+    Guid:
+      Data1: 1304291782
+      Data2: 1280731391
+      Data3: -851766899
+      Data4: 912826452
+    Path: event:/Industrial/FMOD Spatializer/Robot Arm 3
+  vel1: 0
 --- !u!4 &2116698118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 87539276591993987, guid: 98b646c12e99d1e4c983da1db0a8d104, type: 3}

@@ -5,7 +5,7 @@
 			<value>IndustryRobotArm 2</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{4395ec69-e9e6-47da-9bf9-299c337ab6d0}</destination>
@@ -129,9 +129,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{5fee3940-a29e-42bd-9b7c-8b47a01cff28}">
-		<property name="volume">
-			<value>10</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{bfbe2846-c69c-4b20-a684-71ddf55bd617}</destination>
 		</relationship>
@@ -384,8 +381,7 @@
 			<destination>{b158885a-63cf-434e-9951-a37b6f9aabc8}</destination>
 			<destination>{54e935d8-d038-49bb-aa57-7fd0d865a7bf}</destination>
 			<destination>{a70f4e91-7025-442d-b5d8-6b88bb4fed0c}</destination>
-			<destination>{1a6b5428-ec39-49f9-b5ce-f9dbdc1fc192}</destination>
-			<destination>{e7a98ae7-0787-4fcb-8386-a13f3f9a6bc7}</destination>
+			<destination>{8dfc96cd-420c-4659-8fa2-9b2a73429de9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4d949f78-9735-4c66-807b-aea50f795e77}" />
@@ -551,14 +547,9 @@
 			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
 		</relationship>
 	</object>
-	<object class="SpatialiserEffect" id="{1a6b5428-ec39-49f9-b5ce-f9dbdc1fc192}">
-		<property name="distanceRolloffType">
-			<value>2</value>
-		</property>
-	</object>
-	<object class="GainEffect" id="{e7a98ae7-0787-4fcb-8386-a13f3f9a6bc7}">
+	<object class="GainEffect" id="{8dfc96cd-420c-4659-8fa2-9b2a73429de9}">
 		<relationship name="automators">
-			<destination>{2a8c2af3-f102-42e7-808f-73a5c2623f85}</destination>
+			<destination>{450b8def-7223-4d88-8f66-578e72cbe8de}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{b246e291-b567-4c08-80d8-55667f9d594b}">
@@ -785,12 +776,12 @@
 			<value>12.4137926</value>
 		</property>
 	</object>
-	<object class="Automator" id="{2a8c2af3-f102-42e7-808f-73a5c2623f85}">
+	<object class="Automator" id="{450b8def-7223-4d88-8f66-578e72cbe8de}">
 		<property name="nameOfPropertyBeingAutomated">
 			<value>gain</value>
 		</property>
 		<relationship name="automationCurves">
-			<destination>{d8ac6152-95ae-4f16-9637-3e3b1a9c24be}</destination>
+			<destination>{987d387c-bfbb-4b33-9156-45cd4913d6f8}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationPoint" id="{0eeb2a04-b454-4e6f-86e7-452fc196d98b}">
@@ -950,13 +941,13 @@
 			<value>0.324286073</value>
 		</property>
 	</object>
-	<object class="AutomationCurve" id="{d8ac6152-95ae-4f16-9637-3e3b1a9c24be}">
+	<object class="AutomationCurve" id="{987d387c-bfbb-4b33-9156-45cd4913d6f8}">
 		<relationship name="parameter">
 			<destination>{b44e3f3f-1e80-43a6-97d7-d92b318b2d1e}</destination>
 		</relationship>
 		<relationship name="automationPoints">
-			<destination>{f89c0b64-4848-448b-8e07-9e30dc515552}</destination>
-			<destination>{9ed524d7-759b-4d1a-aa97-65c0e822ce0f}</destination>
+			<destination>{ec849f15-dd4c-4981-8828-1454d736339e}</destination>
+			<destination>{3a261c9f-2784-4559-af79-1b9563005396}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{e71bfc49-ee42-4514-894d-be941db4f53a}">
@@ -998,15 +989,15 @@
 			<destination>{658ed54f-db5a-4804-ad01-43ed5a01d65c}</destination>
 		</relationship>
 	</object>
-	<object class="AutomationPoint" id="{f89c0b64-4848-448b-8e07-9e30dc515552}">
+	<object class="AutomationPoint" id="{ec849f15-dd4c-4981-8828-1454d736339e}">
 		<property name="position">
 			<value>20</value>
 		</property>
 		<property name="value">
-			<value>-40</value>
+			<value>-26</value>
 		</property>
 	</object>
-	<object class="AutomationPoint" id="{9ed524d7-759b-4d1a-aa97-65c0e822ce0f}">
+	<object class="AutomationPoint" id="{3a261c9f-2784-4559-af79-1b9563005396}">
 		<property name="position">
 			<value>0</value>
 		</property>
@@ -1014,7 +1005,7 @@
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.362499326</value>
+			<value>0.132644013</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a6e0d5f7-3a11-4c58-9438-ce8936cda4ff}">
