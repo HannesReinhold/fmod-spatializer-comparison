@@ -229,19 +229,27 @@ public class GameManager : MonoBehaviour
 
     public void ShowRoomModel(float time)
     {
+        roomModel.SetActive(true);
         foreach (MeshRenderer r in roomModel.GetComponentsInChildren<Renderer>())
         {
             LeanTween.alpha(r.gameObject, 1, time);
         }
+        
+    }
+
+    private void DisableRoomModel()
+    {
+        roomModel.SetActive(false);
     }
 
     public void HideRoomModel(float time)
     {
+        
         foreach (MeshRenderer r in roomModel.GetComponentsInChildren<Renderer>())
         {
             LeanTween.alpha(r.gameObject, 0, time);
         }
-
+        Invoke("DisableRoomModel", time);
     }
 
     public void HideController(bool stillshowController = false )

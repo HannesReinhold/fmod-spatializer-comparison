@@ -15,7 +15,7 @@ public class VolumeSettings : MonoBehaviour
     }
     private void Update()
     {
-        bus.setVolume(slider.value);
+        bus.setVolume(slider.value*0.3f);
         GameManager.Instance.dataManager.currentSessionData.volume = slider.value;
     }
 }

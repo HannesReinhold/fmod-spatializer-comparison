@@ -37,9 +37,12 @@ public class AudioPhenomena : MonoBehaviour
     public bool enableAttenuation;
     public bool enableOcclusion;
     public bool enableDoppler;
+    public bool enableEarlyReflections;
     public bool enableReverb;
 
     public Transform trans;
+
+    public MetaXRAudioSource spat;
 
 
     private AudioSource source; 
@@ -57,6 +60,7 @@ public class AudioPhenomena : MonoBehaviour
     private FirstOrderLowpass occlusionFilterLeft = new FirstOrderLowpass();
     private FirstOrderLowpass occlusionFilterRight = new FirstOrderLowpass();
 
+    private EarlyReflections earlyRefflections = new EarlyReflections(8);
     private RealisticReverb reverb = new RealisticReverb(8, 4);
 
     // Audio parameters
@@ -147,13 +151,15 @@ public class AudioPhenomena : MonoBehaviour
 
         // calc occlusion
         float occ = calcOcclusion();
+        //float occ = 0;
         occlusionVolume = occ;
         occlusionFilterCutoff = Mathf.Lerp(0.01f, 0.99f, occ);
 
         // calc reverb parameters
+        CalcEarlyReflections();
 
 
-        reverb.dry = occlusionVolume;
+        reverb.dry = dry;
         reverb.wet = wet;
 
         reverb.delaynetwork.setFeedback(feedback);
@@ -204,6 +210,54 @@ public class AudioPhenomena : MonoBehaviour
     }
 
     bool playParticles = false;
+
+    void CalcEarlyReflections()
+    {
+        int n = 0;
+
+        RaycastHit[] hits = new RaycastHit[8];
+        
+
+        float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
+        float angleIncrement = Mathf.PI * 2 * goldenRatio;
+
+        for (int i = 0; i < 8; i++)
+        {
+            float t = (float)i / 8;
+            float inclination = Mathf.Acos(1 - 2 * t);
+            float azimuth = angleIncrement * i;
+
+            float x = Mathf.Sin(inclination) * Mathf.Cos(azimuth);
+            float y = Mathf.Sin(inclination) * Mathf.Sin(azimuth);
+            float z = Mathf.Cos(inclination);
+
+
+            Vector3 dir = new Vector3(x, y, z);
+            hits[i] = new RaycastHit();
+
+            if (Physics.Raycast(transform.position + dir * 0.02f, dir, out hits[i], Mathf.Infinity))
+            {
+                
+            }
+            Debug.DrawLine(transform.position, transform.position + dir*hits[i].distance);
+        }
+
+        float[] delayTimes = new float[8];
+        float[] delayPanning = new float[8];
+        float[] delayStrength = new float[8];
+
+        for (int i=0; i<8; i++)
+        {
+            delayTimes[i] = (hits[i].distance + Vector3.Distance(trans.position,hits[i].point)) * 44100f / 343f;
+            delayStrength[i] = Mathf.Pow(1f / ((hits[i].distance + Vector3.Distance(trans.position, hits[i].point) * 2 + 1)),1.8f);
+            
+            delayPanning[i] = Vector3.Dot(trans.right, (hits[i].point-trans.position).normalized) * 0.5f + 0.5f;
+            Debug.Log("DIst: " + delayTimes[i] + " STR: " + delayStrength[i]+ " PAN: "+delayPanning[i]);
+        }
+
+            earlyRefflections.SetDelays(delayTimes, delayPanning, delayStrength);
+
+    }
 
 
     float calcOcclusion()
@@ -316,7 +370,7 @@ public class AudioPhenomena : MonoBehaviour
 
     private float calculateAirAttenuation(float distance)
     {
-        float att = DbToLin(loudnessDb - 70) / Mathf.Pow((distance*0.7f) + 1, 1.1f);
+        float att = DbToLin(loudnessDb - 70) / Mathf.Pow((distance*0.3f) + 1, 1.1f);
 
         return att;
     }
@@ -402,6 +456,11 @@ public class AudioPhenomena : MonoBehaviour
 
         }
 
+        if (enableEarlyReflections)
+        {
+            earlyRefflections.Process(data);
+        }
+
         // Reverb
         if (enableReverb)
         {
@@ -414,6 +473,7 @@ public class AudioPhenomena : MonoBehaviour
     public void EnableMono()
     {
         enableMono = true;
+        spat.EnableSpatialization = false;
     }
 
     public void EnableStereo()
@@ -427,7 +487,7 @@ public class AudioPhenomena : MonoBehaviour
         enableStereo = false;
         enableMono = true;
         enableITD = true;
-        earDelayDifference = 5;
+        earDelayDifference = 1;
     }
 
     public void EnableIID()
@@ -438,16 +498,18 @@ public class AudioPhenomena : MonoBehaviour
 
     public void EnableHRTF()
     {
+        spat.EnableSpatialization = true;
         enableMono = false;
         enableStereo = true;
         enableIID = false;
-        source.spatialBlend = 1;
+        enableITD = false;
         source.spatialize = true;
     }
 
     public void EnableAttenuation()
     {
         enableAttenuation = true;
+        GameManager.Instance.roomModel.SetActive(true);
     }
 
     public void EnableOcclusion()
@@ -458,6 +520,11 @@ public class AudioPhenomena : MonoBehaviour
     public void EnableDoppler()
     {
         enableDoppler = true;
+    }
+
+    public void EnableEarly()
+    {
+        enableEarlyReflections = true;
     }
 
     public void EnableReverb()
@@ -473,7 +540,8 @@ public class AudioPhenomena : MonoBehaviour
 
     private void Disable()
     {
-        gameObject.SetActive(false);   
+        gameObject.SetActive(false);
+        GameManager.Instance.roomModel.SetActive(false);
     }
 
 }

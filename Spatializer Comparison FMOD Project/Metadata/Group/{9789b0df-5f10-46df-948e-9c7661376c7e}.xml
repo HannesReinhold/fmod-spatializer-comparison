@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{9789b0df-5f10-46df-948e-9c7661376c7e}">
+		<property name="name">
+			<value>Spooky</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{c83fae10-874a-4516-8df1-982a553a81a9}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{e09df7a0-fc3a-47e2-baf8-67b48a0843b6}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{ab0feb16-fed0-4586-9f0f-87c36f651dbd}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{c83fae10-874a-4516-8df1-982a553a81a9}">
+		<relationship name="effects">
+			<destination>{3a9ca762-9b9d-4583-9776-acc8d370401d}</destination>
+			<destination>{34d4a159-8232-4040-8594-5911cea6e1e6}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{e09df7a0-fc3a-47e2-baf8-67b48a0843b6}" />
+	<object class="MixerBusFader" id="{3a9ca762-9b9d-4583-9776-acc8d370401d}" />
+	<object class="SFXReverbEffect" id="{34d4a159-8232-4040-8594-5911cea6e1e6}">
+		<property name="highCut">
+			<value>2500</value>
+		</property>
+		<property name="wetLevel">
+			<value>-2.5</value>
+		</property>
+	</object>
+</objects>

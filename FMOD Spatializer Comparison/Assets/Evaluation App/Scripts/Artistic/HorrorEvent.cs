@@ -5,6 +5,7 @@ using UnityEngine;
 public class HorrorEvent : MonoBehaviour
 {
     public GameObject roomModel;
+    private Renderer roomRenderer;
     public Light light;
 
     public MainIntroductionManager mainIntroductionManager;
@@ -45,11 +46,14 @@ public class HorrorEvent : MonoBehaviour
 
     public Lightsflicker lightsFlicker;
 
+    private float currentRoomAlpha;
+    private float roomAlphaTarget;
+
 
 
     private void OnEnable()
     {
-        GameManager.Instance.ShowRoomModel(2);
+        GameManager.Instance.ShowRoomModel(3);
 
         ambience.SetActive(true);
         //lightsFlicker.StartFlicker();
@@ -67,7 +71,6 @@ public class HorrorEvent : MonoBehaviour
 
         // variation 2
         monster.SetActive(false);
-        roomModel.SetActive(true);
         Invoke("EnableFog",2.5f);
         Invoke("EnableEyes", 4);
         Invoke("CloseIntroWindow", 5);
@@ -82,14 +85,16 @@ public class HorrorEvent : MonoBehaviour
 
         GameManager.Instance.HideController();
 
+        roomAlphaTarget = 1;
+
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.HideRoomModel(2);
         GameManager.Instance.ShowController();
 
         currentFogTarget = 0;
+        currentRoomAlpha = 0;
 
     }
 
@@ -102,6 +107,7 @@ public class HorrorEvent : MonoBehaviour
         //DisableEyes();
         Invoke("DisableFog",2);
         Invoke("OpenCompleteWindow",4);
+        GameManager.Instance.HideRoomModel(2);
         GameManager.Instance.ShowController();
     }
 
@@ -114,6 +120,7 @@ public class HorrorEvent : MonoBehaviour
     public void DisableFog()
     {
         currentFogTarget = minFog;
+        roomAlphaTarget = 0;
     }
 
     public void EnableEyes()
@@ -192,6 +199,7 @@ public class HorrorEvent : MonoBehaviour
     private void Update()
     {
         currentFogValue = 0.98f * currentFogValue + 0.02f * currentFogTarget;
+        currentRoomAlpha = 0.995f * currentRoomAlpha + 0.005f * roomAlphaTarget;
         //passthroughBox.material.SetFloat("_Opacity", currentFogValue / maxFog);
         RenderSettings.fogDensity = currentFogValue;
         //light.intensity = Mathf.Pow(1-currentFogValue/maxFog,1) * 0.2f;

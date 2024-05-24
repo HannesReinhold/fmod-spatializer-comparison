@@ -113,6 +113,7 @@
 	<object class="MixerBusEffectChain" id="{f3a25c71-2bbf-478a-96f6-7870b292160f}">
 		<relationship name="effects">
 			<destination>{05f77bff-0bd8-4583-9ed4-287a20461eda}</destination>
+			<destination>{29b0cb6b-679e-4bd8-8135-386ee50eda16}</destination>
 			<destination>{24dad1ff-bafb-4a0e-9e60-12ea0c5f4300}</destination>
 		</relationship>
 	</object>
@@ -125,6 +126,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{6ee78578-f5f3-44d4-b544-99103dbd7126}" />
 	<object class="MixerBusFader" id="{05f77bff-0bd8-4583-9ed4-287a20461eda}" />
+	<object class="GainEffect" id="{29b0cb6b-679e-4bd8-8135-386ee50eda16}">
+		<property name="gain">
+			<value>6</value>
+		</property>
+	</object>
 	<object class="PluginEffect" id="{24dad1ff-bafb-4a0e-9e60-12ea0c5f4300}">
 		<relationship name="plugin">
 			<destination>{d5f855a6-a5b0-4980-a9b8-593163abeada}</destination>
@@ -223,7 +229,6 @@
 		<property name="name">
 			<value>Attenuation Ran</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -232,7 +237,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -268,7 +272,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

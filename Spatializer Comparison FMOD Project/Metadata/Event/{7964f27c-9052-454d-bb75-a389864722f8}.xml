@@ -172,6 +172,7 @@
 		<relationship name="effects">
 			<destination>{cf24a3bc-e03c-4ad8-9ea9-9dd3aa2a251d}</destination>
 			<destination>{4d4ae36a-6fcb-4491-9b7f-c79d18e708b8}</destination>
+			<destination>{d5defe2e-3d4c-42a6-a70a-768c3b9770a8}</destination>
 			<destination>{189f0607-a028-46ca-a704-31113d1d6e30}</destination>
 		</relationship>
 	</object>
@@ -180,16 +181,12 @@
 	<object class="MixerBusEffectChain" id="{dc1fb7ce-5787-4035-9141-f2cfc6f2482f}">
 		<relationship name="effects">
 			<destination>{2c50e55b-6fa2-4e0e-b9af-9163d9cf29a8}</destination>
-			<destination>{d979fa8b-b795-4136-9115-67969783a882}</destination>
-			<destination>{e2e0c4fa-01f9-48dd-b913-b2d2c0dcb135}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ab655f43-386b-4fa9-ba20-04cc6c93ab19}" />
 	<object class="MixerBusEffectChain" id="{aa9f32be-c253-4644-9356-59a984448ddd}">
 		<relationship name="effects">
 			<destination>{1174ef25-9b15-4c39-9880-655f8fb4df27}</destination>
-			<destination>{dbb4edcf-412a-419a-90ef-60af4c4d7bb3}</destination>
-			<destination>{22793b9b-65e2-4eaf-8869-ef3d81e38d80}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e1d16b94-fd04-4116-98e2-a2b57b726cab}" />
@@ -208,57 +205,18 @@
 			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
 		</relationship>
 	</object>
+	<object class="GainEffect" id="{d5defe2e-3d4c-42a6-a70a-768c3b9770a8}">
+		<property name="gain">
+			<value>-10</value>
+		</property>
+	</object>
 	<object class="PluginEffect" id="{189f0607-a028-46ca-a704-31113d1d6e30}">
 		<relationship name="plugin">
 			<destination>{c4ab9702-0698-495d-b78d-421b43fa9045}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{2c50e55b-6fa2-4e0e-b9af-9163d9cf29a8}" />
-	<object class="TremoloEffect" id="{d979fa8b-b795-4136-9115-67969783a882}">
-		<property name="frequency">
-			<value>6.5</value>
-		</property>
-		<property name="depth">
-			<value>0.555000007</value>
-		</property>
-		<property name="shape">
-			<value>0.48999998</value>
-		</property>
-	</object>
-	<object class="TremoloEffect" id="{e2e0c4fa-01f9-48dd-b913-b2d2c0dcb135}">
-		<property name="frequency">
-			<value>9</value>
-		</property>
-		<property name="depth">
-			<value>0.545000017</value>
-		</property>
-		<property name="shape">
-			<value>0.394999981</value>
-		</property>
-	</object>
 	<object class="MixerBusFader" id="{1174ef25-9b15-4c39-9880-655f8fb4df27}" />
-	<object class="TremoloEffect" id="{dbb4edcf-412a-419a-90ef-60af4c4d7bb3}">
-		<property name="frequency">
-			<value>8.5</value>
-		</property>
-		<property name="depth">
-			<value>0.555000007</value>
-		</property>
-		<property name="shape">
-			<value>0.48999998</value>
-		</property>
-	</object>
-	<object class="TremoloEffect" id="{22793b9b-65e2-4eaf-8869-ef3d81e38d80}">
-		<property name="frequency">
-			<value>4.5999999</value>
-		</property>
-		<property name="depth">
-			<value>0.545000017</value>
-		</property>
-		<property name="shape">
-			<value>0.394999981</value>
-		</property>
-	</object>
 	<object class="Plugin" id="{c4ab9702-0698-495d-b78d-421b43fa9045}">
 		<property name="identifier">
 			<value>Resonance Audio Source</value>
