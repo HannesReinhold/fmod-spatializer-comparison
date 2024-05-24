@@ -12,7 +12,6 @@ public class EngineDestroyer : MonoBehaviour
         if (other.tag == "Engine")
         {
             belt.RemoveEngine(other.gameObject);
-            Destroy(other.gameObject);
         }
     }
 }

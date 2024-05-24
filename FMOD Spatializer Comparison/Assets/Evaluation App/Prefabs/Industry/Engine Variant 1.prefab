@@ -60,9 +60,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.5
+  OverrideMaxDistance: 5
 --- !u!1 &3067696319609105898
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,9 +123,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.5
+  OverrideMaxDistance: 5
 --- !u!1 &5507439914446612279
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +135,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 504272249779566846}
-  - component: {fileID: 4016753515101381170}
   m_Layer: 0
   m_Name: Spatializers
   m_TagString: Untagged
@@ -160,21 +159,6 @@ Transform:
   - {fileID: 3935033707490370458}
   m_Father: {fileID: 6111073279445428754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4016753515101381170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5507439914446612279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3b69d8bf4c58e642864a7d366a5d11b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emitters:
-  - {fileID: 3067696319609105898}
-  - {fileID: 202806034331012092}
 --- !u!1001 &3773400450780954235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -253,6 +237,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7771238088785874643, guid: 1d8529ce959e1d347b891a5cbe82718a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6813829267646442592}
+    - targetCorrespondingSourceObject: {fileID: 7771238088785874643, guid: 1d8529ce959e1d347b891a5cbe82718a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4182595864846059645}
   m_SourcePrefab: {fileID: 100100000, guid: 1d8529ce959e1d347b891a5cbe82718a, type: 3}
 --- !u!4 &6111073279445428754 stripped
 Transform:
@@ -292,6 +279,7 @@ MonoBehaviour:
   endOfPathInstruction: 2
   speed: 5
   distanceTravelled: 0
+  stopped: 0
 --- !u!65 &2750568374321081551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -353,3 +341,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFaulty: 0
+--- !u!114 &4182595864846059645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882965233414549672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3b69d8bf4c58e642864a7d366a5d11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitters:
+  - {fileID: 3067696319609105898}
+  - {fileID: 202806034331012092}

@@ -14,7 +14,7 @@ public class SliderVisualizer : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public List<string> discreteLabels = new List<string>() {"Very Different","Rather Different","Neutral","Rather Similar","Very Similar"};
 
 
-    public string suffix = "dB";
+    public string suffix = "";
 
     public bool logScale = true;
 
@@ -27,6 +27,11 @@ public class SliderVisualizer : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         popupWindow.Close();
         
+    }
+
+    public void ResetSlider()
+    {
+        slider.value = 50;
     }
 
 

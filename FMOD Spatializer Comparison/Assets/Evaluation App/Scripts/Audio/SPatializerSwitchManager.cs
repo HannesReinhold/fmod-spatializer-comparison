@@ -8,6 +8,8 @@ public class SPatializerSwitchManager : MonoBehaviour
 
     public List<SpatializedEvents> spatializedEvents;
 
+    public List<SpatialAudioSwitcher> engineBlocks;
+
     public int spatializerA;
     public int spatializerB;
     public int currentSpatializer;
@@ -44,11 +46,17 @@ public class SPatializerSwitchManager : MonoBehaviour
 
     public void SetSpatializer(int index)
     {
-        foreach(SpatialAudioSwitcher s in switchers)
+        currentSpatializer = index;
+
+        foreach (SpatialAudioSwitcher s in switchers)
         {
             s.SetSpatializer(index);
         }
-        currentSpatializer = index;
+        foreach(SpatialAudioSwitcher s in engineBlocks)
+        {
+            if(s!=null) s.SetSpatializer(index);
+        }
+        
     }
 
     public List<FMODUnity.EventReference> GetEvent(int i)

@@ -72,21 +72,90 @@ public class ConveyorBelt : MonoBehaviour
     public void StopAll()
     {
         isWorking = false;
+        if (currentFollower != null) currentFollower.stopped = true;
+        foreach (GameObject g in engineBlocks)
+        {
+            if (g == null) continue;
+            if (isTutorial) spatializerManager.engineBlocks.Remove(g.GetComponent<SpatialAudioSwitcher>());
+            else spatializerManagerTutorial.engineBlocks.Remove(g.GetComponent<SpatialAudioSwitcher>());
+            Destroy(g);
+        }
+
+        engineBlocks.Clear();
+
+        if (isTutorial) spatializerManagerTutorial.StopAll();
+        else spatializerManager.StopAll();
+
+        currentTime = spawnTime - 1;
+
+        armController.Restart();
+
+        scanObject.SetActive(false);
+        SetAlertLights(false);
+        SetApproveLight(false);
+
+
+        CancelInvoke("EndRobot");
+        CancelInvoke("EndRobot2");
+        CancelInvoke("StartSiren");
+        CancelInvoke("MoveToTrash");
+        CancelInvoke("ActivateApproveLight");
+        CancelInvoke("StartRobot");
+        CancelInvoke("MoveToEngine");
+
+
+        /*
         foreach(GameObject g in engineBlocks)
         {
             if (g == null) continue;
+            //if(isTutorial) spatializerManagerTutorial.engineBlocks.Remove(g.GetComponent<SpatialAudioSwitcher>());
+           //else spatializerManager.engineBlocks.Remove(g.GetComponent<SpatialAudioSwitcher>());
             g.GetComponent<PathCreation.Examples.PathFollower>().stopped = true;
         }
 
         if(currentFollower!=null) currentFollower.stopped = true;
 
-        spatializerManager.StopAll();
+        
+        if (isTutorial) spatializerManagerTutorial.StopAll();
+        else spatializerManager.StopAll();
 
         currentTime = spawnTime - 1;
 
+        
+
+        armController.Restart();
+
+        scanObject.SetActive(false);
+        SetAlertLights(false);
+        SetApproveLight(false);
+
+        
+        CancelInvoke("EndRobot");
+        CancelInvoke("EndRobot2");
+        CancelInvoke("StartSiren");
+        CancelInvoke("MoveToTrash");
+        CancelInvoke("ActivateApproveLight");
+        CancelInvoke("StartRobot");
+        CancelInvoke("MoveToEngine");
+
         foreach (GameObject g in engineBlocks)
         {
-            if (g==null) continue;
+            if (g == null) continue;
+            RemoveEngine(g);
+        }
+
+        engineBlocks.Clear();
+        */
+    }
+
+    public void Restart()
+    {
+        currentTime = spawnTime-1;
+
+        foreach(GameObject g in engineBlocks)
+        {
+            if (isTutorial) spatializerManager.engineBlocks.Remove(g.GetComponent<SpatialAudioSwitcher>());
+            else spatializerManagerTutorial.engineBlocks.Remove(g.GetComponent<SpatialAudioSwitcher>());
             Destroy(g);
         }
 
@@ -100,24 +169,11 @@ public class ConveyorBelt : MonoBehaviour
 
         CancelInvoke("EndRobot");
         CancelInvoke("EndRobot2");
-    }
-
-    public void Restart()
-    {
-        currentTime = spawnTime-1;
-
-        foreach(GameObject g in engineBlocks)
-        {
-            Destroy(g);
-        }
-
-        engineBlocks.Clear();
-
-        armController.Restart();
-
-        scanObject.SetActive(false);
-        SetAlertLights(false);
-        SetApproveLight(false);
+        CancelInvoke("StartSiren");
+        CancelInvoke("MoveToTrash");
+        CancelInvoke("ActivateApproveLight");
+        CancelInvoke("StartRobot");
+        CancelInvoke("MoveToEngine");
 
         StartWorking();
 
@@ -131,7 +187,10 @@ public class ConveyorBelt : MonoBehaviour
 
     public void RemoveEngine(GameObject e)
     {
+        if (isTutorial) spatializerManager.engineBlocks.Remove(e.GetComponent<SpatialAudioSwitcher>());
+        else spatializerManagerTutorial.engineBlocks.Remove(e.GetComponent<SpatialAudioSwitcher>());
         engineBlocks.Remove(e);
+        Destroy(e);
     }
 
     public void StartWorking()
@@ -166,11 +225,16 @@ public class ConveyorBelt : MonoBehaviour
         follower.pathCreator = conveyorBelt1;
         follower.speed = conveyorBeltSpeed;
         engineBlocks.Add(motor);
-        motor.GetComponent<SpatialAudioSwitcher>().SetSpatializer(spatializerManager.currentSpatializer);
+        if (isTutorial) motor.GetComponent<SpatialAudioSwitcher>().SetSpatializer(spatializerManagerTutorial.currentSpatializer);
+        else motor.GetComponent<SpatialAudioSwitcher>().SetSpatializer(spatializerManager.currentSpatializer);
+        if (isTutorial) spatializerManagerTutorial.engineBlocks.Add(motor.GetComponent<SpatialAudioSwitcher>());
+        else spatializerManager.engineBlocks.Add(motor.GetComponent<SpatialAudioSwitcher>());
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!isWorking) return;
         PathCreation.Examples.PathFollower follower = other.GetComponent<PathCreation.Examples.PathFollower>();
         follower.speed = 0;
         currentFollower = follower;
@@ -204,7 +268,8 @@ public class ConveyorBelt : MonoBehaviour
     void StartSiren()
     {
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Siren", alertLights[0].transform.position);
-        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 0, alertLights[0].transform.position);
+        if(isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 0, alertLights[0].transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 0, alertLights[0].transform.position);
         SetAlertLights(true);
     }
 
@@ -215,14 +280,16 @@ public class ConveyorBelt : MonoBehaviour
         currentFollower.speed = armSpeed;
         currentFollower.distanceTravelled = 0;
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
-        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
+        if (isTutorial) PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 1, currentFollower.transform.position);
         Invoke("EndRobot2", 3f);
     }
 
     void StartScanning()
     {
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Scanner 2", currentFollower.transform.position);
-        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 3, currentFollower.transform.position);
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 3, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 3, currentFollower.transform.position);
         scanObject.SetActive(true);
     }
 
@@ -233,7 +300,8 @@ public class ConveyorBelt : MonoBehaviour
         currentFollower.speed = armSpeed;
         currentFollower.distanceTravelled = 0;
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
-        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 1, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
         Invoke("EndRobot",2.4f);
         
     }
@@ -241,7 +309,8 @@ public class ConveyorBelt : MonoBehaviour
     void EndRobot()
     {
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
-        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 2, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
         currentFollower.distanceTravelled = 0;
         currentFollower.pathCreator = conveyorBelt2;
         currentFollower.speed = conveyorBeltSpeed * 0.6f;
@@ -255,10 +324,12 @@ public class ConveyorBelt : MonoBehaviour
     {
 
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
-        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 2, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Fire Swoosh", currentFollower.transform.position);
-        PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 4, currentFollower.transform.position);
-        Destroy(currentFollower.gameObject);
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 4, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 4, currentFollower.transform.position);
+        RemoveEngine(currentFollower.gameObject);
         currentFollower = null;
         armController.SetStartTarget();
         SetAlertLights(false);
