@@ -1,648 +1,795 @@
 {
-    "spatializerInfo": [
-        {
-            "spatializerID": 0,
-            "name": "Oculus Spatializer",
-            "shortName": "Oculus",
-            "creator": "Meta"
-        },
-        {
-            "spatializerID": 1,
-            "name": "Resonance Spatializer",
-            "shortName": "Resonance",
-            "creator": "Google"
-        },
-        {
-            "spatializerID": 2,
-            "name": "Steam Audio Spatializer",
-            "shortName": "Steam Audio",
-            "creator": "Valve"
-        }
-    ],
-    "speakerData": [
-        {
-            "speakerID": 0,
-            "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "rotation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 0
-            }
-        },
-        {
-            "speakerID": 1,
-            "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "rotation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 0
-            }
-        },
-        {
-            "speakerID": 2,
-            "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "rotation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 0
-            }
-        },
-        {
-            "speakerID": 3,
-            "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "rotation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 0
-            }
-        },
-        {
-            "speakerID": 4,
-            "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "rotation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 0
-            }
-        },
-        {
-            "speakerID": 5,
-            "position": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            },
-            "rotation": {
-                "x": 0,
-                "y": 0,
-                "z": 0,
-                "w": 0
-            }
-        }
-    ],
-    "subjectiveData":{
-      "comparisons":[
-        {
-          "evaluationID": 0,
-          "spatializerA": 0,
-          "spatializerB": 1,
-          "attribute": "Externalization",
-          "description": "Which spatializer sounds more like it comes from outside of your head?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 1,
-          "spatializerA": 0,
-          "spatializerB": 2,
-          "attribute": "Spatial Presence",
-          "description": "Which spatializer makes you feel like you are really inside the enviroment?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 2,
-          "spatializerA": 1,
-          "spatializerB": 2,
-          "attribute": "Localizability",
-          "description": "Which spatializer sounds more like it comes from its visual representation?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 3,
-          "spatializerA": 0,
-          "spatializerB": 1,
-          "attribute": "Externalization",
-          "description": "Which spatializer sounds more like it comes from outside of your head?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 4,
-          "spatializerA": 0,
-          "spatializerB": 2,
-          "attribute": "Spatial Presence",
-          "description": "Which spatializer makes you feel like you are really inside the enviroment?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 5,
-          "spatializerA": 1,
-          "spatializerB": 2,
-          "attribute": "Localizability",
-          "description": "Which spatializer sounds more like it comes from its visual representation?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 6,
-          "spatializerA": 0,
-          "spatializerB": 1,
-          "attribute": "Externalization",
-          "description": "Which spatializer sounds more like it comes from outside of your head?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 7,
-          "spatializerA": 0,
-          "spatializerB": 2,
-          "attribute": "Spatial Presence",
-          "description": "Which spatializer makes you feel like you are really inside the enviroment?",
-          "rating": 50
-        },
-        {
-          "evaluationID": 8,
-          "spatializerA": 1,
-          "spatializerB": 2,
-          "attribute": "Localizability",
-          "description": "Which spatializer sounds more like it comes from its visual representation?",
-          "rating": 50
-        }
-      ]
+  "spatializerInfo": [
+    {
+      "spatializerID": 0,
+      "name": "Oculus Spatializer",
+      "shortName": "Oculus",
+      "creator": "Meta"
     },
-    "subjectiveEvaluationData": {
-        "evaluationParts": [
-            {
-                "partID": 0,
-                "name": "Direction",
-                "description": "This evaluation is conducted in an mostly empty room. It tests directionality rather than phenomena such as occlusion or reverberation.",
-                "question": "How well can you determine the direction of the spatialized noise compared to the real noise?",
-                "comparisonAspect": "direction",
-                "minValue": "Very Different",
-                "maxValue": "Very Similar",
-                "minNumber": 0,
-                "maxNumber": 100,
-                "fileID": 0,
-                "evaluations": [
-                    {
-                        "evaluationID": 0,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 1,
-                        "speakerID": 0,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 1,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 2,
-                        "speakerID": 0,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 2,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 3,
-                        "speakerID": 1,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 3,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 4,
-                        "speakerID": 1,
-                        "value": 50
-                    }
-                ]
-            },
-            {
-                "partID": 1,
-                "name": "Attenuation",
-                "description": "This evaluation is conducted in an mostly empty room. It tests the audio phenomena 'distance attenuation', which means that the sound gets quieter with increasing distance.",
-                "question": "How well can you determine the distance of the spatialized noise compared to the real noise?",
-                "comparisonAspect": "attenuation",
-                "minValue": "Very Different",
-                "maxValue": "Very Similar",
-                "minNumber": 0,
-                "maxNumber": 100,
-                "fileID": 1,
-                "evaluations": [
-                    {
-                        "evaluationID": 0,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 1,
-                        "speakerID": 1,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 1,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 2,
-                        "speakerID": 1,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 2,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 3,
-                        "speakerID": 0,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 3,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 4,
-                        "speakerID": 0,
-                        "value": 50
-                    }
-                ]
-            },
-            {
-                "partID": 3,
-                "name": "Occlusion",
-                "description": "This time the room contains some obstacles which should obstruct the sound. This means if an obstacle is between you and the audio source, the sound gets quieter and more muffled.",
-                "question": "How well does the spatialized occlusion effect match the real world?",
-                "comparisonAspect": "occlusion",
-                "minValue": "Very Different",
-                "maxValue": "Very Similar",
-                "minNumber": 0,
-                "maxNumber": 100,
-                "fileID": 3,
-                "evaluations": [
-                    {
-                        "evaluationID": 0,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 1,
-                        "speakerID": 1,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 1,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 2,
-                        "speakerID": 0,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 2,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 3,
-                        "speakerID": 1,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 3,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 4,
-                        "speakerID": 1,
-                        "value": 50
-                    }
-                ]
-            },
-            {
-                "partID": 3,
-                "name": "Reverb",
-                "description": "This time we will evaluate how good these spatializers can simulate audio reflections and reverb.",
-                "question": "How realistic does the virtual reverb sound like in comparison to the real one?",
-                "comparisonAspect": "reverb",
-                "minValue": "Very Unrealistic",
-                "maxValue": "Very Realistic",
-                "minNumber": 0,
-                "maxNumber": 100,
-                "fileID": 4,
-                "evaluations": [
-                    {
-                        "evaluationID": 0,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 1,
-                        "speakerID": 1,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 1,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 2,
-                        "speakerID": 0,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 2,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 3,
-                        "speakerID": 1,
-                        "value": 50
-                    },
-                    {
-                        "evaluationID": 3,
-                        "baseSpatializerID": 0,
-                        "comparisonSpatializerID": 4,
-                        "speakerID": 1,
-                        "value": 50
-                    }
-                ]
-            }
-        ]
+    {
+      "spatializerID": 1,
+      "name": "Resonance Spatializer",
+      "shortName": "Resonance",
+      "creator": "Google"
     },
-    "directionGameData":{
-      "rounds": [
-
-        {
-          "roundID": 0,
-          "positionID": 2,
-          "spatializerID": 0,
-          "cueID": 0
-        },
-        {
-          "roundID": 1,
-          "positionID": 5,
-          "spatializerID": 1,
-          "cueID": 0
-        },
-        {
-          "roundID": 2,
-          "positionID": 3,
-          "spatializerID": 2,
-          "cueID": 1
-        },
-        {
-          "roundID": 3,
-          "positionID": 1,
-          "spatializerID": 1,
-          "cueID": 0
-        },
-        {
-          "roundID": 4,
-          "positionID": 6,
-          "spatializerID": 0,
-          "cueID": 2
-        },
-        {
-          "roundID": 5,
-          "positionID": 5,
-          "spatializerID": 1,
-          "cueID": 1
-        },
-        {
-          "roundID": 6,
-          "positionID": 7,
-          "spatializerID": 2,
-          "cueID": 0
-        },
-        {
-          "roundID": 7,
-          "positionID": 1,
-          "spatializerID": 2,
-          "cueID": 2
-        },
-        {
-          "roundID": 8,
-          "positionID": 3,
-          "spatializerID": 1,
-          "cueID": 0
-        },
-        {
-          "roundID": 9,
-          "positionID": 2,
-          "spatializerID": 1,
-          "cueID": 2
-        },
-        {
-          "roundID": 10,
-          "positionID": 4,
-          "spatializerID": 0,
-          "cueID": 1
-        },
-        {
-          "roundID": 11,
-          "positionID": 1,
-          "spatializerID": 1,
-          "cueID": 1
-        },
-        {
-          "roundID": 12,
-          "positionID": 5,
-          "spatializerID": 2,
-          "cueID": 0
-        },
-        {
-          "roundID": 13,
-          "positionID": 2,
-          "spatializerID": 2,
-          "cueID": 1
-        },
-        {
-          "roundID": 14,
-          "positionID": 3,
-          "spatializerID": 0,
-          "cueID": 0
-        },
-        {
-          "roundID": 15,
-          "positionID": 6,
-          "spatializerID": 0,
-          "cueID": 2
-        },
-        {
-          "roundID": 16,
-          "positionID": 2,
-          "spatializerID": 1,
-          "cueID": 0
-        },
-        {
-          "roundID": 17,
-          "positionID": 4,
-          "spatializerID": 2,
-          "cueID": 1
-        },
-        {
-          "roundID": 18,
-          "positionID": 7,
-          "spatializerID": 2,
-          "cueID": 0
-        },
-        {
-          "roundID": 19,
-          "positionID": 0,
-          "spatializerID": 1,
-          "cueID": 0
-        },
-        {
-          "roundID": 20,
-          "positionID": 1,
-          "spatializerID": 0,
-          "cueID": 2
-        },
-        {
-          "roundID": 21,
-          "positionID": 4,
-          "spatializerID": 1,
-          "cueID": 1
-        },
-        {
-          "roundID": 22,
-          "positionID": 2,
-          "spatializerID": 2,
-          "cueID": 2
-        },
-        {
-          "roundID": 23,
-          "positionID": 0,
-          "spatializerID": 1,
-          "cueID": 0
-        },
-        {
-          "roundID": 24,
-          "positionID": 7,
-          "spatializerID": 0,
-          "cueID": 1
-        },
-        {
-          "roundID": 25,
-          "positionID": 3,
-          "spatializerID": 0,
-          "cueID": 1
-        },
-        {
-          "roundID": 26,
-          "positionID": 6,
-          "spatializerID": 1,
-          "cueID": 0
-        },
-        {
-          "roundID": 27,
-          "positionID": 0,
-          "spatializerID": 2,
-          "cueID": 1
-        },
-        {
-          "roundID": 28,
-          "positionID": 4,
-          "spatializerID": 1,
-          "cueID": 1
-        },
-        {
-          "roundID": 29,
-          "positionID": 5,
-          "spatializerID": 2,
-          "cueID": 2
-        },
-        {
-          "roundID": 30,
-          "positionID": 0,
-          "spatializerID": 0,
-          "cueID": 0
-        },
-        {
-          "roundID": 31,
-          "positionID": 3,
-          "spatializerID": 1,
-          "cueID": 2
-        },
-        {
-          "roundID": 32,
-          "positionID": 7,
-          "spatializerID": 1,
-          "cueID": 2
-        },
-        {
-          "roundID": 33,
-          "positionID": 6,
-          "spatializerID": 2,
-          "cueID": 1
-        },
-        {
-          "roundID": 34,
-          "positionID": 1,
-          "spatializerID": 0,
-          "cueID": 0
-        },
-        {
-          "roundID": 35,
-          "positionID": 7,
-          "spatializerID": 0,
-          "cueID": 2
-        },
-        {
-          "roundID": 36,
-          "positionID": 0,
-          "spatializerID": 2,
-          "cueID": 0
-        },
-        {
-          "roundID": 37,
-          "positionID": 6,
-          "spatializerID": 0,
-          "cueID": 0
-        },
-        {
-          "roundID": 38,
-          "positionID": 5,
-          "spatializerID": 2,
-          "cueID": 1
-        },
-        {
-          "roundID": 39,
-          "positionID": 4,
-          "spatializerID": 1,
-          "cueID": 2
-        }
-      ],
-        "positions":[
-            {"x":0,"y": 1.5,"z": 2},
-            {"x":1,"y": 1,"z": 2},
-            {"x":0,"y": 1.5,"z": -2},
-            {"x":3,"y": 1,"z": 2},
-            {"x":0,"y": 2,"z": 2},
-            {"x":0,"y": 1,"z": -2},
-            {"x":-2,"y": 2,"z": 2},
-            {"x":0,"y": 1,"z": 2},
-
-            {"x":0,"y": 1,"z": 0},
-            {"x":1,"y": 2,"z": -2},
-            {"x":2,"y": 1,"z": 0},
-            {"x":0,"y": 0,"z": 2},
-            {"x":2,"y": 1,"z": 1},
-            {"x":0,"y": 1.5,"z": 0},
-            {"x":2,"y": 1,"z": 2},
-            {"x":3,"y": 1.5,"z": 2},
-
-            {"x":0,"y": 3,"z": -2},
-            {"x":1,"y": 1,"z": 2},
-            {"x":2,"y": 1,"z": -2},
-            {"x":0,"y": 2,"z": 2},
-            {"x":0,"y": 1,"z": -2},
-            {"x":0,"y": 1,"z": 2},
-            {"x":2,"y": 1,"z": 2},
-            {"x":0,"y": 1,"z": 2},
-
-            {"x":0,"y": 1,"z": 2},
-            {"x":1,"y": 1,"z": -2},
-            {"x":0,"y": 1,"z": 2},
-            {"x":-3,"y": 2,"z": 2},
-            {"x":0,"y": 1,"z": 2},
-            {"x":0,"y": 1,"z": -2},
-            {"x":2,"y": 1,"z": 2},
-            {"x":0,"y": 1,"z": 2},
-
-            {"x":2,"y": 1,"z": 0},
-            {"x":1,"y": 1,"z": 1},
-            {"x":0,"y": 1,"z": 2},
-            {"x":2,"y": 2,"z": 0},
-            {"x":0,"y": 1,"z": 2},
-            {"x":0,"y": 1,"z": 2},
-            {"x":-2,"y": 1,"z": 0},
-            {"x":0,"y": 1,"z": -2}
-
-        ]
+    {
+      "spatializerID": 2,
+      "name": "Steam Audio Spatializer",
+      "shortName": "Steam Audio",
+      "creator": "Valve"
     }
+  ],
+  "speakerData": [
+    {
+      "speakerID": 0,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 0
+      }
+    },
+    {
+      "speakerID": 1,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 0
+      }
+    },
+    {
+      "speakerID": 2,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 0
+      }
+    },
+    {
+      "speakerID": 3,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 0
+      }
+    },
+    {
+      "speakerID": 4,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 0
+      }
+    },
+    {
+      "speakerID": 5,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 0
+      }
+    }
+  ],
+  "subjectiveData": {
+    "comparisons": [
+      {
+        "evaluationID": 0,
+        "spatializerA": 0,
+        "spatializerB": 1,
+        "attribute": "Externalization",
+        "description": "Which spatializer sounds more like it comes from outside of your head?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 1,
+        "spatializerA": 0,
+        "spatializerB": 2,
+        "attribute": "Spatial Presence",
+        "description": "Which spatializer makes you feel like you are really inside the enviroment?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 2,
+        "spatializerA": 1,
+        "spatializerB": 2,
+        "attribute": "Localizability",
+        "description": "Which spatializer sounds more like it comes from its visual representation?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 3,
+        "spatializerA": 0,
+        "spatializerB": 1,
+        "attribute": "Externalization",
+        "description": "Which spatializer sounds more like it comes from outside of your head?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 4,
+        "spatializerA": 0,
+        "spatializerB": 2,
+        "attribute": "Spatial Presence",
+        "description": "Which spatializer makes you feel like you are really inside the enviroment?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 5,
+        "spatializerA": 1,
+        "spatializerB": 2,
+        "attribute": "Localizability",
+        "description": "Which spatializer sounds more like it comes from its visual representation?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 6,
+        "spatializerA": 0,
+        "spatializerB": 1,
+        "attribute": "Externalization",
+        "description": "Which spatializer sounds more like it comes from outside of your head?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 7,
+        "spatializerA": 0,
+        "spatializerB": 2,
+        "attribute": "Spatial Presence",
+        "description": "Which spatializer makes you feel like you are really inside the enviroment?",
+        "rating": 50
+      },
+      {
+        "evaluationID": 8,
+        "spatializerA": 1,
+        "spatializerB": 2,
+        "attribute": "Localizability",
+        "description": "Which spatializer sounds more like it comes from its visual representation?",
+        "rating": 50
+      }
+    ]
+  },
+  "subjectiveEvaluationData": {
+    "evaluationParts": [
+      {
+        "partID": 0,
+        "name": "Direction",
+        "description": "This evaluation is conducted in an mostly empty room. It tests directionality rather than phenomena such as occlusion or reverberation.",
+        "question": "How well can you determine the direction of the spatialized noise compared to the real noise?",
+        "comparisonAspect": "direction",
+        "minValue": "Very Different",
+        "maxValue": "Very Similar",
+        "minNumber": 0,
+        "maxNumber": 100,
+        "fileID": 0,
+        "evaluations": [
+          {
+            "evaluationID": 0,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 1,
+            "speakerID": 0,
+            "value": 50
+          },
+          {
+            "evaluationID": 1,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 2,
+            "speakerID": 0,
+            "value": 50
+          },
+          {
+            "evaluationID": 2,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 3,
+            "speakerID": 1,
+            "value": 50
+          },
+          {
+            "evaluationID": 3,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 4,
+            "speakerID": 1,
+            "value": 50
+          }
+        ]
+      },
+      {
+        "partID": 1,
+        "name": "Attenuation",
+        "description": "This evaluation is conducted in an mostly empty room. It tests the audio phenomena 'distance attenuation', which means that the sound gets quieter with increasing distance.",
+        "question": "How well can you determine the distance of the spatialized noise compared to the real noise?",
+        "comparisonAspect": "attenuation",
+        "minValue": "Very Different",
+        "maxValue": "Very Similar",
+        "minNumber": 0,
+        "maxNumber": 100,
+        "fileID": 1,
+        "evaluations": [
+          {
+            "evaluationID": 0,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 1,
+            "speakerID": 1,
+            "value": 50
+          },
+          {
+            "evaluationID": 1,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 2,
+            "speakerID": 1,
+            "value": 50
+          },
+          {
+            "evaluationID": 2,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 3,
+            "speakerID": 0,
+            "value": 50
+          },
+          {
+            "evaluationID": 3,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 4,
+            "speakerID": 0,
+            "value": 50
+          }
+        ]
+      },
+      {
+        "partID": 3,
+        "name": "Occlusion",
+        "description": "This time the room contains some obstacles which should obstruct the sound. This means if an obstacle is between you and the audio source, the sound gets quieter and more muffled.",
+        "question": "How well does the spatialized occlusion effect match the real world?",
+        "comparisonAspect": "occlusion",
+        "minValue": "Very Different",
+        "maxValue": "Very Similar",
+        "minNumber": 0,
+        "maxNumber": 100,
+        "fileID": 3,
+        "evaluations": [
+          {
+            "evaluationID": 0,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 1,
+            "speakerID": 1,
+            "value": 50
+          },
+          {
+            "evaluationID": 1,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 2,
+            "speakerID": 0,
+            "value": 50
+          },
+          {
+            "evaluationID": 2,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 3,
+            "speakerID": 1,
+            "value": 50
+          },
+          {
+            "evaluationID": 3,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 4,
+            "speakerID": 1,
+            "value": 50
+          }
+        ]
+      },
+      {
+        "partID": 3,
+        "name": "Reverb",
+        "description": "This time we will evaluate how good these spatializers can simulate audio reflections and reverb.",
+        "question": "How realistic does the virtual reverb sound like in comparison to the real one?",
+        "comparisonAspect": "reverb",
+        "minValue": "Very Unrealistic",
+        "maxValue": "Very Realistic",
+        "minNumber": 0,
+        "maxNumber": 100,
+        "fileID": 4,
+        "evaluations": [
+          {
+            "evaluationID": 0,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 1,
+            "speakerID": 1,
+            "value": 50
+          },
+          {
+            "evaluationID": 1,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 2,
+            "speakerID": 0,
+            "value": 50
+          },
+          {
+            "evaluationID": 2,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 3,
+            "speakerID": 1,
+            "value": 50
+          },
+          {
+            "evaluationID": 3,
+            "baseSpatializerID": 0,
+            "comparisonSpatializerID": 4,
+            "speakerID": 1,
+            "value": 50
+          }
+        ]
+      }
+    ]
+  },
+  "directionGameData": {
+    "rounds": [
+      {
+        "roundID": 0,
+        "positionID": 52,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 1,
+        "positionID": 56,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 2,
+        "positionID": 42,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 3,
+        "positionID": 71,
+        "spatializerID": 0,
+        "cueID": 2
+      },
+      {
+        "roundID": 4,
+        "positionID": 19,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 5,
+        "positionID": 28,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 6,
+        "positionID": 7,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 7,
+        "positionID": 62,
+        "spatializerID": 2,
+        "cueID": 0
+      },
+      {
+        "roundID": 8,
+        "positionID": 5,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 9,
+        "positionID": 4,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 10,
+        "positionID": 2,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 11,
+        "positionID": 46,
+        "spatializerID": 1,
+        "cueID": 1
+      },
+      {
+        "roundID": 12,
+        "positionID": 45,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 13,
+        "positionID": 39,
+        "spatializerID": 1,
+        "cueID": 1
+      },
+      {
+        "roundID": 14,
+        "positionID": 24,
+        "spatializerID": 1,
+        "cueID": 1
+      },
+      {
+        "roundID": 15,
+        "positionID": 35,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 16,
+        "positionID": 6,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 17,
+        "positionID": 21,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 18,
+        "positionID": 40,
+        "spatializerID": 0,
+        "cueID": 0
+      },
+      {
+        "roundID": 19,
+        "positionID": 25,
+        "spatializerID": 0,
+        "cueID": 0
+      },
+      {
+        "roundID": 20,
+        "positionID": 44,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 21,
+        "positionID": 55,
+        "spatializerID": 2,
+        "cueID": 0
+      },
+      {
+        "roundID": 22,
+        "positionID": 54,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 23,
+        "positionID": 58,
+        "spatializerID": 2,
+        "cueID": 0
+      },
+      {
+        "roundID": 24,
+        "positionID": 50,
+        "spatializerID": 0,
+        "cueID": 0
+      },
+      {
+        "roundID": 25,
+        "positionID": 17,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 26,
+        "positionID": 70,
+        "spatializerID": 2,
+        "cueID": 0
+      },
+      {
+        "roundID": 27,
+        "positionID": 61,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 28,
+        "positionID": 10,
+        "spatializerID": 0,
+        "cueID": 0
+      },
+      {
+        "roundID": 29,
+        "positionID": 38,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 30,
+        "positionID": 66,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 31,
+        "positionID": 31,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 32,
+        "positionID": 9,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 33,
+        "positionID": 18,
+        "spatializerID": 0,
+        "cueID": 0
+      },
+      {
+        "roundID": 34,
+        "positionID": 20,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 35,
+        "positionID": 41,
+        "spatializerID": 2,
+        "cueID": 0
+      },
+      {
+        "roundID": 36,
+        "positionID": 13,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 37,
+        "positionID": 72,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 38,
+        "positionID": 15,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 39,
+        "positionID": 43,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 40,
+        "positionID": 3,
+        "spatializerID": 0,
+        "cueID": 2
+      },
+      {
+        "roundID": 41,
+        "positionID": 27,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 42,
+        "positionID": 53,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 43,
+        "positionID": 12,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 44,
+        "positionID": 68,
+        "spatializerID": 0,
+        "cueID": 2
+      },
+      {
+        "roundID": 45,
+        "positionID": 36,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 46,
+        "positionID": 16,
+        "spatializerID": 1,
+        "cueID": 1
+      },
+      {
+        "roundID": 47,
+        "positionID": 23,
+        "spatializerID": 2,
+        "cueID": 0
+      },
+      {
+        "roundID": 48,
+        "positionID": 63,
+        "spatializerID": 0,
+        "cueID": 2
+      },
+      {
+        "roundID": 49,
+        "positionID": 26,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 50,
+        "positionID": 30,
+        "spatializerID": 0,
+        "cueID": 2
+      },
+      {
+        "roundID": 51,
+        "positionID": 64,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 52,
+        "positionID": 67,
+        "spatializerID": 1,
+        "cueID": 1
+      },
+      {
+        "roundID": 53,
+        "positionID": 48,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 54,
+        "positionID": 29,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 55,
+        "positionID": 47,
+        "spatializerID": 0,
+        "cueID": 0
+      },
+      {
+        "roundID": 56,
+        "positionID": 51,
+        "spatializerID": 1,
+        "cueID": 1
+      },
+      {
+        "roundID": 57,
+        "positionID": 8,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 58,
+        "positionID": 57,
+        "spatializerID": 0,
+        "cueID": 0
+      },
+      {
+        "roundID": 59,
+        "positionID": 33,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 60,
+        "positionID": 14,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 61,
+        "positionID": 59,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 62,
+        "positionID": 49,
+        "spatializerID": 2,
+        "cueID": 1
+      },
+      {
+        "roundID": 63,
+        "positionID": 32,
+        "spatializerID": 1,
+        "cueID": 2
+      },
+      {
+        "roundID": 64,
+        "positionID": 37,
+        "spatializerID": 1,
+        "cueID": 0
+      },
+      {
+        "roundID": 65,
+        "positionID": 22,
+        "spatializerID": 0,
+        "cueID": 2
+      },
+      {
+        "roundID": 66,
+        "positionID": 1,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 67,
+        "positionID": 11,
+        "spatializerID": 0,
+        "cueID": 1
+      },
+      {
+        "roundID": 68,
+        "positionID": 69,
+        "spatializerID": 2,
+        "cueID": 0
+      },
+      {
+        "roundID": 69,
+        "positionID": 34,
+        "spatializerID": 2,
+        "cueID": 2
+      },
+      {
+        "roundID": 70,
+        "positionID": 60,
+        "spatializerID": 0,
+        "cueID": 2
+      },
+      {
+        "roundID": 71,
+        "positionID": 65,
+        "spatializerID": 2,
+        "cueID": 0
+      }
+    ],
+    "positions": [
+      {"x":-1.114733,"y":1.595506,"z":-0.4601441},{"x":0.5354118,"y":1.550562,"z":1.144156},{"x":0.3940022,"y":1.505618,"z":-1.256136},{"x":-1.182028,"y":1.460674,"z":0.6850116},{"x":1.379744,"y":1.41573,"z":0.303338},{"x":-0.8375775,"y":1.370786,"z":-1.191389},{"x":-0.1924265,"y":1.325843,"z":1.484962},{"x":1.174505,"y":1.280899,"z":-0.9898673},{"x":-1.571048,"y":1.235955,"z":-0.06498066},{"x":1.13888,"y":1.191011,"z":1.133333},{"x":-0.07570604,"y":1.146067,"z":-1.637314},{"x":-1.069731,"y":1.101124,"z":1.281875},{"x":1.683209,"y":1.05618,"z":-0.2264776},{"x":-1.416401,"y":1.011236,"z":-0.9855002},{"x":0.3843166,"y":0.966292,"z":1.708385},{"x":0.8825606,"y":0.9213483,"z":-1.540196},{"x":-1.712707,"y":0.8764046,"z":0.5463963},{"x":1.651245,"y":0.8314607,"z":0.7629312},{"x":-0.7098902,"y":0.786517,"z":-1.696304},{"x":-0.6286834,"y":0.7415729,"z":1.747806},{"x":1.659506,"y":0.6966291,"z":-0.8722079},{"x":-1.828395,"y":0.6516854,"z":-0.4819522},{"x":1.030697,"y":0.6067417,"z":1.602975},{"x":0.3251254,"y":0.5617976,"z":-1.891739},{"x":-1.527546,"y":0.5168539,"z":1.18299},{"x":1.936889,"y":0.47191,"z":0.1604992},{"x":-1.326818,"y":0.4269662,"z":-1.434313},{"x":0.009585211,"y":0.3820225,"z":1.963152},{"x":1.324549,"y":0.3370786,"z":-1.460119},{"x":-1.970107,"y":0.2921348,"z":0.1825777},{"x":1.580891,"y":0.2471909,"z":1.199867},{"x":-0.3561016,"y":0.2022472,"z":-1.957623},{"x":-1.061946,"y":0.1573035,"z":1.687461},{"x":1.925825,"y":0.1123596,"z":-0.5277991},{"x":-1.778361,"y":0.06741573,"z":-0.9126258},{"x":0.6951804,"y":0.02247182,"z":1.875158},{"x":0.7540562,"y":-0.022472,"z":-1.852267},{"x":-1.806297,"y":-0.06741566,"z":0.856005},{"x":1.908195,"y":-0.1123596,"z":0.5883586},{"x":-1.008122,"y":-0.1573034,"z":-1.720159},{"x":-0.417751,"y":-0.2022471,"z":1.9454},{"x":1.617998,"y":-0.247191,"z":-1.149339},{"x":-1.963351,"y":-0.2921347,"z":-0.2447679},{"x":1.277773,"y":-0.3370786,"z":1.501224},{"x":0.07152227,"y":-0.3820225,"z":-1.961872},{"x":-1.371498,"y":-0.4269661,"z":1.391651},{"x":1.940992,"y":-0.47191,"z":-0.0992469},{"x":-1.489384,"y":-0.5168541,"z":-1.230689},{"x":0.2652169,"y":-0.5617978,"z":1.901064},{"x":1.080761,"y":-0.6067416,"z":-1.569656},{"x":-1.842704,"y":-0.6516855,"z":0.423966},{"x":1.63116,"y":-0.6966293,"z":0.9241349},{"x":-0.5731153,"y":-0.7415731,"z":-1.766807},{"x":-0.7631099,"y":-0.786517,"z":1.673037},{"x":1.674538,"y":-0.8314607,"z":-0.7103487},{"x":-1.694596,"y":-0.8764045,"z":-0.6002157},{"x":0.8335246,"y":-0.9213485,"z":1.567276},{"x":0.4381061,"y":-0.9662922,"z":-1.695388},{"x":-1.446805,"y":-1.011236,"z":0.9402967},{"x":1.675212,"y":-1.05618,"z":0.2795505},{"x":-1.028712,"y":-1.101124,"z":-1.31502},{"x":-0.127429,"y":-1.146067,"z":1.634103},{"x":1.174106,"y":-1.191011,"z":-1.096799},{"x":-1.572317,"y":-1.235955,"z":0.01535423},{"x":1.14264,"y":-1.280899,"z":1.026485},{"x":-0.1454541,"y":-1.325843,"z":-1.490297},{"x":-0.8748224,"y":-1.370786,"z":1.164315},{"x":1.388636,"y":-1.41573,"z":-0.2596106},{"x":-1.159826,"y":-1.460674,"z":-0.7219663},{"x":0.3541238,"y":-1.505618,"z":1.267955},{"x":0.5712631,"y":-1.550562,"z":-1.126684},{"x":-1.128716,"y":-1.595506,"z":0.424691}
+    ]
+  }
 }

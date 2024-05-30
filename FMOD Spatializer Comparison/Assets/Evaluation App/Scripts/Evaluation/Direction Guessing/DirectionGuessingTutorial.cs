@@ -185,7 +185,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
 
         Invoke("ShowScore", 2);
-        if(roundID>=1 && roundID<positionList.Count-1)Invoke("StartRound", 5);
+        if(roundID>1 && roundID<positionList.Count-1)Invoke("StartRound", 5);
         showDiffereLine = true;
 
 

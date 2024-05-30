@@ -143,7 +143,7 @@ public class DirectionGuessingGame : MonoBehaviour
     private void StartRound()
     {
         RoundData roundData = gameData.rounds[currentRound];
-        Vector3 respawnPosition = gameData.positions[roundData.positionID];
+        Vector3 respawnPosition = new Vector3(0,1.7f,0) + gameData.positions[roundData.positionID];
         int spatializerID = roundData.spatializerID;
         currentPositionID = roundData.positionID;
 
@@ -226,15 +226,15 @@ public class DirectionGuessingGame : MonoBehaviour
             //case 1: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[1], target.transform.position); break;
             //case 2: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break; break;
             case 0:
-                emitter.EventReference = events[cueID].spatializedEvents[0];
+                emitter.ChangeEvent( events[cueID].spatializedEvents[0]);
                 emitter.Play();
                 break;
             case 1:
-                emitter.EventReference = events[cueID].spatializedEvents[1];
+                emitter.ChangeEvent(events[cueID].spatializedEvents[1]);
                 emitter.Play();
                 break;
             case 2:
-                emitter.EventReference = events[cueID].spatializedEvents[2];
+                emitter.ChangeEvent(events[cueID].spatializedEvents[2]);
                 emitter.Play();
                 break;
         }
