@@ -88,7 +88,7 @@ public class RobotArmJointAudio : MonoBehaviour
         {
             isPlaying = true;
             emitter.Play();
-            //FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(6)[spatialRefs.currentSpatializer], transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(6)[spatialRefs.currentSpatializer], transform.position);
             cooldown = 0;
         }
 
@@ -96,7 +96,7 @@ public class RobotArmJointAudio : MonoBehaviour
         {
             isPlaying = false;
             if (cooldown > 1) { }
-                //FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(7)[spatialRefs.currentSpatializer], transform.position);
+                FMODUnity.RuntimeManager.PlayOneShot(spatialRefs.GetEvent(7)[spatialRefs.currentSpatializer], transform.position);
         }
 
     }

@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour
     public GameObject introductionObject;
     public GameObject subjectiveObject;
     public GameObject directionGuessingObject;
+    public GameObject locationGuessingObject;
     public GameObject completeObject;
+
+    
 
     public GameObject roomModel;
 
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
         Introduction,
         SubjectiveEvaluation,
         DirectionGuessing,
+        LocationGuessing,
         Complete
     }
 
@@ -149,6 +153,8 @@ public class GameManager : MonoBehaviour
                 StartSubjectiveEvaluation(); break;
             case EvaluationState.DirectionGuessing:
                 StartDirectionGuessing(); break;
+            case EvaluationState.LocationGuessing:
+                StartLocationGuessing(); break;
             case EvaluationState.Complete:
                 StartComplete(); break;
             default: break;
@@ -190,6 +196,7 @@ public class GameManager : MonoBehaviour
         if(sessionID!=0) introductionObject.GetComponent<MainIntroductionManager>().ResetMenu();
         subjectiveObject.SetActive(false);
         directionGuessingObject.SetActive(false);
+        locationGuessingObject.SetActive(false);
         completeObject.SetActive(false);
     }
 
@@ -198,6 +205,7 @@ public class GameManager : MonoBehaviour
         introductionObject.SetActive(false);
         subjectiveObject.SetActive(true);
         directionGuessingObject.SetActive(false);
+        locationGuessingObject.SetActive(false);
         completeObject.SetActive(false);
     }
 
@@ -206,6 +214,16 @@ public class GameManager : MonoBehaviour
         introductionObject.SetActive(false);
         subjectiveObject.SetActive(false);
         directionGuessingObject.SetActive(true);
+        locationGuessingObject.SetActive(false);
+        completeObject.SetActive(false);
+    }
+
+    public void StartLocationGuessing()
+    {
+        introductionObject.SetActive(false);
+        subjectiveObject.SetActive(false);
+        directionGuessingObject.SetActive(false);
+        locationGuessingObject.SetActive(true);
         completeObject.SetActive(false);
     }
 
@@ -214,6 +232,7 @@ public class GameManager : MonoBehaviour
         introductionObject.SetActive(false);
         subjectiveObject.SetActive(false);
         directionGuessingObject.SetActive(false);
+        locationGuessingObject.SetActive(false);
         completeObject.SetActive(true);
     }
 

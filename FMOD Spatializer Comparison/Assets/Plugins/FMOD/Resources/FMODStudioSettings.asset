@@ -322,14 +322,14 @@ MonoBehaviour:
   active: 1
   Properties:
     LiveUpdate:
-      Value: 0
-      HasValue: 0
+      Value: 1
+      HasValue: 1
     LiveUpdatePort:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 0
-      HasValue: 0
+      Value: 1
+      HasValue: 1
     OverlayPosition:
       Value: 0
       HasValue: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     SampleRate:
-      Value: 22050
+      Value: 0
       HasValue: 1
     BuildDirectory:
       Value: 
@@ -349,11 +349,11 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 512
+      HasValue: 1
     RealChannelCount:
-      Value: 0
-      HasValue: 0
+      Value: 128
+      HasValue: 1
     DSPBufferLength:
       Value: 0
       HasValue: 1
@@ -380,8 +380,12 @@ MonoBehaviour:
   displaySortOrder: 0
   childIdentifiers: []
   codecChannels:
-    Value: []
-    HasValue: 0
+    Value:
+    - format: 0
+      channels: 64
+    - format: 1
+      channels: 0
+    HasValue: 1
 --- !u!114 &-3917479425436421992
 MonoBehaviour:
   m_ObjectHideFlags: 0

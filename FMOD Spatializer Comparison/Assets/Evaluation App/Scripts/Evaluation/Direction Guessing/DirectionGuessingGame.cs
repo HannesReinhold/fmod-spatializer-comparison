@@ -104,7 +104,7 @@ public class DirectionGuessingGame : MonoBehaviour
     /// </summary>
     public void OnFinishClick()
     {
-        GameManager.Instance.StartComplete();
+        GameManager.Instance.StartLocationGuessing();
         GUIAudioManager.SetAmbientVolume(0.5f);
         GameManager.Instance.ShowController();
     }
@@ -145,12 +145,14 @@ public class DirectionGuessingGame : MonoBehaviour
         int spatializerID = roundData.spatializerID;
         currentPositionID = roundData.positionID;
 
+        respawnPosition = Random.onUnitSphere*1.5f;
+
         
         EnableControllerInput();
 
         startTime = Time.time;
         RespawnTarget(respawnPosition, spatializerID);
-        Debug.Log("STart");
+        Debug.Log("Start");
     }
 
     /// <summary>

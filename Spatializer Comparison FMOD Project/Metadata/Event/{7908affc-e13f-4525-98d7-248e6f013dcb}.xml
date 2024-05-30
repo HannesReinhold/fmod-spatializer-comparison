@@ -28,7 +28,6 @@
 		<relationship name="groupTracks">
 			<destination>{2d876d2d-108d-4dd8-b7cb-bd6846651e09}</destination>
 			<destination>{98b3a893-946a-4e62-9504-f8e2986b01a0}</destination>
-			<destination>{2b626671-dc2c-47e6-b737-f569da15cccb}</destination>
 			<destination>{32380ea4-35ae-43a1-9cf6-2702a71c40ce}</destination>
 		</relationship>
 		<relationship name="timeline">
@@ -77,14 +76,6 @@
 			<destination>{6fcacd63-e9cc-4600-92f0-c739b7d8da6e}</destination>
 		</relationship>
 	</object>
-	<object class="GroupTrack" id="{2b626671-dc2c-47e6-b737-f569da15cccb}">
-		<relationship name="modules">
-			<destination>{880bb4b4-0548-4e04-9842-ad7fe5e5a272}</destination>
-		</relationship>
-		<relationship name="mixerGroup">
-			<destination>{332ffffd-0932-4b9e-bac4-84c994d89ad3}</destination>
-		</relationship>
-	</object>
 	<object class="GroupTrack" id="{32380ea4-35ae-43a1-9cf6-2702a71c40ce}">
 		<relationship name="modules">
 			<destination>{7ca6d639-9e2d-4901-b2a1-d9010fa9fc2b}</destination>
@@ -97,7 +88,6 @@
 		<relationship name="modules">
 			<destination>{668f7173-bd1a-4929-9bb5-7d289ccb3a70}</destination>
 			<destination>{64268f1e-0594-4000-b33f-617bfaddb096}</destination>
-			<destination>{880bb4b4-0548-4e04-9842-ad7fe5e5a272}</destination>
 			<destination>{7ca6d639-9e2d-4901-b2a1-d9010fa9fc2b}</destination>
 		</relationship>
 		<relationship name="markers">
@@ -123,7 +113,7 @@
 	<object class="MixerBusPanner" id="{5efad512-4126-4eff-80f2-b0d57107e365}" />
 	<object class="SingleSound" id="{668f7173-bd1a-4929-9bb5-7d289ccb3a70}">
 		<property name="length">
-			<value>27.440000000000012</value>
+			<value>6</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>0.56000000000000005</value>
@@ -160,7 +150,7 @@
 	</object>
 	<object class="SingleSound" id="{64268f1e-0594-4000-b33f-617bfaddb096}">
 		<property name="length">
-			<value>15.800000000000004</value>
+			<value>6</value>
 		</property>
 		<property name="timelockedOffset">
 			<value>0.057767634843613649</value>
@@ -187,40 +177,6 @@
 		</relationship>
 		<relationship name="panner">
 			<destination>{6f806ccb-b36a-400d-a486-1fa136aba0a7}</destination>
-		</relationship>
-		<relationship name="output">
-			<destination>{f48c5f6b-adf9-4918-9152-5a3dfb483e84}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{880bb4b4-0548-4e04-9842-ad7fe5e5a272}">
-		<property name="length">
-			<value>6.5999999999999996</value>
-		</property>
-		<property name="timelockedOffset">
-			<value>0.99712986425878436</value>
-		</property>
-		<property name="pitch">
-			<value>-1.80000007</value>
-		</property>
-		<relationship name="modulators">
-			<destination>{591bb406-6df5-4328-a615-4f638eb69884}</destination>
-		</relationship>
-		<relationship name="audioFile">
-			<destination>{4608433b-2c6a-40bb-ba77-83ac28dd6f0c}</destination>
-		</relationship>
-	</object>
-	<object class="EventMixerGroup" id="{332ffffd-0932-4b9e-bac4-84c994d89ad3}">
-		<property name="volume">
-			<value>-4</value>
-		</property>
-		<property name="name">
-			<value>Audio 3</value>
-		</property>
-		<relationship name="effectChain">
-			<destination>{01b3f405-94f6-4c84-8e7c-438c20dd4b91}</destination>
-		</relationship>
-		<relationship name="panner">
-			<destination>{31263f22-6562-4c7e-b3d8-52b13d61b4f8}</destination>
 		</relationship>
 		<relationship name="output">
 			<destination>{f48c5f6b-adf9-4918-9152-5a3dfb483e84}</destination>
@@ -275,7 +231,7 @@
 		<relationship name="effects">
 			<destination>{b9e019ae-b8eb-4129-8b48-5aee491f0a73}</destination>
 			<destination>{de8b4885-efd1-4840-874c-07ceb0719f10}</destination>
-			<destination>{fdf86c90-145a-4709-a8b8-f5690284feee}</destination>
+			<destination>{e0f83d21-6424-447e-9a99-b937cb836893}</destination>
 			<destination>{c5572c8e-98ad-4e6e-82b4-178646cfd054}</destination>
 		</relationship>
 	</object>
@@ -311,21 +267,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6f806ccb-b36a-400d-a486-1fa136aba0a7}" />
-	<object class="RandomizerModulator" id="{591bb406-6df5-4328-a615-4f638eb69884}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>startOffset</value>
-		</property>
-		<property name="amount">
-			<value>18.5</value>
-		</property>
-	</object>
-	<object class="MixerBusEffectChain" id="{01b3f405-94f6-4c84-8e7c-438c20dd4b91}">
-		<relationship name="effects">
-			<destination>{f39da5cb-98d2-465b-bdbb-6666801359aa}</destination>
-			<destination>{e8909fdd-ef25-4fd5-a9a9-18af1d0f832a}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusPanner" id="{31263f22-6562-4c7e-b3d8-52b13d61b4f8}" />
 	<object class="RandomizerModulator" id="{a62ae481-4d02-4e1a-bdc5-61418ef80bd3}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>startOffset</value>
@@ -356,9 +297,9 @@
 			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
 		</relationship>
 	</object>
-	<object class="GainEffect" id="{fdf86c90-145a-4709-a8b8-f5690284feee}">
+	<object class="GainEffect" id="{e0f83d21-6424-447e-9a99-b937cb836893}">
 		<property name="gain">
-			<value>-15</value>
+			<value>-26</value>
 		</property>
 	</object>
 	<object class="PluginEffect" id="{c5572c8e-98ad-4e6e-82b4-178646cfd054}">
@@ -411,27 +352,6 @@
 		</property>
 	</object>
 	<object class="MixerBusFader" id="{1676bd5e-297e-494f-b253-7e972366eee2}" />
-	<object class="MultibandEqEffect" id="{f39da5cb-98d2-465b-bdbb-6666801359aa}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
-		<property name="filterTypeB">
-			<value>5</value>
-		</property>
-		<property name="frequencyA">
-			<value>3703.19922</value>
-		</property>
-		<property name="frequencyB">
-			<value>191.352493</value>
-		</property>
-		<property name="qualityA">
-			<value>0.623275876</value>
-		</property>
-		<property name="qualityB">
-			<value>0.413965493</value>
-		</property>
-	</object>
-	<object class="MixerBusFader" id="{e8909fdd-ef25-4fd5-a9a9-18af1d0f832a}" />
 	<object class="MultibandEqEffect" id="{e93972ef-4772-413c-b201-cc02b984ba84}">
 		<property name="bypass">
 			<value>true</value>

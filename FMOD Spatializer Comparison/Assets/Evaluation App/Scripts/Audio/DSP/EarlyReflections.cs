@@ -41,8 +41,8 @@ public class EarlyReflections
             for (int j = 0; j < delays.Length; j++)
             {
                 float refl = delays[j].Process(sample) * reflectionStrength[j];
-                outputLeft += (1 - panning[j]) * refl;
-                outputRight += panning[j] * refl;
+                outputLeft += (1-panning[j]) * refl;
+                outputRight += (panning[j]) * refl;
             }
 
             buffer[i] = outputLeft * wet + buffer[i]*dry;
@@ -55,6 +55,11 @@ public class EarlyReflections
         delayTimes = times;
         panning = pan;
         reflectionStrength = str;
+        
+        for (int i = 0; i < 8; i++) {
+            delays[i].SetDelay(times[i]*1000f/44100f);
+            
+        }
     }
 
 }

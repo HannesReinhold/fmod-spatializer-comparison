@@ -102,6 +102,8 @@ public class AudioPhenomena : MonoBehaviour
     private float currentVolume = 0;
     private float targetVolume = 1;
 
+    private float smoothedOcc = 0;
+
 
     private void Awake()
     {
@@ -145,15 +147,16 @@ public class AudioPhenomena : MonoBehaviour
         // calc air attenuation
         airAttenuation = calculateAirAttenuation(sourceDistance);
         airAttenuationVolume = Mathf.Pow(airAttenuation, 0.9f);
-        airAttenuationFilterCutoff = Mathf.Lerp(0.1f, 1, Mathf.Pow(airAttenuation, 0.5f));
+        airAttenuationFilterCutoff = Mathf.Lerp(0.7f, 1, Mathf.Pow(airAttenuation, 0.5f));
 
 
 
         // calc occlusion
         float occ = calcOcclusion();
+        smoothedOcc = Mathf.Lerp(smoothedOcc, occ, Time.deltaTime*4f);
         //float occ = 0;
-        occlusionVolume = occ;
-        occlusionFilterCutoff = Mathf.Lerp(0.01f, 0.99f, occ);
+        occlusionVolume = smoothedOcc;
+        occlusionFilterCutoff = Mathf.Lerp(0.01f, 0.99f, smoothedOcc);
 
         // calc reverb parameters
         CalcEarlyReflections();
@@ -248,8 +251,8 @@ public class AudioPhenomena : MonoBehaviour
 
         for (int i=0; i<8; i++)
         {
-            delayTimes[i] = (hits[i].distance + Vector3.Distance(trans.position,hits[i].point)) * 44100f / 343f;
-            delayStrength[i] = Mathf.Pow(1f / ((hits[i].distance + Vector3.Distance(trans.position, hits[i].point) * 2 + 1)),1.8f);
+            delayTimes[i] = (hits[i].distance + Vector3.Distance(trans.position,hits[i].point)) *1000f/343f;
+            delayStrength[i] = Mathf.Pow(1f / ((hits[i].distance * 0.2f + Vector3.Distance(trans.position, hits[i].point) * 0.35f + 1)),2f);
             
             delayPanning[i] = Vector3.Dot(trans.right, (hits[i].point-trans.position).normalized) * 0.5f + 0.5f;
             Debug.Log("DIst: " + delayTimes[i] + " STR: " + delayStrength[i]+ " PAN: "+delayPanning[i]);
@@ -264,19 +267,28 @@ public class AudioPhenomena : MonoBehaviour
     {
         float occlusion = 0;
         int n = 0;
+        int layerMask = 1 << 8;
 
-        float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, (trans.position - transform.position).normalized, out hit, Vector3.Distance(trans.position,transform.position), layerMask))
+        {
+            return 0.4f;
+        }
+        return 1;
+        /*
+            float goldenRatio = (1 + Mathf.Sqrt(5)) / 2;
         float angleIncrement = Mathf.PI * 2 * goldenRatio;
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 50; i++)
         {
-            float t = (float)i / 100;
+            float t = (float)i / 50;
             float inclination = Mathf.Acos(1 - 2 * t);
             float azimuth = angleIncrement * i;
 
-            float x = Mathf.Sin(inclination) * Mathf.Cos(azimuth);
-            float y = Mathf.Sin(inclination) * Mathf.Sin(azimuth);
+            float x = Mathf.Sin(inclination);
+            float y = 0;
             float z = Mathf.Cos(inclination);
+            ;
 
 
             Vector3 dir = new Vector3(x, y, z);
@@ -290,14 +302,14 @@ public class AudioPhenomena : MonoBehaviour
                 lastHit = hit.point;
                 if (Physics.Raycast(transform.position + dir * 0.02f, dir, out hit, Mathf.Infinity))
                 {
-                    Debug.DrawLine(transform.position, hit.point);
+                    //Debug.DrawLine(transform.position, hit.point);
                     RaycastHit hit2;
                     att *= 0.5f;
                     dir = Vector3.Reflect(dir, hit.normal);
                     if (Physics.Raycast(hit.point - (trans.position - hit.point).normalized * 0.02f, (trans.position - hit.point).normalized, out hit2, Vector3.Distance(trans.position, hit.point)))
                     {
                         att = 0;
-                        //Debug.DrawLine(hit.point, hit2.point);
+                        Debug.DrawLine(hit.point, hit2.point);
                     }
 
                     n++;
@@ -309,6 +321,7 @@ public class AudioPhenomena : MonoBehaviour
         }
 
         return Mathf.Pow(occlusion / n, 0.5f);
+        */
     }
 
     Vector3[] preferredDirections = new Vector3[5];
@@ -474,6 +487,7 @@ public class AudioPhenomena : MonoBehaviour
     {
         enableMono = true;
         spat.EnableSpatialization = false;
+        source.volume = 0.5f;
     }
 
     public void EnableStereo()
@@ -487,13 +501,13 @@ public class AudioPhenomena : MonoBehaviour
         enableStereo = false;
         enableMono = true;
         enableITD = true;
-        earDelayDifference = 1;
+        earDelayDifference = 1f;
     }
 
     public void EnableIID()
     {
         enableIID = true;
-        earDelayDifference = 1;
+        earDelayDifference = 1f;
     }
 
     public void EnableHRTF()
@@ -510,6 +524,7 @@ public class AudioPhenomena : MonoBehaviour
     {
         enableAttenuation = true;
         GameManager.Instance.roomModel.SetActive(true);
+        source.volume = 1f;
     }
 
     public void EnableOcclusion()

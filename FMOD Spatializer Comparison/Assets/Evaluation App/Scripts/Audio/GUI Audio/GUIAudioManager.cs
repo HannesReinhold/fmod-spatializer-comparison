@@ -56,5 +56,10 @@ public static class GUIAudioManager
 
     }
 
+    public static void PlayHint(Vector3 pos)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Cues/Hint2", pos);
+    }
+
 
 }

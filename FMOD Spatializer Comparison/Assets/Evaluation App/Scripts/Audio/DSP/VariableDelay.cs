@@ -41,6 +41,10 @@ public class VariableDelay
         writePointer = (writePointer + 1);
         if (writePointer >= bufferLength) writePointer -= bufferLength;
 
-        return buffer[(int)readPointer];
+        int rpi = Mathf.FloorToInt(readPointer);
+        float a = readPointer - (float)rpi;
+        float y = a * buffer[rpi] + (1 - a) * buffer[(rpi+1)%bufferLength];
+
+        return y;
     }
 }

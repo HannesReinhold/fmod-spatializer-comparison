@@ -172,15 +172,16 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     public void ResetValues()
     {
+        
         currentEmergingSpeaker = 0;
         for (int i = 0; i < speakers.Count; i++)
         {
-            LeanTween.moveY(speakers[i], speakerStartHeight,0).setEaseOutCubic();
-            speakers[i].GetComponentInChildren<Hint>().CloseHint();
+            //LeanTween.moveY(speakers[i], speakerStartHeight,0).setEaseOutCubic();
+            //speakers[i].GetComponentInChildren<Hint>().CloseHint();
         }
 
-        tutorial.SetActive(false);
-        introduction.SetActive(false);
+        //tutorial.SetActive(false);
+        //introduction.SetActive(false);
 
         roundID = 0;
         partID = 0;

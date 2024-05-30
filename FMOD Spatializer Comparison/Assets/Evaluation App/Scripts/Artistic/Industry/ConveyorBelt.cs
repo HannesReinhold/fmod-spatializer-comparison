@@ -40,8 +40,8 @@ public class ConveyorBelt : MonoBehaviour
     public void PlaySpatializedOneShot(int a, int b, int index, Vector3 pos)
     {
 
-        FMODUnity.RuntimeManager.PlayOneShot(spatializerManager.GetEvent(index)[a], pos);
-        FMODUnity.RuntimeManager.PlayOneShot(spatializerManager.GetEvent(index)[b], pos);
+        FMODUnity.RuntimeManager.PlayOneShot(spatializerManager.GetEvent(index)[spatializerManager.currentSpatializer], pos);
+        //FMODUnity.RuntimeManager.PlayOneShot(spatializerManager.GetEvent(index)[b], pos);
     }
 
     // Start is called before the first frame update
@@ -324,8 +324,8 @@ public class ConveyorBelt : MonoBehaviour
     {
 
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Release", currentFollower.transform.position);
-        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 2, currentFollower.transform.position);
-        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
+        //if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 2, currentFollower.transform.position);
+        //else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Fire Swoosh", currentFollower.transform.position);
         if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 4, currentFollower.transform.position);
         else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 4, currentFollower.transform.position);

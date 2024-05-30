@@ -28,6 +28,14 @@ public class SPatializerSwitchManager : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        foreach (SpatialAudioSwitcher switcher in switchers)
+        {
+            switcher.StopAll();
+        }
+    }
+
     public void PlayAll()
     {
         foreach (SpatialAudioSwitcher switcher in switchers)

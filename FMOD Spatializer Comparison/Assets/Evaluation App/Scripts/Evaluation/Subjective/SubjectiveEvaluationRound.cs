@@ -14,10 +14,13 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     public TextMeshProUGUI minText;
     public TextMeshProUGUI maxText;
     public TextMeshProUGUI aspectText;
+    public TextMeshProUGUI aspectDescription;
 
     public SubjectiveAudioSwitch audioSwitch;
 
     public ToggleGroup spatializerSwitch;
+    public UnityEngine.UI.Toggle t1;
+    public UnityEngine.UI.Toggle t2;
     public UnityEngine.UI.Slider ratingSlider;
 
     private ConcreteSubjectiveData roundData;
@@ -26,15 +29,18 @@ public class SubjectiveEvaluationRound : MonoBehaviour
 
     public SPatializerSwitchManager spatialManager;
 
+    private int setSpat = 0;
+
 
     public void UpdateInterface(ConcreteSubjectiveData data, int roundID)
     {
         this.roundData = data;
 
         nameText.text = data.attribute;
-        descriptionText.text = data.description;
-        aspectText.text = "This part compares the aspect: "+data.attribute;
-        questionText.text = data.description;
+        descriptionText.text = data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
+        aspectText.text = "This part compares the aspect: <color=#7FD6FC>" + data.attribute+ "</color>";
+        aspectDescription.text = data.description;
+        questionText.text = "<color=#7FD6FC>Attribute:</color> "+data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.\n<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
         minText.text = ""; 
         maxText.text = "";
 
@@ -49,6 +55,14 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         
 
     }
+
+    private void Update()
+    {
+        if (OVRInput.GetDown(OVRInput.Button.One) && setSpat == 1) { setSpat = 0; ToggleSpatializerButton(0); };
+        if (OVRInput.GetDown(OVRInput.Button.Two) && setSpat == 0) { setSpat = 1;  ToggleSpatializerButton(1); };
+    }
+
+
 
     private void Awake()
     {
@@ -81,7 +95,10 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         //audioSwitch.Play(partData.fileID);
 
         //manager.HighlightSpeaker(roundData.speakerID);
-
+        setSpat = 0;
+        t1.isOn = true;
+        t2.isOn = false;
+        spatialManager.SetSpatializer(0);
     }
 
     public void UpdateRatingValue()
@@ -94,6 +111,12 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     {
         spatialManager.SetSpatializer(index == 0 ? spatialManager.spatializerA : spatialManager.spatializerB);
     }
+    public void ToggleSpatializerButton(int index)
+    {
+        if (index == 0) t1.isOn = true;
+        else t2.isOn = true;
+    }
+
 
     public void SetSpeaker(int id)
     {
