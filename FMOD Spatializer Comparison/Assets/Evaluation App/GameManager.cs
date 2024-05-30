@@ -42,9 +42,9 @@ public class GameManager : MonoBehaviour
     public enum EvaluationState
     {
         Introduction,
-        SubjectiveEvaluation,
         DirectionGuessing,
         LocationGuessing,
+        SubjectiveEvaluation,
         Complete
     }
 

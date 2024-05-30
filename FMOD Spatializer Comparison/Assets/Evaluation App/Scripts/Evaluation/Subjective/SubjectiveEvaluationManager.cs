@@ -196,6 +196,6 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     private void StartDirectionGuessing()
     {
-        GameManager.Instance.StartDirectionGuessing();
+        GameManager.Instance.StartComplete();
     }
 }
