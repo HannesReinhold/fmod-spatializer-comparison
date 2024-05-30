@@ -12,6 +12,8 @@ public class DirectionGuessingTutorial : MonoBehaviour
     public Transform centerTransform;
 
     public WindowManager windowManager;
+    public DirectionGuessingGameManager directionGameManager;
+    public DirectionGuessingGame game;
 
     public GameObject target;
 
@@ -64,8 +66,14 @@ public class DirectionGuessingTutorial : MonoBehaviour
     public Transform leftEye;
     public Transform rightEye;
 
+    public FMODUnity.StudioEventEmitter emitter;
+    private FMOD.Studio.EventInstance eventInstance;
+
+    public List<FMODUnity.EventReference> events;
+
 
     public DirectionVisualizerEvent directionVisualizer;
+    public AppearingObject targetVisualizer;
 
     private void OnEnable()
     {
@@ -93,6 +101,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
         CreateWireSphere();
         GameObject controller = GameObject.Find("RightHandAnchor");
         if (controller != null) controllerTransform = controller.transform;
+        eventInstance = emitter.EventInstance;
     }
 
     private void Update()
@@ -101,7 +110,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
 
 
-        if (enableInput && OVRInput.GetDown(OVRInput.Button.One)) Shoot();
+        if (enableInput && OVRInput.GetDown(OVRInput.Button.Two)) Shoot();
         if (enableInput && target.activeSelf && Mouse.current.leftButton.wasPressedThisFrame) Shoot();
 
 
@@ -141,9 +150,8 @@ public class DirectionGuessingTutorial : MonoBehaviour
         target.SetActive(true);
 
         // Play 3 times audio cue
-        PlayAudioCue();
-        Invoke("PlayAudioCue", 1);
-        Invoke("PlayAudioCue", 2);
+        PlayAudioCue(roundID);
+
 
         // Invoke("Shoot", 3);
         showVisualizerSphere = false;
@@ -154,6 +162,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
         directionVisualizer.OpenCrosshair();
         directionVisualizer.OpenSphere();
+        targetVisualizer.SetInvisible();
     }
 
     void Shoot()
@@ -165,7 +174,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
         playerPositionWhileGuessing = FindObjectOfType<FollowTarget>().transform.position;
         //showVisualizerSphere = true;
-        showDiffereLine=true;
+        
 
         targetRadius = Vector3.Distance(playerPositionWhileGuessing, target.transform.position);
 
@@ -173,10 +182,30 @@ public class DirectionGuessingTutorial : MonoBehaviour
         SetGuessedPointPosition();
         //SetGuessedDifference();
 
+
+
         Invoke("ShowScore", 2);
+        if(roundID>=1 && roundID<positionList.Count-1)Invoke("StartRound", 5);
+        showDiffereLine = true;
+
 
         directionVisualizer.CloseCrosshair();
-        GameManager.Instance.LogServerEvent("Direction Tutorial Shoot");
+        //GameManager.Instance.LogServerEvent("Direction Tutorial Shoot");
+
+        StopAudioCue();
+
+        roundID++;
+
+        if (roundID == positionList.Count)
+        {
+            Debug.Log("Dir Tutorial Complete");
+            Invoke("FinishTutorial", 5);
+        }
+    }
+
+    void FinishTutorial()
+    {
+        windowManager.NextPage();
     }
 
     public void Vib()
@@ -195,14 +224,21 @@ public class DirectionGuessingTutorial : MonoBehaviour
         OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
     }
 
-    private void PlayAudioCue()
+    private void PlayAudioCue(int n)
     {
-        GUIAudioManager.PlayMenuSubmit(target.transform.position);
+        emitter.ChangeEvent(events[n]);
+        emitter.Play();
+    }
+
+    private void StopAudioCue()
+    {
+        emitter.Stop();
+        
     }
 
     void Evaluate()
     {
-        roundID++;
+        if (roundID > 2) return;
         windowManager.NextPage();
         Debug.Log("Shoot");
     }
@@ -217,6 +253,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
         TextMeshProUGUI text = differenceWindow.GetComponentInChildren<TextMeshProUGUI>();
         text.text = "Measured difference:\n" + "Horiontal: " + azimuthDifference.ToString("F1") + "Degrees\nVertical: " + elevationDifference.ToString("F1") + " Degrees";
         Debug.Log(text);
+        targetVisualizer.FadeIn();
         Invoke("HideScore",3);
         Invoke("Evaluate", 4);
     }
@@ -224,6 +261,10 @@ public class DirectionGuessingTutorial : MonoBehaviour
     public void HideScore()
     {
         differenceWindow.GetComponentInChildren<PopupWindow>().Close();
+        targetVisualizer.FadeOut();
+        showVisualizerSphere = false;
+        showDiffereLine = false;
+
     }
 
 
@@ -287,7 +328,6 @@ public class DirectionGuessingTutorial : MonoBehaviour
         //guessedDirection = (leftEye.forward + rightEye.forward).normalized;
         guessedDirection = (directionVisualizer.crosshairVisualizer.transform.position - centerTransform.position).normalized;
         GuessedPoint.transform.position = directionVisualizer.crosshairVisualizer.transform.position;
-        
 
         float rad = Vector3.Distance(centerTransform.position, target.transform.position);
         GuessedPoint.transform.position = centerTransform.position + guessedDirection * rad;

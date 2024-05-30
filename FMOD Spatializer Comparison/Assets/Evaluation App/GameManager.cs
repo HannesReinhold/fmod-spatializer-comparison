@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public ServerLogEvent serverLog;
 
 
+    public AppearingObject grabButton;
+    public AppearingObject submitButton;
+
 
 
     public enum EvaluationState
@@ -106,6 +109,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         SetupWorldCamera();
+        SetGrabHighlightVisible(false);
+        SetSubmitHighlightVisible(false);
     }
 
     private void Update()
@@ -328,6 +333,53 @@ public class GameManager : MonoBehaviour
     public void SetAmbienVolume(float i)
     {
         GUIAudioManager.SetAmbientVolume(i);
+    }
+
+
+    public void FadeGrabHighlightVisible(bool vis)
+    {
+        if (vis) grabButton.FadeIn();
+        else grabButton.FadeOut();
+    }
+
+    public void FadeSubmitHighlightVisible(bool vis)
+    {
+        if (vis) submitButton.FadeIn();
+        else submitButton.FadeOut();
+    }
+
+    public void SetGrabHighlightVisible(bool vis)
+    {
+        if (vis) grabButton.SetVisible();
+        else grabButton.SetInvisible();
+    }
+
+    public void SetSubmitHighlightVisible(bool vis)
+    {
+        if (vis) submitButton.SetVisible();
+        else submitButton.SetInvisible();
+    }
+
+
+    public void VibrationCue()
+    {
+        Vib(2, 2.5f);
+    }
+
+
+    public void Vib(float start, float end)
+    {
+        Invoke("startVib", start);
+        Invoke("stopVib", end);
+    }
+
+    public void startVib()
+    {
+        OVRInput.SetControllerVibration(1, 1, OVRInput.Controller.RTouch);
+    }
+    public void stopVib()
+    {
+        OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
     }
 }
 

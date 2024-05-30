@@ -63,6 +63,13 @@ namespace FMODUnity
             }
         }
 
+        public void ChangeEvent(EventReference eventRef)
+        {
+            Stop();
+            EventReference = eventRef;
+            Lookup();
+        }
+
         public static void UpdateActiveEmitters()
         {
             foreach (StudioEventEmitter emitter in activeEmitters)

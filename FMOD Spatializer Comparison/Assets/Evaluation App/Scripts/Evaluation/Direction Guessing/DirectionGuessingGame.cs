@@ -23,6 +23,8 @@ public class DirectionGuessingGame : MonoBehaviour
     public AudioOutputChannelRouter outputChannelRouter;
     public List<AudioClip> clips;
 
+    public FMODUnity.StudioEventEmitter emitter;
+
     [SerializeField] public AudioEvent[] events;
 
     private Vector3 guessedDirection;
@@ -81,7 +83,7 @@ public class DirectionGuessingGame : MonoBehaviour
     void Update()
     {
         // Shoot if pressed
-        if (enableInput && target.activeSelf && OVRInput.GetDown(OVRInput.Button.One)) Shoot();
+        if (enableInput && target.activeSelf && OVRInput.GetDown(OVRInput.Button.Two)) Shoot();
         if (enableInput && target.activeSelf && Mouse.current.leftButton.wasPressedThisFrame) Shoot();
 
     }
@@ -188,8 +190,6 @@ public class DirectionGuessingGame : MonoBehaviour
 
         // Play 3 times audio cue
         PlayAudioCue();
-        Invoke("PlayAudioCue",1);
-        Invoke("PlayAudioCue", 2);
 
         Debug.Log("Respawn");
     }
@@ -203,6 +203,7 @@ public class DirectionGuessingGame : MonoBehaviour
         // auditive and tactile feedback
         Vib();
         CancelInvoke("PlayAudioCue");
+        StopAudioCue();
 
         // disable target and input
         target.SetActive(false);
@@ -221,10 +222,27 @@ public class DirectionGuessingGame : MonoBehaviour
         int cueID = gameData.rounds[currentRound].cueID;
         Debug.Log("Playing spatializer "+currentSpatializer+" at "+target.transform.position);
         switch (currentSpatializer) {
-            case 0: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[0], target.transform.position); break;
-            case 1: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[1], target.transform.position); break;
-            case 2: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break; break;
+            //case 0: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[0], target.transform.position); break;
+            //case 1: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[1], target.transform.position); break;
+            //case 2: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break; break;
+            case 0:
+                emitter.EventReference = events[cueID].spatializedEvents[0];
+                emitter.Play();
+                break;
+            case 1:
+                emitter.EventReference = events[cueID].spatializedEvents[1];
+                emitter.Play();
+                break;
+            case 2:
+                emitter.EventReference = events[cueID].spatializedEvents[2];
+                emitter.Play();
+                break;
         }
+    }
+
+    private void StopAudioCue()
+    {
+        emitter.Stop();
     }
 
     private void PlayRealAudio(int channelID, int cueID)
@@ -298,7 +316,7 @@ public class DirectionGuessingGame : MonoBehaviour
 
         // if all rounds are over, finish game
         if (currentRound < numRounds)
-            Invoke("StartCountdown", 2);
+            Invoke("StartCountdown", 1);
         else
             Invoke("FinishGame",1);
     }
