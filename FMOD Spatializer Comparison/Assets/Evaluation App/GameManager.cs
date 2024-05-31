@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
     public AppearingObject grabButton;
     public AppearingObject submitButton;
 
+    public GUISway hud;
+    public PopupWindow currentSpaitializerWindow;
+
 
 
     public enum EvaluationState
@@ -111,6 +114,8 @@ public class GameManager : MonoBehaviour
         SetupWorldCamera();
         SetGrabHighlightVisible(false);
         SetSubmitHighlightVisible(false);
+
+        hud.cameraTransform = Camera.main.transform;
     }
 
     private void Update()
@@ -380,6 +385,27 @@ public class GameManager : MonoBehaviour
     public void stopVib()
     {
         OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
+    }
+
+    public void ShowHUD()
+    {
+        hud.gameObject.SetActive(true);
+        hud.Show();
+    }
+
+    public void HideHUD()
+    {
+        hud.Hide();
+    }
+
+    public void OpenSpatializerSwitchWindow()
+    {
+        currentSpaitializerWindow.Open();
+    }
+
+    public void CloseSpatializerSwitchWindow()
+    {
+        currentSpaitializerWindow.Close();
     }
 }
 

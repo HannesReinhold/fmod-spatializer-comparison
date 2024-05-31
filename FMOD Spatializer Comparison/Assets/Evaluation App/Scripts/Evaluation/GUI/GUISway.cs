@@ -12,6 +12,9 @@ public class GUISway : MonoBehaviour
 
     public float maxDifference;
 
+    public PopupWindow popupWindow;
+    public GameObject hudObject;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +33,24 @@ public class GUISway : MonoBehaviour
         newForward = cameraTransform.forward - dif;
         transform.position = cameraTransform.position + newForward * offset.z;
 
-
         transform.forward = newForward;
 
+    }
 
+    public void Show()
+    {
+        hudObject.SetActive(true);
+        popupWindow.Open();
+    }
 
+    public void Hide()
+    {
+        popupWindow.Close();
+        Invoke("DisableHUD", 1);
+    }
+
+    private void DisableHUD()
+    {
+        hudObject.SetActive(false);
     }
 }
