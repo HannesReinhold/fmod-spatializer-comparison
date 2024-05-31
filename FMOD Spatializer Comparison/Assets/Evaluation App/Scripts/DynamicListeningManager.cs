@@ -31,6 +31,8 @@ public class DynamicListeningManager : MonoBehaviour
     private bool alreadyGuessed = false;
     private bool roundRunning = false;
 
+    private bool alreadyGrabbed = false;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -55,6 +57,9 @@ public class DynamicListeningManager : MonoBehaviour
         if (!roundRunning) return;
         if (OVRInput.GetDown(OVRInput.Button.Two) && alreadyGuessed == false) PlaceGuess();
 
+
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger)>=0.5f && !alreadyGrabbed) Grab();
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) < 0.5f && alreadyGrabbed) UnGrab();
 
     }
 
@@ -212,6 +217,18 @@ public class DynamicListeningManager : MonoBehaviour
                 break;
         }
         
+    }
+
+    private void Grab()
+    {
+        Vib(0,0.2f);
+        alreadyGrabbed = true;
+    }
+
+    private void UnGrab()
+    {
+        Vib(0,0.1f);
+        alreadyGrabbed = false;
     }
 
 
