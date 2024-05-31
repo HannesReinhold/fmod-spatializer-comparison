@@ -44,7 +44,7 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         descriptionText.text = data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
         aspectText.text = "Aspect for this round:  <color=#7FD6FC>" + data.attribute+ "</color>";
         aspectDescription.text = data.description;
-        questionText.text = "<color=#7FD6FC>Attribute:</color> "+data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.\n<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
+        //questionText.text = "<color=#7FD6FC>Attribute:</color> "+data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.\n<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
         minText.text = ""; 
         maxText.text = "";
 
@@ -57,7 +57,6 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         bus = FMODUnity.RuntimeManager.GetBus("bus:/MainSounds");
         bus.setVolume(1);
         
-
     }
 
     private void Update()
@@ -121,8 +120,8 @@ public class SubjectiveEvaluationRound : MonoBehaviour
 
         //manager.HighlightSpeaker(roundData.speakerID);
         setSpat = 0;
-        t1.isOn = true;
-        t2.isOn = false;
+        //t1.isOn = true;
+        //t2.isOn = false;
         spatialManager.SetSpatializer(0);
     }
 
