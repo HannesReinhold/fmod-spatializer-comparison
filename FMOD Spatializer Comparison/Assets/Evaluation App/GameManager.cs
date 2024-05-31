@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     public AppearingObject grabButton;
     public AppearingObject submitButton;
+    public AppearingObject aButton;
 
     public GUISway hud;
     public PopupWindow currentSpaitializerWindow;
@@ -353,6 +354,12 @@ public class GameManager : MonoBehaviour
         else submitButton.FadeOut();
     }
 
+    public void FadeAHighlightVisible(bool vis)
+    {
+        if (vis) aButton.FadeIn();
+        else aButton.FadeOut();
+    }
+
     public void SetGrabHighlightVisible(bool vis)
     {
         if (vis) grabButton.SetVisible();
@@ -363,6 +370,12 @@ public class GameManager : MonoBehaviour
     {
         if (vis) submitButton.SetVisible();
         else submitButton.SetInvisible();
+    }
+
+    public void SetAHighlightVisible(bool vis)
+    {
+        if (vis) aButton.SetVisible();
+        else aButton.SetInvisible();
     }
 
 

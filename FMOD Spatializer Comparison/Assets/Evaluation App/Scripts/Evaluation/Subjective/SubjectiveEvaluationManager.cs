@@ -198,4 +198,6 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     {
         GameManager.Instance.StartComplete();
     }
+
+
 }

@@ -22,9 +22,7 @@ public class InterfaceTutorial : MonoBehaviour
         Invoke("Open1", 5);
         Invoke("Open2", 10);
         Invoke("Open3", 15);
-        Invoke("Open4", 20);
-        Invoke("Open5", 25);
-        Invoke("Open6", 30);
+
     }
 
     public void FinishTutorial()
@@ -32,9 +30,7 @@ public class InterfaceTutorial : MonoBehaviour
         CancelInvoke("Open1");
         CancelInvoke("Open2");
         CancelInvoke("Open3");
-        CancelInvoke("Open4");
-        CancelInvoke("Open5");
-        CancelInvoke("Open6");
+
 
         GUIAudioManager.SetTutorialVolume(1);
     }
@@ -74,27 +70,4 @@ public class InterfaceTutorial : MonoBehaviour
         hints[2].OpenHint();
         hints[1].HideHint();
     }
-
-    private void Open4()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Cues/Hint2", hints[3].transform.position);
-        hints[3].OpenHint();
-        hints[2].HideHint();
-    }
-
-    private void Open5()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Cues/Hint2", hints[4].transform.position);
-        hints[4].OpenHint();
-        hints[3].HideHint();
-    }
-
-    private void Open6()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Cues/Hint2", hints[5].transform.position);
-        hints[5].OpenHint();
-        hints[4].HideHint();
-    }
-
-
 }
