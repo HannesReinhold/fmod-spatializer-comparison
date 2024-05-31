@@ -65,6 +65,7 @@ public class DynamicListeningManager : MonoBehaviour
     {
         if (!roundRunning) return;
         if (OVRInput.GetDown(OVRInput.Button.Two) && alreadyGuessed == false) PlaceGuess();
+        if (Input.GetKeyDown(KeyCode.Return) && alreadyGuessed == false) PlaceGuess();
 
 
         if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger)>=0.5f && !alreadyGrabbed) Grab();
@@ -173,6 +174,8 @@ public class DynamicListeningManager : MonoBehaviour
         roundData.horizontalDifference = Vector2.Distance(new Vector2(actual.x, actual.z),  new Vector2(guess.x, guess.z));
         roundData.verticalDifference = Mathf.Abs(actual.y- guess.y);
         roundData.timeToGuess = Time.time - startTime;
+        GameManager.Instance.dataManager.currentSessionData.positionGuessData.Add(roundData);
+        GameManager.Instance.SaveData();
 
 
         if (currentRound <= numRounds)
