@@ -5,14 +5,19 @@ using UnityEngine;
 public class DIrectionPoolGenerator : MonoBehaviour
 {
     public int numDirections = 128;
+    public int numPositions = 32;
     public int actualCount = 0;
     public List<Vector3> directions = new List<Vector3>();
+    public List<Vector3> positions = new List<Vector3>();
 
     public string output;
     public string output2 = "";
+    public string output3;
 
     [Range(0,Mathf.PI)] public float minElevation = 0;
     [Range(0, Mathf.PI)] public float maxElevation = 1;
+
+    [Range(0,1000)] public int seed = 0;
 
 
 
@@ -33,10 +38,12 @@ public class DIrectionPoolGenerator : MonoBehaviour
     {
         GenerateDirections();
         GenerateShuffledIndices();
+        GeneratePositions();
         actualCount = directions.Count;
         for (int i = 0; i < directions.Count; i++)
         {
-            Gizmos.DrawSphere(directions[i], 0.1f);
+            //Gizmos.DrawSphere(directions[i], 0.1f);
+            Gizmos.DrawSphere(positions[i], 0.1f);
         }
     }
 
@@ -101,6 +108,18 @@ public class DIrectionPoolGenerator : MonoBehaviour
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
+        }
+    }
+
+
+    void GeneratePositions()
+    {
+        Random.seed = seed;
+        positions = new List<Vector3>();
+        for(int i=0; i<numPositions; i++)
+        {
+            Vector3 newPoint = new Vector3(Random.Range(-2.5f,2.5f), Random.Range(0.5f,2f), Random.Range(-3.5f,3.5f));
+            positions.Add(newPoint);
         }
     }
 }

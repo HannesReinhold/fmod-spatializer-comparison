@@ -33,6 +33,10 @@ public class DynamicListeningManager : MonoBehaviour
 
     private bool alreadyGrabbed = false;
 
+    public Vector3 dimensions;
+
+    private Vector3 lastPosition = new Vector3();
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -124,7 +128,7 @@ public class DynamicListeningManager : MonoBehaviour
 
     void SpawnNewSphere()
     {
-        Vector3 newPosition = new Vector3(Random.Range(-3,3), Random.Range(0, 1.5f), Random.Range(-3, 3));
+        Vector3 newPosition = GenerateNewPosition();
         emitter.transform.position = newPosition;
         emitter.EventReference = events[(int)Random.Range(0,3)];
         emitterVisual.minY = newPosition.y - 0.05f;
@@ -252,4 +256,19 @@ public class DynamicListeningManager : MonoBehaviour
     {
         OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.RTouch);
     }
+
+    public Vector3 GenerateNewPosition()
+    {
+        Vector3 newPosition = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(0.5f, 2f), Random.Range(-3.5f, 3.5f));
+        int i = 0;
+        while (Vector3.Distance(newPosition, lastPosition) < 1 && i<10)
+        {
+            newPosition = new Vector3(Random.Range(-2.5f, 2.5f), Random.Range(0.5f, 2f), Random.Range(-3.5f, 3.5f));
+            i++;
+        }
+
+
+        return newPosition;
+    }
+
 }
