@@ -21,6 +21,7 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     public ToggleGroup spatializerSwitch;
     public UnityEngine.UI.Toggle t1;
     public UnityEngine.UI.Toggle t2;
+    public TextMeshProUGUI currentSpatializerVisual;
     public UnityEngine.UI.Slider ratingSlider;
 
     private ConcreteSubjectiveData roundData;
@@ -30,6 +31,9 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     public SPatializerSwitchManager spatialManager;
 
     private int setSpat = 0;
+
+    private bool roundRunning = false;
+    private bool showRatingInterface = false;
 
 
     public void UpdateInterface(ConcreteSubjectiveData data, int roundID)
@@ -58,8 +62,29 @@ public class SubjectiveEvaluationRound : MonoBehaviour
 
     private void Update()
     {
-        if (OVRInput.GetDown(OVRInput.Button.One) && setSpat == 1) { setSpat = 0; ToggleSpatializerButton(0); };
-        if (OVRInput.GetDown(OVRInput.Button.Two) && setSpat == 0) { setSpat = 1;  ToggleSpatializerButton(1); };
+        if (OVRInput.GetDown(OVRInput.Button.One) && setSpat == 1) { setSpat = 0; ToggleSpatializer(0); };
+        if (OVRInput.GetDown(OVRInput.Button.Two) && setSpat == 0) { setSpat = 1;  ToggleSpatializer(1); };
+
+
+        if (!roundRunning) return;
+        if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
+        if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
+
+        if (Input.GetMouseButtonDown(0)) ToggleInterface();
+    }
+
+    private void ToggleInterface()
+    {
+        showRatingInterface = !showRatingInterface;
+        if (showRatingInterface) windowManager.OpenCurrentWindow();
+        else windowManager.CloseCurrentWindow();
+    }
+
+    public void SetRoundState(bool running)
+    {
+        roundRunning = running;
+        showRatingInterface = false;
+        windowManager.CloseCurrentWindow();
     }
 
 
@@ -110,6 +135,7 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     public void ToggleSpatializer(int index)
     {
         spatialManager.SetSpatializer(index == 0 ? spatialManager.spatializerA : spatialManager.spatializerB);
+        currentSpatializerVisual.text = index == 0 ? "A" : "B";
     }
     public void ToggleSpatializerButton(int index)
     {

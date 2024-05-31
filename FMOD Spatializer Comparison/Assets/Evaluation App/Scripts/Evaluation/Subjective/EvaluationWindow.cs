@@ -59,16 +59,16 @@ public class EvaluationWindow : MonoBehaviour
     public void OpenDescription()
     {
         targetA = 1;
-        closeImage.SetActive(true);
-        openImage.SetActive(false);
+        //closeImage.SetActive(true);
+        //openImage.SetActive(false);
         Debug.Log("Open desc");
     }
 
     public void CloseDescription()
     {
         targetA = 0;
-        closeImage.SetActive(false);
-        openImage.SetActive(true);
+        //closeImage.SetActive(false);
+        //openImage.SetActive(true);
         Debug.Log("Close desc");
     }
 

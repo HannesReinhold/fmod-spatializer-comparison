@@ -14,6 +14,8 @@ public class RotateTowardsCam : MonoBehaviour
 
     public bool invert;
 
+    public float xRot = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,12 +29,16 @@ public class RotateTowardsCam : MonoBehaviour
         if (FindObjectOfType<FollowTarget>() == null) return;
         if(target==null) target = FindObjectOfType<FollowTarget>().transform;
         Vector3 direction = (new Vector3(target.position.x,enableXRot ? target.position.y:0, target.position.z) - new Vector3(transform.position.x, enableXRot ? transform.position.y : 0, transform.position.z)).normalized;
+        
         if (invert) direction = -direction;
-
         //create the rotation we need to be in to look at the target
         Quaternion lookRotation = Quaternion.LookRotation(direction);
+        Vector3 eul = lookRotation.eulerAngles;
+        eul = enableXRot ? eul : new Vector3(transform.eulerAngles.x, eul.y, eul.z);
+        lookRotation = Quaternion.Euler(eul);
 
         //rotate us over time according to speed until we are in the required rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+
     }
 }

@@ -13,7 +13,6 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     public SubjectiveEvaluationRound roundManager;
     public WindowManager windowManager;
-    //public SubjectiveEvaluationInterface1 subjectiveEvalInterface;
 
     public List<GameObject> speakers = new List<GameObject>();
 
@@ -30,6 +29,9 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     public float speakerStartHeight = -4.66f;
 
+    private bool roundRunning = false;
+    private bool showRatingInterface=false;
+
     
 
     private void OnEnable()
@@ -45,6 +47,23 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     private void Start()
     {
         GUIAudioManager.SetTutorialVolume(1);
+    }
+
+    private void Update()
+    {
+        if (!roundRunning) return;
+        if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
+        if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
+
+        if (Input.GetMouseButtonDown(0)) ToggleInterface();
+
+    }
+
+    private void ToggleInterface()
+    {
+        showRatingInterface = !showRatingInterface;
+        if (showRatingInterface) windowManager.OpenCurrentWindow();
+        else windowManager.CloseCurrentWindow();
     }
 
     private void OnDisable()
@@ -68,14 +87,15 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         Debug.Log(GameManager.Instance.dataManager);
         //DisableHighlighting();
         numRounds = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons.Count;
+        Debug.Log("numRounds:"+numRounds);
         //if (!skipTutorial) introduction.SetActive(true);
 
-            StartRound(); 
-            roundID++;
+            //StartRound(); 
+            //roundID++;
 
 
         //GUIAudioManager.SetAmbientVolume(0);
-        GameManager.Instance.LogServerEvent("Subjective Evaluation");
+        //GameManager.Instance.LogServerEvent("Subjective Evaluation");
 
     }
 
@@ -104,12 +124,20 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         //GameManager.Instance.LogServerEvent("Subjective Evaluation Round");
     }
 
+    public void SetRoundState(bool running)
+    {
+        roundRunning = running;
+        showRatingInterface = false;
+        windowManager.CloseCurrentWindow();
+    }
+
     public void NextRound()
     {
         bool nextAspect=true;
-        int id = GameManager.Instance.dataManager.randomOrderIndices[roundID];
+        
         if (roundID>= numRounds) FinishEvaluation();
         else {
+            int id = GameManager.Instance.dataManager.randomOrderIndices[roundID];
             roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[id], id);
             roundManager.StartRound(nextAspect); 
             
@@ -201,6 +229,8 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     {
         GameManager.Instance.StartComplete();
     }
+
+    
 
 
 }

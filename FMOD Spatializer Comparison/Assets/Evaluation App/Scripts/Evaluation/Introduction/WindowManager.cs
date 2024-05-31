@@ -97,6 +97,8 @@ public class WindowManager : MonoBehaviour
 
     public void OpenCurrentWindow()
     {
+        if (currentWindow == null) currentWindow = windows[currentWindowIndex];
+        currentWindow.gameObject.SetActive(true);
         currentWindow.GetComponent<PopupWindow>().Open();
     }
 }

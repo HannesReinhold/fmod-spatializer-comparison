@@ -35,6 +35,7 @@ public class DataManager
         System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(persistentPath+ "Sessions/");
         int count = dir.GetFiles().Length;
         sessionNumber = count;
+        Debug.Log("Num Sessions: "+count);
     }
 
     public void SaveSession()
@@ -90,6 +91,7 @@ public class DataManager
         directionGameData = spatializerData.directionGameData;
 
         randomOrderIndices = new int[spatializerData.subjectiveData.comparisons.Count];
+        Debug.Log("Num rounds: "+randomOrderIndices.Length);
 
         for(int i=0; i<randomOrderIndices.Length; i++)
         {
