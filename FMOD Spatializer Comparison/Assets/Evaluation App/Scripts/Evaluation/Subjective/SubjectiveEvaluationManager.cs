@@ -30,6 +30,8 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     public float speakerStartHeight = -4.66f;
 
+    
+
     private void OnEnable()
     {
         bus = FMODUnity.RuntimeManager.GetBus("bus:/Ambience");
@@ -66,11 +68,11 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         Debug.Log(GameManager.Instance.dataManager);
         //DisableHighlighting();
         numRounds = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons.Count;
-        if (!skipTutorial) introduction.SetActive(true);
-        else { 
+        //if (!skipTutorial) introduction.SetActive(true);
+
             StartRound(); 
             roundID++;
-        }
+
 
         //GUIAudioManager.SetAmbientVolume(0);
         GameManager.Instance.LogServerEvent("Subjective Evaluation");
@@ -91,8 +93,9 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         Debug.Log("STart Round");
         //subjectiveEvalInterface.ShowNextEvaluation(partID, roundID);
         GUIAudioManager.SetAmbientVolume(0);
+        int id = GameManager.Instance.dataManager.randomOrderIndices[roundID];
         numRounds = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons.Count;
-        roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[roundID], roundID);
+        roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[id], id);
         roundManager.StartRound(true);
         //tutorial.SetActive(false);
         evaluationRound.SetActive(true);
@@ -104,10 +107,10 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     public void NextRound()
     {
         bool nextAspect=true;
-
+        int id = GameManager.Instance.dataManager.randomOrderIndices[roundID];
         if (roundID>= numRounds) FinishEvaluation();
         else {
-            roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[roundID], roundID);
+            roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[id], id);
             roundManager.StartRound(nextAspect); 
             
         }

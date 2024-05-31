@@ -38,7 +38,7 @@ public class SubjectiveEvaluationRound : MonoBehaviour
 
         nameText.text = data.attribute;
         descriptionText.text = data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
-        aspectText.text = "This part compares the aspect: <color=#7FD6FC>" + data.attribute+ "</color>";
+        aspectText.text = "Aspect for this round:  <color=#7FD6FC>" + data.attribute+ "</color>";
         aspectDescription.text = data.description;
         questionText.text = "<color=#7FD6FC>Attribute:</color> "+data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.\n<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
         minText.text = ""; 
