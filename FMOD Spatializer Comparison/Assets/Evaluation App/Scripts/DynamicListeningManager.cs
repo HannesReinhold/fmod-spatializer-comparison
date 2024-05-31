@@ -37,7 +37,12 @@ public class DynamicListeningManager : MonoBehaviour
 
     private Vector3 lastPosition = new Vector3();
 
+    private float startTime = 0;
+
     // Start is called before the first frame update
+
+    private ConcretePositionGuessingData roundData;
+
     void OnEnable()
     {
         currentRound = 0;
@@ -124,11 +129,16 @@ public class DynamicListeningManager : MonoBehaviour
         currentRound++;
         alreadyGuessed = false;
         roundRunning = true;
+
+        roundData = new ConcretePositionGuessingData();
+
+        startTime = Time.time;
     }
 
     void SpawnNewSphere()
     {
         Vector3 newPosition = GenerateNewPosition();
+        lastPosition = newPosition;
         emitter.transform.position = newPosition;
         emitter.EventReference = events[(int)Random.Range(0,3)];
         emitterVisual.minY = newPosition.y - 0.05f;
@@ -152,7 +162,18 @@ public class DynamicListeningManager : MonoBehaviour
             return;
         }
 
+        Vector3 actual = emitter.transform.position;
+        Vector3 guess = currentGuessSphere.transform.position;
+
         // save data
+        roundData.roundID = currentRound;
+        roundData.actualPosition = emitter.transform.position;
+        roundData.guessedPosition = currentGuessSphere.transform.position;
+        roundData.totalDifference = dist;
+        roundData.horizontalDifference = Vector2.Distance(new Vector2(actual.x, actual.z),  new Vector2(guess.x, guess.z));
+        roundData.verticalDifference = Mathf.Abs(actual.y- guess.y);
+        roundData.timeToGuess = Time.time - startTime;
+
 
         if (currentRound <= numRounds)
         {

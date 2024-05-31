@@ -128,6 +128,7 @@ public struct SpatializerEvaluationData
     public SpeakerInfo[] speakerInfo;
     public SubjectiveData subjectiveData;
     public SubjectiveEvaluationData subjectiveEvaluationData;
+    public PositionGuessingData positionGuessingData;
     
     public DirectionGameData directionGameData;
 }
