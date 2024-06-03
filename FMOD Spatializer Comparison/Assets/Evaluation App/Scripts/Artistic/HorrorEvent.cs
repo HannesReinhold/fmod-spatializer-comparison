@@ -141,11 +141,12 @@ public class HorrorEvent : MonoBehaviour
         //passthroughBox.enabled = true;
 
         
-        Vector3 lookDir = FindFirstObjectByType<FollowTarget>().transform.eulerAngles;
-        Vector3 camPos = FindFirstObjectByType<FollowTarget>().transform.position;
+        Vector3 lookDir = FindAnyObjectByType<FollowTarget>().transform.eulerAngles;
+        Vector3 camPos = FindAnyObjectByType<FollowTarget>().transform.position;
         //jumpscareSpring.transform.position = new Vector3(camPos.x, 0, camPos.z) + new Vector3(Mathf.Sin(lookDir.y * Mathf.Deg2Rad),0,Mathf.Cos(lookDir.y * Mathf.Deg2Rad));
         jumpscareSpring = Instantiate(jumpScarePrefab, new Vector3(camPos.x, 0, camPos.z) + new Vector3(Mathf.Sin(lookDir.y * Mathf.Deg2Rad), 0, Mathf.Cos(lookDir.y * Mathf.Deg2Rad)), Quaternion.identity);
-        jumpscareSpring.transform.LookAt(new Vector3(camPos.x, 0, camPos.z));
+        //jumpscareSpring.transform.LookAt(new Vector3(camPos.x, 0, camPos.z));
+        jumpscareSpring.GetComponentInChildren<Canvas>().transform.LookAt(new Vector3(camPos.x, jumpscareSpring.GetComponentInChildren<Canvas>().transform.position.y, camPos.z));
         FMODUnity.RuntimeManager.PlayOneShot("event:/Spooky/Boing", jumpscareSpring.transform.position);
         Debug.Log("Boo");
     }
