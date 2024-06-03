@@ -190,7 +190,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5912602849974864320, guid: d411d7025235c46429a71c1d37eace8d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1172805726}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3530817498314266571, guid: d411d7025235c46429a71c1d37eace8d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 585873888}
   m_SourcePrefab: {fileID: 100100000, guid: d411d7025235c46429a71c1d37eace8d, type: 3}
 --- !u!1 &3390005
 GameObject:
@@ -22449,6 +22452,23 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &585873883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3530817498314266571, guid: d411d7025235c46429a71c1d37eace8d, type: 3}
+  m_PrefabInstance: {fileID: 1469838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &585873888
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585873883}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &588081531
 GameObject:
   m_ObjectHideFlags: 0
@@ -26515,7 +26535,7 @@ MonoBehaviour:
   hud: {fileID: 1636174738}
   currentSpaitializerWindow: {fileID: 1667048812}
   standingIndicator: {fileID: 743371248}
-  startEvaluationState: 0
+  startEvaluationState: 1
   VRStuff:
   - {fileID: 911919572}
   - {fileID: 420812870}
@@ -32914,7 +32934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7480652935212730614, guid: d72f4e2f1b2c38447b1a50f27c4a3c8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SetStandingIndicatorVisibility
+      value: SetStandingIndicatorHighlight
       objectReference: {fileID: 0}
     - target: {fileID: 7480652935212730614, guid: d72f4e2f1b2c38447b1a50f27c4a3c8b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
@@ -46526,7 +46546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1172805726
 Transform:
   m_ObjectHideFlags: 0
@@ -46571,7 +46591,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172805725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -58133,7 +58153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8339466203792855022, guid: 1dea4ee652305c94baf5afed83edb243, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: SetSubmitHighlightVisible
+      value: SetStandingIndicatorHighlight
       objectReference: {fileID: 0}
     - target: {fileID: 8339466203792855022, guid: 1dea4ee652305c94baf5afed83edb243, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -63927,7 +63947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 586855738953115449, guid: 1a0466d323790c54ab6e8501a74ce61f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SetStandingIndicatorVisibility
+      value: SetStandingIndicatorHighlight
       objectReference: {fileID: 0}
     - target: {fileID: 586855738953115449, guid: 1a0466d323790c54ab6e8501a74ce61f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -65528,7 +65548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 586855738953115449, guid: 1a0466d323790c54ab6e8501a74ce61f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: SetStandingIndicatorVisibility
+      value: SetStandingIndicatorHighlight
       objectReference: {fileID: 0}
     - target: {fileID: 586855738953115449, guid: 1a0466d323790c54ab6e8501a74ce61f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

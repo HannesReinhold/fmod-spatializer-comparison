@@ -432,8 +432,8 @@ public class GameManager : MonoBehaviour
     {
         CanvasGroup canvas = standingIndicator.GetComponentInChildren<CanvasGroup>();
         LeanTween.alphaCanvas(canvas, high ? 1 : 0.5f , 0.5f);
-        GameObject highlight = standingIndicator.GetComponentInChildren<MeshRenderer>().gameObject;
-        highlight.SetActive(high);
+        MeshRenderer highlight = standingIndicator.GetComponentInChildren<MeshRenderer>();
+        highlight.enabled = high;
     }
 }
 
