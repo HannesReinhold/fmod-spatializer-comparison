@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     public GUISway hud;
     public PopupWindow currentSpaitializerWindow;
 
+    public GameObject standingIndicator;
+
 
 
     public enum EvaluationState
@@ -419,6 +421,19 @@ public class GameManager : MonoBehaviour
     public void CloseSpatializerSwitchWindow()
     {
         currentSpaitializerWindow.Close();
+    }
+
+    public void SetStandingIndicatorVisibility(bool show)
+    {
+        standingIndicator.SetActive(show);
+    }
+
+    public void SetStandingIndicatorHighlight(bool high)
+    {
+        CanvasGroup canvas = standingIndicator.GetComponentInChildren<CanvasGroup>();
+        LeanTween.alphaCanvas(canvas, high ? 1 : 0.5f , 0.5f);
+        GameObject highlight = standingIndicator.GetComponentInChildren<MeshRenderer>().gameObject;
+        highlight.SetActive(high);
     }
 }
 
