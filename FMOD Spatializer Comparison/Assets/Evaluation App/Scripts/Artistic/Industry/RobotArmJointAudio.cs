@@ -62,7 +62,7 @@ public class RobotArmJointAudio : MonoBehaviour
         lastAngle = currentAngle;
 
         float angularVelocity = Mathf.Abs(angle) * Time.fixedDeltaTime * 100;
-        smoothedAngularVelocity = Mathf.Lerp(smoothedAngularVelocity, angularVelocity, 0.05f);
+        smoothedAngularVelocity = Mathf.Lerp(smoothedAngularVelocity, angularVelocity, 0.1f);
         lastRotation = currentRotation;
 
         vel1 = smoothedAngularVelocity;

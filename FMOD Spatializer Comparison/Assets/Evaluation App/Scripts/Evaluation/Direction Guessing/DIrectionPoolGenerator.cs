@@ -40,7 +40,7 @@ public class DIrectionPoolGenerator : MonoBehaviour
         GenerateShuffledIndices();
         GeneratePositions();
         actualCount = directions.Count;
-        for (int i = 0; i < directions.Count; i++)
+        for (int i = 0; i < positions.Count; i++)
         {
             //Gizmos.DrawSphere(directions[i], 0.1f);
             Gizmos.DrawSphere(positions[i], 0.1f);
