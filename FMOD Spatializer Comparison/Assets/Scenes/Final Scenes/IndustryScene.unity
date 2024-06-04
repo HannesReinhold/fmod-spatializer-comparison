@@ -373,6 +373,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 2.35
   moveX: 0
+  moveZ: 0
 --- !u!1001 &10971966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1562,9 +1563,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 8
 --- !u!114 &33578498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3519,7 +3520,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &99346120
 MonoBehaviour:
@@ -3690,7 +3691,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &102914595
 MonoBehaviour:
@@ -4264,7 +4265,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &129323527
 MonoBehaviour:
@@ -6375,6 +6376,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 2
   moveX: 0
+  moveZ: 0
 --- !u!114 &233138925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6688,6 +6690,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 2.85
   moveX: 0
+  moveZ: 0
 --- !u!1 &240130079
 GameObject:
   m_ObjectHideFlags: 0
@@ -7045,7 +7048,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &244900371
 MonoBehaviour:
@@ -7820,6 +7823,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 2
   moveX: 0
+  moveZ: 0
 --- !u!114 &260721306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8007,7 +8011,7 @@ MonoBehaviour:
     - Index: 0
       Active: 1
       Bone: 13
-      TargetPosition: {x: 0.04252267, y: 0.98828745, z: 2.360829}
+      TargetPosition: {x: 0.04252267, y: 1.3738874, z: 2.2904294}
       TargetRotation: {x: 0, y: 0.7071068, z: -0.7071067, w: 0}
       Weight: 1
       SolvePosition: 1
@@ -14383,11 +14387,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 395797406}
+    m_TransformParent: {fileID: 432141502}
     m_Modifications:
     - target: {fileID: 372214945582709378, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_Name
       value: RobotArmClawIK Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722090545712522466, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4047985838930137889, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142775006659486045, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4142775006659486045, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -14395,27 +14411,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6458770473786813302, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.62499994
+      value: 0.6249999
       objectReference: {fileID: 0}
     - target: {fileID: 6458770473786813302, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.62499994
+      value: 0.6249999
       objectReference: {fileID: 0}
     - target: {fileID: 6458770473786813302, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.6249998
+      value: 0.62499976
       objectReference: {fileID: 0}
     - target: {fileID: 6458770473786813302, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.8137503
+      value: 0.90475035
       objectReference: {fileID: 0}
     - target: {fileID: 6458770473786813302, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.152
+      value: 1.956
       objectReference: {fileID: 0}
     - target: {fileID: 6458770473786813302, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.574
+      value: 0.035999775
       objectReference: {fileID: 0}
     - target: {fileID: 6458770473786813302, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14458,7 +14474,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1290796559481651824, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 855860150}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 372214945582709378, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1512709194}
   m_SourcePrefab: {fileID: 100100000, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
 --- !u!1 &307843720
 GameObject:
@@ -15143,7 +15162,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &325234635
 MonoBehaviour:
@@ -15230,9 +15249,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 8
 --- !u!114 &325303132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16442,7 +16461,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &374024359
 MonoBehaviour:
@@ -17334,7 +17353,7 @@ Transform:
   - {fileID: 1218816196}
   - {fileID: 1135109154}
   - {fileID: 450137805}
-  - {fileID: 1028243514}
+  - {fileID: 432141502}
   - {fileID: 1827470201}
   - {fileID: 423327620}
   - {fileID: 1745443605}
@@ -17942,7 +17961,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &398083012
 MonoBehaviour:
@@ -19376,6 +19395,59 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.6778891, y: -3.0013652, z: -1.9480774}
     m_Extent: {x: 3.368389, y: 4.3300548, z: 5.2953033}
   m_DirtyAABB: 0
+--- !u!1 &432141501
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432141502}
+  - component: {fileID: 432141503}
+  m_Layer: 0
+  m_Name: Arm 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432141502
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432141501}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.909, y: 1.196, z: -6.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1028243514}
+  m_Father: {fileID: 395797406}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &432141503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432141501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9291a3d86d3b9584a9250b8a319868a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 0}
+  objectToEmerge: {fileID: 0}
+  appearTime: 3
+  disappearTime: 3
+  initialHeight: 2
+  appearDelay: 1
+  moveX: 1
+  moveZ: 1
 --- !u!1001 &433399317
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22200,7 +22272,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &476601642
 MonoBehaviour:
@@ -22553,6 +22625,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 1.6
   moveX: 0
+  moveZ: 0
 --- !u!1 &485801453
 GameObject:
   m_ObjectHideFlags: 0
@@ -27661,6 +27734,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 1
   moveX: 0
+  moveZ: 0
 --- !u!1 &580943900
 GameObject:
   m_ObjectHideFlags: 0
@@ -29990,7 +30064,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &627043557
 MonoBehaviour:
@@ -31495,7 +31569,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &678024849
 MonoBehaviour:
@@ -32304,7 +32378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca02c6db6f15ef4eb08a354da27ef1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsVR: 1
+  IsVR: 0
   allowEvaluationNonVR: 0
   introductionObject: {fileID: 286981162}
   subjectiveObject: {fileID: 611443664}
@@ -32406,7 +32480,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &697562455
 MonoBehaviour:
@@ -33390,7 +33464,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &709020380
 MonoBehaviour:
@@ -36719,7 +36793,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &797508420
 MonoBehaviour:
@@ -36829,7 +36903,7 @@ Transform:
   m_GameObject: {fileID: 802380302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 2.75, y: 0, z: -2.25}
+  m_LocalPosition: {x: 2.75, y: 0.482, z: -2.162}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -36863,6 +36937,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 3
   moveX: 0
+  moveZ: 0
 --- !u!1 &803431698
 GameObject:
   m_ObjectHideFlags: 0
@@ -37898,7 +37973,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &852300805
 MonoBehaviour:
@@ -41565,7 +41640,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &932215216
 MonoBehaviour:
@@ -46172,6 +46247,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 2.6
   moveX: 0
+  moveZ: 0
 --- !u!1 &1011129057
 GameObject:
   m_ObjectHideFlags: 0
@@ -49172,6 +49248,7 @@ MonoBehaviour:
   initialHeight: 0.5
   appearDelay: 1.5
   moveX: 1
+  moveZ: 0
 --- !u!1001 &1036994380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53523,6 +53600,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 2
   moveX: 0
+  moveZ: 0
 --- !u!1001 &1221138264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55360,6 +55438,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 1.85
   moveX: 0
+  moveZ: 0
 --- !u!1 &1297581998
 GameObject:
   m_ObjectHideFlags: 0
@@ -55671,7 +55750,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1304248896
 MonoBehaviour:
@@ -55759,7 +55838,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1305499109
 MonoBehaviour:
@@ -56228,7 +56307,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1323453207
 MonoBehaviour:
@@ -58385,6 +58464,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 1.25
   moveX: 0
+  moveZ: 0
 --- !u!1 &1400155677
 GameObject:
   m_ObjectHideFlags: 0
@@ -58769,7 +58849,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1417049511
 MonoBehaviour:
@@ -61536,6 +61616,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2441881036030913527, guid: 60a6ab372c4ead14b82adf0d5f389745, type: 3}
   m_PrefabInstance: {fileID: 1511455893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1512709188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 372214945582709378, guid: 5d64f4ec51178b6418f4116eec88b8d3, type: 3}
+  m_PrefabInstance: {fileID: 307589351}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1512709194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512709188}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9291a3d86d3b9584a9250b8a319868a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 0}
+  objectToEmerge: {fileID: 0}
+  appearTime: 3
+  disappearTime: 3
+  initialHeight: 2
+  appearDelay: 1
+  moveX: 1
+  moveZ: 1
 --- !u!1 &1514174539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2074063802752080900, guid: 83c64686781f88d44b5fdf99d3d7abdd, type: 3}
@@ -61798,6 +61903,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 2.1
   moveX: 0
+  moveZ: 0
 --- !u!1 &1529566471
 GameObject:
   m_ObjectHideFlags: 0
@@ -65573,6 +65679,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 1.5
   moveX: 0
+  moveZ: 0
 --- !u!1 &1594333163
 GameObject:
   m_ObjectHideFlags: 0
@@ -65829,7 +65936,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1605779112
 MonoBehaviour:
@@ -68163,7 +68270,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1667896769
 MonoBehaviour:
@@ -70546,6 +70653,7 @@ MonoBehaviour:
   initialHeight: 0.5
   appearDelay: 1
   moveX: 1
+  moveZ: 0
 --- !u!1001 &1746765288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -71506,9 +71614,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 8
 --- !u!114 &1762817446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73782,7 +73890,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1808182801
 MonoBehaviour:
@@ -79086,6 +79194,7 @@ MonoBehaviour:
   initialHeight: 0.5
   appearDelay: 1.5
   moveX: 1
+  moveZ: 0
 --- !u!1 &1934175475
 GameObject:
   m_ObjectHideFlags: 0
@@ -79179,7 +79288,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &1934536488
 MonoBehaviour:
@@ -79425,9 +79534,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 8
 --- !u!114 &1940700639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80512,9 +80621,9 @@ MonoBehaviour:
   Preload: 0
   AllowNonRigidbodyDoppler: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0.1
+  OverrideMaxDistance: 8
 --- !u!114 &1991082303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88962,7 +89071,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &2105358591
 MonoBehaviour:
@@ -89558,7 +89667,7 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 1
-  OverrideMinDistance: 0.2
+  OverrideMinDistance: 0.1
   OverrideMaxDistance: 8
 --- !u!114 &2112921463
 MonoBehaviour:
@@ -90107,6 +90216,7 @@ MonoBehaviour:
   initialHeight: 3
   appearDelay: 1.75
   moveX: 0
+  moveZ: 0
 --- !u!1001 &2132924888
 PrefabInstance:
   m_ObjectHideFlags: 0

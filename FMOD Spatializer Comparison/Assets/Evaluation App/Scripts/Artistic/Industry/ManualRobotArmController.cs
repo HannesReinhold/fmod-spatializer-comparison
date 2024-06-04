@@ -33,7 +33,7 @@ public class ManualRobotArmController : MonoBehaviour
     void Update()
     {
 
-        controllerTransform.position = rightControllerTransform.position;
+        if(rightControllerTransform != null)  controllerTransform.position = rightControllerTransform.position;
         Vector3 controllerPos = controllerTransform.position;
 
         Vector3 controllSectionScale = controllSection.localScale;

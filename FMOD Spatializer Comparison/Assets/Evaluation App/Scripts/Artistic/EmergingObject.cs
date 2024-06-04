@@ -15,6 +15,7 @@ public class EmergingObject : MonoBehaviour
     private float startHeight;
 
     public bool moveX = false;
+    public bool moveZ = false;
 
     private void Awake()
     {
@@ -28,10 +29,15 @@ public class EmergingObject : MonoBehaviour
             startHeight = transform.localPosition.y;
             objectToEmerge.transform.localPosition -= Vector3.up * initialHeight;
         }
-        else
+        else if(!moveZ)
         {
             startHeight = transform.localPosition.z;
             objectToEmerge.transform.localPosition -= Vector3.forward * initialHeight;
+        }
+        else
+        {
+            startHeight = transform.localPosition.x;
+            objectToEmerge.transform.localPosition -= Vector3.left * initialHeight;
         }
         Invoke("Appear", appearDelay);
 
@@ -42,7 +48,8 @@ public class EmergingObject : MonoBehaviour
     {
         objectToEmerge.SetActive(true);
         if(!moveX) LeanTween.moveLocalY(objectToEmerge, startHeight, appearTime).setEaseInOutQuad();
-        else LeanTween.moveLocalZ(objectToEmerge, startHeight, appearTime).setEaseInOutQuad();
+        else if(!moveZ) LeanTween.moveLocalZ(objectToEmerge, startHeight, appearTime).setEaseInOutQuad();
+        else  LeanTween.moveLocalX(objectToEmerge, startHeight, appearTime).setEaseInOutQuad();
         if (emitter!=null) emitter.Play();
         Invoke("StopAppearing", appearTime);
     }
@@ -56,7 +63,8 @@ public class EmergingObject : MonoBehaviour
     public void Disappear()
     {
         if(!moveX)LeanTween.moveLocalY(objectToEmerge, -initialHeight, disappearTime).setEaseInOutQuad().setOnComplete(Disable);
-        else LeanTween.moveLocalZ(objectToEmerge, -initialHeight, disappearTime).setEaseInOutQuad().setOnComplete(Disable);
+        else if(!moveZ) LeanTween.moveLocalZ(objectToEmerge, -initialHeight, disappearTime).setEaseInOutQuad().setOnComplete(Disable);
+        else LeanTween.moveLocalX(objectToEmerge, -initialHeight, disappearTime).setEaseInOutQuad().setOnComplete(Disable);
         if (emitter != null) emitter.Play();
         Invoke("Disable", disappearTime);
     }

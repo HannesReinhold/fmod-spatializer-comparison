@@ -55,7 +55,7 @@
 			<destination>{7e57c331-7424-41ae-964e-d41c14a4a3bd}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{78d662fd-012e-4b75-b56c-b98a7fb0236b}</destination>
+			<destination>{a2bb29fd-7abe-40d3-bf7c-75b87278be8b}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{60aef466-2dad-4592-bb1b-56ba7978d7f6}">
@@ -293,6 +293,7 @@
 			<destination>{4f805fe8-f648-416c-a51a-abe7fcc80f8c}</destination>
 			<destination>{4a84e30c-b8f9-4812-8d43-3d65f89500d7}</destination>
 			<destination>{4e478e55-ee25-47f5-818a-381fc6370404}</destination>
+			<destination>{4a53db3d-bf57-46b7-a980-754b75358704}</destination>
 			<destination>{8533fc23-fdff-4b3b-bc06-59345e7fb033}</destination>
 		</relationship>
 	</object>
@@ -366,6 +367,9 @@
 	</object>
 	<object class="MixerBusPanner" id="{548b7d37-5c13-44cc-ac25-915363860c1a}" />
 	<object class="MultibandEqEffect" id="{4f805fe8-f648-416c-a51a-abe7fcc80f8c}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
 		<property name="filterTypeA">
 			<value>7</value>
 		</property>
@@ -390,6 +394,11 @@
 		<relationship name="mixerReturn">
 			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
 		</relationship>
+	</object>
+	<object class="GainEffect" id="{4a53db3d-bf57-46b7-a980-754b75358704}">
+		<property name="gain">
+			<value>10</value>
+		</property>
 	</object>
 	<object class="PluginEffect" id="{8533fc23-fdff-4b3b-bc06-59345e7fb033}">
 		<relationship name="plugin">
