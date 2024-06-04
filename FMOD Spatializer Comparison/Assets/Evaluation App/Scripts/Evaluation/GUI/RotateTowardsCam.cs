@@ -16,6 +16,8 @@ public class RotateTowardsCam : MonoBehaviour
 
     public float xRot = 0;
 
+    public bool local = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,6 @@ public class RotateTowardsCam : MonoBehaviour
 
         //rotate us over time according to speed until we are in the required rotation
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-
+        if(local) transform.localRotation = Quaternion.Slerp(transform.localRotation, lookRotation, Time.deltaTime * rotationSpeed);
     }
 }

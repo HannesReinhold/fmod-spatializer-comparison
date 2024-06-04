@@ -32,6 +32,9 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     private bool roundRunning = false;
     private bool showRatingInterface=false;
 
+    private bool interfaceOpen = false;
+
+
     
 
     private void OnEnable()
@@ -52,7 +55,6 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     private void Update()
     {
         if (!roundRunning) return;
-        if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
         if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
 
         if (Input.GetMouseButtonDown(0)) ToggleInterface();

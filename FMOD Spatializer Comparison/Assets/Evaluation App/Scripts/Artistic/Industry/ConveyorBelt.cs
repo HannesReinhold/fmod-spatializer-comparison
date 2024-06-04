@@ -18,6 +18,9 @@ public class ConveyorBelt : MonoBehaviour
     public PathCreation.PathCreator trashPath;
     public PathCreation.PathCreator conveyorBelt2;
 
+    public AppearingObject hologramEngineIndicator1;
+    public AppearingObject hologramEngineIndicator2;
+
     public float spawnTime = 5;
 
     public float conveyorBeltSpeed = 1;
@@ -28,12 +31,19 @@ public class ConveyorBelt : MonoBehaviour
     private PathCreation.Examples.PathFollower currentFollower = null;
 
     public bool isWorking = false;
+    public bool manual = true;
+
+    public Transform Grip;
+    public Transform GripReal;
 
 
     public SPatializerSwitchManager spatializerManager;
     public SPatializerSwitchManager spatializerManagerTutorial;
 
     private List<GameObject> engineBlocks = new List<GameObject>();
+
+    private Vector3 holoIndicatorPos;
+    private Transform holoIndicatorTarget = null;
 
     private bool isTutorial = true;
 
@@ -52,8 +62,9 @@ public class ConveyorBelt : MonoBehaviour
         SetAlertLights(false);
         SetApproveLight(false);
 
-        
+        holoIndicatorPos = hologramEngineIndicator1.transform.position;
     }
+
 
     public void SetTutorial(bool tut)
     {
@@ -206,14 +217,55 @@ public class ConveyorBelt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (!isWorking) return;
 
-        if (currentTime >= spawnTime)
+        if (holoIndicatorTarget != null) hologramEngineIndicator1.transform.position = holoIndicatorTarget.position;
+        if (currentFollower != null) currentFollower.transform.position = GripReal.position + new Vector3(0,-0.2f,0);
+
+        if (currentTime >= spawnTime && currentFollower==null)
         {
             currentTime = 0;
             SpawnMotor();
         }
         currentTime += Time.deltaTime;
+    }
+
+    public void Grab()
+    {
+        
+        holoIndicatorTarget = Grip;
+        currentFollower.enabled = false;
+
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 1, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 1, currentFollower.transform.position);
+    }
+
+    public void UnGrab()
+    {
+        if (currentFollower == null) return;
+        currentFollower.enabled = true;
+        currentFollower.distanceTravelled = 0;
+        currentFollower.pathCreator = conveyorBelt2;
+        currentFollower.speed = conveyorBeltSpeed * 0.6f;
+        SetApproveLight(false);
+        ResetHologramIndicator();
+
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 2, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 2, currentFollower.transform.position);
+
+        currentFollower = null;
+    }
+
+    public void Incinerate()
+    {
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 4, currentFollower.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 4, currentFollower.transform.position);
+        RemoveEngine(currentFollower.gameObject);
+        currentFollower = null;
+        SetAlertLights(false);
+        ResetHologramIndicator();
     }
 
     void SpawnMotor()
@@ -234,6 +286,24 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        hologramEngineIndicator1.FadeIn();
+
+        if (other.GetComponent<PathCreation.Examples.PathFollower>()==null) return;
+        currentFollower = other.GetComponent<PathCreation.Examples.PathFollower>();
+        Invoke("StartScanning", 1f);
+
+        if (other.GetComponent<EngineBlock>().isFaulty)
+        {
+            Invoke("StartSiren", 2.5f);
+        }
+        else
+        {
+            Invoke("ActivateApproveLight", 2.5f);
+        }
+
+
+        if (manual) return;
+
         if (!isWorking) return;
         PathCreation.Examples.PathFollower follower = other.GetComponent<PathCreation.Examples.PathFollower>();
         follower.speed = 0;
@@ -257,6 +327,11 @@ public class ConveyorBelt : MonoBehaviour
         
 
         Debug.Log("Hit");
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        //hologramEngineIndicator1.FadeOut();
     }
 
     void MoveToEngine()
@@ -291,6 +366,12 @@ public class ConveyorBelt : MonoBehaviour
         if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 3, currentFollower.transform.position);
         else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 3, currentFollower.transform.position);
         scanObject.SetActive(true);
+        Invoke("StopScanning",1f);
+    }
+
+    void StopScanning()
+    {
+        scanObject.SetActive(false);
     }
 
     void StartRobot()
@@ -355,5 +436,16 @@ public class ConveyorBelt : MonoBehaviour
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Approved", currentFollower.transform.position);
         PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 5, currentFollower.transform.position);
         SetApproveLight(true);
+    }
+
+    public void ResetHologramIndicator()
+    {
+        hologramEngineIndicator1.FadeOut();
+        Invoke("ResetHologramIndicator2",1);
+    }
+    private void ResetHologramIndicator2()
+    {
+        holoIndicatorTarget = null;
+        hologramEngineIndicator1.transform.position = holoIndicatorPos;
     }
 }
