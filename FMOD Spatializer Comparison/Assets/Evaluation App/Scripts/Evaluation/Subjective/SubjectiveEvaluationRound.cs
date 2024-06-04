@@ -36,6 +36,7 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     private bool showRatingInterface = false;
 
 
+
     public void UpdateInterface(ConcreteSubjectiveData data, int roundID)
     {
         this.roundData = data;
@@ -66,7 +67,6 @@ public class SubjectiveEvaluationRound : MonoBehaviour
 
 
         if (!roundRunning) return;
-        if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
         if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
 
         if (Input.GetMouseButtonDown(0)) ToggleInterface();

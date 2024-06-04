@@ -1,6 +1,7 @@
 using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class SubjectiveEvaluationManager : MonoBehaviour
@@ -13,6 +14,10 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     public SubjectiveEvaluationRound roundManager;
     public WindowManager windowManager;
+
+    public SPatializerSwitchManager switchManagerTutorial;
+
+    public TextMeshProUGUI currentSpatializerVisual;
 
     public List<GameObject> speakers = new List<GameObject>();
 
@@ -34,14 +39,16 @@ public class SubjectiveEvaluationManager : MonoBehaviour
 
     private bool interfaceOpen = false;
 
-
+    private int setSpat = 0;
     
 
     private void OnEnable()
     {
         bus = FMODUnity.RuntimeManager.GetBus("bus:/Ambience");
         HideAll();
-        StartEvalution();
+
+        if (GameManager.Instance.dataManager != null) StartEvalution();
+        else Invoke("StartEvaluation", 0.5f);
         GUIAudioManager.SetTutorialVolume(1);
 
 
@@ -57,8 +64,17 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         if (!roundRunning) return;
         if (OVRInput.GetDown(OVRInput.Button.Start)) ToggleInterface();
 
+        if (OVRInput.GetDown(OVRInput.Button.One) && setSpat == 1) { setSpat = 0; ToggleSpatializer(0); };
+        if (OVRInput.GetDown(OVRInput.Button.Two) && setSpat == 0) { setSpat = 1; ToggleSpatializer(1); };
+
         if (Input.GetMouseButtonDown(0)) ToggleInterface();
 
+    }
+
+    public void ToggleSpatializer(int index)
+    {
+        switchManagerTutorial.SetSpatializer(index == 0 ? switchManagerTutorial.spatializerA : switchManagerTutorial.spatializerB);
+        currentSpatializerVisual.text = index == 0 ? "A" : "B";
     }
 
     private void ToggleInterface()
