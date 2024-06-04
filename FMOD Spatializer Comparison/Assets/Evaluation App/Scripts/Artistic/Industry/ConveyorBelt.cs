@@ -47,6 +47,8 @@ public class ConveyorBelt : MonoBehaviour
 
     private bool isTutorial = true;
 
+    public ParticleSystem fireParticles;
+
     public void PlaySpatializedOneShot(int a, int b, int index, Vector3 pos)
     {
 
@@ -262,10 +264,22 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 4, currentFollower.transform.position);
         else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 4, currentFollower.transform.position);
-        RemoveEngine(currentFollower.gameObject);
-        currentFollower = null;
+        currentFollower.distanceTravelled = 0;
+        currentFollower.pathCreator = trashPath;
+        currentFollower.speed = conveyorBeltSpeed * 0.6f;
+        currentFollower.enabled = true;
+        Invoke("DeleteEngine", 1);
+        //RemoveEngine(currentFollower.gameObject);
         SetAlertLights(false);
         ResetHologramIndicator();
+        fireParticles.Play();
+    }
+
+    public void DeleteEngine()
+    {
+        
+        RemoveEngine(currentFollower.gameObject);
+        currentFollower = null;
     }
 
     void SpawnMotor()
