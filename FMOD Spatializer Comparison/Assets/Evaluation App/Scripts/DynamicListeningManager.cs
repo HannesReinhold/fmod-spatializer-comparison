@@ -139,6 +139,8 @@ public class DynamicListeningManager : MonoBehaviour
         startTime = Time.time;
 
         GameManager.Instance.LogServerEvent("Position round: " + currentRound);
+
+        GameManager.Instance.rayObject.SetActive(false);
     }
 
     void SpawnNewSphere()
@@ -160,6 +162,8 @@ public class DynamicListeningManager : MonoBehaviour
         emitterVisual.FadeIn();
         GUIAudioManager.PlaySelect(grabButton.transform.position);
         StopSound();
+
+        GameManager.Instance.Vib(0,0.2f);
 
         if (isTutorial)
         {
@@ -191,6 +195,7 @@ public class DynamicListeningManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.rayObject.SetActive(true);
             windowManager.NextPage();
             GUIAudioManager.SetAmbientVolume(0.5f);
             emitterVisual.SetInvisible();

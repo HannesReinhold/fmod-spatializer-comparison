@@ -148,8 +148,7 @@ public class StrikeEnemy : MonoBehaviour
 
     private void StartNewEvent()
     {
-
-        windowManager.NextPage();
+        windowManager.currentWindowIndex += 1;
         windowManager.NextPage();
         introductionManager.StartEvent(1);
     }

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject directionGuessingObject;
     public GameObject locationGuessingObject;
     public GameObject completeObject;
+    public GameObject results;
 
     
 
@@ -129,15 +130,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        SetupWorldCamera();
+        HideAllHighlights();
+
+        hud.cameraTransform = Camera.main.transform;
+    }
+
+    public void HideAllHighlights()
+    {
         SetGrabHighlightVisible(false);
         SetSubmitHighlightVisible(false);
         SetAHighlightVisible(false);
         SetMenuHighlightVisible(false);
         CloseSpatializerSwitchWindow();
         SetBaselineTargetVisibility(false);
-
-        hud.cameraTransform = Camera.main.transform;
     }
 
     private void Update()
@@ -230,7 +235,9 @@ public class GameManager : MonoBehaviour
         directionGuessingObject.SetActive(false);
         locationGuessingObject.SetActive(false);
         completeObject.SetActive(false);
+        CloseSpatializerSwitchWindow();
         LogServerEvent("Position introduction");
+        
     }
 
     public void StartSubjectiveEvaluation()
@@ -270,6 +277,12 @@ public class GameManager : MonoBehaviour
         directionGuessingObject.SetActive(false);
         locationGuessingObject.SetActive(false);
         completeObject.SetActive(true);
+    }
+
+    public void StartResults()
+    {
+        completeObject.SetActive(false);
+        results.SetActive(true);
     }
 
     public void FinishSession()
