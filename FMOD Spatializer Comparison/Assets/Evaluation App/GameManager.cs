@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
 
     public DIrectionPoolGenerator baselineDirections;
 
+    public GameObject baselineTarget;
+
 
 
     public enum EvaluationState
@@ -133,6 +135,7 @@ public class GameManager : MonoBehaviour
         SetAHighlightVisible(false);
         SetMenuHighlightVisible(false);
         CloseSpatializerSwitchWindow();
+        SetBaselineTargetVisibility(false);
 
         hud.cameraTransform = Camera.main.transform;
     }
@@ -247,6 +250,7 @@ public class GameManager : MonoBehaviour
         locationGuessingObject.SetActive(false);
         completeObject.SetActive(false);
         CloseSpatializerSwitchWindow();
+        SetBaselineTargetVisibility(true);
     }
 
     public void StartLocationGuessing()
@@ -256,6 +260,7 @@ public class GameManager : MonoBehaviour
         directionGuessingObject.SetActive(false);
         locationGuessingObject.SetActive(true);
         completeObject.SetActive(false);
+        SetBaselineTargetVisibility(false);
     }
 
     public void StartComplete()
@@ -478,6 +483,11 @@ public class GameManager : MonoBehaviour
         if (serverLog == null) return;
         Debug.Log("SetBaselineDirection");
         serverLog.NextBaselineDirection(index);
+    }
+
+    public void SetBaselineTargetVisibility(bool vis)
+    {
+        baselineTarget.SetActive(vis);
     }
 }
 
