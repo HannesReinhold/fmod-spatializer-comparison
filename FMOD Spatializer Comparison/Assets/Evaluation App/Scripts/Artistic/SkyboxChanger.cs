@@ -14,6 +14,7 @@ public class SkyboxChanger : MonoBehaviour
     private float t = 0;
     public void SetPassthrough(bool on)
     {
+        cam = Camera.main;
         lastTarget = target;
         target = on ? 1 : 0;
 
@@ -41,7 +42,7 @@ public class SkyboxChanger : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        SetPassthrough(false);
+        //SetPassthrough(false);
         
     }
 

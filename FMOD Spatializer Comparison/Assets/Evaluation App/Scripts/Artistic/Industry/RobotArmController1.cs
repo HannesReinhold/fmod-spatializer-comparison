@@ -15,7 +15,7 @@ public class RobotArmController1 : MonoBehaviour
 
     private float acc = 0;
 
-    private bool canMove = false;
+    public bool canMove = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +26,11 @@ public class RobotArmController1 : MonoBehaviour
     public void Restart()
     {
         grapTransform.position = startPosition;
+        target = startPosition;
+    }
+
+    public void RestartSlow()
+    {
         target = startPosition;
     }
 

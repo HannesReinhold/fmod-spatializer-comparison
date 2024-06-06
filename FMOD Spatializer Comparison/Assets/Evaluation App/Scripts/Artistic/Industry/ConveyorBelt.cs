@@ -16,6 +16,8 @@ public class ConveyorBelt : MonoBehaviour
     public PathCreation.PathCreator conveyorBelt1;
     public PathCreation.PathCreator armPath;
     public PathCreation.PathCreator trashPath;
+    public PathCreation.PathCreator trashPath2;
+
     public PathCreation.PathCreator conveyorBelt2;
 
     public AppearingObject hologramEngineIndicator1;
@@ -49,6 +51,11 @@ public class ConveyorBelt : MonoBehaviour
 
     public ParticleSystem fireParticles;
 
+    public GameObject manualController;
+    public GameObject scanner;
+
+    public RobotArmController1 robotController;
+
     public void PlaySpatializedOneShot(int a, int b, int index, Vector3 pos)
     {
 
@@ -65,6 +72,10 @@ public class ConveyorBelt : MonoBehaviour
         SetApproveLight(false);
 
         holoIndicatorPos = hologramEngineIndicator1.transform.position;
+
+        manualController.SetActive(manual);
+        //scanner.SetActive(manual);
+        robotController.enabled = !manual;
     }
 
 
@@ -174,7 +185,7 @@ public class ConveyorBelt : MonoBehaviour
 
         engineBlocks.Clear();
 
-        armController.Restart();
+        armController.RestartSlow();
 
         scanObject.SetActive(false);
         SetAlertLights(false);
@@ -226,7 +237,7 @@ public class ConveyorBelt : MonoBehaviour
         if (holoIndicatorTarget != null) hologramEngineIndicator1.transform.position = holoIndicatorTarget.position;
         if (currentFollower != null) currentFollower.transform.position = GripReal.position + new Vector3(0,-0.2f,0);
 
-        if (currentTime >= spawnTime && currentFollower==null)
+        if (currentTime >= spawnTime)
         {
             currentTime = 0;
             SpawnMotor();
@@ -300,47 +311,50 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        hologramEngineIndicator1.FadeIn();
-
-        if (other.GetComponent<PathCreation.Examples.PathFollower>()==null) return;
-        currentFollower = other.GetComponent<PathCreation.Examples.PathFollower>();
-        Invoke("StartScanning", 1f);
-
-        if (other.GetComponent<EngineBlock>().isFaulty)
+        if (manual)
         {
-            Invoke("StartSiren", 2.5f);
+            hologramEngineIndicator1.FadeIn();
+
+            if (other.GetComponent<PathCreation.Examples.PathFollower>() == null) return;
+            currentFollower = other.GetComponent<PathCreation.Examples.PathFollower>();
+            Invoke("StartScanning", 1f);
+
+            if (other.GetComponent<EngineBlock>().isFaulty)
+            {
+                Invoke("StartSiren", 2.5f);
+            }
+            else
+            {
+                Invoke("ActivateApproveLight", 2.5f);
+            }
         }
+
         else
         {
-            Invoke("ActivateApproveLight", 2.5f);
+
+            if (!isWorking) return;
+            PathCreation.Examples.PathFollower follower = other.GetComponent<PathCreation.Examples.PathFollower>();
+            follower.speed = 0;
+            currentFollower = follower;
+            armController.SetTarget(follower.transform.position + new Vector3(0.5f, 0.4f, 0));
+            Invoke("StartScanning", 1f);
+
+
+            if (other.GetComponent<EngineBlock>().isFaulty)
+            {
+                Invoke("StartSiren", 2.5f);
+                Invoke("MoveToTrash", 3.5f);
+            }
+            else
+            {
+                Invoke("ActivateApproveLight", 2.5f);
+                Invoke("StartRobot", 3f);
+            }
+
+            Invoke("MoveToEngine", 2.5f);
+
+
         }
-
-
-        if (manual) return;
-
-        if (!isWorking) return;
-        PathCreation.Examples.PathFollower follower = other.GetComponent<PathCreation.Examples.PathFollower>();
-        follower.speed = 0;
-        currentFollower = follower;
-        armController.SetTarget(follower.transform.position + new Vector3(0.5f,0.4f,0));
-        Invoke("StartScanning",1f);
-        
-
-        if (other.GetComponent<EngineBlock>().isFaulty)
-        {
-            Invoke("StartSiren",2.5f);
-            Invoke("MoveToTrash",3.5f);
-        }
-        else
-        {
-            Invoke("ActivateApproveLight", 2.5f);
-            Invoke("StartRobot", 3f);
-        }
-
-        Invoke("MoveToEngine", 2.5f);
-        
-
-        Debug.Log("Hit");
     }
 
     private void OnTriggerExit(Collider other)
@@ -365,7 +379,7 @@ public class ConveyorBelt : MonoBehaviour
     void MoveToTrash()
     {
         armController.SetTargetTransform(currentFollower.transform);
-        currentFollower.pathCreator = trashPath;
+        currentFollower.pathCreator = trashPath2;
         currentFollower.speed = armSpeed;
         currentFollower.distanceTravelled = 0;
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Grab", currentFollower.transform.position);
@@ -377,8 +391,8 @@ public class ConveyorBelt : MonoBehaviour
     void StartScanning()
     {
         //FMODUnity.RuntimeManager.PlayOneShot("event:/Industrial/Steam/Scanner 2", currentFollower.transform.position);
-        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 3, currentFollower.transform.position);
-        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 3, currentFollower.transform.position);
+        if (isTutorial) PlaySpatializedOneShot(spatializerManagerTutorial.spatializerA, spatializerManagerTutorial.spatializerB, 3, scanObject.transform.position);
+        else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 3, scanObject.transform.position);
         scanObject.SetActive(true);
         Invoke("StopScanning",1f);
     }
@@ -410,7 +424,8 @@ public class ConveyorBelt : MonoBehaviour
         currentFollower.pathCreator = conveyorBelt2;
         currentFollower.speed = conveyorBeltSpeed * 0.6f;
         currentFollower = null;
-        armController.SetStartTarget();
+        armController.canMove = false;
+        Invoke("SetStartTarget", 0.1f);
         SetApproveLight(false);
 
     }
@@ -426,10 +441,17 @@ public class ConveyorBelt : MonoBehaviour
         else PlaySpatializedOneShot(spatializerManager.spatializerA, spatializerManager.spatializerB, 4, currentFollower.transform.position);
         RemoveEngine(currentFollower.gameObject);
         currentFollower = null;
-        armController.SetStartTarget();
+        armController.canMove = false;
+        Invoke("SetStartTarget",0.1f);
         SetAlertLights(false);
-       
+        fireParticles.Play();
 
+    }
+
+    void SetStartTarget()
+    {
+        armController.SetStartTarget();
+        armController.canMove = true;
     }
 
     void SetAlertLights(bool on)

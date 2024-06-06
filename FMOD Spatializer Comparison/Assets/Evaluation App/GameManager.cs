@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     public bool IsVR = true;
     public bool allowEvaluationNonVR = false;
+    public bool isAssistant = false;
 
 
     public GameObject introductionObject;
@@ -37,11 +38,16 @@ public class GameManager : MonoBehaviour
     public AppearingObject grabButton;
     public AppearingObject submitButton;
     public AppearingObject aButton;
+    public AppearingObject menuButton;
 
     public GUISway hud;
     public PopupWindow currentSpaitializerWindow;
 
     public GameObject standingIndicator;
+
+    public SkyboxChanger skyboxChanger;
+
+    public DIrectionPoolGenerator baselineDirections;
 
 
 
@@ -59,6 +65,8 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> VRStuff;
     public List<GameObject> NonVRStuff;
+
+    public List<GameObject> assistentStuff;
 
     private static GameManager instance;
 
@@ -100,6 +108,11 @@ public class GameManager : MonoBehaviour
             {
                 g.SetActive(!IsVR);
             }
+            
+            foreach(GameObject g in assistentStuff)
+            {
+                g.SetActive(isAssistant);
+            }
 
             if (allowEvaluationNonVR) VRStuff[VRStuff.Count - 1].SetActive(true);
 
@@ -117,6 +130,9 @@ public class GameManager : MonoBehaviour
         SetupWorldCamera();
         SetGrabHighlightVisible(false);
         SetSubmitHighlightVisible(false);
+        SetAHighlightVisible(false);
+        SetMenuHighlightVisible(false);
+        CloseSpatializerSwitchWindow();
 
         hud.cameraTransform = Camera.main.transform;
     }
@@ -211,6 +227,7 @@ public class GameManager : MonoBehaviour
         directionGuessingObject.SetActive(false);
         locationGuessingObject.SetActive(false);
         completeObject.SetActive(false);
+        LogServerEvent("Position introduction");
     }
 
     public void StartSubjectiveEvaluation()
@@ -229,6 +246,7 @@ public class GameManager : MonoBehaviour
         directionGuessingObject.SetActive(true);
         locationGuessingObject.SetActive(false);
         completeObject.SetActive(false);
+        CloseSpatializerSwitchWindow();
     }
 
     public void StartLocationGuessing()
@@ -320,6 +338,11 @@ public class GameManager : MonoBehaviour
         serverLog.NextPageEvent(nextPage);
     }
 
+    public void BaselineSetPosition(Vector3 dir)
+    {
+
+    }
+
     public void RestartEvent()
     {
         if (serverLog == null) return;
@@ -380,6 +403,13 @@ public class GameManager : MonoBehaviour
         else aButton.SetInvisible();
     }
 
+    public void SetMenuHighlightVisible(bool vis)
+    {
+        if (vis) menuButton.SetVisible();
+        else menuButton.SetInvisible();
+    }
+
+
 
     public void VibrationCue()
     {
@@ -415,12 +445,14 @@ public class GameManager : MonoBehaviour
 
     public void OpenSpatializerSwitchWindow()
     {
+        currentSpaitializerWindow.gameObject.SetActive(true);
         currentSpaitializerWindow.Open();
     }
 
     public void CloseSpatializerSwitchWindow()
     {
         currentSpaitializerWindow.Close();
+        currentSpaitializerWindow.gameObject.SetActive(false);
     }
 
     public void SetStandingIndicatorVisibility(bool show)
@@ -434,6 +466,18 @@ public class GameManager : MonoBehaviour
         LeanTween.alphaCanvas(canvas, high ? 1 : 0.5f , 0.5f);
         MeshRenderer highlight = standingIndicator.GetComponentInChildren<MeshRenderer>();
         highlight.enabled = high;
+    }
+
+    public void SetSkyboxVisibility(bool vis)
+    {
+        skyboxChanger.SetPassthrough(vis);
+    }
+
+    public void SetBaselineDirection(int index)
+    {
+        if (serverLog == null) return;
+        Debug.Log("SetBaselineDirection");
+        serverLog.NextBaselineDirection(index);
     }
 }
 

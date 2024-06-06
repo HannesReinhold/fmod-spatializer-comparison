@@ -29,9 +29,11 @@ public class DirectionGuessingGame : MonoBehaviour
 
     private Vector3 guessedDirection;
 
-    private int currentRound = 0;
+    public int currentRound = 0;
     public int numRounds = 2;
     public int countdownTime = 3;
+
+    public int maxRounds = 5;
 
     private bool enableInput = false;
 
@@ -147,7 +149,7 @@ public class DirectionGuessingGame : MonoBehaviour
         int spatializerID = roundData.spatializerID;
         currentPositionID = roundData.positionID;
 
-        respawnPosition = Random.onUnitSphere*1.5f;
+        //respawnPosition = Random.onUnitSphere*1.5f;
 
         
         EnableControllerInput();
@@ -315,7 +317,7 @@ public class DirectionGuessingGame : MonoBehaviour
         currentSpatializer = currentRound % 4 + 1;
 
         // if all rounds are over, finish game
-        if (currentRound < numRounds)
+        if (currentRound < numRounds && currentRound < maxRounds)
             Invoke("StartCountdown", 1);
         else
             Invoke("FinishGame",1);

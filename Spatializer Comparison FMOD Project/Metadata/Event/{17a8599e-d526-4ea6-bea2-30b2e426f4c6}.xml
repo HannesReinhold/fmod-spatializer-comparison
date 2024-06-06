@@ -284,8 +284,9 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{5ee2792c-2cb9-471a-a41b-d23289ce20a6}">
 		<relationship name="effects">
-			<destination>{f0660e1a-59a4-42ce-bfe1-f978d501705c}</destination>
 			<destination>{bb1fd8ad-51e3-498b-9ef6-d1df136503ff}</destination>
+			<destination>{4ec3c6a8-1f2f-41ff-8340-93d5db8e3291}</destination>
+			<destination>{5c2bb147-a759-4115-af5c-7a14ee25b7fe}</destination>
 			<destination>{b8db3a01-7870-4317-8659-ef8ca301746f}</destination>
 			<destination>{a4460a1e-fd60-49ce-bdba-a824af537502}</destination>
 		</relationship>
@@ -367,18 +368,17 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{913f2e50-8290-413a-b83f-06edc6d33466}" />
-	<object class="MultibandEqEffect" id="{f0660e1a-59a4-42ce-bfe1-f978d501705c}">
-		<property name="filterTypeA">
-			<value>7</value>
-		</property>
-		<property name="frequencyA">
-			<value>497.434174</value>
-		</property>
-		<property name="gainA">
-			<value>14.4827595</value>
+	<object class="MixerBusFader" id="{bb1fd8ad-51e3-498b-9ef6-d1df136503ff}" />
+	<object class="GainEffect" id="{4ec3c6a8-1f2f-41ff-8340-93d5db8e3291}">
+		<property name="gain">
+			<value>10</value>
 		</property>
 	</object>
-	<object class="MixerBusFader" id="{bb1fd8ad-51e3-498b-9ef6-d1df136503ff}" />
+	<object class="GainEffect" id="{5c2bb147-a759-4115-af5c-7a14ee25b7fe}">
+		<property name="gain">
+			<value>4</value>
+		</property>
+	</object>
 	<object class="MixerSend" id="{b8db3a01-7870-4317-8659-ef8ca301746f}">
 		<property name="bypass">
 			<value>true</value>
@@ -672,7 +672,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -681,7 +680,6 @@
 		<property name="name">
 			<value>Atten. Range</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -690,7 +688,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

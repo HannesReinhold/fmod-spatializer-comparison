@@ -24,6 +24,8 @@ public class DynamicListeningManager : MonoBehaviour
 
     public int numRounds;
 
+    public int maxRounds = 5;
+
     public bool isTutorial;
 
     private int currentRound = 0;
@@ -57,7 +59,7 @@ public class DynamicListeningManager : MonoBehaviour
         grabButton.SetInvisible();
         submitButton.SetInvisible();
 
-        
+        GameManager.Instance.LogServerEvent("Position introduction");
     }
 
     // Update is called once per frame
@@ -117,6 +119,7 @@ public class DynamicListeningManager : MonoBehaviour
 
     public void StartCountdown()
     {
+        emitterVisual.FadeOut();
         Invoke("StartRound",3);
         HideGuessingPoint();
     }
@@ -126,7 +129,7 @@ public class DynamicListeningManager : MonoBehaviour
         emitterVisual.FadeOut();
         SpawnNewSphere();
 
-        currentGuessSphere.transform.position = new Vector3(0,0,0.25f) + Vector3.up * 1.3f;
+        currentGuessSphere.transform.position = new Vector3(0,0,0.55f) + Vector3.up * 1.3f;
         currentRound++;
         alreadyGuessed = false;
         roundRunning = true;
@@ -134,6 +137,8 @@ public class DynamicListeningManager : MonoBehaviour
         roundData = new ConcretePositionGuessingData();
 
         startTime = Time.time;
+
+        GameManager.Instance.LogServerEvent("Position round: " + currentRound);
     }
 
     void SpawnNewSphere()
@@ -178,7 +183,7 @@ public class DynamicListeningManager : MonoBehaviour
         GameManager.Instance.SaveData();
 
 
-        if (currentRound <= numRounds)
+        if (currentRound <= numRounds && currentRound <= maxRounds)
         {
             Invoke("HideGuessingPoint", 3);
             Invoke("HideEmitter",3);
@@ -188,6 +193,8 @@ public class DynamicListeningManager : MonoBehaviour
         {
             windowManager.NextPage();
             GUIAudioManager.SetAmbientVolume(0.5f);
+            emitterVisual.SetInvisible();
+            currentGuessSphere.SetInvisible();
         }
     }
 

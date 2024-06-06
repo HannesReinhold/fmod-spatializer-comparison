@@ -52,6 +52,11 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
         model.FireEvent(realtime.clientID, pageNum, "", nextPage);
     }
 
+    public void NextBaselineDirection(int ind)
+    {
+        model.FireEvent(realtime.clientID, ind, "", -200);
+    }
+
     // Called whenever our event fires
     private void EventDidFire(int senderID, int pageNum, string eventLog, int nextPage)
     {
@@ -82,6 +87,11 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
                 currentWindowManager = 1;
                 GameManager.Instance.SkipIntroduction();
                 
+            }
+            if (nextPage == -200)
+            {
+                GameManager.Instance.baselineDirections.PickNextDirection(pageNum);
+
             }
         }
         _serverGUI.UpdateLog(pageNum, eventLog, currentWindowManager);

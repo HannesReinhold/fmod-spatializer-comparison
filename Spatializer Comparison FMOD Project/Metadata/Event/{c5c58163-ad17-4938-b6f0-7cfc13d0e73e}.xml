@@ -290,9 +290,9 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{430ed4f9-108f-4a63-9659-161957e71ef3}">
 		<relationship name="effects">
-			<destination>{4f805fe8-f648-416c-a51a-abe7fcc80f8c}</destination>
 			<destination>{4a84e30c-b8f9-4812-8d43-3d65f89500d7}</destination>
 			<destination>{4e478e55-ee25-47f5-818a-381fc6370404}</destination>
+			<destination>{6120e8db-94dc-4489-94ae-4b1ead7cdd7d}</destination>
 			<destination>{4a53db3d-bf57-46b7-a980-754b75358704}</destination>
 			<destination>{8533fc23-fdff-4b3b-bc06-59345e7fb033}</destination>
 		</relationship>
@@ -366,20 +366,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{548b7d37-5c13-44cc-ac25-915363860c1a}" />
-	<object class="MultibandEqEffect" id="{4f805fe8-f648-416c-a51a-abe7fcc80f8c}">
-		<property name="bypass">
-			<value>true</value>
-		</property>
-		<property name="filterTypeA">
-			<value>7</value>
-		</property>
-		<property name="frequencyA">
-			<value>497.434174</value>
-		</property>
-		<property name="gainA">
-			<value>14.4827595</value>
-		</property>
-	</object>
 	<object class="MixerBusFader" id="{4a84e30c-b8f9-4812-8d43-3d65f89500d7}" />
 	<object class="MixerSend" id="{4e478e55-ee25-47f5-818a-381fc6370404}">
 		<property name="bypass">
@@ -395,9 +381,14 @@
 			<destination>{fdfcf315-a5b9-4699-bd2a-82f3637b4cb1}</destination>
 		</relationship>
 	</object>
-	<object class="GainEffect" id="{4a53db3d-bf57-46b7-a980-754b75358704}">
+	<object class="GainEffect" id="{6120e8db-94dc-4489-94ae-4b1ead7cdd7d}">
 		<property name="gain">
 			<value>10</value>
+		</property>
+	</object>
+	<object class="GainEffect" id="{4a53db3d-bf57-46b7-a980-754b75358704}">
+		<property name="gain">
+			<value>7</value>
 		</property>
 	</object>
 	<object class="PluginEffect" id="{8533fc23-fdff-4b3b-bc06-59345e7fb033}">
@@ -671,7 +662,6 @@
 		<property name="name">
 			<value>3D Attributes</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-2</value>
 		</property>
@@ -680,7 +670,6 @@
 		<property name="name">
 			<value>Atten. Range</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-6</value>
 		</property>
@@ -689,7 +678,6 @@
 		<property name="name">
 			<value>Overall Gain</value>
 		</property>
-		<property name="value" />
 		<property name="dataType">
 			<value>-1</value>
 		</property>

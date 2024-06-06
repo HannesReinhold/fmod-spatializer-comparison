@@ -15,6 +15,7 @@ public class SessionData
     public List<ConcreteSubjectiveEvaluation> subjectiveEvaluationResults;
     public List<ConcreteSubjectiveData> subjectiveData;
     public List<ConcretePositionGuessingData> positionGuessData;
+    public List<DirectionGuessingData> directionGuessingBaseLineResults;
     public List<DirectionGuessingData> directionGuessingResults;
 
     public SessionData(string id)
@@ -23,6 +24,7 @@ public class SessionData
         subjectiveEvaluationResults = new List<ConcreteSubjectiveEvaluation>();
         subjectiveData = new List<ConcreteSubjectiveData>();
         positionGuessData = new List<ConcretePositionGuessingData>();
+        directionGuessingBaseLineResults = new List<DirectionGuessingData>();
         directionGuessingResults = new List<DirectionGuessingData>();
     }
 
