@@ -75,6 +75,7 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     {
         switchManagerTutorial.SetSpatializer(index == 0 ? switchManagerTutorial.spatializerA : switchManagerTutorial.spatializerB);
         currentSpatializerVisual.text = index == 0 ? "A" : "B";
+        GameManager.Instance.Vib(0,0.2f);
     }
 
     private void ToggleInterface()

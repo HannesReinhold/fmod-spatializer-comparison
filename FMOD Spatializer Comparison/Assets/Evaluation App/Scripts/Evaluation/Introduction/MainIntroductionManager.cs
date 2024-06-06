@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MainIntroductionManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MainIntroductionManager : MonoBehaviour
 
     private List<string> eventNames = new List<string>() {"Battle", "Horror Atmosphere", "Audio Phenomena"};
 
+    private bool enableInput = true;
 
     private void OnEnable()
     {
@@ -33,6 +35,19 @@ public class MainIntroductionManager : MonoBehaviour
         if(eventOnStart) StartEvent(startEvent);
 
         Invoke("LogStart", 0.5f);
+    }
+
+
+    private void Update()
+    {
+        if (enableInput && OVRInput.GetDown(OVRInput.Button.Two)) Skip();
+       // if (enableInput && Mouse.current.rightButton.wasPressedThisFrame) Skip();
+    }
+
+    public void Skip()
+    {
+        enableInput = false;
+        GameManager.Instance.StartDirectionGuessing();
     }
 
     void LogStart()

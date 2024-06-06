@@ -163,6 +163,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
         directionVisualizer.OpenCrosshair();
         directionVisualizer.OpenSphere();
         targetVisualizer.SetInvisible();
+        GameManager.Instance.rayObject.SetActive(false);
     }
 
     void Shoot()
@@ -205,6 +206,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
     void FinishTutorial()
     {
+        GameManager.Instance.rayObject.SetActive(true);
         windowManager.NextPage();
     }
 
@@ -239,6 +241,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
     void Evaluate()
     {
         if (roundID > 2) return;
+        GameManager.Instance.rayObject.SetActive(true);
         windowManager.NextPage();
         Debug.Log("Shoot");
     }
@@ -251,7 +254,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
         differenceWindow.SetActive(true);
         differenceWindow.GetComponent<PopupWindow>().Open();
         TextMeshProUGUI text = differenceWindow.GetComponentInChildren<TextMeshProUGUI>();
-        text.text = "Measured difference:\n" + "Horiontal: " + azimuthDifference.ToString("F1") + "Degrees\nVertical: " + elevationDifference.ToString("F1") + " Degrees";
+        text.text = "Measured difference:\n" + "Horiontal: " + azimuthDifference.ToString("F1") + " Degrees\nVertical: " + elevationDifference.ToString("F1") + " Degrees";
         Debug.Log(text);
         targetVisualizer.FadeIn();
         Invoke("HideScore",3);
