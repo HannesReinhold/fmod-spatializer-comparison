@@ -12,6 +12,9 @@ public class PersonalInformationManager : MonoBehaviour
     public Slider volumeSlider;
     public ToggleGroup hearingToggle;
 
+    public ToggleGroup expAudioToggle;
+    public ToggleGroup expMRToggle;
+
     public WindowManager windowManager;
 
 
@@ -43,6 +46,38 @@ public class PersonalInformationManager : MonoBehaviour
         else if (allToggles[1] == activeToggle) hear = true;
 
         GameManager.Instance.dataManager.currentSessionData.hearingImpairment = hear;
+    }
+
+    public void SaveExpAudio()
+    {
+        var allToggles = expAudioToggle.GetComponentsInChildren<Toggle>();
+        var activeToggle = expAudioToggle.ActiveToggles().First();
+
+        int exp = 0;
+        int index = 0;
+        foreach(Toggle t in allToggles)
+        {
+            if (t == activeToggle) exp = index;
+            index++;
+        }
+
+        GameManager.Instance.dataManager.currentSessionData.experienceAudio = exp;
+    }
+
+    public void SaveExpMR()
+    {
+        var allToggles = expMRToggle.GetComponentsInChildren<Toggle>();
+        var activeToggle = expMRToggle.ActiveToggles().First();
+
+        int exp = 0;
+        int index = 0;
+        foreach (Toggle t in allToggles)
+        {
+            if (t == activeToggle) exp = index;
+            index++;
+        }
+
+        GameManager.Instance.dataManager.currentSessionData.experienceMixedReality = exp;
     }
 
     public void SaveVolume()

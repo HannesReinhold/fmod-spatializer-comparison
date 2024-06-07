@@ -11,6 +11,8 @@ public class SessionData
     public int age;
     public bool hearingImpairment;
     public string hearingImparimentDetails;
+    public int experienceAudio;
+    public int experienceMixedReality;
     public float volume;
     public long dateTime;
 
