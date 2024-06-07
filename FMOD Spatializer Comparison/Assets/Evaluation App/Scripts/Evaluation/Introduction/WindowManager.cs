@@ -63,7 +63,7 @@ public class WindowManager : MonoBehaviour
         currentWindow = windows[currentWindowIndex];
         currentWindow.SetActive(true);
 
-        GameManager.Instance.LogServerEvents(WindowManagerIndex);
+        if (GameManager.Instance != null) GameManager.Instance.LogServerEvents(WindowManagerIndex);
     }
 
     public void PreviousPage()

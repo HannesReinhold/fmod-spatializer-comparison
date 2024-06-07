@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DynamicListeningManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class DynamicListeningManager : MonoBehaviour
     public int maxRounds = 5;
 
     public bool isTutorial;
+    public bool isTest = false;
 
     private int currentRound = 0;
 
@@ -45,6 +47,10 @@ public class DynamicListeningManager : MonoBehaviour
 
     private ConcretePositionGuessingData roundData;
 
+    private List<Vector3> errorList = new List<Vector3>();
+
+    public List<TextMeshProUGUI> scoreText;
+
     void OnEnable()
     {
         currentRound = 0;
@@ -59,7 +65,7 @@ public class DynamicListeningManager : MonoBehaviour
         grabButton.SetInvisible();
         submitButton.SetInvisible();
 
-        GameManager.Instance.LogServerEvent("Position introduction");
+        //GameManager.Instance.LogServerEvent("Position introduction");
     }
 
     // Update is called once per frame
@@ -138,9 +144,9 @@ public class DynamicListeningManager : MonoBehaviour
 
         startTime = Time.time;
 
-        GameManager.Instance.LogServerEvent("Position round: " + currentRound);
+        //GameManager.Instance.LogServerEvent("Position round: " + currentRound);
 
-        GameManager.Instance.rayObject.SetActive(false);
+        //GameManager.Instance.rayObject.SetActive(false);
     }
 
     void SpawnNewSphere()
@@ -163,7 +169,7 @@ public class DynamicListeningManager : MonoBehaviour
         GUIAudioManager.PlaySelect(grabButton.transform.position);
         StopSound();
 
-        GameManager.Instance.Vib(0,0.2f);
+        if (GameManager.Instance != null) GameManager.Instance.Vib(0,0.2f);
 
         if (isTutorial)
         {
@@ -183,8 +189,8 @@ public class DynamicListeningManager : MonoBehaviour
         roundData.horizontalDifference = Vector2.Distance(new Vector2(actual.x, actual.z),  new Vector2(guess.x, guess.z));
         roundData.verticalDifference = Mathf.Abs(actual.y- guess.y);
         roundData.timeToGuess = Time.time - startTime;
-        GameManager.Instance.dataManager.currentSessionData.positionGuessData.Add(roundData);
-        GameManager.Instance.SaveData();
+        if(GameManager.Instance!=null) GameManager.Instance.dataManager.currentSessionData.positionGuessData.Add(roundData);
+        if (GameManager.Instance != null) GameManager.Instance.SaveData();
 
 
         if (currentRound <= numRounds && currentRound <= maxRounds)
@@ -192,15 +198,35 @@ public class DynamicListeningManager : MonoBehaviour
             Invoke("HideGuessingPoint", 3);
             Invoke("HideEmitter",3);
             Invoke("StartRound", 5);
+
+            errorList.Add(new Vector3(dist, Vector2.Distance(new Vector2(actual.x, actual.z), new Vector2(guess.x, guess.z)), Mathf.Abs(actual.y - guess.y)));
         }
         else
         {
-            GameManager.Instance.rayObject.SetActive(true);
+            if (GameManager.Instance != null) GameManager.Instance.rayObject.SetActive(true);
             windowManager.NextPage();
             GUIAudioManager.SetAmbientVolume(0.5f);
             emitterVisual.SetInvisible();
             currentGuessSphere.SetInvisible();
+
+            if (isTest)
+            {
+                Vector3 avrError = new Vector3();
+
+                foreach(Vector3 v in errorList)
+                {
+                    avrError += v;
+                }
+                avrError /= (float)numRounds;
+                Debug.Log(avrError);
+                scoreText[0].text = "Total: " + avrError.x;
+                scoreText[1].text = "Hor: : " + avrError.y;
+                scoreText[2].text = "Vert: " + avrError.z;
+            }
+            
         }
+
+        
     }
 
     public void SetAmbientVolume(float vol)
