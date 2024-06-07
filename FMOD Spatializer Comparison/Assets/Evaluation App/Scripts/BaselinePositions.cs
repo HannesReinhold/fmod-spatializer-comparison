@@ -40,6 +40,8 @@ public class BaselinePositions : MonoBehaviour
     private int currentSpatializer = 0;
     private int currentPositionID = 0;
 
+    public FMODUnity.StudioEventEmitter distractionEmitter;
+
 
 
 
@@ -120,6 +122,9 @@ public class BaselinePositions : MonoBehaviour
     /// </summary>
     public void StartCountdown()
     {
+        PlayDistraction();
+        Invoke("StopDistraction",countdownTime-0.5f);
+
         GUIAudioManager.SetAmbientVolume(0.0f);
         //startWindow.Close();
         Invoke("StartRound", countdownTime);
@@ -128,11 +133,22 @@ public class BaselinePositions : MonoBehaviour
         GameManager.Instance.SetBaselineDirection(Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount)));
     }
 
+    public void PlayDistraction()
+    {
+        distractionEmitter.gameObject.SetActive(true);
+    }
+
+    public void StopDistraction()
+    {
+        distractionEmitter.gameObject.SetActive(false);
+    }
+
     /// <summary>
     /// Start the round
     /// </summary>
     private void StartRound()
     {
+        
         Vector3 respawnPosition =  GameObject.Find("BaselineDirectionTarget").transform.position;
         int spatializerID = 3;
 

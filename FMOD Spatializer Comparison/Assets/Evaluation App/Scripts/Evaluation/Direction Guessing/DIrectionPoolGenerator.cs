@@ -53,8 +53,8 @@ public class DIrectionPoolGenerator : MonoBehaviour
     private void OnDrawGizmos()
     {
         GenerateDirections();
-        GenerateShuffledIndices();
-        GeneratePositions();
+        //GenerateShuffledIndices();
+        //GeneratePositions();
         actualCount = directions.Count;
         for (int i = 0; i < directions.Count; i++)
         {
