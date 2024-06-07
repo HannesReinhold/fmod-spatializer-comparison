@@ -13,6 +13,8 @@ public class PositionGuessingData
 public class ConcretePositionGuessingData
 {
     public int roundID;
+    public int spatializerID;
+    public int stimuliID;
     public Vector3 actualPosition;
     public Vector3 guessedPosition;
     public float totalDifference;

@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         HideAllHighlights();
+        Random.seed = System.DateTime.Now.Millisecond;
 
         hud.cameraTransform = Camera.main.transform;
     }

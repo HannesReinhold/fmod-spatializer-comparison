@@ -17,6 +17,8 @@ public class DynamicListeningManager : MonoBehaviour
 
     public List<FMODUnity.EventReference> tutorialEvents;
 
+    [SerializeField] public AudioEvent[] eventRefs;
+
     public WindowManager windowManager;
 
     public AppearingObject grabButton;
@@ -31,6 +33,8 @@ public class DynamicListeningManager : MonoBehaviour
     public bool isTest = false;
 
     private int currentRound = 0;
+    private int currentSpatializer = 0;
+    private int currentStimuli = 0;
 
     private bool alreadyGuessed = false;
     private bool roundRunning = false;
@@ -50,6 +54,8 @@ public class DynamicListeningManager : MonoBehaviour
     private List<Vector3> errorList = new List<Vector3>();
 
     public List<TextMeshProUGUI> scoreText;
+
+
 
     void OnEnable()
     {
@@ -183,6 +189,8 @@ public class DynamicListeningManager : MonoBehaviour
 
         // save data
         roundData.roundID = currentRound;
+        roundData.spatializerID = currentSpatializer;
+        roundData.stimuliID = currentStimuli;
         roundData.actualPosition = emitter.transform.position;
         roundData.guessedPosition = currentGuessSphere.transform.position;
         roundData.totalDifference = dist;
@@ -241,12 +249,38 @@ public class DynamicListeningManager : MonoBehaviour
 
     void StartSound()
     {
-        emitter.Play();
+        PlayAudioCue();
     }
 
     void StopSound()
     {
         emitter.Stop();
+    }
+
+    private void PlayAudioCue()
+    {
+        currentStimuli = Random.Range(0,3);
+        currentSpatializer = Random.Range(0, 3);
+        Debug.Log("Playing spatializer " + currentSpatializer + " at " + emitter.transform.position);
+        emitter.Stop();
+        switch (currentSpatializer)
+        {
+            //case 0: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[0], target.transform.position); break;
+            //case 1: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[1], target.transform.position); break;
+            //case 2: FMODUnity.RuntimeManager.PlayOneShot(events[cueID].spatializedEvents[2], target.transform.position); break; break;
+            case 0:
+                emitter.ChangeEvent(eventRefs[currentStimuli].spatializedEvents[0]);
+                emitter.Play();
+                break;
+            case 1:
+                emitter.ChangeEvent(eventRefs[currentStimuli].spatializedEvents[1]);
+                emitter.Play();
+                break;
+            case 2:
+                emitter.ChangeEvent(eventRefs[currentStimuli].spatializedEvents[2]);
+                emitter.Play();
+                break;
+        }
     }
 
     void HideGuessingPoint()
