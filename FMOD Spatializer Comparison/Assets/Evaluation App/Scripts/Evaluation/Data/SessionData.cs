@@ -9,6 +9,8 @@ public class SessionData
     public string id;
     public Gender sex;
     public int age;
+    public bool hearingImpairment;
+    public string hearingImparimentDetails;
     public float volume;
     public long dateTime;
 
