@@ -55,6 +55,8 @@ public class DynamicListeningManager : MonoBehaviour
 
     public List<TextMeshProUGUI> scoreText;
 
+    public bool showTarget = false;
+
 
 
     void OnEnable()
@@ -171,7 +173,7 @@ public class DynamicListeningManager : MonoBehaviour
         alreadyGuessed = true;
         roundRunning = false;
         float dist = Vector3.Distance(currentGuessSphere.transform.position, emitter.transform.position);
-        emitterVisual.FadeIn();
+        if(showTarget) emitterVisual.FadeIn();
         GUIAudioManager.PlaySelect(grabButton.transform.position);
         StopSound();
 
@@ -365,6 +367,11 @@ public class DynamicListeningManager : MonoBehaviour
 
 
         return newPosition;
+    }
+
+    public void SetTargetVisibility(bool vsi)
+    {
+        showTarget = vsi;
     }
 
 }
