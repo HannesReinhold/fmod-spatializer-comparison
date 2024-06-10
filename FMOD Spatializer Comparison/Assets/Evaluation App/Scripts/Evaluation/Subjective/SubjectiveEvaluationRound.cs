@@ -79,6 +79,13 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         else windowManager.CloseCurrentWindow();
     }
 
+    private void OpenInterface()
+    {
+        showRatingInterface = true;
+        if (showRatingInterface) windowManager.OpenCurrentWindow();
+        else windowManager.CloseCurrentWindow();
+    }
+
     public void SetRoundState(bool running)
     {
         roundRunning = running;
@@ -125,6 +132,8 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         spatialManager.SetSpatializer(0);
 
         GameManager.Instance.OpenSpatializerSwitchWindow();
+
+        Invoke("OpenInterface",30);
     }
 
     public void UpdateRatingValue()
