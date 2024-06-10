@@ -123,6 +123,8 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         //t1.isOn = true;
         //t2.isOn = false;
         spatialManager.SetSpatializer(0);
+
+        GameManager.Instance.OpenSpatializerSwitchWindow();
     }
 
     public void UpdateRatingValue()
@@ -135,17 +137,34 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     {
         spatialManager.SetSpatializer(index == 0 ? spatialManager.spatializerA : spatialManager.spatializerB);
         currentSpatializerVisual.text = index == 0 ? "A" : "B";
+
+        if (index == 0) VibA();
+        else VibB();
     }
     public void ToggleSpatializerButton(int index)
     {
         if (index == 0) t1.isOn = true;
         else t2.isOn = true;
+
+        
     }
 
 
     public void SetSpeaker(int id)
     {
         audioSwitch.SetSpeaker(id);
+    }
+
+
+    public void VibA()
+    {
+        GameManager.Instance.Vib(0, 0.05f);
+    }
+
+    public void VibB()
+    {
+        VibA();
+        Invoke("VibA", 0.25f);
     }
 
 }
