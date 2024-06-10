@@ -143,6 +143,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
     public void StartRound()
     {
+        Debug.Log("Start");
         enabled = true;
         enableInput = true;
 
