@@ -13,6 +13,8 @@ public class DirectionGuessingGameManager : MonoBehaviour
 
     public WindowManager windowManager;
 
+    public GameObject distractionNoise;
+
     private void OnEnable()
     {
         //OpenIntroduction();
@@ -22,6 +24,8 @@ public class DirectionGuessingGameManager : MonoBehaviour
     private void Start()
     {
         ResetEvents();
+        distractionNoise.SetActive(false);
+
     }
 
     private void ResetAll()
@@ -103,5 +107,10 @@ public class DirectionGuessingGameManager : MonoBehaviour
     {
         windowManager.ResetSlow();
         Invoke("StartComplete", 2);
+    }
+
+    public void SetDistractionNosie(bool t)
+    {
+        distractionNoise.SetActive(t);
     }
 }

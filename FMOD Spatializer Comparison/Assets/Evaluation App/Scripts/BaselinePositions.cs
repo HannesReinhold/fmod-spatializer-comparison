@@ -19,6 +19,8 @@ public class BaselinePositions : MonoBehaviour
 
     public FMODUnity.StudioEventEmitter emitter;
 
+    public GameObject noiseDistraction;
+
     [SerializeField] public AudioEvent[] events;
 
     private Vector3 guessedDirection;
@@ -54,7 +56,7 @@ public class BaselinePositions : MonoBehaviour
         FMOD.Studio.Bus bus = FMODUnity.RuntimeManager.GetBus("bus:/MainSounds");
         //bus.setVolume(GameManager.Instance.dataManager.currentSessionData.volume);
         bus.setVolume(1);
-
+        StopDistraction();
     }
 
     private void Start()
@@ -127,6 +129,7 @@ public class BaselinePositions : MonoBehaviour
 
         GUIAudioManager.SetAmbientVolume(0.0f);
         //startWindow.Close();
+        Invoke("StopDistraction", countdownTime-0.5f);
         Invoke("StartRound", countdownTime);
         // hide target
 
@@ -135,12 +138,12 @@ public class BaselinePositions : MonoBehaviour
 
     public void PlayDistraction()
     {
-        distractionEmitter.gameObject.SetActive(true);
+        noiseDistraction.SetActive(true);
     }
 
     public void StopDistraction()
     {
-        distractionEmitter.gameObject.SetActive(false);
+        noiseDistraction.SetActive(false);
     }
 
     /// <summary>

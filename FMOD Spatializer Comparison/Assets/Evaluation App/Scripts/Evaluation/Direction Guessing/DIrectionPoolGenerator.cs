@@ -29,7 +29,14 @@ public class DIrectionPoolGenerator : MonoBehaviour
         GenerateDirections();
 
         currentTarget.GetComponent<MeshRenderer>().enabled = GameManager.Instance.isAssistant;
-        
+        currentTarget.gameObject.SetActive(true);
+
+        Invoke("Activate",0.5f);
+    }
+
+    private void Activate()
+    {
+        currentTarget.gameObject.SetActive(true);
     }
 
 
