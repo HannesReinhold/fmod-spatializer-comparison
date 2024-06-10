@@ -40,6 +40,9 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     private bool interfaceOpen = false;
 
     private int setSpat = 0;
+
+    public PopupWindow aspectHintWindow;
+    public TextMeshProUGUI aspectHintText;
     
 
     private void OnEnable()
@@ -57,6 +60,7 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     private void Start()
     {
         GUIAudioManager.SetTutorialVolume(1);
+        aspectHintWindow.Close();
     }
 
     private void Update()
@@ -88,6 +92,17 @@ public class SubjectiveEvaluationManager : MonoBehaviour
     {
         VibA();
         Invoke("VibA", 0.25f);
+    }
+
+    public void SetAspectHintWindowVisibility(bool vis)
+    {
+        if (vis) aspectHintWindow.Open();
+        else aspectHintWindow.Close();
+    }
+
+    public void SetAspectHintWindowText(string txt)
+    {
+        aspectHintText.text = txt;
     }
 
     private void ToggleInterface()
@@ -147,6 +162,7 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         int id = GameManager.Instance.dataManager.randomOrderIndices[roundID];
         numRounds = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons.Count;
         roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[id], id);
+        aspectHintText.text = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[id].attribute;
         roundManager.StartRound(true);
         //tutorial.SetActive(false);
         evaluationRound.SetActive(true);
