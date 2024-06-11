@@ -23,8 +23,14 @@ public class DataManager
 
     public void InitializeSession()
     {
-        
-        currentSessionData = new SessionData(System.Guid.NewGuid().ToString());
+
+        float year = DateTime.Now.Year;
+        float month = DateTime.Now.Month;
+        float day = DateTime.Now.Day;
+        float hour = DateTime.Now.Hour;
+        float minute = DateTime.Now.Minute;
+
+        currentSessionData = new SessionData(day+"_"+month+"_"+year+"_"+hour+"_"+minute);
         currentSessionData.sex = Gender.Male;
         currentSessionData.age = 18;
         DateTime now = DateTime.Now;
