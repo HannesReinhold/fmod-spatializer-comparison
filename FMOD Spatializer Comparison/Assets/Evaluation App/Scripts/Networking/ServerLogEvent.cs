@@ -61,7 +61,6 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
     private void EventDidFire(int senderID, int pageNum, string eventLog, int nextPage)
     {
         // Tell the particle system to trigger an explosion in response to the event
-        Debug.Log("didFIre: "+pageNum);
         
         if (nextPage != 0) 
         {

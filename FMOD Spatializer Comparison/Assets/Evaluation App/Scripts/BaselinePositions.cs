@@ -153,6 +153,7 @@ public class BaselinePositions : MonoBehaviour
     {
         
         Vector3 respawnPosition =  GameObject.Find("BaselineDirectionTarget").transform.position;
+        Debug.Log(respawnPosition);
         int spatializerID = 3;
 
         //respawnPosition = Random.onUnitSphere*1.5f;
@@ -228,8 +229,10 @@ public class BaselinePositions : MonoBehaviour
     void EvaluateShot()
     {
         // calculate azimuth and elevation error
-        guessedDirection = controllerTransform.forward;
-        Vector3 actualDirection = (target.transform.position - controllerTransform.position).normalized;
+        Vector3 headPosition = FindFirstObjectByType<FollowTarget>().transform.position;
+
+        guessedDirection = (target.transform.position - headPosition).normalized;
+        Vector3 actualDirection = (target.transform.position - headPosition).normalized;
 
         Quaternion dif = Quaternion.LookRotation(controllerTransform.InverseTransformPoint(target.transform.position), Vector3.up);
         float azimuth = dif.y;

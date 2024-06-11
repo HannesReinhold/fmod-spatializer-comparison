@@ -463,7 +463,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
         rangeAz *= Mathf.Deg2Rad / (n / 2f - 1f);
         rangeEl *= Mathf.Deg2Rad / (n / 2f - 1f);
 
-        Debug.Log("OffsetAz: " + offsetAz + ", offsetEl: " + offsetEl + ", rangeAz: " + rangeAz + ", rangeEl: " + rangeEl);
+        //Debug.Log("OffsetAz: " + offsetAz + ", offsetEl: " + offsetEl + ", rangeAz: " + rangeAz + ", rangeEl: " + rangeEl);
 
         Vector3 pos = Vector3.zero;
         for (int i = 0; (i < maxN) && (i < n/2); i++)

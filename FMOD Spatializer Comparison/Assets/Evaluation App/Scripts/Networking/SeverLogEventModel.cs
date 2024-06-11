@@ -252,7 +252,7 @@ public partial class ServerLogEventModel : RealtimeModel
         this.pageNum = pageNum;
         this.eventLog = eventLog;
         this.nextPage = nextPage;
-        Debug.Log("Fire: "+pageNum + "next: "+nextPage);
+        //Debug.Log("Fire: "+pageNum + "next: "+nextPage);
         //eventDidFire(senderID);
     }
 
@@ -264,7 +264,6 @@ public partial class ServerLogEventModel : RealtimeModel
     [RealtimeCallback(RealtimeModelEvent.OnDidRead)]
     private void DidRead()
     {
-        Debug.Log("Read: " + pageNum);
         if (eventDidFire != null && trigger == 1)
         {
             eventDidFire(senderID, pageNum, eventLog, nextPage);
