@@ -56,18 +56,6 @@ public class HorrorEvent : MonoBehaviour
         GameManager.Instance.ShowRoomModel(3);
 
         ambience.SetActive(true);
-        //lightsFlicker.StartFlicker();
-
-        /*
-        EnableFog();
-        Invoke("CloseIntroWindow",5);
-        Invoke("EnableEyes",2);
-        Invoke("DisableAmbience",15);
-        Invoke("DisableHeartbeat",15);
-        Invoke("EnableJumpscare",15.5f);
-
-        Invoke("OnComplete",17);
-       */
 
         // variation 2
         monster.SetActive(false);
@@ -75,11 +63,11 @@ public class HorrorEvent : MonoBehaviour
         Invoke("EnableEyes", 4);
         Invoke("CloseIntroWindow", 5);
 
-        Invoke("DisableNoises",21);
-        Invoke("DisableAmbience", 22);
-        Invoke("EnableJumpscare", 23);
-        Invoke("DisableEyes", 25);
-        Invoke("OnComplete", 25);
+        Invoke("DisableNoises",16);
+        Invoke("DisableAmbience", 17);
+        Invoke("EnableJumpscare", 18);
+        Invoke("DisableEyes", 20);
+        Invoke("OnComplete", 20);
 
         GUIAudioManager.SetAmbientVolume(0);
 
@@ -178,7 +166,7 @@ public class HorrorEvent : MonoBehaviour
         GUIAudioManager.SetAmbientVolume(0.5f);
         completeWindow.GetComponent<PopupWindow>().Close();
         Invoke("DisableEvent",0.5f);
-        Invoke("OpenNextPage",2.5f);
+        Invoke("OpenNextPage",1.5f);
     }
 
     private void OpenNextPage()
