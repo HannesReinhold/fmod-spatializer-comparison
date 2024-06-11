@@ -494,7 +494,7 @@ public class GameManager : MonoBehaviour
 
     public void SetBaselineDirection(int index)
     {
-        if (serverLog == null) return;
+        //if (serverLog == null) return;
         Debug.Log("SetBaselineDirection");
         serverLog.NextBaselineDirection(index);
     }

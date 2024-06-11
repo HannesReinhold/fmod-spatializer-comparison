@@ -152,6 +152,7 @@ public class WireSphereEditor : MonoBehaviour
 
         for (i = 0; i < gridN; i++)
         {
+            if (i >= sphereLines.Count) continue;
             sphereLines[i].positionCount = numSegments + 1;
             sphereLines[i].SetPositions(WireSphereDrawer.CreateCircle(Vector3.zero, Quaternion.Euler(0, meridianStep * i, 0), currentRadius, numSegments, Color.red));
             //DrawCircle(position, orientation * Quaternion.Euler(0, meridianStep * i, 0), radius, doubleSegments, color);
