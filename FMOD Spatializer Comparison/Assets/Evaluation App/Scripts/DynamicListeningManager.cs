@@ -261,7 +261,7 @@ public class DynamicListeningManager : MonoBehaviour
 
     private void PlayAudioCue()
     {
-        currentStimuli = Random.Range(0,3);
+        currentStimuli = Random.Range(0, eventRefs.Length);
         currentSpatializer = Random.Range(0, 3);
         Debug.Log("Playing spatializer " + currentSpatializer + " at " + emitter.transform.position);
         emitter.Stop();
