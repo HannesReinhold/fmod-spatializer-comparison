@@ -9,6 +9,8 @@ public class BaselinePlayer : MonoBehaviour
 
     private Vector3 lastPos=Vector3.zero;
 
+    int n = 0;
+
 
     void OnEnable()
     {
@@ -18,8 +20,15 @@ public class BaselinePlayer : MonoBehaviour
 
     public void Play()
     {
+        Debug.Log(n);
+        if (n >= 10)
+        {
+            Stop();
+            return;
+        }
         if (GameManager.Instance.isAssistant && !GameManager.Instance.IsVR && canActivate)
             emitter.Play();
+        n++;
         
     }
 
