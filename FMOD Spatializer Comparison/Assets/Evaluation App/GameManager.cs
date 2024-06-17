@@ -172,7 +172,8 @@ public class GameManager : MonoBehaviour
         {
         }
 
-        SetAmbienVolume(1);
+        if(!isAssistant) SetAmbienVolume(1);
+        else SetAmbienVolume(0);
 
 
 

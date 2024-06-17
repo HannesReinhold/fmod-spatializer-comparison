@@ -76732,13 +76732,15 @@ GameObject:
   - component: {fileID: 2078318780}
   - component: {fileID: 2078318779}
   - component: {fileID: 2078318778}
+  - component: {fileID: 2078318782}
+  - component: {fileID: 2078318781}
   m_Layer: 0
   m_Name: BaselineDirectionTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2078318777
 Transform:
   m_ObjectHideFlags: 0
@@ -76825,6 +76827,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078318776}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2078318781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078318776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cc7f1abd58b5a14e94083fa29e6f61f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emitter: {fileID: 2078318782}
+--- !u!114 &2078318782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078318776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1610305196
+      Data2: 1100174867
+      Data3: 590172084
+      Data4: 1901364722
+    Path: event:/DirectionGame/Continuous Hint 1/Hint_Clap_Real
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0.2
+  OverrideMaxDistance: 80
 --- !u!224 &2079240043 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6768757348823638861, guid: 4aa2227b064559d498590bb8c400debb, type: 3}
