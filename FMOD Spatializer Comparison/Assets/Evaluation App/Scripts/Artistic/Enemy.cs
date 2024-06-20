@@ -128,6 +128,7 @@ public class Enemy : MonoBehaviour
         meshRendererBody.enabled = false;
         meshRendererSword.enabled = false;
         emitter.enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
         //animator.StopPlayback();
         inactive = true;
     }
