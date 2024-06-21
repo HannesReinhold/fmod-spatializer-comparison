@@ -472,7 +472,7 @@ public class GameManager : MonoBehaviour
     public void CloseSpatializerSwitchWindow()
     {
         currentSpaitializerWindow.Close();
-        currentSpaitializerWindow.gameObject.SetActive(false);
+        //currentSpaitializerWindow.gameObject.SetActive(false);
     }
 
     public void SetStandingIndicatorVisibility(bool show)
