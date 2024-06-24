@@ -61,7 +61,12 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
     private void EventDidFire(int senderID, int pageNum, string eventLog, int nextPage)
     {
         // Tell the particle system to trigger an explosion in response to the event
-        
+
+        if (pageNum == -1)
+        {
+            GameManager.Instance.StopRealAudio();
+        }
+
         if (nextPage != 0) 
         {
             if(nextPage==1) windowManagers[currentWindowManager].NextPage();
@@ -92,6 +97,7 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
                 GameManager.Instance.baselineDirections.PickNextDirection(pageNum);
 
             }
+            
         }
         _serverGUI.UpdateLog(pageNum, eventLog, currentWindowManager);
     }

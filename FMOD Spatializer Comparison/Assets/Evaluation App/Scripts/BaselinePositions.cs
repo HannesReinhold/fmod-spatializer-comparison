@@ -49,7 +49,7 @@ public class BaselinePositions : MonoBehaviour
     public GameObject targetVis;
 
 
-
+    private List<int> alreadySpawned = new List<int>();
 
     void OnEnable()
     {
@@ -118,9 +118,12 @@ public class BaselinePositions : MonoBehaviour
         GameManager.Instance.SaveData();
         manager.windowManager.ResetSlow();
 
+
         finishWindow.gameObject.SetActive(true);
 
         DisableControllerInput();
+
+        GameManager.Instance.SetBaselineDirection(-1);
     }
 
     /// <summary>
@@ -137,7 +140,17 @@ public class BaselinePositions : MonoBehaviour
         Invoke("StartRound", countdownTime);
         // hide target
 
-        GameManager.Instance.SetBaselineDirection(Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount)));
+        int id = Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount));
+        for(int i=0; i<alreadySpawned.Count; i++)
+        {
+            if (id == alreadySpawned[i])
+            {
+                id = Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount));
+            }
+        }
+        GameManager.Instance.SetBaselineDirection(id);
+        alreadySpawned.Add(id);
+        
     }
 
     public void PlayDistraction()

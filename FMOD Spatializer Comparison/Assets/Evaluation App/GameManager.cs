@@ -504,6 +504,12 @@ public class GameManager : MonoBehaviour
     {
         baselineTarget.SetActive(vis);
     }
+
+    public void StopRealAudio()
+    {
+        baselineTarget.SetActive(false);
+        baselineTarget.GetComponent<FMODUnity.StudioEventEmitter>().Stop();
+    }
 }
 
 
