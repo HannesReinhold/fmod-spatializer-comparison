@@ -35,6 +35,8 @@ public class SubjectiveEvaluationRound : MonoBehaviour
     private bool roundRunning = false;
     private bool showRatingInterface = false;
 
+    public TextMeshProUGUI aspect;
+
 
 
     public void UpdateInterface(ConcreteSubjectiveData data, int roundID)
@@ -48,6 +50,7 @@ public class SubjectiveEvaluationRound : MonoBehaviour
         //questionText.text = "<color=#7FD6FC>Attribute:</color> "+data.description + "\n\n <color=#7FD6FC>Tip:</color>         Use the slider below to enter your choice.\n<color=#7FD6FC>Tip:</color>         Use the Radio buttons to switch between the 2 audio sources.";
         minText.text = ""; 
         maxText.text = "";
+        aspect.text = data.attribute;
 
     }
 

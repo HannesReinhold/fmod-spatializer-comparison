@@ -164,6 +164,9 @@ public class SubjectiveEvaluationManager : MonoBehaviour
         roundManager.UpdateInterface(GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[id], id);
         aspectHintText.text = GameManager.Instance.dataManager.spatializerData.subjectiveData.comparisons[id].attribute;
         roundManager.StartRound(true);
+        //aspectHintText.GetComponent<PopupWindow>().Open();
+        aspectHintWindow.gameObject.SetActive(true);
+        aspectHintWindow.Open();
         //tutorial.SetActive(false);
         evaluationRound.SetActive(true);
         roundID++;

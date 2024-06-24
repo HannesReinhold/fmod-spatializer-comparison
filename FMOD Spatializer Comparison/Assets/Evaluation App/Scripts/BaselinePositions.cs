@@ -46,6 +46,8 @@ public class BaselinePositions : MonoBehaviour
 
     public DirectionVisualizerEvent directionVisualizer;
 
+    public GameObject targetVis;
+
 
 
 
@@ -154,7 +156,7 @@ public class BaselinePositions : MonoBehaviour
     private void StartRound()
     {
         
-        Vector3 respawnPosition =  GameObject.Find("BaselineDirectionTarget").transform.position;
+        Vector3 respawnPosition =  targetVis.transform.position;
         Debug.Log(respawnPosition);
         int spatializerID = 3;
 

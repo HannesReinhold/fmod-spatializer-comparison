@@ -58,6 +58,11 @@ public class DynamicListeningManager : MonoBehaviour
     public bool showTarget = false;
 
 
+    public void SetShowTarget(bool t)
+    {
+        showTarget = t;
+    }
+
 
     void OnEnable()
     {
