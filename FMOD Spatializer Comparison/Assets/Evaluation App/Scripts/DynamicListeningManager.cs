@@ -32,7 +32,7 @@ public class DynamicListeningManager : MonoBehaviour
     public bool isTutorial;
     public bool isTest = false;
 
-    private int currentRound = 0;
+    public int currentRound = 0;
     private int currentSpatializer = 0;
     private int currentStimuli = 0;
 
@@ -149,7 +149,7 @@ public class DynamicListeningManager : MonoBehaviour
         SpawnNewSphere();
 
         currentGuessSphere.transform.position = new Vector3(0,0,0.55f) + Vector3.up * 1.3f;
-        currentRound++;
+        
         alreadyGuessed = false;
         roundRunning = true;
 
@@ -213,6 +213,7 @@ public class DynamicListeningManager : MonoBehaviour
             Invoke("HideGuessingPoint", 3);
             Invoke("HideEmitter",3);
             Invoke("StartRound", 5);
+            currentRound++;
 
             errorList.Add(new Vector3(dist, Vector2.Distance(new Vector2(actual.x, actual.z), new Vector2(guess.x, guess.z)), Mathf.Abs(actual.y - guess.y)));
         }
@@ -252,6 +253,7 @@ public class DynamicListeningManager : MonoBehaviour
     private void OpenTutorialComplete()
     {
         windowManager.NextPage();
+        currentRound = 0;
     }
 
     void StartSound()
