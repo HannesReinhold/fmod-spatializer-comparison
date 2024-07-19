@@ -7,8 +7,8 @@ public class WireSphereEditor : MonoBehaviour
     [Range(1,25)] public int gridResolution = 8;
 
     [Range(0, 25)] public float Radius = 1f;
-    [Range(0, 1)] public float Width = 0.1f;
-    [Range(0, 1)] public float Alpha = 1f;
+    [Range(0, 1)] public float Width = 0.005f;
+    [Range(0, 1)] public float Alpha = 0.7f;
 
 
     public float targetRadius;

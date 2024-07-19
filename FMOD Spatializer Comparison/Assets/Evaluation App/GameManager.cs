@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
             currentWindowManager.OpenCurrentWindow();
         }
 
+        
     }
 
     private void SetupWorldCamera()
@@ -509,6 +510,19 @@ public class GameManager : MonoBehaviour
     {
         baselineTarget.SetActive(false);
         baselineTarget.GetComponent<FMODUnity.StudioEventEmitter>().Stop();
+    }
+
+    int currentState = 1;
+    public void SetGameStateRealtime(int state)
+    {
+        serverLog.SetState(state);
+        GUIAudioManager.PlayHint(new Vector3(0,0,0));
+    }
+
+    public void NextState(int n)
+    {
+        currentState += n;
+        SetGameStateRealtime(currentState);
     }
 }
 

@@ -57,10 +57,18 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
         model.FireEvent(realtime.clientID, ind, "", -200);
     }
 
+    public void SetState(int i)
+    {
+        Debug.Log(-300-i);
+        model.FireEvent(realtime.clientID, 0, "", -300-i);
+    }
+
     // Called whenever our event fires
     private void EventDidFire(int senderID, int pageNum, string eventLog, int nextPage)
     {
         // Tell the particle system to trigger an explosion in response to the event
+
+        Debug.Log("Event: "+nextPage);
 
         if (pageNum == -1)
         {
@@ -95,9 +103,27 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
             if (nextPage == -200)
             {
                 GameManager.Instance.baselineDirections.PickNextDirection(pageNum);
-
             }
-            
+            if (nextPage == -301)
+            {
+                GameManager.Instance.StartIntroduction();
+            }
+            if (nextPage == -302)
+            {
+                GameManager.Instance.StartDirectionGuessing();
+            }
+            if (nextPage == -303)
+            {
+                GameManager.Instance.StartLocationGuessing();
+            }
+            if (nextPage == -304)
+            {
+                GameManager.Instance.StartSubjectiveEvaluation();
+            }
+            if (nextPage == -305)
+            {
+                GameManager.Instance.StartIntroduction();
+            }
         }
         _serverGUI.UpdateLog(pageNum, eventLog, currentWindowManager);
     }
@@ -111,4 +137,6 @@ public class ServerLogEvent : RealtimeComponent<ServerLogEventModel>
     {
         currentWindowManager = 0;
     }
+
+    
 }
