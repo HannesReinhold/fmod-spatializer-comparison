@@ -143,7 +143,7 @@ public class GameManager : MonoBehaviour
         SetAHighlightVisible(false);
         SetMenuHighlightVisible(false);
         CloseSpatializerSwitchWindow();
-        SetBaselineTargetVisibility(false);
+        if(!isAssistant) SetBaselineTargetVisibility(false);
     }
 
     private void Update()
@@ -260,7 +260,7 @@ public class GameManager : MonoBehaviour
         locationGuessingObject.SetActive(false);
         completeObject.SetActive(false);
         CloseSpatializerSwitchWindow();
-        SetBaselineTargetVisibility(true);
+        if(!isAssistant) SetBaselineTargetVisibility(true);
     }
 
     public void StartLocationGuessing()

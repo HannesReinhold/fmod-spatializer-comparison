@@ -198,7 +198,7 @@ public class DirectionGuessingTutorial : MonoBehaviour
 
         roundID++;
 
-        if (roundID == 2)
+        if (roundID == 10)
         {
             Debug.Log("Dir Tutorial Complete");
             Invoke("FinishTutorial", 5);

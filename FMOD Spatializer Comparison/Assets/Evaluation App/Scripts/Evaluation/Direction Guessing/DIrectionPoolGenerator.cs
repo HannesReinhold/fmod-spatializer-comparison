@@ -54,7 +54,10 @@ public class DIrectionPoolGenerator : MonoBehaviour
     public void PickNextDirection(int id)
     {
         Debug.Log("New DIrection " + id);
+
         currentTarget.position = directions[id];
+        
+        
     }
 
     private void OnDrawGizmos()

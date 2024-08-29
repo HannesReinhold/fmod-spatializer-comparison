@@ -48,6 +48,10 @@ public class BaselinePositions : MonoBehaviour
 
     public GameObject targetVis;
 
+    public SkyboxChanger skyboxChanger;
+
+    public DIrectionPoolGenerator generator;
+
 
     private List<int> alreadySpawned = new List<int>();
 
@@ -77,6 +81,11 @@ public class BaselinePositions : MonoBehaviour
 
 
         GUIAudioManager.SetAmbientVolume(0f);
+    }
+
+    public void SetSkyboxChanger(bool t)
+    {
+        if (!GameManager.Instance.isAssistant) skyboxChanger.SetPassthrough(false);
     }
 
 
@@ -113,6 +122,8 @@ public class BaselinePositions : MonoBehaviour
         GameManager.Instance.ShowController();
     }
 
+
+
     public void FinishGame()
     {
         GameManager.Instance.SaveData();
@@ -125,6 +136,8 @@ public class BaselinePositions : MonoBehaviour
 
         GameManager.Instance.SetBaselineDirection(-1);
     }
+
+    private Vector3 lastPos;
 
     /// <summary>
     /// Starts a small waiting period until the round starts
@@ -140,14 +153,27 @@ public class BaselinePositions : MonoBehaviour
         Invoke("StartRound", countdownTime);
         // hide target
 
-        int id = Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount));
-        for(int i=0; i<alreadySpawned.Count; i++)
+        int id = 0;
+        float height = 0;
+        float dist = 0;
+        int ind = 0;
+        while ((height > 2.25f || dist < 0.5f ) && ind<50)
         {
-            if (id == alreadySpawned[i])
+            id = Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount));
+            height = generator.directions[id].y;
+            dist = Vector3.Distance(lastPos, generator.directions[id]);
+            for (int i = 0; i < alreadySpawned.Count; i++)
             {
-                id = Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount));
+                if (id == alreadySpawned[i])
+                {
+                    id = Mathf.RoundToInt(Random.Range(0, GameManager.Instance.baselineDirections.actualCount));
+                    height = generator.directions[id].y;
+                    dist = Vector3.Distance(lastPos, generator.directions[id]);
+                }
             }
+            ind++;
         }
+        lastPos = generator.directions[id];
         GameManager.Instance.SetBaselineDirection(id);
         alreadySpawned.Add(id);
         

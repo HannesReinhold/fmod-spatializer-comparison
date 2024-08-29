@@ -22,7 +22,7 @@ public class RotateTowardsCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = FindObjectOfType<FollowTarget>().transform;
+       if(target==null) target = FindObjectOfType<FollowTarget>().transform;
     }
 
     // Update is called once per frame
