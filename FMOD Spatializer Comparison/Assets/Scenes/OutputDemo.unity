@@ -208,6 +208,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 328171287262051154, guid: 4a7906ea8b702db44b8c3775fca5aa22, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1122659173412407485, guid: 4a7906ea8b702db44b8c3775fca5aa22, type: 3}
       propertyPath: m_Name
       value: ViewR
@@ -427,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 7657969600880781413, guid: 4a7906ea8b702db44b8c3775fca5aa22, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 19414456
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057508282252775715, guid: 4a7906ea8b702db44b8c3775fca5aa22, type: 3}
+      propertyPath: useJumpDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8790542006203319706, guid: 4a7906ea8b702db44b8c3775fca5aa22, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1899,6 +1907,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2740391973304473632, guid: 1938b79c317042846980a6b1bc804dcc, type: 3}
   m_PrefabInstance: {fileID: 1188640758}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1235651440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235651442}
+  - component: {fileID: 1235651441}
+  m_Layer: 0
+  m_Name: AlignmentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1235651441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235651440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df5e0fdf390c654294faee5615408b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AlignmentManager
+--- !u!4 &1235651442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235651440}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.74691, y: 5.36011, z: -5.48586}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1379178676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2761,3 +2813,4 @@ SceneRoots:
   - {fileID: 901874332}
   - {fileID: 1975946184}
   - {fileID: 613412901}
+  - {fileID: 1235651442}
