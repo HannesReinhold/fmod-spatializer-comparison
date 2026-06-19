@@ -31,9 +31,8 @@ public class AlignmentManager : MonoBehaviour
 
 
 
-    void Update()
+    public void UpdateAlignment()
     {
-        if(demoManager.demoState != DemoState.Alignment) return;
 
         CheckForTracker();
         MoveAlignmentWindow();
@@ -126,7 +125,7 @@ public class AlignmentManager : MonoBehaviour
     public void OnAlignmentComplete()
     {
         Debug.Log("Alignment Complete");
-        demoManager.StartDemo();
+        demoManager.StartPositioning();
     }
 
     public void ShowAlignmentWindow()
