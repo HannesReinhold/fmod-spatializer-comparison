@@ -18,6 +18,7 @@ public class OutputDemoManager : MonoBehaviour
     [Header("Managers")]
     public AlignmentManager alignmentManager;
     public VFXManager vfxManager;
+    public SpatialExplainManager spatialExplainManager;
 
 
 
@@ -115,6 +116,8 @@ public class OutputDemoManager : MonoBehaviour
     public void StartMonoExplanation()
     {
         Debug.Log("Start Explanation");
+        spatialExplainManager.ShowHead();
+        spatialExplainManager.ShowSource();
     }
 
     public void StartStereoExplanation()

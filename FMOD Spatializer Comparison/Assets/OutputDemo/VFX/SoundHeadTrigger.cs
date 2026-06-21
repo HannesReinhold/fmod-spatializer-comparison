@@ -45,12 +45,14 @@ public class SoundHeadTrigger : MonoBehaviour
                 );
                 smoothedHighlightValueLeft = Mathf.Max(smoothedHighlightValueLeft, particles[i].remainingLifetime);
                 smoothedHighlightValueLeft = Mathf.Clamp(smoothedHighlightValueLeft,0,1);
+                //Debug.Log("Collide Left");
             }
 
             if (triggerCollider2.bounds.Contains(particlePos))
             {
                 smoothedHighlightValueRight = Mathf.Max(smoothedHighlightValueRight, particles[i].remainingLifetime);
                 smoothedHighlightValueRight = Mathf.Clamp(smoothedHighlightValueRight, 0, 1);
+                //Debug.Log("Collide Right");
             }
 
         }
