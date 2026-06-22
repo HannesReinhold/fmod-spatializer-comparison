@@ -8,6 +8,8 @@ public class AudioPathManager : MonoBehaviour
 
     public GameObject mover;
 
+    public bool enableMoving=false;
+
     public int targetIndex = 0;
     public float transitionFactor = 0.1f;
     private float interpolatedTarget = 0;
@@ -21,6 +23,7 @@ public class AudioPathManager : MonoBehaviour
     private void Update()
     {
         //if(currentTarget != targetIndex) SetTargetIndex(currentTarget);
+        if (!enableMoving) return;
 
         if (targetIndex == lastTargetIndex)
         {
@@ -34,13 +37,20 @@ public class AudioPathManager : MonoBehaviour
         Vector3 pos = pathObjects[lastTargetIndex].position * (offset) + pathObjects[targetIndex].position * (1-offset);
 
         mover.transform.position = pos;
+        //Debug.Log("Move");
     }
 
     public void SetTargetIndex(int i)
     {
+        enableMoving = true;
         currentTarget = i;
 
         lastTargetIndex = targetIndex;
         targetIndex = i;
+    }
+
+    public void DisableMoving()
+    {
+        enableMoving = false;
     }
 }

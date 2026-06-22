@@ -24,7 +24,7 @@ public class OutputDemoManager : MonoBehaviour
 
     void Start()
     {
-        
+        StartMonoExplanation();
     }
 
     void Update()
@@ -116,8 +116,7 @@ public class OutputDemoManager : MonoBehaviour
     public void StartMonoExplanation()
     {
         Debug.Log("Start Explanation");
-        spatialExplainManager.ShowHead();
-        spatialExplainManager.ShowSource();
+        spatialExplainManager.StartExplainingProcedure();
     }
 
     public void StartStereoExplanation()
