@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class ApartmentManager : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class ApartmentManager : MonoBehaviour
     public ShowerProximityInteraction showerInteraction;
     public PianoProximityInteraction pianoInteraction;
 
+    public VisualEffect dust;
+
     public void StartApartment()
     {
         Invoke("StartPanEvent",2);
+        dust.Play();
     }
     public void OnPanComplete()
     {
@@ -27,6 +31,7 @@ public class ApartmentManager : MonoBehaviour
     {
         apartmentObject.Close();
         demoManager.StartDemoConcert();
+        dust.Stop();
     }
 
     public void StartPanEvent()
