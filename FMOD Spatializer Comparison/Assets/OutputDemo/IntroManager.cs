@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
+using ViewR.Passthrough.Scripts;
 
 public class IntroManager : MonoBehaviour
 {
     public List<ReactiveAudioSource> spatialReactiveSources;
     public AudioParticles randomParticles;
+    public VisualEffect dust;
+
+    public PassthroughManager passthroughManager;
 
     public void StartSource(int index)
     {
@@ -26,5 +31,6 @@ public class IntroManager : MonoBehaviour
         StartCoroutine(DelayedStartSource(1,5));
 
         randomParticles.Play();
+        dust.Play();
     }
 }

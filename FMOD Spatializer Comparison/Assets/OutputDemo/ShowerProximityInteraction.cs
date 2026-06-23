@@ -5,7 +5,26 @@ using UnityEngine;
 public class ShowerProximityInteraction : MonoBehaviour
 {
     public List<ParticleSystem> showerParticles;
-    //public List<>
+    public ApartmentManager apartmentManager;
+    
+    public Transform ovrRIg;
+
+    public float distTreshold = 1;
+    private bool complete=false;
+    private bool active=false;
+
+    void Update()
+    {
+        if(!active) return;
+        float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(ovrRIg.position.x, ovrRIg.position.z));
+        Debug.Log("Dist to Shower: "+dist);
+        if (dist < distTreshold && !complete)
+        {
+            Debug.Log("Shower Complete");
+            TurnOffShower();
+            apartmentManager.OnShowerComplete();
+        }
+    }
 
 
     public void TurnOnShower()
@@ -14,10 +33,12 @@ public class ShowerProximityInteraction : MonoBehaviour
         {
             showerParticles[i].Play();
         }
+        active = true;
     }
 
     public void TurnOffShower()
     {
+        active = false;
         for (int i = 0; i < showerParticles.Count; i++)
         {
             showerParticles[i].Stop();

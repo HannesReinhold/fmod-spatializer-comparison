@@ -26,7 +26,7 @@ public class OutputDemoManager : MonoBehaviour
 
     void Start()
     {
-        StartIntro();
+        StartDemoApartment();
     }
 
     void Update()
@@ -160,6 +160,7 @@ public class OutputDemoManager : MonoBehaviour
     public void StartDemoApartment()
     {
         Debug.Log("Start Apartment");
+        apartmentManager.StartApartment();
     }
 
     public void StartDemoConcert()
