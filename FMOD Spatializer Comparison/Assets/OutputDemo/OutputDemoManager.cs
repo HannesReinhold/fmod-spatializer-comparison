@@ -19,6 +19,7 @@ public class OutputDemoManager : MonoBehaviour
     public AlignmentManager alignmentManager;
     public VFXManager vfxManager;
     public SpatialExplainManager spatialExplainManager;
+    public ApartmentManager apartmentManager;
 
 
 

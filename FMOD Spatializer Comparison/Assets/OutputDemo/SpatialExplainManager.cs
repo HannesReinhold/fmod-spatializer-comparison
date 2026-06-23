@@ -3,6 +3,8 @@ using System.Collections;
 
 public class SpatialExplainManager : MonoBehaviour
 {
+public OutputDemoManager demoManager;
+
     public PopupObject headVisualizer;
     public PopupObject monoSourceVisualizer;
     public PopupObject stereoSourceLeftVisualizer;
@@ -13,6 +15,7 @@ public class SpatialExplainManager : MonoBehaviour
     public ParticleSystem stereoSourceLeftParticles;
     public ParticleSystem stereoSourceRightParticles;
     public ParticleSystem spatialSourceParticles;
+    public ParticleSystem spatialSourceParticles360;
 
     public float stereoSourcesDistance = 0.5f;
 
@@ -24,6 +27,8 @@ public class SpatialExplainManager : MonoBehaviour
 
     private float currentStereoDistance = 0;
     private float targetStereoDistance=0;
+
+    public int timeOffset=0;
 
 
 
@@ -123,16 +128,28 @@ public class SpatialExplainManager : MonoBehaviour
         stereoSourceRightParticles.Stop();
     }
 
-    public void StartSpatialSourcePlaying()
+    public void StartSpatialSourceDirectionalPlaying()
     {
         Debug.Log("Start Spatial Source");
         spatialSourceParticles.Play();
     }
 
-    public void StopSpatialSourcePlaying()
+    public void StartSpatialSource360Playing()
+    {
+        Debug.Log("Start Spatial Source");
+        spatialSourceParticles360.Play();
+    }
+
+    public void StopSpatialSourceDirectionalPlaying()
     {
         Debug.Log("Stop Spatial Source");
         spatialSourceParticles.Stop();
+    }
+
+    public void StopSpatialSource360Playing()
+    {
+        Debug.Log("Stop Spatial Source");
+        spatialSourceParticles360.Stop();
     }
 
     public void SplitStereoSources()
@@ -163,7 +180,7 @@ public class SpatialExplainManager : MonoBehaviour
     private void SetHeadTilt(Vector3 tilt, float duration)
     {
         Debug.Log("Set Head Tilt");
-        LeanTween.rotate(headVisualizer.transform.parent.gameObject, tilt, duration);
+        LeanTween.rotate(headVisualizer.transform.parent.gameObject, tilt, duration).setEaseInOutSine();
     }
 
 
@@ -179,7 +196,7 @@ public class SpatialExplainManager : MonoBehaviour
     {
         Vector3 newPos = headVisualizer.transform.parent.position + headVisualizer.transform.parent.up;
         Debug.Log("Move SOurce to "+newPos);
-        LeanTween.moveLocal(spatialSourceVisualizer.transform.parent.gameObject, pos, duration);
+        LeanTween.moveLocal(spatialSourceVisualizer.transform.parent.gameObject, pos, duration).setEaseInOutSine();
     }
 
 
@@ -262,98 +279,107 @@ public class SpatialExplainManager : MonoBehaviour
         SetRaysVisible(open);
     }
 
+    private void StartNextScenario()
+    {
+        demoManager.StartDemoApartment();
+    }
+
 
 
     public void StartExplainingProcedure()
     {
         // mono
         // spawn head
-        //Invoke("ShowHead",1);
+        Invoke("ShowHead",1);
         //Spawn source
-        //Invoke("ShowMonoSource",2); // 3
+        Invoke("ShowMonoSource",3); // 3
         // play delayed 
-        //Invoke("StartMonoSourcePlaying",3); // 4
+        Invoke("StartMonoSourcePlaying",4); // 4
         // after some time stop mono
-        //Invoke("StopMonoSourcePlaying",4); // 10
+        Invoke("StopMonoSourcePlaying",10); // 10
         // hide it
-        //Invoke("HideMonoSource", 5); //11
+        Invoke("HideMonoSource", 11); //11
 
 
         // stereo
 
-        //Invoke("ShowLeftStereoSource",5);
-        //Invoke("ShowRightStereoSource",5);
-        //Invoke("SplitStereoSources",5.5f);
+        Invoke("ShowLeftStereoSource",11);
+        Invoke("ShowRightStereoSource",11);
+        Invoke("SplitStereoSources",12);
         // start playing
-        //Invoke("StartStereoLeftSourcePlaying", 6); // 13
-        //Invoke("StartStereoRightSourcePlaying", 6);
+        Invoke("StartStereoLeftSourcePlaying", 13); // 13
+        Invoke("StartStereoRightSourcePlaying", 13);
         // moving and tilting head // 17
-        //StartCoroutine(DelayedHeadTilt(new Vector3(0,180,50),1,7));
-        //StartCoroutine(DelayedHeadTilt(new Vector3(0, 180, -50), 1, 8));
-        //StartCoroutine(DelayedHeadTilt(new Vector3(0, 180, 0), 1, 9));
+        StartCoroutine(DelayedHeadTilt(new Vector3(0,180,50),2,17));
+        StartCoroutine(DelayedHeadTilt(new Vector3(0, 180, -50), 4, 20));
+        StartCoroutine(DelayedHeadTilt(new Vector3(0, 180, 0), 2, 25));
         // start playing
-        //Invoke("StopStereoLeftSourcePlaying", 10); // 25
-        //Invoke("StopStereoRightSourcePlaying", 10);
+        Invoke("StopStereoLeftSourcePlaying", 28); // 25
+        Invoke("StopStereoRightSourcePlaying", 28);
         // merge
-        //Invoke("MergeStereoSources",11);
+        Invoke("MergeStereoSources",29);
         // hide
-        //Invoke("HideLeftStereoSource", 12); // 26
-        //Invoke("HideRightStereoSource", 12);
+        Invoke("HideLeftStereoSource", 30); // 26
+        Invoke("HideRightStereoSource", 30);
 
         // itd
         // show source in front
-        //Invoke("ShowSpatialSource", 13); // 28
-        //StartCoroutine(DelayedSpatializedSourcePos(Vector3.zero,0,13));
+        Invoke("ShowSpatialSource", 32); // 28
+        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-0.5f,0.2f,0),0,32));
         // play
-        //Invoke("StartSpatialSourcePlaying", 14); // 29
+        Invoke("StartSpatialSourceDirectionalPlaying", 33); // 29
         //move slowly to left
-        //StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-1,0.2f,0), 1, 14));
+        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-1,0.2f,0), 2, 34));
         // move slowly to right
-        //StartCoroutine(DelayedSpatializedSourcePos(new Vector3(1, 0.2f, 0), 1, 15));
+        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(1, 0.2f, 0), 4, 35));
         // move to center
-        //StartCoroutine(DelayedSpatializedSourcePos(new Vector3(0, 0, 0), 1, 15));
+        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(0, 0, 0), 2, 44));
 
         //ild
         // show sound shadow
-        //Invoke("ShowSoundShadow", 16);
+        Invoke("ShowSoundShadow", 47);
         // move left
-        //StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-1, 0.2f, 0), 1, 17));
+        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-1, 0.2f, 0), 2, 48));
         // move right
-        //StartCoroutine(DelayedSpatializedSourcePos(new Vector3(0, 0, 0), 1, 18));
+        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(0, 0, 0), 4, 52));
         // hide shadow
-        //Invoke("ShowSoundShadow", 19);
+        Invoke("HideSoundShadow", 57);
+
         //hrtf
 
         // show 3d field around head
 
         // move source around the head
-        Invoke("ShowHead", 1);
-        Invoke("ShowSpatialSource", 2);
-        StartCoroutine(DelayedAudioPath(5, 2));
+        StartCoroutine(DelayedAudioPath(5, 60));
 
         //occlusion
-        Invoke("HideHead", 3);
+        Invoke("HideHead", 70);
+        Invoke("StopSpatialSourceDirectionalPlaying", 70);
+        Invoke("StartSpatialSource360Playing", 71);
         // spawn wall in front of player
-        StartCoroutine(DelayedOcclusionWallOpen(true, 4));
+        StartCoroutine(DelayedOcclusionWallOpen(true, 72));
         // move source around wall
-        StartCoroutine(DelayedAudioPath(6, 5));
+        StartCoroutine(DelayedAudioPath(6, 73));
         // close Wall
-        StartCoroutine(DelayedOcclusionWallOpen(false, 6));
+        StartCoroutine(DelayedOcclusionWallOpen(false, 80));
 
         //reverb
 
         // show room geometry
-        StartCoroutine(DelayedRoomGeometryOpen(true, 7));
+        StartCoroutine(DelayedRoomGeometryOpen(true, 82));
         // begin with reflection visualization
-        StartCoroutine(DelayedRaysVisible(true, 8));
+        StartCoroutine(DelayedRaysVisible(true, 84));
         // hide rays
-        StartCoroutine(DelayedRaysVisible(false, 9));
+        StartCoroutine(DelayedRaysVisible(false, 90));
         //move source around room
-        StartCoroutine(DelayedAudioPath(6, 10));
+        StartCoroutine(DelayedAudioPath(6, 92));
         //hide
-        StartCoroutine(DelayedRoomGeometryOpen(false, 11));
-        Invoke("StopSpatialSourcePlaying", 12); // 29
-        Invoke("HideSpatialSource", 12); // 29
+        Invoke("StopSpatialSource360Playing", 98); // 29
+        Invoke("HideSpatialSource", 99); // 29
+        StartCoroutine(DelayedRoomGeometryOpen(false, 100));
+
+        Invoke("StartNextScenario",101);
+        
 
     }
 

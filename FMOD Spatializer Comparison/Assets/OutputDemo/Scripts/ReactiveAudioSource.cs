@@ -6,6 +6,8 @@ using System;
 using UnityEngine.VFX;
 using System.Collections.Generic;
 using System.Collections;
+using PathCreation;
+using PathCreation.Examples;
 
 public class ReactiveAudioSource : MonoBehaviour
 {
@@ -19,12 +21,23 @@ public class ReactiveAudioSource : MonoBehaviour
     public float Loudness { get; private set; }
     public Transform visual;
     public List<VisualEffect> vfxObjects;
+    public PathFollower mover;
 
     public bool isPlaying=false;
 
     void Start()
     {
         StartCoroutine(InitializeAfterPlay());
+        
+    }
+
+    void Awake()
+    {
+        for(int i=0; i<vfxObjects.Count; i++)
+        {
+            vfxObjects[i].Stop();
+        }
+        mover.stopped=true;
     }
 
     private void Update()
@@ -65,12 +78,14 @@ public class ReactiveAudioSource : MonoBehaviour
 
     public void Play()
     {
+        UnityEngine.Debug.Log("Start Playing Reactive Source");
         isPlaying=true;
         emitter.Play();
         for(int i=0; i<vfxObjects.Count; i++)
         {
             vfxObjects[i].Play();
         }
+        mover.stopped=false;
         
     }
 
@@ -82,6 +97,7 @@ public class ReactiveAudioSource : MonoBehaviour
         {
             vfxObjects[i].Stop();
         }
+        mover.stopped=true;
     }
 
     private void InitializeMetering()
