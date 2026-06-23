@@ -26,7 +26,7 @@ public class OutputDemoManager : MonoBehaviour
 
     void Start()
     {
-        StartDemoApartment();
+        StartAligning();
     }
 
     void Update()
@@ -82,6 +82,19 @@ public class OutputDemoManager : MonoBehaviour
 
 
     // Scene management
+
+    public void StartAligning()
+    {
+        Debug.Log("Start Aligning");
+        demoState = DemoState.Alignment;
+    }
+
+    public void StopAligning()
+    {
+        Debug.Log("Stop Aligning");
+        demoState = DemoState.Positioning;
+        Invoke("StartPositioning",1);
+    }
 
     public void StartPositioning()
     {
