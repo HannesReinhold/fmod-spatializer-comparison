@@ -20,12 +20,13 @@ public class OutputDemoManager : MonoBehaviour
     public VFXManager vfxManager;
     public SpatialExplainManager spatialExplainManager;
     public ApartmentManager apartmentManager;
+    public IntroManager introManager;
 
 
 
     void Start()
     {
-        StartMonoExplanation();
+        StartIntro();
     }
 
     void Update()
@@ -107,6 +108,7 @@ public class OutputDemoManager : MonoBehaviour
     public void StartIntro()
     {
         Debug.Log("Start Intro");
+        introManager.StartIntro();
     }
 
     public void StartMRExplanation()
