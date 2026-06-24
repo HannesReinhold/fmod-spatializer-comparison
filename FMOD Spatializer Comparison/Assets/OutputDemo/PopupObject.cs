@@ -40,6 +40,8 @@ public class PopupObject : MonoBehaviour
     public List<MeshRenderer> alphaObjects = new List<MeshRenderer>();
     public List<MeshRenderer> alphaObjects2 = new List<MeshRenderer>();
 
+    public List<Renderer> alphaObjects3 = new List<Renderer>();
+
     private int numOpened = 0;
 
     public Vector3 scaleMult = Vector3.one;
@@ -137,6 +139,12 @@ public class PopupObject : MonoBehaviour
             UnityEngine.Color c = o.material.color;
             c.a = a;
             o.material.color = c;
+        }
+
+        foreach (MeshRenderer o in alphaObjects3)
+        {
+            if (o == null) continue;
+            o.material.SetFloat("_Alpha", lineAlphaIndependent ? a*0.1f:a);
         }
 
     }
