@@ -21,6 +21,7 @@ public class OutputDemoManager : MonoBehaviour
     public SpatialExplainManager spatialExplainManager;
     public ApartmentManager apartmentManager;
     public IntroManager introManager;
+    public NarratorManager narratorManager;
 
 
 

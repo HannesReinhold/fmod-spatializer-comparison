@@ -30,7 +30,7 @@ public class AudioParticle : MonoBehaviour
         vfx.SetVector4("Color",color);
         vfx.SetFloat("EmissionStrength",4);
         vfx.Play();
-        Invoke("Kill",1);
+        Invoke("Kill",0.5f);
         ready=false;
     }
 }

@@ -63,4 +63,9 @@ public class AudioParticles : MonoBehaviour
             }
         }
     }
+
+    public void SetIntensity(float intensity)
+    {
+        frequency = intensity;
+    }
 }

@@ -139,7 +139,7 @@ public class ReactiveAudioSource : MonoBehaviour
 
         Loudness = rms / inputMeter.numchannels;
 
-        visual.localScale = UnityEngine.Vector3.one*Loudness;
+        //visual.localScale = UnityEngine.Vector3.one*Loudness;
 
         for(int i=0; i<vfxObjects.Count; i++)
         {
@@ -147,7 +147,7 @@ public class ReactiveAudioSource : MonoBehaviour
             vfxObjects[i].SetFloat("Turbulence",0.1f+Loudness*4);
         }
 
-        UnityEngine.Debug.Log(Loudness);
+        //UnityEngine.Debug.Log(Loudness);
 
     }
 
