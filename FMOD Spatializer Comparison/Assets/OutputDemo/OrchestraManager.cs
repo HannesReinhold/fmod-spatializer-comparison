@@ -18,7 +18,7 @@ public class OrchestraManager : MonoBehaviour
         SpawnDrums(11);
         SpawnSynth(13);
 
-        PlaySynth(14);
+        PlayViolins(14);
         PlayDrums(14);
 
         for(int i=0; i<instrumentObjects.Count; i++)

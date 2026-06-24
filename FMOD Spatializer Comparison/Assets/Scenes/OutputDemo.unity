@@ -2246,11 +2246,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 1
 --- !u!1 &122438455 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 05faba9435a64194e93d42b5bead4d67, type: 3}
@@ -2751,11 +2754,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 0.4
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 0.7
 --- !u!1 &142390568
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,6 +2794,165 @@ Transform:
   - {fileID: 628432206}
   m_Father: {fileID: 642723688}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!21 &147373402
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EarLeftMat (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance)
+  m_Shader: {fileID: -6465566751694194690, guid: 412089d91da15ef439e906a6a76d3d9e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3003
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_d0b5ec7bae434ad0b56c0ed7a58ecb17_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 3fa4f0501ab3d4946967066940f81ec6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AddPrecomputedVelocity: 0
+    - _Alpha: 1
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _BumpScale: 1
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _DstBlendAlpha: 0
+    - _EmissionFresnelStrength: 0.94
+    - _EmissionStrength: 0.5
+    - _EnvironmentReflections: 1
+    - _FresnelStrength: 0.22
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Highlighting: 0
+    - _MeshIntensity: 0.373
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _QueueControl: 0
+    - _QueueOffset: 3
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.461
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
+    - _Surface: 0
+    - _Transparency: 1
+    - _UVSec: 0
+    - _WorkflowMode: 1
+    - _XRMotionVectorsPass: 1
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 0, g: 0.9063354, b: 0.60448396, a: 1}
+    - _Color: {r: 0, g: 0.7228588, b: 0.90588236, a: 1}
+    - _EmissionColor: {r: 0, g: 1, b: 0.45723677, a: 0}
+    - _MeshColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1 &161804532
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,164 +4046,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c8ae788bb0ac9bb4b92d85947b90e19a, type: 3}
   m_PrefabInstance: {fileID: 203037767}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &204771126
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: EarLeftMat (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 412089d91da15ef439e906a6a76d3d9e, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3003
-  stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d0b5ec7bae434ad0b56c0ed7a58ecb17_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 3fa4f0501ab3d4946967066940f81ec6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AddPrecomputedVelocity: 0
-    - _Alpha: 1
-    - _AlphaClip: 0
-    - _AlphaToMask: 0
-    - _Blend: 0
-    - _BlendModePreserveSpecular: 1
-    - _BumpScale: 1
-    - _ClearCoatMask: 0
-    - _ClearCoatSmoothness: 0
-    - _Cull: 2
-    - _Cutoff: 0.5
-    - _DetailAlbedoMapScale: 1
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _DstBlendAlpha: 0
-    - _EmissionFresnelStrength: 0.94
-    - _EmissionStrength: 0.5
-    - _EnvironmentReflections: 1
-    - _FresnelStrength: 0.22
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Highlighting: 0
-    - _MeshIntensity: 0.373
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _QueueControl: 0
-    - _QueueOffset: 3
-    - _ReceiveShadows: 1
-    - _Smoothness: 0.461
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _SrcBlendAlpha: 1
-    - _Surface: 0
-    - _Transparency: 1
-    - _UVSec: 0
-    - _WorkflowMode: 1
-    - _XRMotionVectorsPass: 1
-    - _ZWrite: 1
-    m_Colors:
-    - _BaseColor: {r: 0, g: 0.9063354, b: 0.60448396, a: 1}
-    - _Color: {r: 0, g: 0.7228588, b: 0.90588236, a: 1}
-    - _EmissionColor: {r: 0, g: 1, b: 0.45723677, a: 0}
-    - _MeshColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &205553888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5198,11 +5205,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 1
 --- !u!1 &234781612
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,6 +6878,7 @@ MonoBehaviour:
   - {fileID: 2063401274}
   - {fileID: 81107271}
   - {fileID: 1678863842}
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &290410377
 GameObject:
@@ -7629,6 +7640,7 @@ MonoBehaviour:
   - {fileID: 2107697354}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &324671523
 GameObject:
@@ -9643,11 +9655,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 1
 --- !u!1001 &405092629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23170,11 +23185,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 1469380153}
+  bowSwingStrength: 0.4
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 0.7
 --- !u!1001 &550604189
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24277,164 +24295,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591219237}
   m_Mesh: {fileID: 4711208715938537054, guid: 52782ec6d85c1b14a99b89d67a4c70ae, type: 3}
---- !u!21 &596629909
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: EarRightMat (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
-    (Instance) (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 412089d91da15ef439e906a6a76d3d9e, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3008
-  stringTagMap: {}
-  disabledShaderPasses:
-  - MOTIONVECTORS
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailAlbedoMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailMask:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _DetailNormalMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ParallaxMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d0b5ec7bae434ad0b56c0ed7a58ecb17_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 3fa4f0501ab3d4946967066940f81ec6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AddPrecomputedVelocity: 0
-    - _Alpha: 1
-    - _AlphaClip: 0
-    - _AlphaToMask: 0
-    - _Blend: 0
-    - _BlendModePreserveSpecular: 1
-    - _BumpScale: 1
-    - _ClearCoatMask: 0
-    - _ClearCoatSmoothness: 0
-    - _Cull: 2
-    - _Cutoff: 0.5
-    - _DetailAlbedoMapScale: 1
-    - _DetailNormalMapScale: 1
-    - _DstBlend: 0
-    - _DstBlendAlpha: 0
-    - _EmissionFresnelStrength: 0.94
-    - _EmissionStrength: 0.5
-    - _EnvironmentReflections: 1
-    - _FresnelStrength: 0.22
-    - _GlossMapScale: 1
-    - _Glossiness: 0.5
-    - _GlossyReflections: 1
-    - _Highlighting: 0
-    - _MeshIntensity: 0.339
-    - _Metallic: 0
-    - _Mode: 0
-    - _OcclusionStrength: 1
-    - _Parallax: 0.02
-    - _QueueControl: 0
-    - _QueueOffset: 8
-    - _ReceiveShadows: 1
-    - _Smoothness: 0.461
-    - _SmoothnessTextureChannel: 0
-    - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _SrcBlendAlpha: 1
-    - _Surface: 0
-    - _Transparency: 1
-    - _UVSec: 0
-    - _WorkflowMode: 1
-    - _XRMotionVectorsPass: 1
-    - _ZWrite: 1
-    m_Colors:
-    - _BaseColor: {r: 0, g: 0.9063354, b: 0.60448396, a: 1}
-    - _Color: {r: 0, g: 0.7228588, b: 0.90588236, a: 1}
-    - _EmissionColor: {r: 0, g: 1, b: 0.45723677, a: 0}
-    - _MeshColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
 --- !u!1 &598658390
 GameObject:
   m_ObjectHideFlags: 0
@@ -24512,7 +24372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32d34f76324a727428f7d17e931781ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.047
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32d34f76324a727428f7d17e931781ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -24796,11 +24656,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 1
 --- !u!1 &613412896
 GameObject:
   m_ObjectHideFlags: 0
@@ -25116,11 +24979,14 @@ MonoBehaviour:
   vfxObjects: []
   materialVisuals:
   - {fileID: 406467557}
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 1
+  hitThreshold: 1
 --- !u!1 &624103680
 GameObject:
   m_ObjectHideFlags: 0
@@ -25345,6 +25211,7 @@ MonoBehaviour:
   - {fileID: 1810707144}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!114 &628432208
 MonoBehaviour:
@@ -26181,11 +26048,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 2042118753}
+  bowSwingStrength: 0.4
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 0.7
 --- !u!1 &659345070
 GameObject:
   m_ObjectHideFlags: 0
@@ -26847,6 +26717,7 @@ MonoBehaviour:
   - {fileID: 685320967}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!23 &685320967 stripped
 MeshRenderer:
@@ -33063,6 +32934,7 @@ MonoBehaviour:
   - {fileID: 616239924}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &732729277
 GameObject:
@@ -38513,11 +38385,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 2002409714}
+  bowSwingStrength: 0.4
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 0.7
 --- !u!1 &763578529
 GameObject:
   m_ObjectHideFlags: 0
@@ -39289,6 +39164,7 @@ MonoBehaviour:
   - {fileID: 790054477}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &793798721
 GameObject:
@@ -39782,6 +39658,7 @@ MonoBehaviour:
   - {fileID: 816504660}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &819229432
 GameObject:
@@ -53769,6 +53646,7 @@ MonoBehaviour:
   - {fileID: 952080138}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 14.75061}
 --- !u!1 &953671255
 GameObject:
@@ -53846,6 +53724,7 @@ MonoBehaviour:
   - {fileID: 1840631263}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!114 &953671258
 MonoBehaviour:
@@ -64552,11 +64431,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1249914686
+      Data2: 1174212271
+      Data3: -33858419
+      Data4: -923985511
+    Path: event:/Output/Orchestra/soundreality-drums-loop-75bpm-2-455451
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -64566,8 +64445,8 @@ MonoBehaviour:
   AllowNonRigidbodyDoppler: 0
   Params: []
   OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1016134005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78226,7 +78105,166 @@ MonoBehaviour:
   - {fileID: 1919650335}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
+--- !u!21 &1188444110
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: EarRightMat (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+    (Instance) (Instance) (Instance) (Instance) (Instance) (Instance) (Instance)
+  m_Shader: {fileID: -6465566751694194690, guid: 412089d91da15ef439e906a6a76d3d9e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3008
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_d0b5ec7bae434ad0b56c0ed7a58ecb17_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 3fa4f0501ab3d4946967066940f81ec6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AddPrecomputedVelocity: 0
+    - _Alpha: 1
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _BumpScale: 1
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
+    - _Cull: 2
+    - _Cutoff: 0.5
+    - _DetailAlbedoMapScale: 1
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _DstBlendAlpha: 0
+    - _EmissionFresnelStrength: 0.94
+    - _EmissionStrength: 0.5
+    - _EnvironmentReflections: 1
+    - _FresnelStrength: 0.22
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Highlighting: 0
+    - _MeshIntensity: 0.339
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _QueueControl: 0
+    - _QueueOffset: 8
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.461
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _SrcBlendAlpha: 1
+    - _Surface: 0
+    - _Transparency: 1
+    - _UVSec: 0
+    - _WorkflowMode: 1
+    - _XRMotionVectorsPass: 1
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 0, g: 0.9063354, b: 0.60448396, a: 1}
+    - _Color: {r: 0, g: 0.7228588, b: 0.90588236, a: 1}
+    - _EmissionColor: {r: 0, g: 1, b: 0.45723677, a: 0}
+    - _MeshColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!1001 &1188640758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78721,6 +78759,7 @@ MonoBehaviour:
   - {fileID: 437217622}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &1219511394
 GameObject:
@@ -89427,11 +89466,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 1
 --- !u!1001 &1266126185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89558,6 +89600,7 @@ MonoBehaviour:
   - {fileID: 1266126187}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 14.75061}
 --- !u!1 &1268191024
 GameObject:
@@ -90696,11 +90739,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 1744756642}
+  bowSwingStrength: 0.4
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 0.7
 --- !u!1 &1343385203
 GameObject:
   m_ObjectHideFlags: 0
@@ -91945,6 +91991,7 @@ MonoBehaviour:
   - {fileID: 1407450593}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &1410986073
 GameObject:
@@ -98066,6 +98113,7 @@ MonoBehaviour:
   - {fileID: 1469380154}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &1473325653
 GameObject:
@@ -99056,11 +99104,14 @@ MonoBehaviour:
   secondaryVisuals: []
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.01
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 1
 --- !u!1 &1559162817
 GameObject:
   m_ObjectHideFlags: 0
@@ -112001,7 +112052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32d34f76324a727428f7d17e931781ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.061
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32d34f76324a727428f7d17e931781ee, type: 3}
       propertyPath: m_LocalPosition.y
@@ -112101,6 +112152,7 @@ MonoBehaviour:
   - {fileID: 1744756643}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &1745363389 stripped
 GameObject:
@@ -113215,6 +113267,7 @@ MonoBehaviour:
   - {fileID: 626328886}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &1776396563
 GameObject:
@@ -113532,6 +113585,7 @@ MonoBehaviour:
   - {fileID: 1429130400}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &1790751109
 GameObject:
@@ -124749,6 +124803,7 @@ MonoBehaviour:
   - {fileID: 1869438862}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 14.75061}
 --- !u!1 &1873934986
 GameObject:
@@ -126275,6 +126330,7 @@ MonoBehaviour:
   - {fileID: 1886312701}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1001 &1887175257
 PrefabInstance:
@@ -126375,7 +126431,7 @@ PrefabInstance:
     - target: {fileID: 4384792893644454008, guid: 1ad5ed5f3ca81d24888ee18444630fb2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 596629909}
+      objectReference: {fileID: 1188444110}
     - target: {fileID: 5697509921579676898, guid: 1ad5ed5f3ca81d24888ee18444630fb2, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -126395,7 +126451,7 @@ PrefabInstance:
     - target: {fileID: 7979935107422036442, guid: 1ad5ed5f3ca81d24888ee18444630fb2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 204771126}
+      objectReference: {fileID: 147373402}
     - target: {fileID: 8040148206429334260, guid: 1ad5ed5f3ca81d24888ee18444630fb2, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -126471,6 +126527,7 @@ MonoBehaviour:
   - {fileID: 1745363392}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &1895491770
 GameObject:
@@ -126949,11 +127006,14 @@ MonoBehaviour:
   - {fileID: 437217621}
   vfxObjects: []
   materialVisuals: []
+  bowTransform: {fileID: 0}
+  bowSwingStrength: 1
   particleSystems: []
   isPlaying: 0
   scalingStrength: 0.04
   scalingStrengthSecondary: 0
   scalingStrengthTertiary: 0
+  hitThreshold: 1
 --- !u!1 &1914281061
 GameObject:
   m_ObjectHideFlags: 0
@@ -127217,6 +127277,7 @@ MonoBehaviour:
   - {fileID: 53164899}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!23 &1919650335 stripped
 MeshRenderer:
@@ -133284,6 +133345,7 @@ MonoBehaviour:
   - {fileID: 2002409715}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &2005632631
 GameObject:
@@ -133591,6 +133653,7 @@ MonoBehaviour:
   alphaObjects: []
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &2015504456
 GameObject:
@@ -134123,6 +134186,7 @@ MonoBehaviour:
   - {fileID: 2042118754}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!4 &2047895163 stripped
 Transform:
@@ -139658,6 +139722,7 @@ MonoBehaviour:
   - {fileID: 496208815}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!114 &2093745827
 MonoBehaviour:
@@ -139917,6 +139982,7 @@ MonoBehaviour:
   - {fileID: 1010173370}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &2098513080 stripped
 GameObject:
@@ -140107,6 +140173,7 @@ MonoBehaviour:
   - {fileID: 422129068}
   alphaObjects2: []
   alphaObjects3: []
+  mutliMaterialRenderer: []
   scaleMult: {x: 1, y: 1, z: 1}
 --- !u!1 &2107010414
 GameObject:

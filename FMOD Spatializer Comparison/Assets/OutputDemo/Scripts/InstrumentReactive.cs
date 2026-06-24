@@ -26,6 +26,9 @@ public class InstrumentReactive : MonoBehaviour
 
     public List<Renderer> materialVisuals;
 
+    public Transform bowTransform;
+    public float bowSwingStrength = 1;
+
     public List<ParticleSystem> particleSystems;
 
     public bool isPlaying=false;
@@ -35,6 +38,11 @@ public class InstrumentReactive : MonoBehaviour
     public float scalingStrengthSecondary=0.0f;
 
     public float scalingStrengthTertiary=0.0f;
+
+    private bool hitDetector;
+    public float hitThreshold=1;
+    private float swingTarget=0;
+    private float currentSwing=0;
 
     void Awake()
     {
@@ -158,6 +166,24 @@ public class InstrumentReactive : MonoBehaviour
         }
 
         Loudness = rms / inputMeter.numchannels;
+
+        if (Loudness > hitThreshold && !hitDetector)
+        {
+            hitDetector=true;
+            swingTarget=1;
+        }
+        if(Loudness < hitThreshold && hitDetector)
+        {
+            hitDetector=false;
+            swingTarget=-1;
+        }
+        currentSwing = Mathf.Lerp(currentSwing, swingTarget, Time.deltaTime*2);
+
+        if(bowTransform!=null){
+            Vector3 pos = bowTransform.localPosition;
+            pos.x = currentSwing*Mathf.Pow(Loudness,0.5f)*bowSwingStrength;
+            bowTransform.localPosition=pos;
+        }
 
         visual.localScale = UnityEngine.Vector3.one*(1+Loudness*scalingStrength)*0.75f;
 
