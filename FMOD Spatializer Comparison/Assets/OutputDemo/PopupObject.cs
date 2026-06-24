@@ -42,6 +42,8 @@ public class PopupObject : MonoBehaviour
 
     public List<Renderer> alphaObjects3 = new List<Renderer>();
 
+    public List<Renderer> mutliMaterialRenderer = new List<Renderer>();
+
     private int numOpened = 0;
 
     public Vector3 scaleMult = Vector3.one;
@@ -141,10 +143,19 @@ public class PopupObject : MonoBehaviour
             o.material.color = c;
         }
 
-        foreach (MeshRenderer o in alphaObjects3)
+        foreach (Renderer o in alphaObjects3)
         {
             if (o == null) continue;
             o.material.SetFloat("_Alpha", lineAlphaIndependent ? a*0.1f:a);
+        }
+
+        foreach (Renderer o in mutliMaterialRenderer)
+        {
+            if (o == null) continue;
+            for(int i=0; i<o.materials.Length; i++)
+            {
+                o.materials[i].SetFloat("_Alpha", lineAlphaIndependent ? a*0.1f:a);
+            }
         }
 
     }

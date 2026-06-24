@@ -22,12 +22,13 @@ public class OutputDemoManager : MonoBehaviour
     public ApartmentManager apartmentManager;
     public IntroManager introManager;
     public NarratorManager narratorManager;
+    public OrchestraManager orchestraManager;
 
 
 
     void Start()
     {
-        StartDemoApartment();
+        StartDemoConcert();
     }
 
     void Update()
@@ -176,11 +177,14 @@ public class OutputDemoManager : MonoBehaviour
     {
         Debug.Log("Start Apartment");
         apartmentManager.StartApartment();
+        demoState = DemoState.DemoApartment;
     }
 
     public void StartDemoConcert()
     {
         Debug.Log("Start Concert");
+        orchestraManager.StartOrchestra();
+        demoState = DemoState.DemoConcert;
     }
 
     public void StartDemoRobots()

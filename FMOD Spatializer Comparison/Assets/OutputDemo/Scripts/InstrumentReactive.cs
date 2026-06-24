@@ -20,7 +20,11 @@ public class InstrumentReactive : MonoBehaviour
     private bool meteringInitialized;
     public float Loudness { get; private set; }
     public Transform visual;
+
+    public List<Transform> secondaryVisuals;
     public List<VisualEffect> vfxObjects;
+
+    public List<Renderer> materialVisuals;
 
     public List<ParticleSystem> particleSystems;
 
@@ -28,8 +32,29 @@ public class InstrumentReactive : MonoBehaviour
 
     public float scalingStrength=0.01f;
 
+    public float scalingStrengthSecondary=0.0f;
+
+    public float scalingStrengthTertiary=0.0f;
+
     void Awake()
     {
+        ParticleSystem[] particlesSystems = GetComponentsInChildren<ParticleSystem>();
+
+        for(int i=0; i<particlesSystems.Length; i++)
+        {
+            particleSystems.Add(particlesSystems[i]);
+        }
+        VisualEffect[] vfxs = GetComponentsInChildren<VisualEffect>();
+        for(int i=0; i<vfxs.Length; i++)
+        {
+            vfxObjects.Add(vfxs[i]);
+        }
+
+        emitter = GetComponentInChildren<StudioEventEmitter>();
+
+        visual = transform;
+
+
         for(int i=0; i<vfxObjects.Count; i++)
         {
             vfxObjects[i].Stop();
@@ -103,7 +128,7 @@ public class InstrumentReactive : MonoBehaviour
 
         instance.getChannelGroup(out channelGroup);
 
-        UnityEngine.Debug.Log(channelGroup.hasHandle());
+        //UnityEngine.Debug.Log(channelGroup.hasHandle());
 
         if(channelGroup.hasHandle())
         {
@@ -134,7 +159,17 @@ public class InstrumentReactive : MonoBehaviour
 
         Loudness = rms / inputMeter.numchannels;
 
-        visual.localScale = UnityEngine.Vector3.one*(1+Loudness*scalingStrength);
+        visual.localScale = UnityEngine.Vector3.one*(1+Loudness*scalingStrength)*0.75f;
+
+        for(int i=0; i<secondaryVisuals.Count; i++)
+        {
+            secondaryVisuals[i].localScale = UnityEngine.Vector3.one*(1+Loudness*scalingStrengthSecondary);
+        }
+
+        for(int i=0; i<materialVisuals.Count; i++)
+        {
+            materialVisuals[i].material.SetFloat("_EmissionStrength", Loudness*scalingStrengthTertiary);
+        }
 
         for(int i=0; i<vfxObjects.Count; i++)
         {
