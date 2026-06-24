@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class OrchestraManager : MonoBehaviour
 {
@@ -8,23 +9,37 @@ public class OrchestraManager : MonoBehaviour
     public List<PopupObject> instrumentObjects;
     public List<InstrumentReactive> instruments;
 
+    public VisualEffect dust;
+
     public void StartOrchestra()
     {
-        SpawnPiano(1);
-        SpawnViolins(3);
-        SpawnCellos(5);
-        SpawnHorns(7);
-        SpawnTrumpets(9);
-        SpawnDrums(11);
-        SpawnSynth(13);
+        dust.Play();
 
-        PlayPiano(4);
-        PlayDrums(14);
+        SpawnPiano(1);
+        PlayPiano(1);
+
+        SpawnViolins(3);
+        PlayViolins(3);
+
+        SpawnCellos(5);
+        PlayCellos(5);
+
+        SpawnHorns(7);
+        PlayHorns(7);
+
+        SpawnTrumpets(9);
+        PlayTrumpets(9);
+
+        SpawnDrums(11);
+        PlayDrums(11);
+
+        SpawnSynth(13);
+        PlaySynth(13);
 
         for(int i=0; i<instrumentObjects.Count; i++)
         {
-            //StartCoroutine(DelayedCloseInstrument(i,20));
-            //StartCoroutine(DelayedStopInstrument(i,20));
+            StartCoroutine(DelayedCloseInstrument(i,60));
+            StartCoroutine(DelayedStopInstrument(i,60));
         }
 
     }
