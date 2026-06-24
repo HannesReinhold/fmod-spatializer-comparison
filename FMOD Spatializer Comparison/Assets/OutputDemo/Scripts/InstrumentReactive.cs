@@ -29,6 +29,12 @@ public class InstrumentReactive : MonoBehaviour
     public Transform bowTransform;
     public float bowSwingStrength = 1;
 
+    public List<Transform> keys;
+    public List<Vector3> keyInitialPositions;
+    public Transform keyParent;
+    public float keyStrokeStrength;
+    private int[] randomNotes=new int[8];
+
     public List<ParticleSystem> particleSystems;
 
     public bool isPlaying=false;
@@ -67,7 +73,23 @@ public class InstrumentReactive : MonoBehaviour
         {
             vfxObjects[i].Stop();
         }
+
+        if(keyParent!=null){
+            foreach (Transform child in keyParent)
+            {
+                keys.Add(child);
+                keyInitialPositions.Add(child.localPosition);
+            }
+
+            for(int j=0; j<8; j++)
+            {
+                randomNotes[j]=UnityEngine.Random.Range(10, 40);
+            }
+
+        }
+        
     }
+
 
     private void Update()
     {
@@ -171,11 +193,17 @@ public class InstrumentReactive : MonoBehaviour
         {
             hitDetector=true;
             swingTarget=1;
+            
         }
         if(Loudness < hitThreshold && hitDetector)
         {
             hitDetector=false;
             swingTarget=-1;
+            //for(int i=0; i<8; i++)
+            //{
+            //    int randomIndex = randomNotes[i];
+            //    keys[randomIndex].localPosition = keys[randomIndex].localPosition;
+            //}
         }
         currentSwing = Mathf.Lerp(currentSwing, swingTarget, Time.deltaTime*2);
 
@@ -183,6 +211,17 @@ public class InstrumentReactive : MonoBehaviour
             Vector3 pos = bowTransform.localPosition;
             pos.x = currentSwing*Mathf.Pow(Loudness,0.5f)*bowSwingStrength;
             bowTransform.localPosition=pos;
+        }
+
+        if(keyParent!=null){
+            for(int i=0; i<8; i++)
+            {
+                if(Loudness==float.NaN) continue;
+                int randomIndex = randomNotes[i];
+                Vector3 pos = keys[randomIndex].localPosition;
+                pos.y = keyInitialPositions[randomIndex].y-Loudness*keyStrokeStrength;
+                keys[randomIndex].localPosition = pos;
+            }
         }
 
         visual.localScale = UnityEngine.Vector3.one*(1+Loudness*scalingStrength)*0.75f;
