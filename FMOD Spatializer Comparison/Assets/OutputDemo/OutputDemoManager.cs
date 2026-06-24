@@ -26,7 +26,7 @@ public class OutputDemoManager : MonoBehaviour
 
     void Start()
     {
-        StartAligning();
+        StartIntro();
     }
 
     void Update()
@@ -46,6 +46,7 @@ public class OutputDemoManager : MonoBehaviour
     private void UpdatePositioning()
     {
         float dist = Vector3.Distance(Camera.main.transform.position, centerIndicator.transform.position);
+        Debug.Log("Dist: "+dist);
         if (dist <2)
         {
             positionTimer+= Time.deltaTime;

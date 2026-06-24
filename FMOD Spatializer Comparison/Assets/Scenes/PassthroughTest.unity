@@ -274,7 +274,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -371,6 +371,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1527392236235275454, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
+      propertyPath: requestScenePermissionOnStartup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527392236235275454, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
+      propertyPath: requestEyeTrackingPermissionOnStartup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527392236235275454, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
       propertyPath: requestBodyTrackingPermissionOnStartup
       value: 0
       objectReference: {fileID: 0}
@@ -380,7 +388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1527392236240427686, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
       propertyPath: m_HDR
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1527392236240427686, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
       propertyPath: m_CullingMask.m_Bits
@@ -431,6 +439,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7498847935756798572, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
+      propertyPath: m_Antialiasing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498847935756798572, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
       propertyPath: m_Cameras.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -444,8 +456,34 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1527392236241016188, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
       insertIndex: -1
       addedObject: {fileID: 203821533}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1527392236240783706, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 343890840}
   m_SourcePrefab: {fileID: 100100000, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
+--- !u!1 &343890835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1527392236240783706, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}
+  m_PrefabInstance: {fileID: 279458456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &343890840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343890835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Meta.XR.BuildingBlocks::Meta.XR.BuildingBlocks.BuildingBlock
+  blockId: e47682b9-c270-40b1-b16d-90b627a5ce1b
+  instanceId: 39b9737a-5686-4eca-93ae-87f8f9ea15e9
+  version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
 --- !u!4 &836766924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1527392236241016188, guid: 680ebaaadd3e637499330eb8274cf205, type: 3}

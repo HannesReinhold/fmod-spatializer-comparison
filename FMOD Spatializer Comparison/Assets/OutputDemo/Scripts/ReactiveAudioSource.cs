@@ -25,9 +25,8 @@ public class ReactiveAudioSource : MonoBehaviour
 
     public bool isPlaying=false;
 
-    void Start()
+    void OnEnable()
     {
-        StartCoroutine(InitializeAfterPlay());
         
     }
 
@@ -38,6 +37,7 @@ public class ReactiveAudioSource : MonoBehaviour
             vfxObjects[i].Stop();
         }
         mover.stopped=true;
+        //StartCoroutine(InitializeAfterPlay());
     }
 
     private void Update()
@@ -51,6 +51,7 @@ public class ReactiveAudioSource : MonoBehaviour
         {
             UpdateLoudness();
         }
+
     }
 
     IEnumerator InitializeAfterPlay()
@@ -73,6 +74,7 @@ public class ReactiveAudioSource : MonoBehaviour
         dsp.setMeteringEnabled(true, true);
 
         meteringInitialized = true;
+        UnityEngine.Debug.Log("INIT "+meteringInitialized);
     }
 }
 
@@ -102,17 +104,23 @@ public class ReactiveAudioSource : MonoBehaviour
 
     private void InitializeMetering()
     {
+        instance = emitter.EventInstance;
+
         instance.getChannelGroup(out channelGroup);
 
-        if (!channelGroup.hasHandle())
-            return;
+        UnityEngine.Debug.Log(channelGroup.hasHandle());
 
-        channelGroup.getDSP(
-            (int)CHANNELCONTROL_DSP_INDEX.HEAD,
-            out dsp);
-        dsp.setMeteringEnabled(true, true);
+        if(channelGroup.hasHandle())
+        {
+            channelGroup.getDSP(
+                (int)CHANNELCONTROL_DSP_INDEX.HEAD,
+                out dsp);
 
-        meteringInitialized = true;
+            dsp.setMeteringEnabled(true, true);
+
+            meteringInitialized = true;
+            UnityEngine.Debug.Log("INIT "+meteringInitialized);
+        }
     }
 
     private void UpdateLoudness()
@@ -138,6 +146,8 @@ public class ReactiveAudioSource : MonoBehaviour
             vfxObjects[i].SetFloat("TrailSize",0.1f+Loudness);
             vfxObjects[i].SetFloat("Turbulence",0.1f+Loudness*4);
         }
+
+        UnityEngine.Debug.Log(Loudness);
 
     }
 

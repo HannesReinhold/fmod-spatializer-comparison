@@ -11,7 +11,7 @@ public class AlignmentManager : MonoBehaviour
     public OutputDemoManager demoManager;
 
     public Bounded2DVisualizer qrTracker;
-    private OVRSpatialAnchor anchor;
+    private SharedAnchor anchor;
     public Transform ovrHead;
     public PopupWindow alignmentTutorialWindow;
     public FlyingWindow alignmentFlyingWindow;
@@ -28,6 +28,8 @@ public class AlignmentManager : MonoBehaviour
     private float trackingLossTimer=0;
 
     private bool isAligned=false;
+
+    public bool deleteAnchorOnStartup=false;
 
 
 
@@ -88,13 +90,19 @@ public class AlignmentManager : MonoBehaviour
 
     private void CheckForAnchor()
     {
-        if(anchor==null) anchor = (OVRSpatialAnchor)FindAnyObjectByType(typeof(OVRSpatialAnchor));
+        if(anchor==null) anchor = (SharedAnchor)FindAnyObjectByType(typeof(SharedAnchor));
         if(anchor!=null && !isAligned)
         {
             isAligned=true;
             alignmentTutorialWindow.Close();
             OnAlignmentComplete();
+            if(deleteAnchorOnStartup) Invoke("DeleteAnchor",1);
         }
+    }
+
+    private void DeleteAnchor()
+    {
+        anchor.OnEraseButtonPressed();
     }
 
     private void MoveAlignmentWindow()
