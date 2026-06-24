@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class PanProximityInteraction : MonoBehaviour
 {
     public ApartmentManager apartmentManager;
     public List<ParticleSystem> smokeParticles;
+
+    public StudioEventEmitter emitter;
     
     public Transform ovrRIg;
+
+    public PopupWindow standingIndicator;
+    public Highlightable highlightable;
 
     public float distTreshold = 1;
     private bool complete=false;
@@ -29,6 +35,9 @@ public class PanProximityInteraction : MonoBehaviour
 
     public void TurnOnPan()
     {
+        highlightable.SetHighlight(true);
+        standingIndicator.Open();
+        emitter.Play();
         active = true;
         for (int i = 0; i < smokeParticles.Count; i++)
         {
@@ -38,6 +47,9 @@ public class PanProximityInteraction : MonoBehaviour
 
     public void TurnOffPan()
     {
+        highlightable.SetHighlight(false);
+        standingIndicator.Close();
+        emitter.Stop();
         active=false;
         for (int i = 0; i < smokeParticles.Count; i++)
         {

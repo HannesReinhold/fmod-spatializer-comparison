@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class ShowerProximityInteraction : MonoBehaviour
 {
     public List<ParticleSystem> showerParticles;
     public ApartmentManager apartmentManager;
+
+    public StudioEventEmitter emitter;
     
     public Transform ovrRIg;
+
+    public PopupWindow standingIndicator;
+    public Highlightable highlightable;
 
     public float distTreshold = 1;
     private bool complete=false;
@@ -29,19 +35,25 @@ public class ShowerProximityInteraction : MonoBehaviour
 
     public void TurnOnShower()
     {
+        highlightable.SetHighlight(true);
+        emitter.Play();
         for (int i = 0; i < showerParticles.Count; i++)
         {
             showerParticles[i].Play();
         }
         active = true;
+        standingIndicator.Open();
     }
 
     public void TurnOffShower()
     {
+        highlightable.SetHighlight(false);
+        emitter.Stop();
         active = false;
         for (int i = 0; i < showerParticles.Count; i++)
         {
             showerParticles[i].Stop();
         }
+        standingIndicator.Close();
     }
 }

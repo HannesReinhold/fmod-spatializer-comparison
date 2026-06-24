@@ -27,7 +27,7 @@ public class OutputDemoManager : MonoBehaviour
 
     void Start()
     {
-        StartIntro();
+        StartDemoApartment();
     }
 
     void Update()
@@ -109,7 +109,7 @@ public class OutputDemoManager : MonoBehaviour
     {
         Debug.Log("Stop Positioning");
         demoState = DemoState.Intro;
-        HideCenterIndicator();
+        //HideCenterIndicator();
         StartIntro();
     }
 

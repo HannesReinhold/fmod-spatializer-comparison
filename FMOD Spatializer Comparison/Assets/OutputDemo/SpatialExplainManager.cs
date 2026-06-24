@@ -288,6 +288,7 @@ public OutputDemoManager demoManager;
 
     public void StartExplainingProcedure()
     {
+        StartCoroutine(demoManager.narratorManager.DelayedHide(0));
         // mono
         // spawn head
         Invoke("ShowHead",1);

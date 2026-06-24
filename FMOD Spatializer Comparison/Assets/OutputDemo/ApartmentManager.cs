@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -10,12 +12,32 @@ public class ApartmentManager : MonoBehaviour
     public ShowerProximityInteraction showerInteraction;
     public PianoProximityInteraction pianoInteraction;
 
+    public List<StudioEventEmitter> ambienceEmitters;
+
     public VisualEffect dust;
 
     public void StartApartment()
     {
         Invoke("StartPanEvent",2);
+        apartmentObject.gameObject.SetActive(true);
         dust.Play();
+        Invoke("PlayAmbience",2);
+    }
+
+    public void PlayAmbience()
+    {
+        for(int i=0; i<ambienceEmitters.Count; i++)
+        {
+            ambienceEmitters[i].Play();
+        }
+    }
+
+    public void StopAmbience()
+    {
+        for(int i=0; i<ambienceEmitters.Count; i++)
+        {
+            ambienceEmitters[i].Stop();
+        }
     }
     public void OnPanComplete()
     {
@@ -30,6 +52,7 @@ public class ApartmentManager : MonoBehaviour
     public void OnPianoComplete()
     {
         apartmentObject.Close();
+        apartmentObject.gameObject.SetActive(false);
         demoManager.StartDemoConcert();
         dust.Stop();
     }

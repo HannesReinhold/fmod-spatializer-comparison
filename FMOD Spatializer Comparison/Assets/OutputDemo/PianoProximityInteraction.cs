@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class PianoProximityInteraction : MonoBehaviour
@@ -5,6 +7,11 @@ public class PianoProximityInteraction : MonoBehaviour
     public ApartmentManager apartmentManager;
     public GameObject piano;
     public Transform ovrRIg;
+    public StudioEventEmitter emitter;
+
+    public PopupWindow standingIndicator;
+
+    public List<Highlightable> highlightable;
 
     private bool complete=false;
     private bool active=false;
@@ -26,11 +33,22 @@ public class PianoProximityInteraction : MonoBehaviour
 
     public void SpawnPiano()
     {
+        for(int i=0; i<highlightable.Count; i++)
+        {
+            highlightable[i].SetHighlight(true);
+        }
         active = true;
+        standingIndicator.Open();
     }
 
     public void TurnOnPiano()
     {
+         for(int i=0; i<highlightable.Count; i++)
+        {
+            highlightable[i].SetHighlight(false);
+        }
+        standingIndicator.Close();
+        emitter.Play();
         active = false;
     }
 }

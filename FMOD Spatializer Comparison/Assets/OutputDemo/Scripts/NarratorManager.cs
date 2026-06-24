@@ -71,7 +71,7 @@ public class NarratorManager : MonoBehaviour
 
         float angle = Vector3.Angle(camForward, narratorDir);
 
-        UnityEngine.Debug.Log("Angle: "+angle);
+        //UnityEngine.Debug.Log("Angle: "+angle);
 
         if (angle > angularSnapThreshold && !isAlreadyMoving)
         {
@@ -149,7 +149,7 @@ public class NarratorManager : MonoBehaviour
     public IEnumerator DelayedHide(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
-        Show();
+        Hide();
     }
 
     public IEnumerator DelayedPlayVoiceline(int voiceline, float delayTime)
@@ -183,7 +183,7 @@ private void InitializeMetering()
 
         instance.getChannelGroup(out channelGroup);
 
-        UnityEngine.Debug.Log(channelGroup.hasHandle());
+        //UnityEngine.Debug.Log(channelGroup.hasHandle());
 
         if(channelGroup.hasHandle())
         {
@@ -214,7 +214,7 @@ private void InitializeMetering()
 
         Loudness = rms / inputMeter.numchannels;
 
-        vfx.SetFloat("Radius",0.1f+Loudness*0.05f);
+        vfx.SetFloat("Radius",Mathf.Min(0.2f,0.1f+Loudness*0.1f));
 
         //UnityEngine.Debug.Log(Loudness);
 

@@ -127,6 +127,7 @@ public class AlignmentManager : MonoBehaviour
     public void StartAlignment()
     {
         Debug.Log("Start Alignment");
+        alignmentTutorialWindow.Open();
     }
 
 
