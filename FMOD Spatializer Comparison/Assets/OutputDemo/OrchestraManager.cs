@@ -14,27 +14,30 @@ public class OrchestraManager : MonoBehaviour
     public void StartOrchestra()
     {
         dust.Play();
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(13, 1));
+
+        PlayAll();
 
         SpawnPiano(1);
-        PlayPiano(1);
+        //PlayPiano(1);
 
         SpawnViolins(3);
-        PlayViolins(3);
+        //PlayViolins(3);
 
         SpawnCellos(5);
-        PlayCellos(5);
+        //PlayCellos(5);
 
         SpawnHorns(7);
-        PlayHorns(7);
+        //PlayHorns(7);
 
         SpawnTrumpets(9);
-        PlayTrumpets(9);
+        //PlayTrumpets(9);
 
         SpawnDrums(11);
-        PlayDrums(11);
+        //PlayDrums(11);
 
         SpawnSynth(13);
-        PlaySynth(13);
+        //PlaySynth(13);
 
         for(int i=0; i<instrumentObjects.Count; i++)
         {
@@ -42,6 +45,14 @@ public class OrchestraManager : MonoBehaviour
             StartCoroutine(DelayedStopInstrument(i,60));
         }
 
+    }
+
+    public void PlayAll()
+    {
+        for(int i=0; i<instruments.Count; i++) 
+        {
+            instruments[instrument].Play();
+        }
     }
 
     public IEnumerator DelayedOpenInstrument(int instrument, float delayTime)

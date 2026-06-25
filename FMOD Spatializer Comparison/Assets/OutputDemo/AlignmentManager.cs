@@ -96,7 +96,6 @@ public class AlignmentManager : MonoBehaviour
             isAligned=true;
             alignmentTutorialWindow.Close();
             OnAlignmentComplete();
-            if(deleteAnchorOnStartup) Invoke("DeleteAnchor",1);
         }
     }
 
@@ -145,5 +144,10 @@ public class AlignmentManager : MonoBehaviour
     public void HideAlignmentWindow()
     {
         alignmentTutorialWindow.Close();
+    }
+
+    void Start()
+    {
+        if (deleteAnchorOnStartup) Invoke("DeleteAnchor", 1);
     }
 }

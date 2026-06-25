@@ -289,6 +289,7 @@ public OutputDemoManager demoManager;
     public void StartExplainingProcedure()
     {
         StartCoroutine(demoManager.narratorManager.DelayedHide(0));
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(1, 1)); // explain mono
         // mono
         // spawn head
         Invoke("ShowHead",1);
@@ -303,7 +304,7 @@ public OutputDemoManager demoManager;
 
 
         // stereo
-
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(2, 11)); // explain stereo
         Invoke("ShowLeftStereoSource",11);
         Invoke("ShowRightStereoSource",11);
         Invoke("SplitStereoSources",12);
@@ -324,6 +325,7 @@ public OutputDemoManager demoManager;
         Invoke("HideRightStereoSource", 30);
 
         // itd
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(3, 32)); // explain itd
         // show source in front
         Invoke("ShowSpatialSource", 32); // 28
         StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-0.5f,0.2f,0),0,32));
@@ -337,6 +339,7 @@ public OutputDemoManager demoManager;
         StartCoroutine(DelayedSpatializedSourcePos(new Vector3(0, 0, 0), 2, 44));
 
         //ild
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(4, 47)); // explain ild
         // show sound shadow
         Invoke("ShowSoundShadow", 47);
         // move left
@@ -347,13 +350,15 @@ public OutputDemoManager demoManager;
         Invoke("HideSoundShadow", 57);
 
         //hrtf
-
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(5, 60)); // explain hrtf
         // show 3d field around head
 
         // move source around the head
         StartCoroutine(DelayedAudioPath(5, 60));
 
         //occlusion
+        /*
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(6, 70)); // explain occlusion
         Invoke("HideHead", 70);
         Invoke("StopSpatialSourceDirectionalPlaying", 70);
         Invoke("StartSpatialSource360Playing", 71);
@@ -363,23 +368,25 @@ public OutputDemoManager demoManager;
         StartCoroutine(DelayedAudioPath(6, 73));
         // close Wall
         StartCoroutine(DelayedOcclusionWallOpen(false, 80));
+        */
 
         //reverb
 
         // show room geometry
-        StartCoroutine(DelayedRoomGeometryOpen(true, 82));
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(7, 70)); // explain reverb
+        StartCoroutine(DelayedRoomGeometryOpen(true, 72));
         // begin with reflection visualization
-        StartCoroutine(DelayedRaysVisible(true, 84));
+        StartCoroutine(DelayedRaysVisible(true, 74));
         // hide rays
-        StartCoroutine(DelayedRaysVisible(false, 90));
+        StartCoroutine(DelayedRaysVisible(false, 80));
         //move source around room
-        StartCoroutine(DelayedAudioPath(6, 92));
+        StartCoroutine(DelayedAudioPath(6, 82));
         //hide
-        Invoke("StopSpatialSource360Playing", 98); // 29
-        Invoke("HideSpatialSource", 99); // 29
-        StartCoroutine(DelayedRoomGeometryOpen(false, 100));
+        Invoke("StopSpatialSource360Playing", 88); // 29
+        Invoke("HideSpatialSource", 89); // 29
+        StartCoroutine(DelayedRoomGeometryOpen(false, 90));
 
-        Invoke("StartNextScenario",101);
+        Invoke("StartNextScenario",91);
         
 
     }

@@ -18,10 +18,11 @@ public class ApartmentManager : MonoBehaviour
 
     public void StartApartment()
     {
-        Invoke("StartPanEvent",2);
         apartmentObject.gameObject.SetActive(true);
         dust.Play();
-        Invoke("PlayAmbience",2);
+        Invoke("PlayAmbience",1);
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(8, 3)); // comment on appartment
+        Invoke("StartPanEvent", 6);
     }
 
     public void PlayAmbience()
@@ -42,11 +43,13 @@ public class ApartmentManager : MonoBehaviour
     public void OnPanComplete()
     {
         Invoke("StartShowerEvent",2);
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(10, 1)); // eggs
     }
 
     public void OnShowerComplete()
     {
         Invoke("StartPianoEvent",2);
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(11, 1)); // shower complete
     }
 
     public void OnPianoComplete()
@@ -61,6 +64,7 @@ public class ApartmentManager : MonoBehaviour
     {
         Debug.Log("STart Pan Event");
         panInteraction.TurnOnPan();
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(9, 2)); // eggs
     }
 
     public void StartShowerEvent()
@@ -73,5 +77,6 @@ public class ApartmentManager : MonoBehaviour
     {
         Debug.Log("STart Piano Event");
         pianoInteraction.SpawnPiano();
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(12, 4)); // eggs
     }
 }
