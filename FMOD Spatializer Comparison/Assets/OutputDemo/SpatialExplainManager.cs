@@ -451,7 +451,7 @@ public OutputDemoManager demoManager;
         StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(6, 105)); // explain reverb
         StartCoroutine(DelayedRoomGeometryOpen(true, 105+2));
         Invoke("ShowReverb", 105+5);
-        StartCoroutine(DelayedSetReverb(0.4f,2,105+5));
+        StartCoroutine(DelayedSetReverb(0.3f,2,105+5));
         // begin with reflection visualization
         StartCoroutine(DelayedRaysVisible(true, 105+7));
         // hide rays
@@ -468,8 +468,7 @@ public OutputDemoManager demoManager;
         StartCoroutine(demoManager.narratorManager.DelayedSetFollowTarget(null, 128));
         StartCoroutine(demoManager.narratorManager.DelayedSetFacingCamera(new UnityEngine.Vector3(0,0,1),0,128));
         Invoke("HideHead",128);
-        
-
+    
     }
 
     void Update()

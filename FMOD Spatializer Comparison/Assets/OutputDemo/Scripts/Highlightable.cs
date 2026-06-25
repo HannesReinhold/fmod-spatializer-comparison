@@ -23,7 +23,11 @@ public class Highlightable : MonoBehaviour
 
     void Update()
     {
-        if(!isHighlighted) return;
+        if(!isHighlighted) 
+        {
+            renderer.materials[1].SetFloat("_Alpha",0);
+            return;
+        }
         renderer.materials[1].SetFloat("_Alpha",(Mathf.Sin(Time.time*flashingFreq)*0.5f+0.5f)*alphaMult*0.5f);
     }
 

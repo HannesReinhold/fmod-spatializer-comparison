@@ -12,6 +12,7 @@ public class PianoProximityInteraction : MonoBehaviour
     public PopupWindow standingIndicator;
 
     public List<Highlightable> highlightable;
+    public PopupObject pianoPopup;
 
     private bool complete=false;
     private bool active=false;
@@ -43,6 +44,7 @@ public class PianoProximityInteraction : MonoBehaviour
 
     public void TurnOnPiano()
     {
+        pianoPopup.Open();
          for(int i=0; i<highlightable.Count; i++)
         {
             highlightable[i].SetHighlight(false);
