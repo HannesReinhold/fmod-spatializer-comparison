@@ -53,7 +53,7 @@
 			<destination>{d875a084-0d5f-491f-a79c-136da21ca3d6}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ab0feb16-fed0-4586-9f0f-87c36f651dbd}</destination>
+			<destination>{09e4df95-3b64-461f-a04f-994b912fa2f9}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{430a831d-21d0-4789-a7e6-7fbc9c18c648}" />
@@ -114,6 +114,7 @@
 		<relationship name="effects">
 			<destination>{9f3ee34f-0bc6-4c9b-ab9b-bdd0b142031d}</destination>
 			<destination>{8f86bd2b-875d-4920-b76d-eaf4e0d38176}</destination>
+			<destination>{778a6f08-3ec0-456c-90bb-953a085da123}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{24cd4cec-5b15-4519-a17a-7b139149bb33}" />
@@ -125,6 +126,24 @@
 	</object>
 	<object class="MixerBusPanner" id="{cc8ea45a-57a0-4472-b8b0-43807e2896e8}" />
 	<object class="MixerBusFader" id="{9f3ee34f-0bc6-4c9b-ab9b-bdd0b142031d}" />
-	<object class="SpatialiserEffect" id="{8f86bd2b-875d-4920-b76d-eaf4e0d38176}" />
+	<object class="SpatialiserEffect" id="{8f86bd2b-875d-4920-b76d-eaf4e0d38176}">
+		<property name="panBlend">
+			<value>0.579999983</value>
+		</property>
+		<property name="userStereoSeparation">
+			<value>124</value>
+		</property>
+	</object>
+	<object class="MixerSend" id="{778a6f08-3ec0-456c-90bb-953a085da123}">
+		<property name="level">
+			<value>-12.5</value>
+		</property>
+		<property name="inputFormat">
+			<value>2</value>
+		</property>
+		<relationship name="mixerReturn">
+			<destination>{79b558f1-01c2-477e-8c60-20ea11e976dd}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{7f2d2451-ac2a-43cd-9002-750f0aef1180}" />
 </objects>

@@ -8,7 +8,7 @@ using UnityEngine.VFX;
 
 public class NarratorManager : MonoBehaviour
 {
-    EventInstance instance;
+    public EventInstance instance;
 
     public StudioEventEmitter  emitter;
 
@@ -29,6 +29,10 @@ public class NarratorManager : MonoBehaviour
     public List<EventReference> voicelines;
 
     public bool faceCamera=false;
+    private bool isPlaying;
+
+    public Transform followTarget;
+
 
     void Start()
     {
@@ -53,6 +57,11 @@ public class NarratorManager : MonoBehaviour
             Vector3 pos = transform.position;
             pos.y = Mathf.Lerp(pos.y, Camera.main.transform.position.y, Time.deltaTime);
             transform.position = pos;
+        }
+
+        if (instance.isValid() && followTarget!=null)
+        {
+            transform.position = Vector3.Lerp(transform.position, followTarget.position, Time.deltaTime*5f);
         }
     }
 
@@ -120,17 +129,71 @@ public class NarratorManager : MonoBehaviour
         vfx.Stop();
     }
 
+    private FMOD.GUID instanceID;
+
     public void PlayVoiceline(int index)
     {
-        UnityEngine.Debug.Log("Play Narrator Voiceline "+index);
-        emitter.EventReference = voicelines[index];
+        Stop();
+
+        instance = RuntimeManager.CreateInstance(voicelines[index]);
+
+        RuntimeManager.AttachInstanceToGameObject(
+            instance,
+            transform
+        );
+
+        instance.set3DAttributes(
+            RuntimeUtils.To3DAttributes(transform)
+        );
+
+        FMOD.RESULT result = instance.start();
+
+        isPlaying = true;
+
+    }
+
+    IEnumerator CheckVoice()
+{
+        yield return null;
+
+        instance.getPlaybackState(out PLAYBACK_STATE state);
+
+        UnityEngine.Debug.Log("State after 1 frame: " + state);
+}
+    public void Stop()
+    {
+        UnityEngine.Debug.Log("STOP CALLED");
+        if (!instance.isValid())
+            return;
+
+        instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        instance.release();
+        instance.clearHandle();
+
+        isPlaying = false;
+    }
+
+    public void SetVoiceParameter(string name, float value)
+{
+    instance.getPlaybackState(out PLAYBACK_STATE state);
+    if (!instance.isValid())
+        {
+            
+            return;
+        }
+
+    instance.setParameterByName(name, value);
+}
+
+    private void EmitterPLay()
+    {
         emitter.Play();
     }
 
     public void StopVoiceline()
     {
         UnityEngine.Debug.Log("Stop Narrator Voiceline ");
-        emitter.Stop();
+        //emitter.Stop();
     }
 
     public void SetPosition(Vector3 pos, float duration)
@@ -177,9 +240,15 @@ public class NarratorManager : MonoBehaviour
         SetPositionTarget();
     }
 
+    public IEnumerator DelayedSetFollowTarget(Transform target, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+        followTarget=target;
+    }
+
 private void InitializeMetering()
     {
-        instance = emitter.EventInstance;
+        //instance = emitter.EventInstance;
 
         instance.getChannelGroup(out channelGroup);
 
@@ -214,7 +283,7 @@ private void InitializeMetering()
 
         Loudness = rms / inputMeter.numchannels;
 
-        vfx.SetFloat("Radius",Mathf.Min(0.2f,0.1f+Loudness*0.1f));
+        vfx.SetFloat("Radius",Mathf.Min(0.2f,0.05f+Loudness*0.1f));
 
         //UnityEngine.Debug.Log(Loudness);
 

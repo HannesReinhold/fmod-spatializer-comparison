@@ -1,5 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using FMODUnity;
+using System;
+using System.Numerics;
+using FMOD.Studio;
 
 public class SpatialExplainManager : MonoBehaviour
 {
@@ -25,10 +29,26 @@ public OutputDemoManager demoManager;
     public PopupObject roomGeometry;
     public RaytracingVisualizer raytracingVisualizer;
 
+    public StudioEventEmitter ambienceEmitter;
+
     private float currentStereoDistance = 0;
     private float targetStereoDistance=0;
 
     public int timeOffset=0;
+
+    public EventReference hintEvent;
+
+    public Transform leftEar;
+    public Transform rightEar;
+
+    bool  itdOpen=false;
+    bool ildOpen=false;
+
+    public AudioPhenomena spatialPhenomena;
+
+    float stereopanning=0.0f;
+
+    bool reverb=false;
 
 
 
@@ -166,9 +186,9 @@ public OutputDemoManager demoManager;
 
     private void UpdateStereoSources()
     {
-        Vector3 pos = headVisualizer.transform.parent.position;
-        Vector3 posLeft = pos - headVisualizer.transform.parent.right * currentStereoDistance - headVisualizer.transform.parent.up * 0.193f;
-        Vector3 posRight = pos + headVisualizer.transform.parent.right * currentStereoDistance - headVisualizer.transform.parent.up * 0.193f;
+        UnityEngine.Vector3 pos = headVisualizer.transform.parent.position;
+        UnityEngine.Vector3 posLeft = pos - headVisualizer.transform.parent.right * currentStereoDistance - headVisualizer.transform.parent.up * 0.193f;
+        UnityEngine.Vector3 posRight = pos + headVisualizer.transform.parent.right * currentStereoDistance - headVisualizer.transform.parent.up * 0.193f;
         //posLeft.y = h;
         //posRight.y = h;
         stereoSourceLeftVisualizer.transform.parent.position = posLeft;
@@ -177,14 +197,57 @@ public OutputDemoManager demoManager;
         currentStereoDistance = Mathf.Lerp(currentStereoDistance, targetStereoDistance, Time.deltaTime);
     }
 
-    private void SetHeadTilt(Vector3 tilt, float duration)
+    public void SetPanning(float panning, float duration)
+    {
+      LeanTween.value(stereopanning, panning, duration).setOnUpdate(UpdatePanning);
+      
+    }
+
+
+    void UpdatePanning(float a)
+    {
+        stereopanning=a;
+        demoManager.narratorManager.SetVoiceParameter("StereoPan",a);
+    }
+
+    IEnumerator DelayedSetPanning(float tilt, float duration, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        SetPanning(tilt, duration);
+
+    }
+
+    private float reverbAmount=0;
+    public void SetReverb(float reverb, float duration)
+    {
+      LeanTween.value(reverbAmount, reverb, duration).setOnUpdate(UpdateReverb);
+      
+    }
+
+
+    void UpdateReverb(float a)
+    {
+        reverbAmount=a;
+        demoManager.narratorManager.SetVoiceParameter("RoomReverbMix",a);
+    }
+
+    IEnumerator DelayedSetReverb(float tilt, float duration, float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        SetReverb(tilt, duration);
+
+    }
+
+    private void SetHeadTilt(UnityEngine.Vector3 tilt, float duration)
     {
         Debug.Log("Set Head Tilt");
         LeanTween.rotate(headVisualizer.transform.parent.gameObject, tilt, duration).setEaseInOutSine();
     }
 
 
-    IEnumerator DelayedHeadTilt(Vector3 tilt, float duration, float delayTime)
+    IEnumerator DelayedHeadTilt(UnityEngine.Vector3 tilt, float duration, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
 
@@ -192,15 +255,15 @@ public OutputDemoManager demoManager;
 
     }
 
-    private void SetSpatializedSourcePos(Vector3 pos, float duration)
+    private void SetSpatializedSourcePos(UnityEngine.Vector3 pos, float duration)
     {
-        Vector3 newPos = headVisualizer.transform.parent.position + headVisualizer.transform.parent.up;
+        UnityEngine.Vector3 newPos = headVisualizer.transform.parent.position + headVisualizer.transform.parent.up;
         Debug.Log("Move SOurce to "+newPos);
         LeanTween.moveLocal(spatialSourceVisualizer.transform.parent.gameObject, pos, duration).setEaseInOutSine();
     }
 
 
-    IEnumerator DelayedSpatializedSourcePos(Vector3 pos, float duration, float delayTime)
+    IEnumerator DelayedSpatializedSourcePos(UnityEngine.Vector3 pos, float duration, float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
 
@@ -282,14 +345,18 @@ public OutputDemoManager demoManager;
     private void StartNextScenario()
     {
         demoManager.StartDemoApartment();
+        ambienceEmitter.Stop();
     }
 
 
 
     public void StartExplainingProcedure()
     {
-        StartCoroutine(demoManager.narratorManager.DelayedHide(0));
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(1, 1)); // explain mono
+        ambienceEmitter.Play();
+        FMODUnity.RuntimeManager.PlayOneShot(hintEvent, headVisualizer.transform.position);
+        demoManager.narratorManager.SetPosition(headVisualizer.transform.position,0.5f);
+        StartCoroutine(demoManager.narratorManager.DelayedHide(1));
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(1, 2)); // explain mono
         // mono
         // spawn head
         Invoke("ShowHead",1);
@@ -298,63 +365,71 @@ public OutputDemoManager demoManager;
         // play delayed 
         Invoke("StartMonoSourcePlaying",4); // 4
         // after some time stop mono
-        Invoke("StopMonoSourcePlaying",10); // 10
+        Invoke("StopMonoSourcePlaying",16); // 10
         // hide it
-        Invoke("HideMonoSource", 11); //11
+        Invoke("HideMonoSource", 16); //11
 
 
         // stereo
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(2, 11)); // explain stereo
-        Invoke("ShowLeftStereoSource",11);
-        Invoke("ShowRightStereoSource",11);
-        Invoke("SplitStereoSources",12);
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(2, 19)); // explain stereo
+        Invoke("ShowLeftStereoSource",18);
+        Invoke("ShowRightStereoSource",18);
+        Invoke("SplitStereoSources",19);
         // start playing
-        Invoke("StartStereoLeftSourcePlaying", 13); // 13
-        Invoke("StartStereoRightSourcePlaying", 13);
+        Invoke("StartStereoLeftSourcePlaying", 20); // 13
+        Invoke("StartStereoRightSourcePlaying", 20);
+        StartCoroutine(DelayedSetPanning(0.2f,1,20));
+        StartCoroutine(DelayedSetPanning(0.8f,1,22));
         // moving and tilting head // 17
-        StartCoroutine(DelayedHeadTilt(new Vector3(0,180,50),2,17));
-        StartCoroutine(DelayedHeadTilt(new Vector3(0, 180, -50), 4, 20));
-        StartCoroutine(DelayedHeadTilt(new Vector3(0, 180, 0), 2, 25));
+        StartCoroutine(DelayedHeadTilt(new UnityEngine.Vector3(0,180,50),2,24));
+        StartCoroutine(DelayedHeadTilt(new UnityEngine.Vector3(0, 180, -50), 4, 24));
+        StartCoroutine(DelayedHeadTilt(new UnityEngine.Vector3(0, 180, 0), 2, 29));
+        StartCoroutine(DelayedSetPanning(0.5f,1,33));
         // start playing
-        Invoke("StopStereoLeftSourcePlaying", 28); // 25
-        Invoke("StopStereoRightSourcePlaying", 28);
+        Invoke("StopStereoLeftSourcePlaying", 34); // 25
+        Invoke("StopStereoRightSourcePlaying", 34);
         // merge
-        Invoke("MergeStereoSources",29);
+        Invoke("MergeStereoSources",36);
         // hide
-        Invoke("HideLeftStereoSource", 30); // 26
-        Invoke("HideRightStereoSource", 30);
+        Invoke("HideLeftStereoSource", 38); // 26
+        Invoke("HideRightStereoSource", 38);
 
         // itd
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(3, 32)); // explain itd
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(3, 39)); // explain itd
+        Invoke("ShowITD",40);
         // show source in front
-        Invoke("ShowSpatialSource", 32); // 28
-        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-0.5f,0.2f,0),0,32));
+        Invoke("ShowSpatialSource", 40); // 28
+        StartCoroutine(DelayedSpatializedSourcePos(new UnityEngine.Vector3(-0.5f,0.2f,0),1,42));
         // play
-        Invoke("StartSpatialSourceDirectionalPlaying", 33); // 29
+        Invoke("StartSpatialSourceDirectionalPlaying", 42); // 29
         //move slowly to left
-        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-1,0.2f,0), 2, 34));
+        StartCoroutine(DelayedSpatializedSourcePos(new UnityEngine.Vector3(-1,0.4f,0), 2, 47));
         // move slowly to right
-        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(1, 0.2f, 0), 4, 35));
+        StartCoroutine(DelayedSpatializedSourcePos(new UnityEngine.Vector3(1, 0.4f, 0), 4, 49));
         // move to center
-        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(0, 0, 0), 2, 44));
+        StartCoroutine(DelayedSpatializedSourcePos(new UnityEngine.Vector3(0, 0.4f, 0), 2, 56));
+        Invoke("HideITD",61);
 
         //ild
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(4, 47)); // explain ild
+        Invoke("SHowILD",61);
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(4, 61)); // explain ild
         // show sound shadow
-        Invoke("ShowSoundShadow", 47);
+        Invoke("ShowSoundShadow", 61+1);
         // move left
-        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(-1, 0.2f, 0), 2, 48));
+        StartCoroutine(DelayedSpatializedSourcePos(new UnityEngine.Vector3(-1, 0.4f, 0), 2, 61+3));
         // move right
-        StartCoroutine(DelayedSpatializedSourcePos(new Vector3(0, 0, 0), 4, 52));
+        StartCoroutine(DelayedSpatializedSourcePos(new UnityEngine.Vector3(1, 0.4f, 0), 4, 61+10));
         // hide shadow
-        Invoke("HideSoundShadow", 57);
+        Invoke("HideSoundShadow", 61+19);
+        Invoke("HideILD",61+18);
 
         //hrtf
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(5, 60)); // explain hrtf
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(5, 85)); // explain hrtf
+        StartCoroutine(demoManager.narratorManager.DelayedSetFollowTarget(spatialSourceVisualizer.transform.parent, 85));
         // show 3d field around head
 
         // move source around the head
-        StartCoroutine(DelayedAudioPath(5, 60));
+        StartCoroutine(DelayedAudioPath(5, 85));
 
         //occlusion
         /*
@@ -373,20 +448,26 @@ public OutputDemoManager demoManager;
         //reverb
 
         // show room geometry
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(7, 70)); // explain reverb
-        StartCoroutine(DelayedRoomGeometryOpen(true, 72));
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(6, 105)); // explain reverb
+        StartCoroutine(DelayedRoomGeometryOpen(true, 105+2));
+        Invoke("ShowReverb", 105+5);
+        StartCoroutine(DelayedSetReverb(0.4f,2,105+5));
         // begin with reflection visualization
-        StartCoroutine(DelayedRaysVisible(true, 74));
+        StartCoroutine(DelayedRaysVisible(true, 105+7));
         // hide rays
-        StartCoroutine(DelayedRaysVisible(false, 80));
+        StartCoroutine(DelayedRaysVisible(false, 105+15));
         //move source around room
-        StartCoroutine(DelayedAudioPath(6, 82));
+        //StartCoroutine(DelayedAudioPath(6, 107));
         //hide
-        Invoke("StopSpatialSource360Playing", 88); // 29
-        Invoke("HideSpatialSource", 89); // 29
-        StartCoroutine(DelayedRoomGeometryOpen(false, 90));
-
-        Invoke("StartNextScenario",91);
+        Invoke("StopSpatialSource360Playing", 105+15); // 29
+        Invoke("HideSpatialSource", 105+16); // 29
+        StartCoroutine(DelayedRoomGeometryOpen(false, 105+18));
+        Invoke("HideReverb", 124);
+        StartCoroutine(DelayedSetReverb(0,1,124));
+        Invoke("StartNextScenario",130);
+        StartCoroutine(demoManager.narratorManager.DelayedSetFollowTarget(null, 128));
+        StartCoroutine(demoManager.narratorManager.DelayedSetFacingCamera(new UnityEngine.Vector3(0,0,1),0,128));
+        Invoke("HideHead",128);
         
 
     }
@@ -394,6 +475,78 @@ public OutputDemoManager demoManager;
     void Update()
     {
         UpdateStereoSources();
+
+        if(spatialSourceVisualizer.transform.parent != null)
+        {
+            UnityEngine.Vector3 source = spatialSourceVisualizer.transform.parent.transform.position;
+            UnityEngine.Vector3 earLeft = headVisualizer.transform.position-headVisualizer.transform.right;
+            UnityEngine.Vector3 earRight = headVisualizer.transform.position+headVisualizer.transform.right;
+            float distLeft = UnityEngine.Vector3.Distance(source,earLeft);
+            float distRight = UnityEngine.Vector3.Distance(source,earRight);
+        }
+
+        if (ildOpen)
+        {
+            UnityEngine.Vector3 source = spatialSourceVisualizer.transform.parent.transform.position;
+            UnityEngine.Vector3 earLeft = headVisualizer.transform.position-headVisualizer.transform.right*0.1f;
+            UnityEngine.Vector3 earRight = headVisualizer.transform.position+headVisualizer.transform.right*0.1f;
+            float distLeft = UnityEngine.Vector3.Distance(source,earLeft);
+            float distRight = UnityEngine.Vector3.Distance(source,earRight);
+            float diff = (distLeft-distRight)/0.2f;
+            //FMOD.RESULT result = demoManager.narratorManager.instance.setParameterByName("ITD_Direction", -1);
+            demoManager.narratorManager.SetVoiceParameter("ITD_Direction",diff);
+        }
+
+        if (itdOpen){
+            UnityEngine.Vector3 source = spatialSourceVisualizer.transform.parent.transform.position;
+            UnityEngine.Vector3 earLeft = headVisualizer.transform.position-headVisualizer.transform.right*0.1f;
+            UnityEngine.Vector3 earRight = headVisualizer.transform.position+headVisualizer.transform.right*0.1f;
+            float distLeft = UnityEngine.Vector3.Distance(source,earLeft);
+            float distRight = UnityEngine.Vector3.Distance(source,earRight);
+            float diff = (distLeft-distRight)/0.2f;
+            //FMOD.RESULT result = demoManager.narratorManager.instance.setParameterByName("ITD_Direction", -1);
+            demoManager.narratorManager.SetVoiceParameter("ITD_Direction",diff);
+        }
+
+        //Debug.Log(Time.time);
+
+    }
+
+    void ShowITD()
+    {
+        itdOpen=true;
+
+        
+    }
+
+    void SHowILD()
+    {
+        ildOpen=true;
+
+    }
+
+    void HideITD()
+    {
+        itdOpen=true;
+
+    }
+
+    void HideILD()
+    {
+        ildOpen=true;
+
+    }
+
+    void ShowReverb()
+    {
+        reverb=true;
+
+    }
+
+    void HideReverb()
+    {
+        reverb=true;
+
     }
 
 

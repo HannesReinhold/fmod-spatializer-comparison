@@ -42,6 +42,7 @@ public class ReactiveAudioSource : MonoBehaviour
 
     private void Update()
     {
+        if(!isPlaying)return;
         if (!meteringInitialized)
         {
             InitializeMetering();
@@ -68,7 +69,7 @@ public class ReactiveAudioSource : MonoBehaviour
     if(channelGroup.hasHandle())
     {
         channelGroup.getDSP(
-            (int)CHANNELCONTROL_DSP_INDEX.HEAD,
+            (int)CHANNELCONTROL_DSP_INDEX.FADER,
             out dsp);
 
         dsp.setMeteringEnabled(true, true);
@@ -82,13 +83,24 @@ public class ReactiveAudioSource : MonoBehaviour
     {
         UnityEngine.Debug.Log("Start Playing Reactive Source");
         isPlaying=true;
-        emitter.Play();
         for(int i=0; i<vfxObjects.Count; i++)
         {
             vfxObjects[i].Play();
         }
         mover.stopped=false;
+
         
+        for(int i=0; i<vfxObjects.Count; i++)
+        {
+            vfxObjects[i].SetFloat("TrailSize",0);
+            vfxObjects[i].SetFloat("Turbulence",0);
+            vfxObjects[i].SetFloat("Alpha",0);
+        }
+    }
+
+    public void PlaySound()
+    {
+        emitter.Play();
     }
 
     public void Stop()
@@ -108,18 +120,18 @@ public class ReactiveAudioSource : MonoBehaviour
 
         instance.getChannelGroup(out channelGroup);
 
-        UnityEngine.Debug.Log(channelGroup.hasHandle());
+        //UnityEngine.Debug.Log(channelGroup.hasHandle());
 
         if(channelGroup.hasHandle())
         {
             channelGroup.getDSP(
-                (int)CHANNELCONTROL_DSP_INDEX.HEAD,
+                (int)CHANNELCONTROL_DSP_INDEX.FADER,
                 out dsp);
 
             dsp.setMeteringEnabled(true, true);
 
             meteringInitialized = true;
-            UnityEngine.Debug.Log("INIT "+meteringInitialized);
+            UnityEngine.Debug.Log(gameObject.name+": "+"INIT "+meteringInitialized);
         }
     }
 
@@ -137,17 +149,17 @@ public class ReactiveAudioSource : MonoBehaviour
             rms += inputMeter.rmslevel[i];
         }
 
-        Loudness = rms / inputMeter.numchannels;
+        Loudness = rms / Mathf.Max(1,inputMeter.numchannels);
 
         //visual.localScale = UnityEngine.Vector3.one*Loudness;
-
         for(int i=0; i<vfxObjects.Count; i++)
         {
-            vfxObjects[i].SetFloat("TrailSize",0.1f+Loudness);
+            vfxObjects[i].SetFloat("TrailSize",Mathf.Min(1,Loudness*10));
             vfxObjects[i].SetFloat("Turbulence",0.1f+Loudness*4);
+            vfxObjects[i].SetFloat("Alpha",Mathf.Min(1,Loudness*10));
         }
 
-        //UnityEngine.Debug.Log(Loudness);
+        if(Loudness>0.01f) UnityEngine.Debug.Log(gameObject.name+": "+ Mathf.Min(1,Loudness*10));
 
     }
 

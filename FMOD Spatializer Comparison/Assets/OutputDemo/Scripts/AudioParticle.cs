@@ -26,7 +26,7 @@ public class AudioParticle : MonoBehaviour
     {
         transform.localPosition = pos;
         emitter.EventReference = audioEvent;
-        RuntimeManager.PlayOneShot(audioEvent, pos);
+        //RuntimeManager.PlayOneShot(audioEvent, pos);
         vfx.SetVector4("Color",color);
         vfx.SetFloat("EmissionStrength",4);
         vfx.Play();

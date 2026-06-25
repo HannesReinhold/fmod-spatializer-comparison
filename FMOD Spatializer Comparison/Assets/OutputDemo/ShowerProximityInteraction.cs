@@ -23,7 +23,7 @@ public class ShowerProximityInteraction : MonoBehaviour
     {
         if(!active) return;
         float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(ovrRIg.position.x, ovrRIg.position.z));
-        Debug.Log("Dist to Shower: "+dist);
+        //Debug.Log("Dist to Shower: "+dist);
         if (dist < distTreshold && !complete)
         {
             Debug.Log("Shower Complete");

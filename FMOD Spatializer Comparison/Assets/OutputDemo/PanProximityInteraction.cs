@@ -23,7 +23,7 @@ public class PanProximityInteraction : MonoBehaviour
     {
         if(!active) return;
         float dist = Vector2.Distance(new Vector2(transform.position.x, transform.position.z), new Vector2(ovrRIg.position.x, ovrRIg.position.z));
-        Debug.Log("Dist to Pan: "+dist);
+        //Debug.Log("Dist to Pan: "+dist);
         if (dist < distTreshold && !complete)
         {
             Debug.Log("Pan Complete");

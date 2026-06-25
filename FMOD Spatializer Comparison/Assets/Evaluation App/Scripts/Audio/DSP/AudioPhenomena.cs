@@ -104,6 +104,10 @@ public class AudioPhenomena : MonoBehaviour
 
     private float smoothedOcc = 0;
 
+    public AudioClip clipITD;
+    public AudioClip clipIID;
+
+
 
     private void Awake()
     {
@@ -557,6 +561,18 @@ public class AudioPhenomena : MonoBehaviour
     {
         gameObject.SetActive(false);
         GameManager.Instance.roomModel.SetActive(false);
+    }
+
+    public void PlayITD()
+    {
+        source.clip = clipITD;
+        source.Play();
+    }
+
+    public void PlayIID()
+    {
+        source.clip = clipIID;
+        source.Play();
     }
 
 }

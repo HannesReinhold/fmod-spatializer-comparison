@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.VFX;
 using ViewR.Passthrough.Scripts;
@@ -16,8 +17,27 @@ public class IntroManager : MonoBehaviour
 
     public PassthroughManager passthroughManager;
 
+    public List<EventReference> staticSfx;
+
+
 
     private float particlesIntensity=0;
+
+    public void StartAllStaticSFX()
+    {
+        for(int i=0; i<staticSfx.Count; i++)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(staticSfx[i], Camera.main.transform.position+Random.onUnitSphere*Random.Range(1,3));
+        }
+    }
+
+    public void StartAllDynamicSFX()
+    {
+        for(int i=0; i<spatialReactiveSources.Count; i++)
+        {
+            spatialReactiveSources[i].PlaySound();
+        }
+    }
 
     public void StartSource(int index)
     {
@@ -64,37 +84,50 @@ public class IntroManager : MonoBehaviour
     {
         randomParticles.SetIntensity(a);
 
-        Debug.Log("Set Intensity "+a);
+        //Debug.Log("Set Intensity "+a);
     }
 
     public void StartIntro()
     {
+        Invoke("StartAllStaticSFX",1);
+        Invoke("StartAllDynamicSFX",1);
+
         introParent.SetActive(true);
         dust.Play();
         // start with some random quiet sounds around the player
         Invoke("StartParticles",1);
         // show a particle trail that moves slowly around the player and plays some granular sounds
-        StartCoroutine(DelayedStartSource(0,6));
+        StartCoroutine(DelayedStartSource(0,3));
         //increase the density of granular sounds 
         StartCoroutine(DelayedSetIntensityTarget(3,4,4));
         // show second trail with drone sound
         // play also a riser quietly
-        StartCoroutine(DelayedStartSource(0,10));
+        StartCoroutine(DelayedStartSource(0,0));
         StartCoroutine(DelayedSetIntensityTarget(6,4,10));
         // show third trail with drone sound
-        StartCoroutine(DelayedStartSource(1,16));
+        StartCoroutine(DelayedStartSource(1,0));
+        StartCoroutine(DelayedStartSource(2,0));
+        StartCoroutine(DelayedStartSource(3,0));
+        StartCoroutine(DelayedStartSource(4,0));
+        StartCoroutine(DelayedStartSource(5,0));
+        StartCoroutine(DelayedStartSource(6,0));
         StartCoroutine(DelayedSetIntensityTarget(10,4,15));
 
         // Sudden Stop
-        StartCoroutine(DelayedSetIntensityTarget(0,0.1f,20));
-        StartCoroutine(DelayedStopSource(0,20));
-        StartCoroutine(DelayedStopSource(1,20));
+        StartCoroutine(DelayedSetIntensityTarget(0,0.1f,43));
+        StartCoroutine(DelayedStopSource(0,43));
+        StartCoroutine(DelayedStopSource(1,43));
+        StartCoroutine(DelayedStopSource(2,43));
+        StartCoroutine(DelayedStopSource(3,43));
+        StartCoroutine(DelayedStopSource(4,43));
+        StartCoroutine(DelayedStopSource(5,43));
+        StartCoroutine(DelayedStopSource(6,43));
         // Narrator begins
-        StartCoroutine(demoManager.narratorManager.DelayedSetFacingCamera(new Vector3(0,0,1),0,22));
-        StartCoroutine(demoManager.narratorManager.DelayedShow(22));
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(0,24));
+        StartCoroutine(demoManager.narratorManager.DelayedSetFacingCamera(new Vector3(0,0,1),0,40));
+        StartCoroutine(demoManager.narratorManager.DelayedShow(40));
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(0,41));//41
 
-        Invoke("StopIntro",30);
+        Invoke("StopIntro",48);
     }
 
     public void StopIntro()

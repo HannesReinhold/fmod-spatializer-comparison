@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{e9f3ee65-5b1f-4415-80a3-f63683485968}">
 		<property name="name">
-			<value>Narrator_Apartment</value>
+			<value>Narrator_ApartmentSTart</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{fb9e3c9b-fa58-4dac-b3f8-208a9a6d6bab}</destination>
+			<destination>{698e5fe6-4c81-4ec4-a819-ef8ac98dfc18}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{4ec9fd5c-b579-420a-9716-a9865d656c20}</destination>
@@ -53,7 +53,7 @@
 			<destination>{9fe16d92-50b9-4e87-b6fc-44d31793da24}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{ab0feb16-fed0-4586-9f0f-87c36f651dbd}</destination>
+			<destination>{6c96e319-2f94-4385-8b6c-100af6754ffe}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{69a317f7-bb2f-4897-84e0-401516d2886b}" />
@@ -90,7 +90,7 @@
 	<object class="MixerBusPanner" id="{9fe16d92-50b9-4e87-b6fc-44d31793da24}" />
 	<object class="SingleSound" id="{673fffc7-f052-4464-8aee-11e5a5b9ba94}">
 		<property name="length">
-			<value>61.615375</value>
+			<value>3</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{171de537-4c12-44bb-b0e2-fe0ddb9ef760}</destination>
@@ -98,7 +98,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{2df39fc2-28da-4afe-a298-156005e20850}">
 		<property name="volume">
-			<value>3.5</value>
+			<value>10</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -124,10 +124,37 @@
 	<object class="MixerBusEffectChain" id="{c5bc8da0-752f-42b1-9902-1882a552ecb1}">
 		<relationship name="effects">
 			<destination>{2d9ded19-3363-4a5b-8a05-eb6f5caede04}</destination>
+			<destination>{9448af30-dbd1-402a-99f1-f9915a101941}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{30ba0094-fa20-40d0-bb05-95b62f362266}" />
 	<object class="MixerBusFader" id="{49e2bde3-f33a-461d-b514-49b2c8f53c21}" />
 	<object class="SpatialiserEffect" id="{2ca5ecf0-beeb-4ad9-af1b-7ff3013e40d3}" />
 	<object class="MixerBusFader" id="{2d9ded19-3363-4a5b-8a05-eb6f5caede04}" />
+	<object class="MultibandEqEffect" id="{9448af30-dbd1-402a-99f1-f9915a101941}">
+		<property name="filterTypeB">
+			<value>5</value>
+		</property>
+		<property name="filterTypeC">
+			<value>9</value>
+		</property>
+		<property name="frequencyA">
+			<value>15468.6729</value>
+		</property>
+		<property name="frequencyB">
+			<value>98.6033401</value>
+		</property>
+		<property name="frequencyC">
+			<value>183.58522</value>
+		</property>
+		<property name="qualityB">
+			<value>0.840758622</value>
+		</property>
+		<property name="qualityC">
+			<value>1.85000002</value>
+		</property>
+		<property name="gainC">
+			<value>-11.8965511</value>
+		</property>
+	</object>
 </objects>

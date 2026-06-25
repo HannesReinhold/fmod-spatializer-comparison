@@ -51,7 +51,7 @@ public class OrchestraManager : MonoBehaviour
     {
         for(int i=0; i<instruments.Count; i++) 
         {
-            instruments[instrument].Play();
+            instruments[i].Play();
         }
     }
 
