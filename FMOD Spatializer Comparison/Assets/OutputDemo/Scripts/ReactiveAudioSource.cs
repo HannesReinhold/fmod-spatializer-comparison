@@ -159,7 +159,7 @@ public class ReactiveAudioSource : MonoBehaviour
             vfxObjects[i].SetFloat("Alpha",Mathf.Min(1,Loudness*10));
         }
 
-        if(Loudness>0.01f) UnityEngine.Debug.Log(gameObject.name+": "+ Mathf.Min(1,Loudness*10));
+        //if(Loudness>0.01f) UnityEngine.Debug.Log(gameObject.name+": "+ Mathf.Min(1,Loudness*10));
 
     }
 

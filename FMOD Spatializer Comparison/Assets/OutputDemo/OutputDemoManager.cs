@@ -28,7 +28,7 @@ public class OutputDemoManager : MonoBehaviour
 
     void Start()
     {
-        StartDemoApartment();
+        StartMonoExplanation();
     }
 
     void Update()

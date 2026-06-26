@@ -112,6 +112,7 @@ public class IntroManager : MonoBehaviour
         StartCoroutine(DelayedStartSource(5,0));
         StartCoroutine(DelayedStartSource(6,0));
         StartCoroutine(DelayedSetIntensityTarget(10,4,15));
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(0,15));
 
         // Sudden Stop
         StartCoroutine(DelayedSetIntensityTarget(0,0.1f,43));
@@ -122,12 +123,13 @@ public class IntroManager : MonoBehaviour
         StartCoroutine(DelayedStopSource(4,43));
         StartCoroutine(DelayedStopSource(5,43));
         StartCoroutine(DelayedStopSource(6,43));
-        // Narrator begins
-        StartCoroutine(demoManager.narratorManager.DelayedSetFacingCamera(new Vector3(0,0,1),0,40));
-        StartCoroutine(demoManager.narratorManager.DelayedShow(40));
-        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(0,41));//41
 
-        Invoke("StopIntro",48);
+        StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(1,40));//41
+        // Narrator shows
+        //StartCoroutine(demoManager.narratorManager.DelayedSetFacingCamera(new Vector3(0,0,1),1,43));
+        //StartCoroutine(demoManager.narratorManager.DelayedShow(44));
+
+        Invoke("StopIntro",45);
     }
 
     public void StopIntro()

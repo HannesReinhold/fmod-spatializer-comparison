@@ -16,9 +16,38 @@ public class ApartmentManager : MonoBehaviour
 
     public VisualEffect dust;
 
+    public Transform appartmentParent;
+    public Transform outsideParent;
+
+
+    void Awake()
+    {
+        foreach (Transform childTransform in this.transform)
+        {
+            LeanTween.alpha(childTransform.gameObject,0,0);
+        }
+    }
+    public void OpenAppartment()
+    {
+        foreach (Transform childTransform in this.transform)
+        {
+            LeanTween.alpha(childTransform.gameObject,1,1);
+        }
+    }
+
+    public void CloseAppartment()
+    {
+        foreach (Transform childTransform in this.transform)
+        {
+            LeanTween.alpha(childTransform.gameObject,0,1);
+        }
+    }
+
     public void StartApartment()
     {
         apartmentObject.gameObject.SetActive(true);
+        OpenAppartment();
+
         dust.Play();
         Invoke("PlayAmbience",1);
         StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(7, 3)); // comment on appartment
@@ -54,7 +83,7 @@ public class ApartmentManager : MonoBehaviour
 
     public void OnPianoComplete()
     {
-        apartmentObject.Close();
+        CloseAppartment();
         apartmentObject.gameObject.SetActive(false);
         demoManager.StartDemoConcert();
         dust.Stop();
@@ -79,4 +108,6 @@ public class ApartmentManager : MonoBehaviour
         pianoInteraction.SpawnPiano();
         StartCoroutine(demoManager.narratorManager.DelayedPlayVoiceline(11, 4)); // eggs
     }
+
+    
 }
